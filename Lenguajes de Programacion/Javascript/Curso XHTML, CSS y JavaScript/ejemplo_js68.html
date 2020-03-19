@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Deteccion de Plugins</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:45 DOM-->
+		<h2>Plugins Instalados(Netscape)</h2>
+		<script language="javascript" type="text/javascript">
+			for(var i = 0; i < navigator.plugins.length; i++)
+			{
+				document.write("<br />" + navigator.plugins[i].name + "<br />");
+				if(navigator.plugins[i].description){
+					document.write("<font size='-1'>" + navigator.plugins[i].description + "</font size='+1'><br />");
+				}
+			}
+		</script>
+	</body>
+</html>

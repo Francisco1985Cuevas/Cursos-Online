@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Hacer Loop a traves de las propiedades del objeto document</title>
+	</head>
+	<body>
+	<!--VideoTutorial Nº:45 DOM-->
+		<script language="javascript" type="text/javascript">
+			
+			var props = new Array();
+			
+			//Carga los datos de las propiedades en el array props.
+			for(var property in window.document)
+			{
+				props.push(property);
+			}
+			
+			//Muestra en pantalla cada una de las propiedades que hay en el array.
+			for(i=0; i<props.length; i++)
+			{
+				document.write(props[i] + ", ");
+				//Pone 3 propiedades y despues salta una linea.
+				if(i > 0 && i%3 == 0){
+					document.write("<br />");
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,408 @@
+Curso: Crea tu primera web con WordPress.
+------------------------------------------
+
+
+
+* VT Nº 01
+* Instalacion de Wordpress
+* 01.- Crea tu primera web con WordPress. Instalación
+
+
+¿Cual es la mejor opcion para crear una Web Dinamica?
+
+Wordpress, sistema nacido como creador de blogs que se ha convertido en la actualidad en el CMS mas popular.
+aproximadamente un 20% de todos los sitios web lo utilizan. 
+
+CMS = Content Management System.
+
+En la actualidad intenta dar un paso mas y convertirse en un autentico Framework para el desarrollo de aplicaciones web.
+Empezamos con lo mas basico: "La Instalacion".
+
+
+- Podemos crear nuestro sitio wordpress basicamente de dos modos
+-----------------------------------------------------------------
+
+1) Desde wordpress.com, sistema de software como un servicio que nos permite instalar directamente wordpress con muchas de sus opciones automatizadas. Para hacerlo entrar en: http://www.wordpress.com, pulsar en "Mi Sitio" y pulsar en "Crear Sitio"
+Debes darle un "Nombre", se puede en el mismo momento de la instalacion crear un "dominio" o omitir este paso, Escoger un Tema que es el que determina el aspecto que va a tener el sitio(siempre es modificable posteriormente), cuenta con varios planes.. uno de ellos el "gratuito" y con estos pasos ya tenemos el sitio preparado.
+Podemos personalizarlo, seleccionar "Tema", podemos crear una primera "entrada" que podemos cubrir en el "editor" y publicar..
+
+
+2) Si quieres un "control total" sobre tu wordpress debes instalarlo en tu propio servidor, para lo cual tienes que ir a http://wordpress.org, y descargar la ultima version de wordpress. Lo mejor es hacerlo utilizando un paquete de server web instalado directamente en nuestro ordenador y vamos a hacerlo mediante el uso de "WAMP".
+
+Como su nombre indica(WAMP = Windows, Apache, PHP y MySQL), este paquete instala todo lo que necesitamos para empezar a desarrollar aplicaciones web en este caso para poder instalar wordpress.
+
+Una vez iniciado el programa(WAMP).
+
+Para poder INSTALAR WORDPRESS lo primero que vamos a necesitar es crear una base de datos con phpMyAdmin, le damos el nombre que queramos a la base de datos.
+
+Descargamos de http://wordpress.org, la ultima version del wordpress(descargara un archivo zip), una vez descomprimido el archivo descargado, debemos copiar la carpeta y debemos colocarlo dentro del directorio activo de WAMP(www es el directorio web activo en WAMP), y ahora puedes darle el nombre que quieras.
+
+Para poder entrar en nuestro sitio tendremos que escribir, Tal como esta, la ruta al navegador sera: http://localhost/wordpress
+
+Debemos elegir un idioma, Ingresamos las credenciales de la Base de datos, y nos permite llevar a cabo la instalacion.
+Tenemos que darle un titulo al sitio, nombre de usuario, contraseña, correo electronico y llevamos a cabo el proceso de instalacion.
+
+Con todos estos pasos deberiamos de poder ingresar al "escritorio de mi wordpress", en el panel de administracion.
+http://localhost/wordpress/admin
+
+Podemos crear nuestra primera entrada, pulsamos en publicar y deberiamos ver nuestra primera entrada.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 02
+* Migrar Web completa con Duplicator
+* 02.- Crea tu primera web con WordPress. Migrar web completa con Duplicator.
+
+
+- Veamos como crear un modo de migrar nuestro sitio web sin perder ninguna funcionaldidad, para eso vamos a usar un plugin
+  los plugins nos permiten ampliar las FUNCIONALIDADES de wordpress. Instalaremos un plugin que se llama duplicator.
+
+Para ello: Ir hasta el enlace: "Plugin -> Añadir Nuevo"
+Los plugins deben instalarse y ACTIVARSE.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 03
+* El panel de Administracion
+* 03.- Crea tu primera Web con WordPress. El Panel de Administración.
+
+
+- Podemos acceder al panel de administracion añadiendo a la raiz de nuesto sitio wp-admin
+  http://localhost/wordpress/wp-admin
+
+- Vamos a modificar el Titulo y el Subtitulo de nuestro sitio:
+Ir hasta: el Panel de Administracion, -> Ajustes -> Generales
+
+- Ajustes -> Escritura: Podriamos indicar entre otras cosas una categoria predeterminada
+
+- Ajustes -> Lectura: Podemos indicar si queremos que una pagina frontal se muestre en las ultimas entradas
+   que vayamos escribiendo o queremos que aparezca una pagina estatica
+
+- Terminamos viendo la importancia de los enlaces permanentes(Permalink).
+ Ajustes -> Enlaces Permanentes: Cada vez que crees una nueva entrada en tu sitio web el sistema tiene que crear un enlace del tipo que sea, tambien se pueden personalizar los enlaces eso puede tener incidencia en los motores de busqueda.
+
+Los permalinks son claves para organizar la informacion, los enlaces permanentes son realmente importantes para crear posteriormente las categorias y el modo de organizar la informacion dentro de nuestra web
+
+
+-- Un Primer paso es crear la "Categoria", Ejemplo: "Python para niños", Un Segundo Paso es crear el "permalink(enlace permanente)" a esa categoria, Y un Tercer Paso es añadir un item al Menú que apunta a ese permalink.
+
+
+# Las Entradas o Posts son las noticias o artículos que forman parte del diario, del blog propiamente dicho. Se organizan de forma cronológica, admiten categorías y etiquetas.
+
+Generalmente en los blogs, en la página principal se escriben las entradas (post), son textos que van apareciendo a los visitantes en orden cronológico inverso, es decir, lo más nuevo aparece primero y lo más viejo va debajo.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 04
+* Crear el Primer Post.
+* 04.- Crea tu primer web con WordPress. Crear el Primer Post.
+
+
+- En la mayoria de los sitios web el trabajo se centra en la publicacion de Noticias, los populares "Post" en una web que son las noticias en una revista, Necesitan un Titulo, un Contenido y un (), puede incluir mucha otra informacion como material audiovisual, comentarios, Fecha, categorias, Tags, etc., 
+
+
+- CREAR PRIMER POST.
+
+Se puede añadir directamente desde el menu, "Añadir -> Entrada", Tambien desde las opciones laterales del Menu: Entradas -> Añadir Nueva.
+
+- En la mayor parte de los sitios web sera necesario tambien algun Modo de poder Organizar la Informacion que vayamos escribiendo
+: CATEGORIAS Y ETIQUETAS(TAGS), son los dos modos principales con los que podemos hacer esto en wordpress, nos permiten organizar los posts las noticias por Temas y por Contenidos y ayudan a los visitantes a encontrar lo que estan buscando en nuestro blog no solo por Fecha.
+
+
+- Las CATEGORIAS nos permiten crear estructuras jerarquicas con una relacion Padres-hijos, cada post en nuestro blog puede tener asignadas una o varias categorias
+
+- Las ETIQUETAS(TAGS) son atajos para los temas mas tratados en nuestro sitio. Podemos tambien asignar mas de un Tag a un Tema como puede con las Categorias.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 05
+* Añadir y configurar Imagenes.
+* 05.- Crea tu primera Web con WordPress. Añadir y configurar imágenes.
+
+
+- Veamos como añadir y configurar imagenes en nuestras entradas(post).
+
+Wordpress permite añadir imagenes, pero tambien las convierte a varios tamaños y nos permite algunas acciones de edicion.
+wordpress facilita añadir imagenes pero tambien controlar su tamaño, predeterminar una imagen para una Categoria de Post y incluso algunas opciones de edicion.
+
+- Wordpress posee una biblioteca multimedia que es el lugar donde se guardan todas las imagenes que ya hayamos subido al servidor y que podemos reutilizar.
+Tambien podemos insertar desde una URL, indicandole la ruta a una imagen.
+
+
+- Antes de pulsar Añadir Objeto coloca el cursor donde quieras que aparezca la imagen.
+
+- wordpress tambien nos permite indicar(elegir) una imagen destacada para una entrada(post).
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 06
+* Añadir video y Audio
+* 06.- Crea tu primera web con WordPress. Añadir Video y Audio.
+
+
+- Ademas de imagenes wordpress nos permite de modo sencillo incluir videos y Audios en nuestra noticias(entradas, post).
+
+- Podemos añadir un Video a traves de una URL.
+El modo mas sencillo de hacerlo es añadirlo directamente como un enlace dentro de nuestra noticia(post).
+En el formato debemos asignarle video.
+
+
+- Tambien podemos añadir videos desde la biblioteca de wordpress. El proceso para agregarlos es el mismo que el de las URL
+
+- Lo mismo que para Videos, tambien podemos agregar "Audios" de la misma forma.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 07
+* Borradores y opciones de publicacion
+* 07.- Crea tu primera web con WordPress. Borradores y opciones de publicación.
+
+
+- Borradores: Siempre tenemos accesible el boton o enlace "Guardar Borrador" en lugar de publicar o actualizar y ademas wordpress intenta "autosalvar" siempre nuestro trabajo cada minuto.
+
+Todos los guardados que vayamos haciendo de una noticia(post) son accesibles en cualquier momento, podemos incluso hacerlo despues de que hayamos abandonado la noticia(post) sin publicar.
+
+- Podemos tambien crear noticias(post) pendientes de revision, esto es util para sitios donde se realizan trabajos en equipo, sitios web que estan gestionados por mas de una persona.. por equipos por ejemplo un periodico online en el que el responsable de una seccion tiene que revisar cualquier noticia antes de ser publicada.
+Pues si eso debe hacerse asi, al crear la noticia(entrada, post) debe cambiarse el estado a "Pendiente de revision" y cuando el responsable vea alguna noticia pendiente de revision sabe que debe hacerlo para publicarla.
+
+- Podemos tambien determinar la visibilidad de la noticia(entrada, post), por defecto la visibilidad es publica por lo tanto aparecera para todo el mundo.
+
+- Podemos fijarla en la pagina de inicio(pagina principal) con lo cual siempre aparecera en la primera de las noticias.
+
+
+- Podemos determinar la fecha de publicacion de la noticia. Que entre otras cosas sirve para preparar post(noticias, entradas) para el futuro, lo que wordpress hara de forma automatica cuando se llegue a la fecha y hora que se establece en la publicacion.
+Podemos preparar varios post(entradas, noticias) para un Fin de Semana y hacer que se vayan publicando por el ejemplo uno el viernes, otro el sabado y el otro el domingo, etc...
+-----------------------------------------------------------------------------------------------------------------------
+#######################################################################################################################
+
+
+
+Curso: WordPress para desarrolladores
+-------------------------------------
+
+
+- Aprender desarrollo y diseño web a partir del Codigo Fuente(CONFIGURACIONES BASICAS PARA WORDPRESS)
+
+
+
+* VT Nº 01
+* Estructura de directorios y archivos de WP
+* 01.- WordPress para desarrolladores. Estructura de directorios y archivos de WP.
+
+- Despues de extraer la descarga de wordpress, puedes ver una estructura de archivos, wordpress llega con tres directorios por defecto:
+
+1) wp-admin
+
+2) wp-content
+
+3) wp-includes
+
+- Los archivos del Core(el Nucleo) estan todos en el directorio wp-admin y wp-includes y algunos archivos clave en el propio directorio raiz de wordpress.
+Y el directorio wp-content que es el que contiene todos los archivos personalizados por nosotros(themes, plugins, material multimedia). Este directorio contiene el codigo que controla la manipulacion de contenido y presentacion en wordpress.
+
+- Todo el contenido de noticias, estructura, categoria, tags, etc. se encuentra en la base de datos MySQL.
+
+#IMPORTANTE!: "NO MODIFIQUES ARCHIVOS DEL CORE"
+
+Porque ademas los cambios en el CORE dificultan mucho poder llevar a cabo futuras actualizaciones de wordpress, ya que al hacer una actualizacion todos esos cambios que esten en el CORE van a ser sobreescritos y se perderian.
+Asi que en general los archivos que se encuentran en el directorio raiz, asi como los directorios wp-admin y wp-includes NO DEBEN DE SER EDITADOS.
+
+#IMPORTANTE!: "NO HACKEES NUNCA EL CORE DE UN CMS".
+
+-- El Archivo wp-config.php
+---------------------------
+wp-config.php: El archivo clave para la configuracion de wordpress.
+1) Base de datos
+2) Localizacion
+3) Constantes
+Este archivo es el que contiene toda la configuracion a la base de datos.
+
+#IMPORTANTE!: Podemos mover el archivo wp-config.php al directorio padre para impedir acceso web.
+Podemos mover este archivo fuera del archivo raiz y dentro de su directorio padre, de modo que si lo tenemos localizado en la raiz de nuestro servidor nos permite que este archivo clave este fuera del acceso a traves del navegador, es una de las mejores medidas de SEGURIDAD para evitar posibles ataques sobre nuestro sitio web a traves de por ejemplo: Sistemas de inyeccion de contenido
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 02
+* Uso de Constantes en WP
+* 02.- Curso de WordPress para desarrolladores. Uso de Constantes en WP.
+
+- Seguimos analizando el contenido del archivo "wp-config.php".
+
+Las primeras constantes permiten configurar la conexion a la Base de datos, si tienes errores como el de "Error estableciendo una conexion a la Base de datos" debes comprobar los valores de estas Constantes.
+
+
+#IMPORTANTE!: $table_prefix = 'wp_';
+
+- Podemos personalizar el prefijo de las tablas de nuestra Base de datos.
+Su cambio mejora la SEGURIDAD y permite instalar varias versiones de Wordpress en una unica Base de datos.
+Podemos cambiar este valor en cualquier momento o al INSTALAR Wordpress.
+Por ejemplo podriamos cambiar por: $table_prefix = 'videotutoriales_';
+
+- Las ventajas que presenta por un lado es que si un hacker es capaz de importar tu sitio web usando por ejemplo un ataque de inyeccion sql le sera mas dificil conocer los nombres de las tablas y dificultar su labor. Asi que configurando este valor unico AUMENTA LA SEGURIDAD y tambien permite en una unica base de datos poder instalar mas de un wordpress. luego lo que tienes que hacer para cada uno de ellos es indicar un prefijo diferente. Ese prefijo debe ser configurado ANTES DE INSTALAR wordpress pero si queremos cambiar el prefijo de la tabla despues de haber instalado wordpress podemos hacerlo usando el plugin Change DB Prefix, antes de hacer cualquier cosa hacer un buen BACKUP del sistema y la base de datos.
+
+- El PLUGIN "Change DB Prefix", permite cambiar el prefijo de las Tablas en un Wordpress ya instalado.
+
+
+- Existen otras muchas constantes que podemos definir en wp-config.php, aunque no aparezcan de modo predeterminado.
+
+#IMPORTANTE!: Podemos mover el archivo wp-config.php al directorio padre para impedir acceso web.
+Podemos mover este archivo fuera del archivo raiz y dentro de su directorio padre, de modo que si lo tenemos localizado en la raiz de nuestro servidor nos permite que este archivo clave este fuera del acceso a traves del navegador, es una de las mejores medidas de SEGURIDAD para evitar posibles ataques sobre nuestro sitio web a traves de por ejemplo: Sistemas de inyeccion de contenido.
+
+
+- $table_prefix = 'wp_';
+Podemos personalizar el prefijo de las tablas de nuestra Base de datos.
+Su cambio mejora la seguridad y permite instalar varias versiones de Wordpress en una unica Base de datos.
+Podemos cambiar este valor en cualquier momento o al INSTALAR Wordpress.
+Por ejemplo podriamos cambiar por: $table_prefix = 'videotutoriales_';
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 03
+* Actualizaciones y LOCALIZACION DIRECTORIOS
+* 03.- Curso de WordPress para desarrolladores. Actualizaciones y localización directorios.
+
+- Actualizaciones Automaticas.
+Hay cuatro tipos de actualizaciones automaticas en segundo plano.
+1) Actualizaciones de Core.
+2) Actualizaciones de Plugins.
+3) Actualizaciones de Theme.
+4) Actualizaciones de Traducciones.
+
+
+#IMPORTANTE!: Modificacion de localizacion de directorios clave que por razones de seguridad o de configuracion del servidor para compartir contenidos y otras opciones avanzadas.
+
+- Directorio "wp-content"
+-------------------------
+wp-content: Uno de los directorios clave, wordpress nos permite mover este directorio configurando dos constantes:
+1) WP_CONTENT_DIR: Es la ruta local completa al directorio donde tengamos el wp-content
+2) WP_CONTENT_URL: Es la URI completa de ese mismo directorio
+
+- PRIMER PASO, crear y darle nombre al directorio en donde moveremos la carpeta: wp-content, ejemplo: wordpress/blog/wp-content
+- SEGUNDO PASO, mover el directorio clave "wp-content" al directorio que acabamos de crear.
+- TERCER PASO, agregar las constantes en el "ARCHIVO" wp-config.php
+1) define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wordpress5/blog/wp-content');
+
+2) define('WP_CONTENT_URL', 'http://localhost/wordpress5/blog/wp-content');
+
+
+- wordpress tambien permite hacer esto con otros directorios clave, especialmente con el directorio UPLOADS donde se suben los archivos que vayamos colocando en nuestro wordpress, ejemplo:
+3) define('UPLOADS', '/wordpress5/blog/wp-content/mis-archivos');
+
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 04
+* Personalizar Revisiones y guardar consultas.
+* 04.- Curso de WordPress para desarrolladores. Personalizar Revisiones y guardar consultas.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 05
+* Crear tipos de datos personalizados.
+* 05.- Curso de WordrPress para desarrolladores. Crear tipos de datos personalizados.
+
+Los tipos de datos personalizados pueden ser cualquier cosa.
+Por ejemplo podemos personalizar para crear un rastreo de log de errores.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 06
+* ¿Qué es la Taxonomía?
+* 06.- Curso de WordPress para desarrolladores. ¿Qué es la Taxonomía?
+
+- wordpress nacido como un blog en el año 2.003 ha sabido evolucionar hasta convertirse en un potente y muy versatil CMS, La taxonomia uno de los puntos fuertes de DRUPAL que wordpress lo adopto hasta finales del 2.007.
+
+- La Taxonomía es un termino muy anterior a la informatica y programacion, decir simplemente que es un modo de AGRUPAR cosas similares juntas, basicamente se trata de añadir una dimension relacional al contenido de un sitio web, en el caso de wordpress usamos CATEGORIAS Y TAGS para agrupar nuestros Post(entrada, noticia), agrupandolos estamos definiendo su taxonomia.
+La Taxonomía puede ser jerarquica, es decir que cuente con categorias y subcategorias pero no es precisamente obligatorio los Tags son un ejemplo perfecto de una taxonomia sin Jerarquia.
+
+- Por defecto wordpress llega cargado con dos Taxonomias, las CATEGORIAS y los TAGS.
+Una CATEGORIA: Es un incipiente para agrupar Post(entradas, noticias) Similares.
+Un TAGS: Es una etiqueta vinculada a un Post(entradas, noticias)
+
+- Cada categoria o Tags que creemos es un termino de esa taxonomia, por ejemplo una Categoria llamada videotutoriales seria un termino de la taxonomia Categoria. Entender lo que es taxonomia y lo que son los terminos sera muy util cuando definamos nuestras taxonomias personalizadas en wordpress, entender como podemos Clasificar nuestro contenido usando una estructura solida hara que nuestro sitio web sea mucho mas sencillo desde el principio y cuente con un acceso a la informacion sencillo y preciso.
+
+
+Estructura tablas Taxonomia:
+----------------------------
+
+1) wp_terms: Almacena todos tus terminos taxonomicos, pueden ser categorias, tags, categorias de enlaces y cualquier termino de taxonomia personalizado que hayamos definido.
+2) wp_term_taxonomy: define a que taxonomia pertenece cada termino.
+3) wp_term_relationships: es la tabla de referencias cruzadas que une terminos taxonomicos con sus contenidos. Por ejemplo cuando asignamos un Tags a nuestro Post(entrada, noticia) se crea un nuevo registro uniendo el id del Post y el id del termino.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 07
+* Crear Taxonomías personalizadas.
+* 07.- Curso de WordPress para desarrolladores. Crear Taxonomías personalizadas.
+
+Al desarrollar cualquier sitio web, crear tus propias Taxonomias Personalizadas tiene muchos beneficios
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 08
+* Aplicar Terminos de taxonomia a entradas
+
+* 08.- Curso de WordPress para desarrolladores. Aplicar términos de Taxonomía a entradas.
+
+Para empezar necesitamos crear terminos para esta taxonomia
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 09	
+* Formas de mostrar términos Taxonomía.
+* 09.- Curso WordPress para desarrolladores. Formas de mostrar términos Taxonomía.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 010	
+* Trabajar con MetaDatos.
+* 010.- Curso de WordPress para desarrolladores. Trabajar con MetaDatos.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 011	
+* Trabajar con MetaDatos.
+* 011.- Curso de WordPress para desarrolladores. Mostrar Metadatos.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 012	
+* Métodos Avanzados Metadatos.
+* 012.- Curso de WordPress para desarrolladores. Métodos Avanzados Metadatos.
+-----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+la linea del tiempo de mi vida
+datos del libro
+en que hubiera invertido mas mi tiempo?
+gerente y director a los 22 años
+es usted una persona facil o una persona dificil de convivir
+
+
+
+
+
+
+ 
+
+

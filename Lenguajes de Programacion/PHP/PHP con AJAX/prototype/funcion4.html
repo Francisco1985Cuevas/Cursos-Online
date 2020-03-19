@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Ejemplo uso prototype.js</title>
+		<script src="prototype.js" Language="JavaScript" type="text/javascript"></script>
+		<script type="text/javascript">
+			function prueba(){
+				Form.enable('commentform'); 
+			}	
+			
+			function prueba2(){
+				Form.disable('commentform'); 
+			}		
+		</script>	
+	</head>
+	<body>
+		<!--Ejemplo de uso del metodo Form.enable/disable 
+			habilita o deshabilita un formulario para su uso o no dentro de una pagina,
+			del cual se le indique la id de ese formulario-->
+		<form id="commentform" action="#" method="post">
+			<input type="text" />
+			<br/>
+		</form>
+		<input type="button" value="habilitar" onclick="prueba();" />
+		<br /> 
+		<input type="button" value="deshabilitar" onclick="prueba2();" />
+		<br /> 
+	</body>
+</html>

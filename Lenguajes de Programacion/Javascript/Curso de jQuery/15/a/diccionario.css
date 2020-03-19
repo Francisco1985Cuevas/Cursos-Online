@@ -1,0 +1,106 @@
+/*Reglas de Estilo*/
+
+.letras {
+	float: left;
+	width: 150px;
+}
+
+.letra {
+	margin: 10px;
+}
+
+.letra h3 {
+	font-weight: bold;
+}
+
+.boton {
+	width: 100px;
+	text-align: center;
+	padding: 10px;
+	background-color: #fff;
+	border-top: 3px solid #888;
+	border-left: 3px solid #888;
+	border-bottom: 3px solid #444;
+	border-right: 3px solid #444;
+}
+
+.letra ul {
+	list-style: none;
+	padding: 0;
+	margin: 0 1em;
+}
+
+#diccionario {
+	float: left;
+	width: 500px;
+}
+
+.entrada {
+	padding: 1em 0em;
+	border-bottom: 1px #555 solid;
+}
+
+.entrada .termino {
+	display: inline;
+	font-weight: bold;
+}
+
+.entrada .parte {
+	padding: 0 1em;
+	display: inline;
+	font-style: italic;
+}
+
+.entrada .definicion {
+	padding: .5em;
+}
+
+.entrada .definicion .cita {
+	margin: .5em 2em;
+	padding: 0 1em;
+	color: #333;
+	border-left: 2px #aaa solid;
+}
+
+.entrada .definicion .cita .cita-autor {
+	font-weight: bold;
+	margin-left: 20em;
+}
+
+#cargando {
+	border: 1px #000 solid;
+	background-color: #eee;
+	padding: 20px;
+	margin: 100px 0 0 200px;
+	position: absolute;
+	display: none;
+}
+
+.destacado {
+	background-color: #dfd;
+	font-style: italic;
+}
+
+
+#cargando_imagen {  
+  padding: 20px;
+  margin: 100px 0 0 200px;
+  position: absolute;
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

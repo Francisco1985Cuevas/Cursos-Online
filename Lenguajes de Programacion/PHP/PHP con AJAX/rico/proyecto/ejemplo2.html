@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<script src="../src/rico.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="style2.css"/>
+		<script language="javascript" type="text/javascript">
+			Rico.loadModule('Corner','DragAndDrop');
+			
+			Rico.onLoad( function(){
+				//Registrar, Definir los elementos arrastrables
+				dndMgr.registerDraggable( new Rico.Draggable('test-rico-dnd','arrastrable1') );
+				dndMgr.registerDraggable( new Rico.Draggable('test-rico-dnd','arrastrable2') );
+				dndMgr.registerDraggable( new Rico.Draggable('test-rico-dnd','arrastrable3') );
+				
+				//Registrar las zonas de descarga
+				dndMgr.registerDropZone( new Rico.Dropzone('soltar1') );
+				dndMgr.registerDropZone( new Rico.Dropzone('soltar2') );
+			});
+		</script>
+	</head>
+	<body>
+		<!-- Ejemplo de uso del Dragg & Drop( Arrastrar y Soltar) -->
+		<table width="550">
+			<tr>
+				<td>
+					<h3>Arrastrar y Soltar</h3>
+					<p>
+						Arrastra y suelta los campos de Datos dentro del campo de destino usando el bot&oacute;n 
+						izquierdo del rat&oacute;n del modo habitual en las aplicaciones de escritorio. 
+						Observa como el campo de destino disponible cambia de color durante la operaci&oacute;n de arrastre.
+					</p>
+					<p>Recarga la p&aacute;gina para empezar de nuevo.</p>
+					<!-- Elementos Arrastrables -->
+					<div class="box" id="arrastrable1">Puedes arrastrar este campo de datos</div>
+					<div class="box" id="arrastrable2">Lo mismo puedes hacer con este</div>
+					<div class="box" id="arrastrable3">Este tercero exactamente lo mismo</div>
+					<br/>
+					<!-- Zonas de Descarga -->
+					<table>
+						<tr>
+							<td>
+								<div id="soltar1" class="simpleDropPanel">
+									<b>Zona de Descarga 1</b>
+									<br />
+								</div>
+							</td>
+							<td>
+								<div id="soltar2" class="simpleDropPanel2">
+									<b>Zona de Descarga 2</b>
+									<br />
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

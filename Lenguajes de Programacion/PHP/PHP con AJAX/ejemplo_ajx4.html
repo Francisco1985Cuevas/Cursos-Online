@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Enviar una petición al servidor</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº3 peticion y respuesta de datos con ajax-->
+		<script language="javascript">
+			function getXMLHTTPRequest(){
+				var req = false;
+				try{
+					req = new XMLHttpRequest(); /* p.e. Firefox */
+				}catch(err1){
+					try{
+						req = new ActiveXObject("Msxml2.XMLHTTP");
+						/* algunas versiones IE */
+					}catch(err2){
+						try{
+							req = new ActiveXObject("Microsoft.XMLHTTP");
+							/* algunas versiones IE */
+						}catch(err3){
+							req = false;
+						}
+					}
+				}
+				return req;
+			}
+
+			var miPeticion = getXMLHTTPRequest();
+
+			function llamarAjax(){
+				//Esta funcion establece una conversacion con el servidor
+				//Declara una variable que contiene alguna información para pasar al servidor
+				//var apellido = 'Carmona';
+				var apellido = document.form1.minombre.value;
+				miAleatorio = parseInt(Math.random()*999999999999999);
+				//Construye la  URL del script del servidor que queremos llamar
+				var url = "miscriptdeservidor.php?apellido=" + apellido;
+				
+				//Pedimos a nuestro objeto XMLHTTPRequest que abra una conexión con el servidor
+				miPeticion.open("GET", url+ "&rand=" + miAleatorio, true);
+				
+				//Preparamos una función respuestaAjax() para ejecutarse cuando la respuesta haya llegado
+				miPeticion.onreadystatechange = respuestaAjax;
+				
+				//Y finalmente enviamos la petición
+				miPeticion.send(null);
+				//Al ser el metodo de envio GET se le pasa null como parametro porque
+				//la informacion de donde va a ir ya va incluida en la variable 'url'.
+			}
+			
+			function respuestaAjax(){
+				//Sólo estamos interesados en un readyState de 4, es decir "completado".
+				if(miPeticion.readyState == 4){
+					//Si la respuesta HTTP del servidor es "ok"
+					if(miPeticion.status == 200){
+						//... declaraciones a ejecutar por el programa ...
+						//Lo que responde el servidor... responda en modo texto.
+						alert("El server dijo: "+miPeticion.responseText);
+					}else{
+						//Crear un mensaje de error para cualquier otra respuesta
+						//HTTP del servidor.
+						alert("Ha ocurrido un error: " + miPeticion.statusText);
+					}
+				}
+			}
+		</script>
+		<form name='form1'>
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type='text' name='minombre' onblur='llamarAjax()' ></td>
+				</tr>
+				<tr>
+					<td>Tel:</td>
+					<td><input type='text' name='teln' /></td>
+				</tr>
+				<tr><td><input type='submit' value="enviar" /></td></tr>
+			</table>
+		</form>
+	</body>
+</html>

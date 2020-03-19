@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo Autosugerencias</title>
+        <script type="text/javascript" src="json.js"></script>
+        <script type="text/javascript" src="zxml.js"></script>
+        <script type="text/javascript" src="autosuggest.js"></script>
+        <link rel="stylesheet" type="text/css" href="autosuggest.css" />        
+        <script type="text/javascript">
+            window.onload = function () {
+                var oTextbox = new AutoSuggestControl(document.getElementById("provincia"), new SuggestionProvider());        
+            }
+        </script>
+    </head>
+    <body>
+        <form method="post" onSubmit="alert('Enviado!')">
+            <table border="0">
+                <tr>
+                    <td>Nombre:</td>
+                    <td><input type="text" name="nombre" id="nombre" /></td>
+                </tr>
+                <tr>
+                    <td>Direcci&oacute;n 1:</td>
+                    <td><input type="text" name="direccion1" id="direccion1" /></td>
+                </tr>
+                <tr>
+                    <td>Direcci&oacute;n 2:</td>
+                    <td><input type="text" name="direccion2" id="direccion2" /></td>
+                </tr>
+                <tr>
+                    <td>Ciudad:</td>
+                    <td><input type="text" name="ciudad" id="ciudad" /></td>
+                </tr>
+                <tr>
+                    <td>Provincia:</td>
+                    <td><input type="text" name="provincia" id="provincia" autocomplete="off" /></td>
+                </tr>
+                <tr>
+                    <td>C.P.:</td>
+                    <td><input type="text" name="zip" id="zip" /></td>
+                </tr>
+                <tr>
+                    <td>Pa&iacute;s:</td>
+                    <td><input type="text" name="pais" id="pais" /></td>
+                </tr>                
+            </table>
+            <input type="submit" value="Guardar Informaci&oacute;n" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+-- 51) Restricción unique
+--------------------------
+
+use Curso_SqlServer;
+
+-- Problema: Trabajamos con la tabla "alumnos".
+-- Eliminamos la tabla, si existe
+if object_id('alumnos') is not null
+drop table alumnos;
+
+-- Creamos la tabla
+create table alumnos(legajo char(4) not null,
+apellido varchar(20),
+nombre varchar(20),
+documento char(8)
+);
+
+
+-- Agregamos una restricción "primary" para el campo "legajo"
+alter table alumnos
+add constraint PK_alumnos_legajo
+primary key(legajo);
+
+
+-- Agregamos una restricción "unique" para el campo "documento"
+alter table alumnos
+add constraint UQ_alumnos_documento
+unique(documento);
+
+
+-- Ingresamos algunos registros
+insert into alumnos values('A111','Lopez','Ana','22222222');
+insert into alumnos values('A123','Garcia','Maria','23333333');
+
+
+-- Si intentamos ingresar un legajo o ducumento repetido, aparece un mensaje de error.
+
+-- Veamos las restricciones
+sp_helpconstraint alumnos;
+
+-- Aparecen las dos restricciones creadas anteriormente.
+------------------------------------------------------------------------------------------
+
+
+-- Primer problema: Una empresa de remises tiene registrada la información de sus vehículos en una 
+-- tabla llamada "remis".
+-- Elimine la tabla si existe
+if object_id('remis') is not null
+drop table remis;
+
+
+-- Cree la tabla con la siguiente estructura
+create table remis(numero tinyint identity,
+patente char(6),
+marca varchar(15),
+modelo char(4)
+);
+
+
+-- Ingrese algunos registros, 2 de ellos con patente repetida y alguno con patente nula
+insert into remis values('ABC123','Renault clio','1990');
+insert into remis values('DEF456','Peugeot 504','1995');
+insert into remis values('DEF456','Fiat Duna','1998');
+insert into remis values('GHI789','Fiat Duna','1995');
+insert into remis values(null,'Fiat Duna','1995');
+
+select * from remis;
+
+-- Intente agregar una restricción "unique" para asegurarse que la patente del remis no tomará 
+-- valores repetidos.
+alter table remis
+add constraint UQ_remis_patente
+unique(patente);
+-- No se puede porque hay valores duplicados.
+
+
+-- Elimine el registro con patente duplicada y establezca la restricción.
+delete from remis where numero = 3;
+-- Note que hay 1 registro con valor nulo en "patente".
+
+
+-- Intente ingresar un registro con patente repetida (no lo permite)
+insert into remis values('DEF456','Fiat Duna','1998');
+
+
+-- Intente ingresar un registro con valor nulo para el campo "patente".
+insert into remis values(null,'Fiat Duna','1998');
+-- No lo permite porque la clave estaría duplicada.
+
+
+-- Muestre la información de las restricciones:
+sp_helpconstraint remis;

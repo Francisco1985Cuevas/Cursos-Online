@@ -1,0 +1,613 @@
+Codigo facilito - Curso de Git gratis
+--------------------------------------
+
+- vt01
+¿Que es git?
+- git es un sistema de control de versiones creado por Linus Torvalds, un sistema de 
+control de versiones nos registra los cambios realizados en un archivo o conjunto
+de archivos.
+
+- Ejemplo:
+Imaginemos que tenemos un proyecto y en ese proyecto tenemos muchos archivos(.html, .css,
+.php, etc....) todos esos archivos se van a convertir en nuestra version inicial o 
+version 1 de nuestro proyecto, despues vamos a tener una version 2 y conforme pasa 
+el tiempo vamos a ir teniendo diferentes versiones... Eso es git, Git lo que hace es 
+"monitorear" todo lo que hacemos en nuestro proyecto como si agregamos o cambiamos
+lineas de codigo, una de las ventajas que tenemos al usar git es que podemos viajar en el
+tiempo, por ejemplo supongamos que estamos en la version 3 pero queremos "viajar" a la 
+version 2 lo podemos hacer con git, e igualar a la version 1 esto es muy util para los
+errores por ejemplo.
+
+Supongamos que tenemos un error en la version3 pero no lo teniamos en la version2, entonces
+podemos viajar en la version2 y buscar cual fue el error que causa que no funcionen las 
+cosas bien en la version3.
+
+Otra ventaja es la organizacion, si tenemos varias carpetas como version1 o version2 o 
+version estable, esto en algun punto se va a convertir en algun lio de carpetas.
+Con git nos saltamos esa parte y creamos algo llamado "commits".
+
+
+En git tenemos algo que se le conoce como los tres estados:
+-----------------------------------------------------------
+1-) Working directory: Aqui es donde editamos y trabajamos con nuestros proyectos, es decir
+que aqui es cuando abrimos nuestro editor de codigo y empezamos a programar.
+
+2-) Staging area(add): Aqui es donde escogemos que archivos estan listos para pasar al tercer
+estado, al igual que decidimos que archivos No estan listos por el momento. 
+Supongamos que tenemos un archivo .html y .css, nuestro HTML ya esta listo pero el CSS no, 
+entonces aqui elegimos o decimos que nuestro HTML pasa, pero nuestro CSS se queda pausado 
+porque no lo tenemos terminado.
+
+3-) Repository(commit): Aqui es el registro de todo nuestro proyecto. Es el registro de todo 
+lo que hicimos en algo que se llama "commit".
+
+
+Flujo de trabajo.
+-----------------
+- Primer paso: Modificar, crear, editar una serie de archivos eso va a ser lo primero
+que vamos a hacer.
+- Segundo paso(add): Escoger los archivos que estan listos.
+- Tercer paso(commit): Tenemos el registro de nuestro proyecto.
+----------------------------------------------------------------------------------------
+
+
+
+
+
+- vt02
+Descargar y configurar git.
+----------------------------
+
+- Para Windows, en el instalador tambien se descarga el "Git Bash" es un cmd o terminal donde
+se pueden ejecutar los comandos de git, tambien se puede hacer desde el cmd de Windows pero 
+es un proceso mas largo y puede que tengamos problemas.
+
+
+- Paso 2:
+- Configuraciones Basicas:
+-------------------------
+
+- Abrir la terminal del git(Git Bash):
+
+1-) Configurar en git nuestro nombre:
+$ git config --global user.name "fmcuevas1985"
+
+si queremos ver esa configuracion(nuestro nombre), usamos el mismo comando sin comillas
+$ git config --global user.name
+
+si queremos cambiar nuestro nombre:
+git config --global user.name "Francisco Cuevas"
+
+2-) Configurar nuestro correo:
+$ git config --global user.email "fmcuevas1985@outlook.com"
+
+si queremos ver esa configuracion(nuestro correo), usamos el mismo comando sin comillas
+$ git config --global user.email
+
+3-) Configurar colores(opcional-recomendado):
+$ git config --global color.ui true
+
+git siempre nos va a arrojar diferentes resultados o diferentes mensajes dependiendo de 
+lo que estemos haciendo con esta configuracion le decimos a Git que nos ilumine de 
+distintos colores esos resultados, esto para distinguir mejor que es lo que nos esta
+diciendo git.
+
+Si queremos ver nuestras configuraciones, usamos:
+$ git config --global --list
+
+- En el vt09 se muestra como configurar la parte del SSH 
+----------------------------------------------------------------------------------------
+
+
+
+- vt03.
+Nuestro primer proyecto.
+-------------------------
+
+- git init: Este comando marca el inicio de nuestro proyecto, aqui le decimos a git que
+empiece a monitorear todos nuestros cambios. Que empiece a ver todo lo que esta pasando
+en nuestro proyecto ya sea si modificamos el codigo de nuestra programacion, agregamos
+o quitamos algun archivo, etc., todo lo empieza a monitorear.
+Al ejecutar este comando nos avisa de que ya esta empezando a monitorear en la carpeta
+donde lo estamos ejecutando. Este comando solo lo vamos a usar una vez y siempre lo
+vamos a usar al iniciar git en nuestro proyecto.
+$ git init
+
+
+- git status: Ver Estado de nuestro proyecto.
+$ git status
+
+
+- git add: Con este comando decidimos que archivos estan listos para el siguiente paso que 
+es crear un commit.
+$ git add <nombreArchivo.extension>
+$ git add *  (Todo)
+
+
+- git commit -m "Mensaje": Guardamos los cambios con un mensaje para identificarlos.
+$ git commit -m  "Iniciamos"
+
+Recomendacion: Poner en el mensaje algo muy especifico, algo que nos diga HICE ESTO... no 
+importa que sea muy grande lo importante es que identifiquemos rapidamentes que cambios
+se le hizo al proyecto.
+
+
+El flujo a seguir hasta este punto:
+------------------------------------
+$ git init (una sola vez) 
+$ git status 
+$ git add *
+$ git commit -m  "Iniciamos"
+
+- git log: Nos va a dar una lista de todos nuestros commits con su respectiva informacion.
+$ git log
+
+
+- git checkout: Con este comando viajamos a traves de nuestros commits o nuestras
+ramas. Podemos ver como se veia nuestro proyecto antes de que se modificara algo.
+Para viajar a traves de tiempo entre Commits hay que copiar el "CODIGO SHA"
+$ git checkout 9262a6e5b92a10170d0c72df2edffe4b155ec0ec
+$ git checkout master (nos lleva al ultimo commit)
+
+
+- git reset: Es similar a checkout a diferencia que este elimina los commits.
+$ git reset
+
+- git help: comando que lista la ayuda de git
+$ git help
+----------------------------------------------------------------------------------------
+
+
+
+- vt04
+Ramas y fusiones.
+-----------------
+
+- HEAD: Simplemente es el commit donde nosotros nos encontramos ahora, el punto actual.
+Es el ultimo commit o el ultimo punto en donde estabamos.
+
+- Ramas: Una rama es una linea de tiempo en nuestro proyecto, que nos sirven para arreglar
+errores, experimentar, hacer grandes cambios, etc., cualquier cosa que no afecte a nuestro
+proyecto en si o a nuestro proyecto actual.
+
+- Rama master: La rama master es en donde comenzamos a trabajar, es la rama principal y 
+estable de nuestro proyecto. Cuando nosotros hacemos git init, se genera esta Rama
+"por default" y es la rama en donde hemos generado los commits o el commit que hicimos
+hasta ahora y si empezamos a hacer cambios en nuestro proyecto estos van a estar dentro
+de la rama master.
+
+- git branch: Nos muestra las ramas
+$ git branch
+
+
+- git branch Test: Crea una rama nueva.
+$ git branch Test
+
+
+- git checkout Test: Cambia a la rama indicada.
+$ git checkout Test
+
+
+-  git checkout -b Text: Crea una rama nueva y a la vez nos movemos a ella.
+$ git checkout -b Text
+
+- La nueva rama creada toma los cambios del ultimo commit y se empieza a agregar(add)
+a la rama los nuevos cambios a partir de ese commit.
+Los cambios que hagamos ya no se van a ir a master, se van a ir a la rama en la que
+estemos situados en ese momento.
+
+
+- git branch -D: borra una rama que ya no estamos usando.
+$ git branch -D
+
+
+- git branch -a: muestra todas las ramas incluso las ramas ocultas.
+$ git branch -a
+
+
+¿Como pasar los cambios en la nueva Rama a master?
+- Fusiones: Es la creacion de un nuevo commit juntando una rama con otra.
+
+Primero: "Situarnos en la rama que va a absorber, es decir la rama master"
+$git checkout master
+Segundo: Fusionar -> git merge Rama que va a ser absorbida, en este caso en Test se hicieron cambios ahora pasar a master
+$ git merge Test 
+
+
+El flujo a seguir hasta este punto:
+------------------------------------
+$ git init (una sola vez) 
+$ git status 
+$ git add *
+$ git commit -m  "Iniciamos"
+- creacion y manejo de ramas
+$ git branch
+$ git branch Test
+$ git checkout Test
+- realizamos los cambios de nuestro proyecto estando situados en la nueva rama creada, commiteamos los 
+cambios estando en esta rama, que para este ejemplo es Test.
+- ahora "fusionar", osea pasar los cambios de la rama Test a la rama master. Primero moverse a la rama master
+$ git checkout master
+$ git merge Test
+
+
+
+
+PASOS
+
+git init
+git status
+git add
+git commit -m "Iniciamos"
+
+Ramas
+git branch
+git granch Test
+git checkout Test
+REALIZAMOS LOS CAMBIOS EN NUESTROS ARCHIVOS O PROYECTO
+git init -> git status -> git add -> git commit -m "Iniciamos cambios en la nueva rama"
+Fusionar
+git checkout master -> git merge Test
+----------------------------------------------------------------------------------------
+
+
+
+- vt05
+Empezando con Github.
+----------------------
+
+- git y Github NO SON LO MISMO!
+
+¿Que es Github?
+- Github es una plataforma donde nosotros podemos guardar nuestros proyectos, usando git
+para su gestion.
+Github se caracteriza por tener proyectos "Open source" y que todos los puedan ver, que todos
+sea publico y que entre toda la gente se crea una comunidad.
+
+- git clone: Nos sirve para clonar un proyecto, normalmente, se usa cuando nos interesa
+colaborar con el proyecto.
+$ git clone https://github.com/jquery/jquery.git
+
+¿Que es un Repositorio?
+- Un respositorio es como la traduccion de la palabra proyecto, Proyecto y repositorio
+es lo mismo.
+
+
+Tenemos dos tipos de repositorios: 
+----------------------------------
+* Repositorios remotos
+* Repositorios locales
+Repositorios remotos son los que estan en Github, y repositorios locales son los que
+tenemos en nuestra computadora.
+
+
+Para pasar nuestro proyecto local al Github:
+---------------------------------------------
+- Primero crear un nuevo repositorio en Github, puede NO ser el mismo nombre con el 
+que lo tenemos en nuestro repositorio local. De preferencia usar el mismo nombre.
+
+- git remote: Vincula nuestro proyecto local, con nuestro proyecto remoto, es decir
+que git remote nos sirve para decirle a git: El proyecto que tengo en mi 
+localhost (repositorio local) es el mismo que el que esta en el repositorio remoto.
+$ git remote add origin https://github.com/Francisco1985Cuevas/Gitfacilito.git
+
+- git remote -v: visualiza lo que tenemos
+$ git remote -v
+
+
+¿Una vez que ya tenemos conectado git con Github, como hacemos para subir los cambios?
+- git push: Manda nuestros cambios (commits) a Github.
+$ git push origin master
+$ git push origin Text
+$ git push origin Colores
+$ git push origin <NombreRama>
+$ git push origin master -f  (Fuerza a git para subir un cambio realizado)
+
+Al hacer git push, Debe pedir Ingresar Usuario y contraseña de Github, osea debe pedir
+loguearme con mi usuario de Github.
+
+- Se hace push de la rama que nosotros enviamos.
+
+
+
+- Issues: Los issues son una forma de continuar, mejorar o solucionar un error en
+nuestros repositorios(proyectos). Participar en un commit.
+
+- Milestones: Son grupos de issues que aplican para un proyecto, caracteristica o
+periodo de tiempo.
+
+- Labels: Son una manera diferente de organizar los problemas.
+
+
+El flujo a seguir hasta este punto:
+------------------------------------
+En git
+$ git init (una sola vez) 
+$ git status 
+$ git add *
+$ git commit -m  "Iniciamos"
+- creacion y manejo de ramas
+$ git branch
+$ git branch Test
+$ git checkout Test
+- realizamos los cambios de nuestro proyecto estando situados en la nueva rama creada, commiteamos los 
+cambios estando en esta rama, que para este ejemplo es Test.
+- ahora "fusionar", osea pasar los cambios de la rama Test a la rama master. Primero moverse a la rama master
+$ git checkout master
+$ git merge Test
+En Github
+- Si vamos a colaborar en un proyecto debemos clonar ese proyecto.
+- Seleccionar la dirección del repositorio "SSH o HTTP" y clonar:
+$ git clone https://github.com/User/NombreRepo.git
+
+- Si lo vamos a hacer de cero, Crear un nuevo repositorio en nuestra cuenta, seleccionar 
+la dirección del repositorio "SSH o HTTP" y vincular nuestro repositorio local con el nuevo
+repositorio creado en Github, osea agregar la URL del repositorio original del proyecto.
+$ git remote add origin https://github.com/Francisco1985Cuevas/Gitfacilito.git
+- Comprobar la URL del repositorio
+$ git remote -v
+- Subir los cambios a Github
+$ git push origin master
+
+
+
+--despues de todos los pasos conocidos
+*ubicarse desde el gitbash en la carpeta donde queremos copiar el proyecto y ejecutar git clone
+- git clone  (si vamos a trabajar sobre un proyecto que ya esta en github)
+
+* si lo vamos a hacer de cero
+primero crear un repositorio en Github
+* ahora conectar nuestro proyecto local con Github usando git remote, git remote vincula nuestro proyecto
+local, con nuestro proyecto remoto
+hay que copiar la url que sale en github y colocar en el gitbash cuando ejecutamos git remote
+- git remote add origin 
+* para verificar que esten conectados
+- git remote -v
+¿Una vez que ya tenemos conectado git con Github, como hacemos para subir los cambios?
+$ git push origin master
+----------------------------------------------------------------------------------------
+
+
+
+- vt06
+Curso Git - Git tags
+---------------------
+
+Tags(Etiquetas): Los tags son simples puntos especificos en la historia de nuestro
+proyecto y se usan para marcar alguna version del mismo.
+
+- git commit --amend -m: Modifica el mensaje del ultimo commit.
+$ git commit --amend -m "Cambio en el h3"
+
+- git push origin v1.0 (subir tags a Github)
+- git push origin --tags (sube todos los tags)
+----------------------------------------------------------------------------------------
+
+
+
+- vt07
+Curso Git - Workflows
+----------------------
+
+Workflows (Flujos de trabajo)
+
+¿Que son?
+Es un grupo de trabajo o grupos de trabajos ya sea con proyectos propios, en equipo
+o con terceros.
+
+- Proyectos propios
+- Proyectos en equipo
+- Proyectos con terceros
+
+- git ferge & git merge
+
+
+Proyectos en equipo:
+--------------------
+- Para trabajar en Proyectos en equipo, Primero en nuestra cuenta de Github tenemos
+que crear una "organizacion".
+- Una organización es un conjunto de cuentas de usuario que posee repositorios. Las 
+organizaciones tienen uno o más propietarios, que tienen privilegios administrativos 
+para la organización.
+
+
+- Cuando un nuevo usuario se "adhiere" a la organizacion en Github, desde git ese
+usuario tiene que clonar el repositorio de la organizacion para tenerlo en su
+maquina (localhost).
+
+- Cuando nosotros conectamos el repositorio local con el repositorio remoto,
+hay una rama oculta y esta rama oculta es un espejo entre la rama master
+y la rama oculta, la rama oculta se llama: origin/master. (vt07_img05)
+
+
+- git fetch origin: Cuando nosotros ejecutamos este comando en git, lo que hace es
+bajar los cambios que esten en el repositorio remoto a la rama oculta origin/master
+- git merge origin/master: Cuando nosotros ejecutamos este comando en git, absorbemos
+a la rama origin/master, osea combina el ultimo commit del repositorio remoto con
+nuestro ultimo commit(en localhost) y a partir de esto, nosotros en nuestro repositorio
+local ya tenemos todos los commits que tiene el repositorio remoto.
+
+- Hay que ser bien especificos cuando se generan los commits cuando se trabaja en equipo.
+
+
+El flujo a seguir hasta este punto(Proyectos en equipo):
+--------------------------------------------------------
+
+Para tener en nuestro proyecto local los ultimos commits de una organizacion y estar
+actualizados, debemos seguir los pasos conocidos hasta aqui: git add, git commit.
+Pero para tener nuestro proyecto actualizado debemos:
+$ git fetch origin
+$ git merge origin/master
+
+- Desde este punto, seguimos commiteando como lo veniamos haciendo.
+
+- Subir los cambios a Github
+$ git push origin master
+
+
+- Si intentamos subir cambios que realizamos en nuestro repositorio local pero no hemos
+bajado o actualizado todavia nuestro repositorio local con los ultimos commits del 
+repositorio remoto(git fetch origin master - git merge origin/master) git no permitira
+subir los cambios dara un error.
+
+- fast forwat: Lo que hace es que simplemente hace un merge o hace una fusion y no 
+pregunta nada
+- manual merge: Nosotros manualmente tenemos que arreglar un conflicto, git no puede hacer
+fast forwat porque hay dos cambios y eso genera un conficto de versiones.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+
+
+- vt08
+Curso Git - Github Pages
+
+Se muestra como crear paginas web para alojar nuestros proyectos y mostrarselos a la gente
+para que los vean.
+----------------------------------------------------------------------------------------
+
+
+
+- vt09
+Curso Git - Deployment con git.
+-------------------------------
+
+
+- Deployment
+Lo que vamos a hacer basicamente es que nuestro repositorio local o los commits que tengamos
+en nuestro repositorio local los vamos a mandar a Github y tambien al Servidor.
+
+
+- Llave SSH
+Nos sirve para conectarnos facilmente a un servidor o servidores, sin tener que poner
+una contraseña a cada momento. 
+SSH: 
+
+
+-¿Como generamos o como hacemos una Llave SSH?
+$ ssh-keygen
+
+No importa el directorio en donde ustedes se encuentren, simplemente corren el comando
+ssh-keygen, y en este punto les va a decir en donde, yo los recomiendo que lo dejen
+donde esta porque lo va a poner en el home. Si quieren dejarlo en el home no hagan nada
+y denle "enter".
+Aqui les va a pedir una contraseña y esta contraseña es como una medida de seguridad
+mas para esta llave SSH,yo lo voy a dejar como esta, le voy a dar simplemente "enter".
+Cuando pide que verifique la contraseña, volver a darle "enter".
+
+- ¿Como vemos el archivo generado?
+$ ls
+$ ls -rf
+
+Ir con el gitBash hasta ese archivo(SSH).
+$ cd .ssh
+$ ls
+
+- En Github
+En la parte de Settings, el Github tiene la opcion para crear una nueva clave SSH.
+para que se puedan conectar mi repositorio local con el repositorio remoto
+se debe copiar la clave SSH generada en forma local con git y pegar en la cuenta
+de Github en el apartado para crear la nueva clave SSH y de esa forma se genera
+la conexion entre ambos repositorios.
+
+C:/Users/Francisco/.ssh/id_rsa
+
+----------------------------------------------------------------------------------------
+
+
+- vt10
+Curso Git - Git Hooks
+
+¿Que son?
+Son mecanismos para activar scripts, cuando suceden ciertas acciones.
+
+Seria como programacion en git.
+
+git pull es una combinacion de git fetch y git merge
+----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

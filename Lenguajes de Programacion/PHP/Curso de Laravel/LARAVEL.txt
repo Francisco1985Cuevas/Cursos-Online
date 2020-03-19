@@ -1,0 +1,883 @@
+--- LARAVEL ---
+----------------
+
+
+
+- Introducción.
+
+Laravel el Framework PHP para artesanos de la web.
+---------------------------------------------------
+ 
+ - Laravel es un Framework de Desarrollo Web MVC Escrito en PHP de última Generación que reduce el tiempo y costo del    desarrollo inicial y tambien su mantenimiento.
+
+ - Aprendiendo de los anteriores frameworks aporta una sintáxis muy expresiva y clara en la forma de escritura y un          completisimo set de funcionalidades que salvan horas y horas de trabajo.
+
+ - Sigue la Filosofía que Prima: "Convención sobre Configuración".
+   ¿Qué Significa?
+    * Formas Rígidas
+    * Reacción Inteligente
+    * Flexibilidad.
+
+ - Como muchos otros Frameworks MVC, Laravel fue diseñado siguiendo la Filosofía que Prima: 
+   "La Convención sobre la Configuración"
+    ¿Que Significa?
+      
+    * Formas Rígidas: Normas Rígidas(Cómo se debe escribir el código, como llamar a los Modelos, Vistas y Controladores,                            etc).
+    * Reacción Inteligente: Siguiendo estas Normas hace que el framework ya sepa en muchas ocasiones que es lo que debe 
+                            hacer sin necesidad de escribir código.
+                            Laravel aporta mejoras, aumenta su inteligencia respecto a otros frameworks MVC.
+    * Flexibilidad: Hace mucho más flexible y adaptable practicamente a cualquier proyecto que quieras realizar.
+ 
+ - Busca ese punto de Encuentro entre minimalismo y funcionalidad(filosofia zen)
+  * Sencillo de entender
+  * Limpio, Simple Elegante
+  * Evolución anteriores
+
+
+ - ¿QUE ES LARAVEL?
+ 
+   * Laravel es un Framework PHP, basado en Arquitectura MVC el cual fue desarrollado en el año 2.011 por el señor Taylor          Otwell, Laravel tiene una gran influencia de Frameworks como RUBY on rails y ASP.NET.
+   * Laravel es un Framework(de PHP) de Código Abierto Para Desarrollar aplicaciones y servicios web con PHP 5. Su 
+     filosofia es Desarrollar Código PHP de forma Elegante y Simple, evitando el "código Espagueti". Fue creado en 2.011 
+     por el Señor Taylor Otwell y tiene una gran influencia de frameworks como Ruby on Rails y ASP.NET MVC.
+
+ - ¿Por qué es buena idea hacer uso de Laravel?
+   * Eloquent-ORM(nada de SQL)
+   * Motor de plantillas(Blade)
+   * Excelente Documentación
+   * Deploy
+   
+   Eloquent-ORM(nada de SQL)
+    * Laravel incorpora un ORM(Siglas en Ingles Object-Relational mapping), básicamente lo que hace el ORM es sustituir el       lenguage SQL por "objetos".
+
+   Motor de plantillas(Blade)
+    * Laravel incorpora un motor de Plantillas, gracias a esto podemos generar un layout que contenga elementos comunes de       todo nuestro sitio y así generar menos líneas HTML.
+    * Vistas Mucho más Sencillas y limpias.
+
+   Excelente Documentación
+    * Laravel tiene una Excelente Documentación Clara y Concisa.
+    * Deploy
+
+
+ - Modularidad
+   Ofrece MODULARIDAD del Código. Gracias a la combinación de Drivers y su Sistema de Paquetes.
+  * Los "Drivers": Permiten extender y Cambiar funcionalidades comunes en todas las aplicaciones, como pueden ser el Cachin,     Sessiones, Bases de datos o Autentificación.
+  
+  * El "Empaquetado": Permite Reutilizar cualquier tipo de código o compartirlo con toda la comunidad de laravel. Se puede        empaquetar desde una librería, hasta una aplicación web entera..
+
+  #IMPORTANTE: Laravel Bundles web site nos permite navegar por toda la comunidad, Ver proyectos,lirerias de otros                           programadores.
+
+
+ - El sistema de Migraciones facilita mucho el trabajo con bases de datos.
+  * Ofrece una Suit de herramientas de última generación para Interactuar con bases de datos.
+  
+  * El sistema de Migraciones de bases de datos nos habilita para facilmente diseñar y modificar bases de datos de un modo        independiente de la plataforma, las migraciones pueden aplicarse a cualquier base de datos que soporte laravel(MySQL,         PostgreSQL, MSSQL y SQLite), librando con esto cualquier problema de compatibilidad.
+
+ - Integra un sistema de consultas a la base de datos, Permite Construir y Ejecutar consultas mucho mas robustas.
+   Las Migraciones pueden aplicarse a cualquier base de datos que soporte laravel.
+
+
+ - Eloquente
+  * Interactua con la Base de datos de un modo totalmente orientado a objetos siguiendo los estandares mas modernos.
+  
+  * Con Eloquent Podemos Crear, Recuperar, Actualizar y Borrar los Registros de la base de datos sin necesidad de escribir 
+    ni una sola línea de Código SQL.
+  
+  * Además de esto Eloquent nos Proveé de un Poderoso Sistema de Manejo de Relaciones y puede incluso Gestionar la 
+    paginación automáticamente por nosotros.
+
+
+ - Artisan
+  * Herramienta de Interface de línea de comandos totalmente Configurable.
+    Con Artisan un desarrollador puede interactuar con su aplicación para disparar, para desencadenar acciones como puede         ser: ejecutar Migraciones, Pruebas de unidades, Tareas programadas, etc.
+    
+    Artisan es completamente extensible asi que podemos escribir cualquier tipo de funcionalidad que queramos.
+
+
+ - Routing
+  * Controlar urls
+  * Helper HTML Integrado
+  * Enlaces auto actualizables
+ 
+  Permite controlar totalmente las URL de nuestro sitio usando el Helper HTML Integrado podemos crear enlaces desde dentro      del sitio que se actualizaran automaticamente si cambiamos las URL, lo que hace el trabajo de mantener un sitio web mucho     mas sencillo.
+
+
+ - Motor de plantillas(Blade)
+  * Vistas mucho más Sencillas y limpias e incluye importantes mejoras en la presentacion de la aplicación.
+
+
+"No hay un Framework mejor que otro, sino que existen frameworks que se adaptan mejor a nuestras necesidades."
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Instalación.
+
+
+* Podemos instalar Laravel de dos modos, Usando Composer en Homestead; Usando el Installer Laravel; y/o Usando Composer         para instalar una version especifica de Laravel.
+  Podemos usar el Installer Laravel que es básicamente un pequeño ejecutable que nos permite rapidamente instalar laravel       con un comando sencillo de usar.
+  
+  El otro modo es usar COMPOSER directamente.
+
+
+Las herramientas o programas/software en este caso que se necesitan para instalar Laravel en localhost son:
+-----------------------------------------------------------------------------------------------------------   
+
+- Composer
+     
+- Algun paquete de instalacion el cual contenga algun Servidor web(Servidor HTTP Apache), Un gestor de base de datos 
+  (Mysql, PostgreSql).. y Lenguajes de Programacion como lo es PHP, Perl... puede ser: XAMPP, WAMP, etc.
+
+
+- ¿Qué es el Composer?
+  * Composer es una herramienta de administracion de dependencias para PHP.
+    Composer esta altamente inspirado por ejemplo por el npm de node.js
+    Composer es nuestro administrador de dependencias.
+  
+  * Descargar el Composer y configurar para que durante el proceso de instalacion busque la ruta donde esta el PHP(php.exe)
+
+  * ¿Que es xampp?
+    XAMPP es un paquete de instalación el cual contiene un servidor web Apache, un gestor de base de datos MySQL y 
+    Lenguajes de programacion(PHP, Perl).
+
+  * Primero se instala el XAMPP, lo segundo que hay que instalar es el COMPOSER y por ultimo descargar el proyecto 
+    de LARAVEL por la vía COMPOSER.
+ 
+  * Para DESCARGAR el proyecto laravel, abrir la CONSOLA DE COMANDOS(cmd) y posicionarse desde la consola de comandos 
+    en el ESCRITORIO de windows.
+  * Via Composer Create-Project: composer create-project --prefer-dist laravel/laravel blog
+    Al ejecutar este comando desde la consola lo que hace es descargar laravel en nuestro escritorio.
+ 
+  * El ultimo paso seria simplemente copiar la carpeta que se descargo de laravel a nuestro XAMPP o WAMP dependiendo del 
+    que se este usando.
+
+  * Testear o probar el sitio.
+
+- PASOS: Abrir la Consola de Comandos de windows(cmd). (Acceso Rapido: Tecla Windows+R)
+         Ir hasta la pagina de documentacion de Laravel, y buscar el apartado "Via Composer Create-Project". Ahi se muestra
+         la linea de comando que debemos copiar/pegar en el cmd y ejecutar, debe comenzar el proceso de descarga de laravel.
+         Al finalizar la descarga, la carpeta que acabamos de descargar es el proyecto Laravel y solo ya es copiar dentro de          nuestro directorio de proyectos de Wamp o Xampp el que tengamos instalado.
+
+
+Links de las páginas visitadas.
+================================
+Composer: https://getcomposer.org/
+XAMPP: https://www.apachefriends.org/es/index.html
+WAMP: http://www.wampserver.com/en/
+Laravel: http://laravel.com/
+
+
+
+"Un framework FACILITA mucho el trabajo a gente que ya sabe programar."
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Estructura de Laravel.
+
+
+El directorio raíz de Laravel y algunos de sus principales archivos de configuraciones.
+---------------------------------------------------------------------------------------
+
+ * El archivo .env que se encuentra en el directorio raíz de Laravel, se copio del archivo .env.example que tambien se          encuentra en la carpeta raíz, cuando se instala por primera vez el framework.
+   Su objetivo es el de permitirnos configurar ciertos aspectos de laravel dependiendo del ambiente de trabajo que estemos       usando.
+ * La mayor parte de la configuracion es automatica.
+ * Tambien estan los archivos relacionados con GIT, .gitattributes, .gitignore  por ejemplo el archivo .gitignore es donde       podemos indicar aquellos directorios o archivos que NO queremos que se incluyan cuando hagamos un commit a GIT.
+
+ * El archivo artisan, es el punto de entrada para poder ejecutar comandos ARTISAN y que puede ser usado, ejecutando: 
+   php artisan nombre_comando desde la terminal(cmd).
+
+ * El archivo composer.json es donde vamos a definir las dependencias de nuestro proyecto
+
+ * El archivo composer.lock es el estado salvado(Guardado) las dependencias que tengamos instaladas.
+
+ * El archivo server.php se usa para emular la funcionalidad mod_rewrite cuando usamos el comando "serve" de artisan.
+
+
+ * El directorio vendor: Es donde se localizan todas las dependencias de laravel
+
+ * El directorio test: Almacena todo lo que tiene que ver con los test de la aplicacion.
+
+ * El directorio storage: Contiene a su vez varios directorios, ejemplo el directorio logs cuando estemos trabajando con la      aplicacion en esta carpeta se almacenara un archivo (.log) que es importante para poder localizar posibles errores e          informacion sobre el funcionamiento general de la aplicacion.
+
+ * El directorio routes: Contiene todas las definiciones de rutas para nuestra aplicacion.
+   Los archivos web.php y api.php lo que hacen es contener las rutas que coloca el RouteServiceProvider en un caso desde el 
+   middleware "web" en el grupo middleware "web" y en el otro caso desde el grupo middleware "api"
+
+ * El directorio resources: Contiene cosas como los assets procesados, los archivos de idiomas y las views.
+
+ * El directorio public: Cuenta con varios archivos entre ellos index.php que es el PUNTO DE ENTRADA a nuestra aplicacion.
+
+ * El directorio database: se almacenan las migraciones, seeds y factories.
+
+ * El directorio config: Contiene varios archivos que son cruciales para la configuracion de nuestro sitio web o aplicacion.
+   cada archivo de este directorio contiene una parte especifica de la aplicacion.
+   El archivo app.php es el archivo principal de la configuracion.
+
+ * El directorio bootstrap: Es el modo en que la aplicacion se va a iniciar, lo que se denomina bootear.
+
+ * El directorio app: Se almacena toda la logica de funcionamiento de la aplicacion.
+
+
+
+ - Breve resumen de algunas configuraciónes CORE en el archivo config/app.php
+ -----------------------------------------------------------------------------
+
+ * Todo lo que contiene este archivo se contiene en un return(), si lo abrimos veremos que es un "array" con 
+   pares clave => valor
+
+   * 'name' => 'Laravel'                          Indica el nombre de la aplicación.
+
+   * 'env' => env('APP_ENV', 'production')        Define el nombre de entorno en que nuestra aplicacion se esté ejecutando.
+
+   * 'debug' => env('APP_DEBUG', false)           Indica si queremos que esta aplicacion se ejecute en modo debug o No.
+
+   * 'url' => env('APP_URL', 'http://localhost')  Esta opción es usada por la linea de comandos(cmd) en la consola para                                                         generar las URL con las direcciones apropiadas.
+
+   * 'timezone' => 'America/Asuncion'             Es usada por date de PHP y otras funciones de tiempo.
+
+   * 'locale' => 'en', 'fallback_locale' => 'en'  Hacen referencia al contenido de la carpeta laravel/resources/lang/en
+
+   * 'providers' => []                            Contiene todo el conjunto de proveedores de servicios que son importantes                                                     para el inicio de Laravel, cuando se lleva a cabo el bootstrap(arranque,      						  inicio de laravel).
+
+
+- ¿Qué son los Entornos?
+  * El entorno es el lugar en el que se esta ejecutando tu aplicacion.
+    En general le damos a los entornos nombres como ENTORNO LOCAL el usado para desarrollar la aplicacion localmente
+    en nuestra propia maquina que para nosotros(localhost, homestead)
+   
+  * Cuando hemos finalizado una parte de la aplicación, queremos subirla para mostrar los cambios y la situamos en lo
+    que se denomina el Test environment o ENTORNO DE PRUEBA donde podemos llevar a cabo algunas pruebas. 
+  * Una vez que estamos seguros de que todo funciona de modo correcto es cuando podemos colocarlo en modo de PRODUCCION.
+
+  * Esta necesidad de trabajar con distintos Entornos es la que explica la importancia de usar Maquinas Virtuales
+    para poder simular como sera posteriormente el funcionamiento tanto en el Entorno de Prueba, como en el Entorno
+    de Produccion.
+    Con este modo de trabajo cuando tengamos que colocar el codigo desde nuestro entorno local al entorno de Produccion
+    no tendremos errores por ejemplo porque esten utilizando distintas versiones de PHP.
+  
+  * Configuracion CORE En .env
+    Es el archivo de Configuración de Entorno y es donde tenemos que definir todas nuestras variables de Entorno.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+- Configuración.
+
+
+ - ¿Que es Artisan?
+    * Artisan es el nombre que se le dio a la interfaz de linea de comandos que incluye laravel.
+    * Artisan nos proporciona una serie de comandos que nos ayudan durante la etapa de desarrollo del sitio.
+    * Artisan Herramienta de Interface de línea de Comandos totalmente configurable.
+ 
+ - ¿Cómo se pueden ver todos los comandos de Artisan?
+     
+    * Primero, para poder hacer uso de los comandos que tiene Artisan: Abrir la consola de comandos(cmd) posicionarse o             ubicarse hasta donde tenemos el proyecto Laravel(C:\wamp64\www\MiProyectoLaravel)
+      Se debe ejecutar este comando: php artisan -h
+
+    * Para INICIAR, REFRESCAR o ACTUALIZAR el servidor(localhost) se debe ejecutar este comando: php artisan serve
+
+    * Para DETENER el servidor: Ctrol+C
+
+ - Permisos del directorio: Después de instalar Laravel, puede que tenga que configurar algunos permisos.
+
+ - Namespace: Despues de la instalación podemos darle un NOMBRE a nuestra aplicacion web, Para ello:
+   * Por default el Namespace de nuestro directorio esta bajo el nombre de "app" autocargado por composer.
+   * Para CAMBIAR EL NOMBRE de la aplicacion, hay que abrir la consola de comandos(cmd) situarse hasta la 
+     carpeta donde tenemos alojado el proyecto laravel(wamp64/www/laravel) y ejecutar este comando Artisan: 
+     php artisan app:name nombre_proyecto
+
+
+ - C:\wamp64\www\laravel\config\app.php(configuracion opcional)
+   ------------------------------------------------------------
+   'debug' => env('APP_DEBUG', false) -> Hace referencia al archivo .env de ENVIROMENT ese archivo esta en la carpeta 
+    raiz y contiene las configuraciones para la base de datos y debug en proceso de desarrollo.
+    Se muestran los errores de manera mas detallada.
+    Esto se debe configurar nuevamente a "false" una vez que el proyecto ya este en su etapa de produccion.
+
+ - TIMEZONE
+
+   * C:\wamp64\www\laravel\config\app.php
+   ---------------------------------------
+   Hay que cambiarle el TIMEZONE... 
+   En el buscador(google) escribir "php timezone", Entrar en el Listado de zonas horarias admitidas de php.net  
+   buscar asuncion y modificar en este archivo: 
+   'timezone' => 'UTC' 
+   por 
+   'timezone' => 'America/Asuncion'
+   
+ - LENGUAJE de la aplicacion
+  
+  * Otra parte importante de las configuraciones es cambiarle el LENGUAGE que va a tener la aplicacion, por defecto 
+    viene en ingles, cambiarle al español, Para ello: 
+    C:\wamp64\www\laravel\config\app.php
+    ------------------------------------
+      
+    'locale' => 'en' 
+    por 
+    'locale' => 'es'
+
+    #IMPORTANTE: Pero NO basta solo con modificar esta linea de codigo... 
+                 Buscar en el navegador(google), laravel 5 lang de github, buscar la carpeta español(es)... dentro de dicha                  carpeta se encuentran los archivos necesarios para que la aplicacion laravel este en español, se debe 
+                 ver(entrar) dentro de cada archivo y copiar todo su contenido a nuestro proyecto, para ello:
+                 Dentro de la Carpeta: 
+                 resources(C:\wamp64\www\laravel\resources\lang) se debe crear una nueva carpeta llamada "es" y copiarle los                   mismos nombres de archivos que tiene la carpeta DEL GITHUB a la nueva carpeta "es" y ver la codificacion de 
+                 cada uno en el github y copiar/pegar dentro de cada archivo.
+    
+    'locale' => 'es' busca esa carpeta de español.. por eso es importante copiar esa carpeta de lenguages, porque es ahi                      donde se encuentran todas las traducciones.
+
+
+ - Configurar LARAVELCOLLECTIVE.
+ 
+  * ¿Qué es Laravel Collective?
+    Es un conjunto de elementos para Formularios HTML tales como Labels, Botones, Listas de Formulario, Radio Buttons,            checkboxs, etc. Por otro lado cuenta con Anotaciones, Remote SSH, Iron Queue y Command Bus para otro tipo de tareas.
+    A pesar que Laravel Collective cuenta con otros servicios, esta herramienta se hizo popular más por el uso de los             elementos para formularios mencionados.
+
+  * Package LaravelCollective.
+  -----------------------------
+   Tenemos que instalar el paquete laravelcollective, lo vamos instalar utilizando "Composer", para ello, lo primero que
+   hay que hacer es abrir el archivo:
+   C:\wamp64\www\laravel\composer.json (Se encuentra en la raiz de tu aplicacion)
+
+   Buscar la parte en donde aparece el "require" para PHP Laravel Framework("laravel/framework": "5.4.*") y añadir 
+   despues del ultimo(no olvidar añadir una coma(,) ) y añadimos:
+   "laravelcollective/html": "5.4.*" (Depende de la version de laravel que estamos usando) 
+
+   Para saber que version de los paquetes de laravelCollective debemos añadir, ver la version en: 
+   "laravel/framework": "5.4.*" (aqui indica la version del laravel/framework).
+
+   Una vez modificado y guardado el archivo composer.json, tenemos que ir hasta la terminal(cmd) y desde la raiz de 
+   nuestra aplicacion escribimos:
+   composer update
+
+   Y dejamos que se lleve a cabo el proceso, si todo sale bien ya tenemos instalado el paquete HTML de collective.
+
+
+   Next, add your new provider to the providers array of config/app.php(Service Provider):
+
+    'providers' => [
+       // ...
+       Collective\Html\HtmlServiceProvider::class,
+       // ...
+    ],
+   
+   Finally, add two class aliases to the aliases array of config/app.php:
+
+    'aliases' => [
+       // ...
+      'Form' => Collective\Html\FormFacade::class,
+      'Html' => Collective\Html\HtmlFacade::class,
+      // ...
+    ],
+
+
+
+ - Configurar gestor de BASE DE DATOS que vamos a utilizar para la aplicacion.
+ ------------------------------------------------------------------------------
+   
+ * Se deben escribir los parametros de la base de datos(usuario, password), que gestor vamos a utiliza(MySQL,                   PostgreSQL,...), etc., en el archivo: C:\wamp64\www\laravel\config\database.php
+
+ * Otra configuracion importante es la parte de autentificacion, para ello:
+   C:\wamp64\www\laravel\.env
+   aqui tambien se deben de configurar los datos de la base de datos a utilizar.
+
+
+
+
+ - Diferencia entre Página estática y Página dinámica.
+ -----------------------------------------------------
+  * Página Dinámica: Panel de administración con inicio de session para ir agregando informacion.
+  * Página Estática: Son páginas enfocadas principalmente a mostrar una información permanente.
+
+
+
+
+Links de las páginas visitadas.
+================================
+Laravel: https://laravel.com/docs/5.8/configuration
+LaravelCollective: https://laravelcollective.com/
+LaravelCollective: https://github.com/LaravelCollective/docs
+LaravelCollective: https://github.com/LaravelCollective/docs/blob/5.6/html.md
+----------------------------------------------------------------------------------------------------------------------------
+
+
+- Añadir Bootstrap a Laravel.
+
+
+ * Empezar la personalizacion, vamos a añadir a nuestro proyecto Bootstrap, existen distintos modos de añadirlo, pero vamos
+   a incluirlo directamente en el propio proyecto, descargarlo.
+
+ * Descargar el que contiene la fuente(Donwload source). Lo que tenemos que incluir dentro de nuestro proyecto es solo el       contenido de la carpeta "dist". Todo el contenido del CSS colocarlo dentro directorio public/css, todo el contenido del JS    colocarlo dentro del directorio public/js.
+   
+   Una vez incluidos, en las views incluir las rutas para que lo puedas utilizar en el proyecto.
+
+   
+   ¿Como sabemos donde tenemos los archivos del bootstrap?
+   
+   Tenemos que indicar la ruta desde donde esta index.php[C:\wamp64\www\laravel\public\index.php], cambiar simplemente 
+   estas rutas.
+
+
+Links de las páginas visitadas.
+================================
+Laravel: https://www.youtube.com/watch?v=3Tz4_C_hang&list=PLEtcGQaT56cigZVUvRpPBnoLGO0KcX5MO&index=8
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+ - Uso de Bases de Datos.
+
+ * Podemos Configurar la Base de datos, usando el archivo: config\database.php
+ #IMPORTANTE: El archivo config\database.php, RECUPERA las variables osea las CREDENCIALES de la base de datos 
+              de: laravel\.env
+              de NO encontrarse esas variables en ese archivo, usa el valor de las variables que estan en el 
+              archivo database.php
+
+
+ * Una de las claves a la hora de trabajar con bases de datos tanto si lo haces solo o en equipo, es contar con un 
+   sistema sólido para mantener información detallada sobre el esquema de la base de datos, "Laravel Migrations" es la           respuesta, laravel usa archivos "Migration" para contener toda la información sobre los cambios que vayamos 
+   haciendo en la base de datos, cambios que pueden ser revertidos con un unico comando, usando Artisan.
+
+
+ * Crear Schemas con Migrations.
+  -------------------------------
+
+  - Una MIGRACION es un tipo de control de versiones de nuestra base de datos, esto le permite a un equipo modificar un         esquema de base de datos y estar al día con estas modificaciones.
+
+  - Las MIGRACIONES se crean en la carpeta: laravel/database/migrations/
+
+  - Para construir el Esquema de nuestra Base de datos, siempre debemos usar "Migrations".
+
+  
+
+  - Artisan, es la CLI: Command Line Interface.
+    Para ver una lista de los comandos artisan, escribir en la consola(cmd): 
+    php artisan list
+
+  - El comando para crear la MIGRACION desde la linea de comandos(cmd) es: 
+    php artisan make:migration create_NOMBRETABLA_table
+    Ejemplo: crear una TABLA con Artisan: 
+    --------------------------------------
+
+    php artisan make:migration create_tickets_table
+    php artisan make:migration create_tickets_table --create=tickets
+
+ 
+  * Si da un error, hay que regenerar la vista de todas las clases que necesita laravel que sean incluidas. Para ello 
+    ejecutar este comando:
+  
+    composer dump-autoload -o
+
+
+  * Para generar la tabla y sus columnas tenemos que utilizar artisan: 
+    php artisan migrate
+
+  * Para deshacer una migracion: 
+    php artisan migrate: rollback
+
+  * Laravel crea por default la tabla: "migrations" que es donde se guarda la informacion de todas las migraciones que 
+    vayamos creando. Se crea un archivo de migraciones con la fecha y nombre de la migración. 
+    Ejemplo: laravel/database/migrations/2016_10_08_192828_create_movies_table.php
+    
+    Tambien crea por defecto las tablas "users" y "passwords_resets" que implementa la autentificacion predeterminada de 
+    laravel. Tambien se pueden borrar estas tablas sino se desea ejecutar la autentificacion predeterminada.
+
+  #IMPORTANTE: No tocar la tabla "migrations" ya que ahi se guardan todas las veces que hacemos MIGRACIONES...
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Modelos en Laravel.
+
+ * ¿Qué es un Modelo en MVC?
+   En el contexto MVC, un Modelo es una Clase que representa varios tipos distintos de interacciones de datos, pueden ser:       Usuarios enlazados en una Base de datos, pueden ser Post en un Blog, Los Comentarios, y también interacción con muchos        otros tipos de fuentes de datos.
+   
+   En nuestra aplicación concreta, primariamente lo que haremos es usar los Modelos para representar los datos de todas las      tablas que se almacenan en nuestra base de datos.
+
+
+ * Un Modelo es simplemente una Clase que tiene sus propias variables, características y Métodos(acciones que pueden 
+   llevarse a cabo).
+ 
+   El Modelo es conocido como "M" en el sistema MVC de Modelo-Vista-Controlador.
+
+
+ * Un Modelo es la representacion de la información con la cual el sistema va a operar. 
+   Por lo tanto gestiona todos los accesos a dicha información, que va desde hacer CONSULTAS, hasta hacer ACTUALIZACIONES.
+   
+   Básicamente el Modelo es la representacion de una tabla de nuestra base de datos.
+
+ 
+ * Es obligatorio llamar al Modelo con el nombre singular de la tabla a la que hace referencia, por ejemplo: Tenemos una         tabla "Usuarios" entonces el Modelo que va a hacer referencia se debe llamar Usuario.
+   Al crear el Modelo de esta forma, le indicamos a Laravel que nuestro Modelo, en este caso Usuario, representa datos de la     tabla Usuarios.
+
+
+
+ #IMPORTANTE: ¿Cómo sabe Laravel que nos estamos refiriendo a una Tabla, Cuando Creamos nuestros Modelos de esta forma?
+   Es porque estamos siguiendo las "convenciones" que marca Laravel, que marcan en general todos estos tipos de Framework        MVC, que se basan en convenciones que dan por supuesto determinadas cosas y lo que significa esto, que es aplicable a         muchos otros Frameworks similares, es que si un Modelo se llama User hace referencia a una tabla que se llama Users igual     en Plural, es una "convencion". Simplemente si Tú tienes una tabla que tiene que estar en Plural: Users, tienes que tener     un Modelo que se llame User en Singular, con eso ni mas, Laravel en este caso ya sabe cual es la tabla de la base de datos    que tiene que utilizar.
+
+ * Para el caso de tablas con nombres por ejemplo: User_Profiles, se debe crear el Modelo de esta forma: UserProfile 
+
+ * Otra forma de indicar dentro de una clase Model que tabla va a ser usada por ese Modelo sería de esta forma:
+    public static $table = 'mi_tabla_users';   //dentro del Model, se indica en una variable que tabla se va a usar.    
+
+
+ * ¿Cómo se Crea un Modelo?
+   Desde la consola de comando(cmd) ejecutar el comando artisan: 
+    php artisan make:model Nombre_del_Modelo
+
+ 
+ * ¿Dónde se almacenan los Modelos?
+   Cuándo se genera un "Modelo" o una "Representacion de una Tabla" se guarda en la sgte carpeta: laravel/app/
+
+
+ * ELOQUENT ORM, vamos a poder Crear, Editar, Manipular y Borrar los datos de una Tabla sin tener que escribir ni una 
+   sola linea de SQL.
+ 
+ 
+#IMPORTANTE: El Nombre del Modelo tiene que ser el Singular del Nombre que tiene la tabla.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Eloquent
+
+ * Eloquent, el ORM de Laravel.
+
+ * El mapeo objeto-relacional (más conocido por su nombre en inglés, Object-Relational mapping, o sus siglas O/RM, ORM, y O/R    mapping) es una técnica de programación para convertir datos entre el sistema de tipos utilizado en un lenguaje de            programación orientado a objetos y la utilización de una base de datos relacional como motor de persistencia. 
+
+ * Eloquent es una Implementación ActiveRecord.
+
+ * Cuando hablamos de ActiveRecord, hablamos de uno de los Patrones para poder acceder a datos de una Base de datos.
+   Todas estas herramientas se fundamentan en lo que se conoce como "Mapeado" y que se agrupan como ORM(Mapeado Objeto           Relacional).
+   El objetivo de los ORM que se convirtió en una necesidad para lenguajes como JAVA o para PHP es la de Mapear, relacionar      las Tablas de una Base de datos con las Clases que tiene el lenguaje de Programación. Así una "instancia Objeto" es           enlazada a una fila de la tabla y las modificaciones que se llevan a cabo en una, afectan a la otra en los dos sentidos.
+
+   Pero para poder mantener este Mapeado se necesita un "idioma franco", una especie de Esperanto("lengua internacional")        entre PHP y MySQL por ejemplo, el lenguaje en general para llevar a cabo consultas en una aplicación web es SQL, pero los     Frameworks como en este caso Laravel implementan las consultas en los "Mapeados" y el Lenguaje de Consulta que utiliza        Laravel se llama: "FLUENT QUERY BUILDER".
+
+   Así que por lo tanto ELOQUENT es el ORM de Laravel, el sistema para "Mapear Objetos y Tablas". Y "FLUENT QUERY BUILDER" es    la interface de Laravel para construir consultas SQL a base de declaraciones ya preconstruidas y protegidas para evitar       cualquier tipo de Inyección SQL, es una de las claras ventajas que tiene su adaptación.
+   Y también con la misma Consulta, con el mismo Código, se Adapta a distintos dialectos SQL de ahí lo de "FLUENT", con el       mismo Código nos vale para una Base de datos MySQL, para PostgreSQL, para SQLite, etc..., 
+
+   En la base de ELOQUENT, se encuentra ActiveRecord, En el patrón ActiveRecord, las filas de una tabla de la Base de datos      están representados por objetos individuales.
+   ActiveRecord es un Patrón de Diseño que describe un Modo Orientado a Objetos de interactuar con nuestra Base de datos, por    ejemplo:
+
+   Tabla: Usuarios
+   contiene filas y cada una de estas filas representa un único usuario de nuestro sitio, pues nuestro "Modelo Usuario" que      es una clase que extiende(hereda) a la clase Modelo Eloquent, cuando hacemos una Consulta a registros de nuestra Base de      datos, se produce una "instanciación" de nuestra clase "Modelo Usuario" y se puebla con la información de la Base de          datos, aquí tenemos un ejemplo concréto de lo que significa el "Mapeado", Tenemos una instanciación de un Objeto por cada     fila de la Tabla.
+
+ "Frameworks para PHP -> Calidad, Eficacia, Rendimiento ->  Bases de Datos"
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Controllers
+
+
+ * Cuando hablamos del patrón MVC hablamos de una arquitectura de software que separa los datos(Model) de la lógica de           funcionamiento de una aplicacion(Controller) y la interfaz con la que interelaciona el usuario(View).
+
+ * El MODELO es el encargado de "Negociar" con la base de datos.
+
+ * ¿Controllers?
+   
+    Cuando hablamos de Controladores estamos hablando de "Contenedores" que incluyen en su interior Métodos y estos 
+    Métodos son los que contienen la Lógica de la aplicación.
+    Siempre en cada Controller pondremos la Lógica de la aplicación Relacionada con un 'dominio' en Común.
+    
+    Cuando hablamos de "dominio" en este contexto, nos referimos a Métodos que se relacionan por tener un mismo proposito         (Comparado con los contenedores de reciclado.. unos sirven para vidrios, otros para papel y otros para plásticos).
+
+
+ * El CONTROLLER puede contener los Métodos relacionados con la administración de usuarios, otros Controllers podrían tener      todo lo relacionado con las Noticias, con los Comentarios. 
+   
+    Ejemplos: http://localhost:8000/user  
+              http://localhost:8000/noticias
+              http://localhost:8000/comentarios
+
+
+
+ * Resumiento el funcionamiento "Modelo-Vista-Controlador" se basa por un lado, en el sistema que es el MODELO que es el         encargado directo de "Contactar con la Base de datos" para enviar o recibir datos.
+   
+   El Controlador es el que va a controlar todo el "flujo" de la información, eso incluye los Métodos que van a hacer            peticiones a el Modelo, y a través del Modelo a la Base de datos o van a enviar información al Modelo para que 
+   se incluya en la base de datos.
+   
+   Cuando el CONTROLLER recibe información de la Base de datos, el Controller se lo pasa a la Vista que es el encargado
+   de mostrarselo al usuario.
+
+
+ * Los Controllers por tanto, son los que nos permiten agrupar mediante Métodos todo lo que tiene que ver con la Lógica de       funcionamiento de la aplicación, es lo que se conoce muchas veces como la "Lógica del Negocio", pero hace referencia a        eso.
+   
+   Si los tenemos todos agrupados una de las ventajas es que nos permite aplicar configuraciones a todos los Métodos que se      encuentran dentro de un Controller, con lo cual hace mucho mas sencillo el poder llevar a cabo configuraciones o              modificaciones sin tener que ir Método por Método.. Es una de las ventajas de usar los Controllers. 
+
+
+ * Un controller es una clase PHP con Métodos que podemos enrutar, los Controllers son usados cuando necesitamos separar y       organizar nuestra Lógica de enrutamiento, Así en lugar de tener una gran aplicación con cientos de rutas, tenemos una         aplicación con 30 o 40 Controllers.
+
+
+ * ¿Qué son los Controladores? 
+   
+   Un Controlador es el encargado de responder a las peticiones del usuario. Y este es capaz de invocar al MODELO cuando se      hace alguna petición sobre información ya sea EDITAR o REGISTRAR un elemento en nuestra BASE DE DATOS. Tambien puede          invocar a la vista que tenga asociado.
+   
+   Básicamente un Controlador es el intermediario entre el "Modelo" y la "Vista".
+
+
+
+ * Ventajas de usar Controllers
+ --------------------------------
+  * No se cargan en Memoria hasta que se accede a las rutas lo que ayuda a reducir el consumo de memoria de nuestra               aplicación.
+  * Facilita encontrar las rutas.
+  * Facilitan cambios y mantenimiento
+  * Posibilidad de usar filtros
+
+
+ * Controladores RESTful.
+ -------------------------
+
+ Los Controladores RESTful, son los que nos habilitan para enrutar a las distintas "acciones" que puede tener un Controller    basandonos en el Método de la Peticion.
+ 
+ Enruta a las distintas peticiones que se le hace a un controlador.
+
+ Cuando una acción este fijada con GET, solo responde a las peticiones de tipo GET, lo mismo pasa con las peticiones de tipo   POST, de tipo PUT, y de tipo DELETE.
+
+ ¿Qué podemos hacer si un Controlador tiene muchos Métodos?
+  Para esto se usan los "Controladores RestFull", que Genera "MULTIPLES" rutas.
+
+
+ * Los CONTROLADORES se GUARDAN en la siguiente carpeta: laravel/app/Http/Controllers
+   
+   
+* Para crear un Controller(RESTfull) desde la consola(cmd).
+   
+   Primero: Detener el servidor 
+     Ctrl + C
+   
+   Segundo: Crear el Controlador
+   php artisan make:controller PhotoController --resource
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Blade Templates.
+
+ * El Motor de Plantillas Blade.
+   ------------------------------
+
+ * Blade es el motor de Plantillas oficial de Laravel que nos permite construir Layouts para nuestras aplicaciones.
+
+ * Los archivos view de "Blade" tienen una extension .blade.php
+
+ * Las plantilas Blade suelen situarse dentro del directorio laravel/resources/views y una de sus grandes ventajas es que       podemos usar PHP plano dentro de las plantillas Blade.
+
+ * Todas las expresiones "Blade" empiezan con @(arroba), Ejemplo: @extends('master'), @section('titel', 'About'), @endsection
+
+ * Ademas Blade tambien soporta todos los Loops y condicionales PHP. 
+   Ejemplo: @if($product == 1){
+		!!$product->name!!
+	    }
+
+ * Un Motor de Plantillas que nos va a ayudar reducir las líneas que nosotros debamos generar de HTML, se basa en SECCIONES
+   y HERENCIA.
+
+ * Blade es el Motor de Plantillas simple pero potente, proporcionado con Laravel. A diferencia de otros Motores de              Plantillas PHP populares, Blade no restringe el uso de código PHP normal en sus vistas. De hecho, todas las vistas de         Blade se compilan en código PHP simple y guardados hasta que sean modificadas, es decir, Blade añade esencialmente cero       por encima de su aplicación. Los archivos de vista Blade utilizan la extensión de 
+   Nombre_Archivo.blade.php y normalmente se almacenan en el directorio laravel/Resources/views.
+
+ * Definición de un Layout
+    Dos de las principales ventajas del uso de Blade son Herencia de Plantillas y Secciones.
+
+    Un archivo que contiene el típico marcado HTML. Sin embargo, tomar nota de las directivas @section y @yield. 
+    La directiva @section, como su nombre lo indíca, define una sección de Contenidos, mientras que la directiva     
+    @yield se utiliza para mostrar el Contenido de una Sección determinada.
+
+  * Extensión del Layout
+    Al definir una vista hijo, utilice la directiva de Blade @extends para especificar qué presentación de la vista 
+    del Hijo debe "heredar". Las Vistas se extienden a un diseño de la pagina pueden inyectar contenido en secciones 
+    del diseño utilizando directivas @section. 
+  
+  #IMPORTANTE: Recuerde, el contenido de estas secciones se mostrarán en el diseño utilizando @yield
+
+
+
+ * Una típica aplicación web tiene un Diseño "Master", este Layout suele incluir: header, footer, sidebar, navbar, etc., al      usar este "Master Layout" nos permite colocar fácilmente un elemento en cada View, por ejemplo podemos usar el mismo          header y footer para todas las Páginas, lo que hace que nuestro código se vea mas limpio y nos ahorra un monton de tiempo.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- HTTP Requests(Form Request Validation)
+
+ 
+ * La Clase Request, Validar con HTTP Requests.
+
+ 
+ * Un tema clave en las aplicaciones web es el de las "Validaciones" en versiones anteriores a Laravel 5, los 
+   desarrolladores solían colocar la validación en cualquier sitio, lo que no es una buena práctica, pero Laravel 5 tiene 
+   una nueva Carácteristica llamada "Requests" Tambien conocida como "HTTP Requests" o "FormRequests", cuando los usuarios       envían una Petición, envian un dato de un Form por ejemplo, Podemos usar esta nueva clase Requests para definir algunas       Reglas y Validar la petición, si el validador la da por buena, entonces todo se ejecuta como se espera, de No ser así el      usuario sera redireccionado automáticamente al lugar en el que se encontraba.
+
+   Como Podemos ver es realmente conveniente para nosotros validar nuestros formularios de aplicación, así que vamos a usar      "Requests" para Validar el formulario de crear, editar, etc.
+
+
+ * Para crear una nueva Requests desde la consola(cmd).
+   
+   Primero: Detener el servidor 
+     Ctrl + C
+   
+   Segundo: Crear la nueva Requests
+   php artisan make:request TicketFormRequest
+
+
+ * Las Requests se GUARDAN en la siguiente carpeta: laravel/app/Http/Request
+
+ 
+ * Básicamente lo que tenemos que hacer es ingresar las "reglas" con las cuales queremos que sean válidadas cada campo.
+
+ 
+ 
+ * Aplicar Validación.
+   -------------------
+
+ * Laravel nos exige que le indiquemos la clase Illuminate en nuestro "Constructor Controller" para obtener una instacia de      la Request HTTP, así que vamos a tener que añadirla.
+
+   En el Controlador en el que vamos a usar los Validadores, tenemos que "importar" el Requests que acabamos de crear,           Tambien en los Métodos donde se realizan validaciones tenemos que hacer referencia al Requests. 
+
+
+ * En las "Views", por razones de Seguridad, Laravel exige que sea enviado un "Token", cuando usemos el Método POST, sino se     envia ningún Token lanza un error.
+   Para solucionarlo vamos a tener que añadir un campo "Token" oculto(hidden).
+
+ * Básicamente si el "Validador" falla, Laravel almacena datos de los errores que se producen en la session y podemos            posteriormente, facilmente acceder a los errores a traves del Objeto "$errors".
+
+
+
+ * Los dos Métodos HTTP más usados por un cliente para Comunicar con un Servidor son los Métodos GET y POST. 
+
+ #IMPORTANTE: Es una buena norma utilizar peticiones GET solo para recuperar datos, NO debemos utilizarlo para enviar datos                 al Servidor y siempre deben utilizarse Métodos POST para manejar los envios desde el Formulario porque cuando                 usamos Peticiones POST esas Peticiones nunca se incluyen dentro del caché y los Parámetros no son guardados 
+              en el historial del navegador del usuario, por lo tanto POST es más seguro que GET.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+- HTTP Routing
+
+
+ * Lo Primero que pasa cuando el usuario hace una Petición, es que se ejecuta el archivo public/index.php.
+   
+   Es el archivo principal para el boot(arranque) de la aplicación y también es su UNICO punto de entrada. 
+
+ 
+   El archivo: public/index.php
+  ------------------------------
+
+ * require __DIR__.'/../bootstrap/autoload.php'
+   Este es el archivo que carga todas las Dependencias del Framework Laravel de modo que esten preparadas para ser usadas       cuando sea necesario.
+
+ * $app = require_once __DIR__.'/../bootstrap/app.php' 
+   Es el responsable de preparar la aplicación actual y algunos de los Bindings esenciales.
+
+
+ * $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class)  -> Aquí crea un nuevo Kernel
+ 
+   
+$response = $kernel->handle(
+$request = Illuminate\Http\Request::capture())  -> Kernel que se va a utilizar para manejar                                                                                      las peticiones entrantes en nuestra                                                                                            aplicacion, y se espera que devuelva
+                                                                                   una respuesta.
+ 
+
+  $response->send()
+
+  -> Respuesta que es enviado
+ 
+  $kernel->terminate($request, $response)  -> El kernel cierra el ciclo de la peticion.
+
+  Resumiendo, una Petición entrante es enviada a través del kernel que por su parte devuelve una Respuesta. 
+  Respuesta que es enviada al Navegador y mostrada al Usuario.
+
+ 
+ * Directorio de RUTAS.
+ 
+   Laravel/routes/
+
+   Para definir las Rutas entrar en: laravel/routes/web.php o laravel/app/Http/routes.php
+
+
+ * Cuando Laravel recibe una Petición, comprueba un par de cosas.
+   
+   Lo Primero que comprueba es el Método de la Petición, que pueden ser cualquiera de los que se denominan "verbos" HTTP,        pueden ser GET, POST, DELETE, PATH, etc.
+   
+   Además del verbo, tambien comprueba la URI. de las Peticiones, se trata de la dirección que llega despues del nombre de       dominio, ejemplo: www.laravel/usuario
+
+   Resumiendo, 
+   Primero comprueba el Método = Verbo HTTP.
+   En segundo lugar comprueba la URI.
+
+ 
+ * Multiples "Verbos" pueden tambien compartir la misma URI. 
+   Ejemplo: Podemos tener una ruta GET que responde a la URI: /usuarios y una ruta POST que tambien responde a la URI:           /usuarios, pero que en lugar de responder a todos los usuarios puede utilizarse para crear un nuevo usuario.
+
+
+ * Cuando nosotros trabajamos con recursos de sitios web, es necesario especificar una "ruta" de acceso a ese Recurso,           podemos utilizar una Ruta para hacer Referencia a un archivo, A UNA PAGINA, o a la dirección URL de una PAGINA de 
+   otro sitio.
+   
+   Básicamente una Ruta es una Petición de parte del usuario(ver arquitectura MVC en Laravel img_01.png)
+  
+ * Arquitectura MVC en laravel (img_01.png)
+  ------------------------------------------
+ 
+   -> El Usuario hace Peticiones 
+   -> Las cuales son Enrutadas 
+   -> La Ruta le Notifica al Controlador esa Petición 
+   -> El Controlador Procesa la Petición 
+   -> Y decide, si ir al Modelo(donde el modelo va a consultar la Base de datos) y le va a 
+      Retornar esa información al Controlador 
+   -> Donde el Controlador podrá Enviarselo a la Vista 
+   -> Y la Vista se encargara de mostrar esa información al Usuario.
+
+ ##TIPS: Cuando envolvemos una palabra entre Llaves, es lo que se conoce como un "Parámetro wrap" o un Parámetro Envuelto,          Ejemplo: 'usuarios/{nombre}'
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+  
+ - Uso de un Helper
+
+ * Sirven para Enlazar views, manejar Rutas, Modificar Strings, Configurar la aplicación, etc.,
+
+ * El helper "action" nos va a permitir enlazar Views.
+-----------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

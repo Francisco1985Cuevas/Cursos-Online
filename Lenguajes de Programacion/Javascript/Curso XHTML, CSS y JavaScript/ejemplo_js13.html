@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Variables Locales y Globales</title>
+		<script language="javascript" type="text/javascript">
+			var nombre1 = "Pedro";
+			var nombre2 = "Eduardo";
+			
+			function Saludo(quien){
+				alert("Buenos Dias, "+quien);
+				nombre2 = "Rosa";
+			}
+		</script>
+	</head>
+	<body>
+		<!--Variable Local siempre debe llevar primero la palabra clave var-->
+		<!--Variable Global no se debe de poner la palabra clave var-->
+		<h1>Funcion de Ejemplo: ¿Que Ocurre?</h1>
+		<p>Veamos el resultado de la funcion Saludo dos veces.</p>
+		<script language="javascript" type="text/javascript">
+			Saludo(nombre1);
+			Saludo(nombre2);
+		</script>
+	</body>
+</html>

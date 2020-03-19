@@ -1,0 +1,70 @@
+-- ELIMINAR PREVIAMENTE UNA TABLA:
+drop table if exists usuarios;
+
+
+-- VER LA ESTRUCTURA DE UNA TABLA:
+
+SELECT table_name, 
+	column_name, 
+	udt_name, 
+	character_maximum_length 
+FROM information_schema.columns 
+WHERE table_name = 'usuarios';
+
+
+-- TIPO DE DATO FECHA Y HORA-- 
+
+PostgreSQL requiere que se ingrese la fecha con el formato aaaa/mm/dd:
+insert into empleados values('Ana Gomez','22222222','2008/12/31');
+
+PostgreSQL permite configurar el formato de ingreso de la fecha seteando la variable de entorno llamada DATESTYLE:
+SET DATESTYLE TO 'European';
+
+
+
+-- RESTRICCIONES(FOREIGN KEY)
+La siguiente es la sintaxis parcial general para agregar una restricción "foreign key":
+
+alter table NOMBRETABLA1
+add constraint NOMBRERESTRICCION
+foreign key (CAMPOCLAVEFORANEA)
+references NOMBRETABLA2 (CAMPOCLAVEPRIMARIA);
+
+
+-- RESTRICCION CHECK --
+Por convención, cuando demos el nombre a las restricciones "check" seguiremos la misma estructura: comenzamos con "CK", seguido del nombre de la tabla, del campo y alguna palabra con la cual podamos identificar fácilmente de qué se trata la restricción, por si tenemos varias restricciones "check" para el mismo campo.
+CK_libros_precios_positivo
+
+
+
+
+-- VISTAS --
+Los nombres para vistas deben seguir las mismas reglas que cualquier identificador. Para distinguir una tabla de una vista podemos fijar una convención para darle nombres, por ejemplo, colocar el sufijo “vista” y luego el nombre de las tablas consultadas en ellas.
+create view vista_empleados
+
+
+
+-- RESTRICCION PRIMARY KEY --
+Por convención, cuando demos el nombre a las restricciones "primary key" seguiremos el formato "PK_NOMBRETABLA_NOMBRECAMPO".
+
+
+
+-- RESTRICCION UNIQUE --
+Por convención, cuando demos el nombre a las restricciones "unique" seguiremos la misma estructura: "UQ_NOMBRETABLA_NOMBRECAMPO". Quizá parezca innecesario colocar el nombre de la tabla, pero cuando empleemos varias tablas verá que es útil identificar las restricciones por tipo, tabla y campo.
+UQ_alumnos_documento
+
+
+
+-- INDICES --
+Debemos definir un nombre para el índice (en este caso utilizamos como nomenclatura el carater I, luego el nombre de la tabla y finalmente el o los nombres del campo por el cual creamos el índice. Luego de la palabra clave on indicamos el nombre de la tabla y entre paréntesis el nombre del campo o los campos por el cual se indexa.
+create index I_libros_editorial on libros(editorial);
+
+
+
+
+pgadmin query tool autocomplete
+Control + Barra Espaciadora = autocompletado
+
+
+
+pgadmin query tool atajos

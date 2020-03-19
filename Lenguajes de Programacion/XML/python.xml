@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<test>
+	<problem type="mc">
+		<question>¿Cual es tu nombre?</question>
+		<answerA>Roger el valeroso</answerA>
+		<answerB>Galahad el puro</answerB>
+		<answerC>Arturo, Rey de los Britanos</answerC>
+		<answerD>Sir Robin el Bravo</answerD>
+		<correct>C</correct>
+	</problem>
+	<problem type="mc">
+		<question>¿Cual es tu desafio?</question>
+		<answerA>Encontrar el santo grial</answerA>
+		<answerB>Estoy buscando un ave magica</answerB>
+		<answerC>Tengo que atravesar los Fiordos</answerC>
+		<answerD>¡Yo quiero ser un marinero!</answerD>
+		<correct>A</correct>
+	</problem>
+	<problem type="mc">
+		<question>¿Cual es tu color favorito?</question>
+		<answerA>Rojo</answerA>
+		<answerB>Verde</answerB>
+		<answerC>Naranja</answerC>
+		<answerD>!Amarillo. No, Azul!</answerD>
+		<correct>D</correct>
+	</problem>
+	<problem type="mc">
+		<question>¿Cuales son tus ordenes?</question>
+		<answerA>No puedo dejar la habitacion hasta que llegues y hable contigo</answerA>
+		<answerB>Tengo que ir contigo</answerB>
+		<answerC>No dejarte entrar en la habitacion</answerC>
+		<answerD>Mantenerme aquí de guardia simplemente</answerD>
+		<correct>A</correct>
+	</problem>
+</test>

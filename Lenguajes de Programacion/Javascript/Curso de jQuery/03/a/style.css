@@ -1,0 +1,12 @@
+	/*Documento CSS*/
+	@charset "utf-8";
+	
+	.odd{
+		background-color: #ffc;
+	}
+ 
+	.even{
+		background-color: #cef;
+	}
+
+

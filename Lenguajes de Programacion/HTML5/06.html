@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Trabajar con el historial</title>
+		<script type="text/javascript">
+			function back(){
+				window.history.back();
+			}
+			
+			function forward(){
+				window.history.forward();
+			}
+			
+			function go(){
+				var amount = document.getElementById("amount").value;
+				window.history.go(amount);
+			}
+			
+			function loader(){
+				var length = window.history.length;
+				document.getElementById("length").innerHTML = "<h1>"+"tama&ntilde;o historial:"+length+"</h1>";
+			}
+			
+			function pushdata(){
+				var statedata = document.getElementById("statedata").value;
+				var containerObject = {container: statedata};
+				history.pushState(containerObject, "item", "historial.html");
+			}
+			
+			window.addEventListener("popstate", popData, false);
+		</script>
+	</head>
+	<body onload="loader()">
+		<h1>Trabajar con el historial</h1>
+		
+		<input type="button" value="Atr&aacute;s" onclick="back();"/>
+		<input type="button" value="Adelante" onclick="forward();"/>
+		
+		<br>
+		p&aacute;ginas a moverse:
+		<input id="amount" type="text" />
+		<input type="button" value="IR" onclick="go();" />
+		<br />
+		<br />
+		<br />
+		<br />
+		
+		Texto para enviar: <input id="statedata" type="text" />
+		<input type="button" value="Enviar datos" onclick="pushdata();">
+		<br />
+		<div id="length"></div>
+		<br />
+		<div id="state"></div>
+		<br />
+	</body>
+</html>

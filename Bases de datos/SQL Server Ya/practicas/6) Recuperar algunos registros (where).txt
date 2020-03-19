@@ -1,0 +1,110 @@
+-- 6) - Recuperar algunos registros (where)
+-------------------------------------------
+
+use Curso_SqlServer;
+
+-- Ver las tablas existentes en la base de datos Curso_SqlServer
+sp_tables @table_owner='dbo';
+
+-- Trabajamos con la tabla "usuarios" que consta de 2 campos: nombre de usuario y clave.
+-- Eliminamos la tabla, si existe
+if object_id('usuarios') is not null
+	drop table usuarios;
+
+-- Creamos la tabla
+create table usuarios(nombre varchar(30), clave varchar(10));
+
+-- Vemos la estructura de la tabla
+sp_columns usuarios;
+
+
+-- Ingresamos algunos registros:
+insert into usuarios(nombre, clave) values('Marcelo', 'Boca');
+insert into usuarios(nombre, clave) values('JuanPerez', 'Juancito');
+insert into usuarios(nombre, clave) values('Susana', 'River');
+insert into usuarios(nombre, clave) values('Luis','River');
+
+-- Realizamos una consulta especificando una condición, queremos ver el usuario cuyo nombre es "Leonardo"
+select * from usuarios where nombre = 'Leonardo';
+
+-- Queremos ver el nombre de los usuarios cuya clave es "River"
+select * from usuarios where clave = 'River';
+
+-- Realizamos un "select" de los nombres de los usuarios cuya clave es "Santi"
+select * from usuarios where clave = 'Santi';
+-- ************************************************* --
+
+
+
+
+-- Trabaje con la tabla "agenda" en la que registra los datos de sus amigos.
+-- 1- Elimine "agenda", si existe
+-- 2- Cree la tabla, con los siguientes campos: apellido (cadena de 30), nombre (cadena de 20), domicilio (cadena de 30) y telefono (cadena de 11).
+if object_id('agenda') is not null
+	drop table agenda;
+
+create table agenda(apellido varchar(30), nombre varchar(20), domicilio varchar(30), telefono varchar(11) );
+
+-- 3- Visualice la estructura de la tabla "agenda"
+sp_columns agenda;
+
+-- 4- Ingrese los siguientes registros
+/*
+Acosta, Ana, Colon 123, 4234567;
+Bustamante, Betina, Avellaneda 135, 4458787;
+Lopez, Hector, Salta 545, 4887788; 
+Lopez, Luis, Urquiza 333, 4545454;
+Lopez, Marisa, Urquiza 333, 4545454.
+*/
+insert into agenda(apellido, nombre, domicilio, telefono) values('Acosta', 'Ana', 'Colon 123', '4234567');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Bustamante', 'Betina', 'Avellaneda 135', '4458787');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Lopez', 'Hector', 'Salta 545', '4887788');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Lopez', 'Luis', 'Urquiza 333', '4545454');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Lopez', 'Marisa', 'Urquiza 333', '4545454');
+
+-- 5- Seleccione todos los registros de la tabla
+select * from agenda;
+
+-- 6- Seleccione el registro cuyo nombre sea "Marisa" (1 registro)
+select * from agenda where nombre = 'Marisa';
+
+-- 7- Seleccione los nombres y domicilios de quienes tengan apellido igual a "Lopez" (3 registros)
+select nombre, domicilio from agenda where apellido like '%lopez%';
+
+-- 8- Muestre el nombre de quienes tengan el teléfono "4545454" (2 registros)
+select nombre from agenda where telefono = '4545454';
+-- ************************************************* --
+
+
+
+
+
+
+-- Trabaje con la tabla "libros" de una librería que guarda información referente a sus libros disponibles para la venta.
+
+-- 1- Elimine la tabla si existe.
+-- 2- Cree la tabla "libros". Debe tener la siguiente estructura
+-- 3- Visualice la estructura de la tabla "libros".
+sp_columns libros;
+select * from libros;
+
+-- 4- Ingrese los siguientes registros
+/*
+Martin Fierro,Jose Hernandez,Emece;
+Martin Fierro,Jose Hernandez,Planeta;
+Aprenda PHP,Mario Molina,Siglo XXI;
+*/
+insert into libros(titulo, autor, editorial) values('Martin Fierro', 'Jose Hernandez', 'Emece');
+insert into libros(titulo, autor, editorial) values('Martin Fierro', 'Jose Hernandez', 'Planeta');
+insert into libros(titulo, autor, editorial) values('Aprenda PHP', 'Mario Molina', 'Siglo XXI');
+
+
+-- 5- Seleccione los registros cuyo autor sea "Borges" (1 registro)
+select * from libros where autor = 'Borges';
+
+-- 6- Seleccione los títulos de los libros cuya editorial sea "Emece" (2 registros)
+select titulo from libros where editorial = 'Emece';
+
+-- 7- Seleccione los nombres de las editoriales de los libros cuyo titulo sea "Martin Fierro" (2 registros)
+select editorial from libros where titulo = 'Martin Fierro';
+-- ************************************************* --

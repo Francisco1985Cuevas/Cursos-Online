@@ -1,0 +1,67 @@
+create table usuarios(nombre varchar(30),
+					  clave varchar(10)
+);
+
+SELECT 	table_name,
+		column_name,
+		udt_name,
+		character_maximum_length 
+FROM information_schema.columns 
+WHERE table_name = 'usuarios';
+
+drop table usuarios;
+
+drop table if exists usuarios;
+
+
+-- Borramos la tabla usuarios si ya existe
+drop table if exists usuarios;
+
+-- Creamos la tabla usuarios
+create table usuarios(nombre varchar(30),
+   clave varchar(10)
+);
+
+-- Mostramos la estructura de la tabla que acabamos de crear
+select table_name,
+		column_name,
+		udt_name,
+		character_maximum_length 
+from information_schema.columns 
+where table_name = 'usuarios';
+-------------------------------------------------------------
+
+-- Primer problema: Necesita almacenar los datos de sus amigos en una tabla. 
+-- Los datos que guardará serán: apellido, nombre, domicilio y teléfono.
+
+-- 1- Intente crear una tabla llamada "/agenda":
+create table /agenda(apellido varchar(30), 
+					nombre varchar(20), 
+					domicilio varchar(30), 
+					telefono varchar(11)
+				   );
+-- aparece un mensaje de error porque usamos un caracter inválido ("/") para el nombre.
+
+-- 2- Cree una tabla llamada "agenda", debe tener los siguientes campos: apellido, varchar(30); nombre,
+-- varchar(20); domicilio, varchar (30) y telefono, varchar(11).
+create table agenda(apellido varchar(30), 
+					nombre varchar(20), 
+					domicilio varchar(30), 
+					telefono varchar(11)
+				   );
+-- 3- Intente crearla nuevamente. Aparece mensaje de error.
+create table agenda(apellido varchar(30), 
+					nombre varchar(20), 
+					domicilio varchar(30), 
+					telefono varchar(11)
+				   );
+-- 4- Visualice la estructura de la tabla "agenda".
+select table_name, column_name, udt_name, character_maximum_length 
+from information_schema.columns 
+where table_name = 'agenda';
+
+-- 5- Elimine la tabla.
+drop table agenda;
+
+-- 6- Intente eliminar nuevamente la tabla. Debe aparecer un mensaje de error.
+drop table agenda;

@@ -1,0 +1,147 @@
+-- 53) Eliminar restricciones (alter table - drop)
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla, si existe
+
+if object_id('libros') is not null
+drop table libros;
+
+
+-- La creamos estableciendo el campo código como clave primaria
+create table libros(codigo int not null,
+titulo varchar(40),
+autor varchar(30),
+editorial varchar(15),
+precio decimal(6, 2)
+);
+
+
+-- Definimos una restricción "primary key" para nuestra tabla "libros" para asegurarnos que cada libro tendrá un código diferente y único
+alter table libros
+add constraint PK_libros_codigo
+primary key(codigo);
+
+
+
+-- Definimos una restricción "check" para asegurarnos que el precio no será negativo
+alter table libros
+add constraint CK_libros_precio
+check(precio >= 0);
+
+
+
+-- Definimos una restricción "default" para el campo "autor" para que almacene "Desconocido"
+alter table libros
+add constraint DF_libros_autor
+default 'Desconocido'
+for autor;
+
+
+
+-- Definimos una restricción "default" para el campo "precio" para que almacene 0
+alter table libros
+add constraint DF_libros_precio
+default 0
+for precio;
+
+
+-- Vemos las restricciones
+sp_helpconstraint libros;
+-- Aparecen 4 restricciones, 1 "check", 2 "default" y 1 "primary key".
+
+-- Eliminamos la restricción "DF_libros_autor"
+alter table libros
+drop DF_libros_autor;
+
+
+-- Eliminamos la restricción "PK_libros_codigo"
+alter table libros
+drop PK_libros_codigo;
+
+
+-- Vemos si se eliminaron
+sp_helpconstraint libros;
+-- Aparecen 2 restricciones.
+------------------------------------------------------------------------------------
+
+
+-- Primer problema: Una playa de estacionamiento almacena cada día los datos de los vehículos que ingresan en la tabla llamada "vehiculos".
+-- Elimine la tabla, si existe
+if object_id('vehiculos') is not null
+drop table vehiculos;
+
+
+-- Cree la tabla
+create table vehiculos(patente char(6) not null,
+tipo char(1),--'a'=auto, 'm'=moto
+horallegada datetime not null,
+horasalida datetime
+);
+
+
+-- Establezca una restricción "check" que admita solamente los valores "a" y "m" para el campo "tipo"
+alter table vehiculos
+add constraint CK_vehiculos_tipo
+check(tipo in('a', 'm'));
+
+
+-- Establezca una restricción "default" para el campo "tipo" que almacene el valor "a" en caso de no 
+-- ingresarse valor para dicho campo
+alter table vehiculos
+add constraint DF_vehiculos_tipo
+default 'a'
+for tipo;
+
+
+
+-- Establezca una restricción "check" para el campo "patente" para que acepte 3 letras seguidas de 3 dígitos
+alter table vehiculos
+add constraint CK_vehiculos_patente
+check(patente like '[A-Z][A-Z][A-Z][0-9][0-9][0-9]');
+
+
+-- Agregue una restricción "primary key" que incluya los campos "patente" y "horallegada"
+alter table vehiculos
+add constraint PK_vehiculos_patentehorallegada
+primary key(patente, horallegada);
+
+
+-- Ingrese un vehículo
+insert into vehiculos values('SDR456','a','2005/10/10 10:10',null);
+
+
+-- Intente ingresar un registro repitiendo la clave primaria
+insert into vehiculos values('SDR456','m','2005/10/10 10:10',null);
+-- No se permite.
+
+
+-- Ingrese un registro repitiendo la patente pero no la hora de llegada
+insert into vehiculos values('SDR456','m','2005/10/10 12:10',null);
+
+
+-- Ingrese un registro repitiendo la hora de llegada pero no la patente
+insert into vehiculos values('SDR111','m','2005/10/10 10:10',null);
+
+
+-- Vea todas las restricciones para la tabla "vehiculos"
+sp_helpconstraint vehiculos;
+-- aparecen 4 filas, 2 correspondientes a restricciones "check", 1 a "default" y 1 a "primary key".
+
+
+-- Elimine la restricción "default" del campo "tipo".
+alter table vehiculos
+drop DF_vehiculos_tipo;
+
+
+-- Vea si se ha eliminado
+sp_helpconstraint vehiculos;
+
+
+-- Elimine la restricción "primary key" y "check".
+alter table vehiculos
+drop PK_vehiculos_patentehorallegada, CK_vehiculos_tipo;
+
+
+
+-- Vea si se han eliminado
+sp_helpconstraint vehiculos;

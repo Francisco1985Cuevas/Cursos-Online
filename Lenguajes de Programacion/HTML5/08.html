@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Almacenamiento en Sesi&oacute;n</title>
+		<script type="text/javascript">
+			function almacenarEnSesion(){
+				//Ejemplo de uso de setItem()
+				var texto = document.getElementById("Datos").value;
+				sessionStorage.setItem("Datos", texto);
+			}
+			
+			function obtenerSesion(){
+				//Ejemplo de uso de getItem()
+				document.getElementById("Datos").value = sessionStorage.getItem("Datos");
+			}
+			
+			function borrarSesion(){
+				//Ejemplo de uso de removeItem()
+				sessionStorage.removeItem("Datos");
+				document.getElementById("Datos").value = "";
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Almacenamiento en Sesi&oacute;n</h1>
+		Datos<input id="Datos" type="text" />
+		<input type="button" value="Guardar" onclick="almacenarEnSesion();"/>
+		<input type="button" value="Obtener" onclick="obtenerSesion();"/>
+		<input type="button" value="Borrar" onclick="borrarSesion();"/>
+	</body>
+</html>

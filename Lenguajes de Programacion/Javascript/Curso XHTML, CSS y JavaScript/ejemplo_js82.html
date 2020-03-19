@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="type/html; charset=iso-8859-1"  />
+		<title>Eventos de Tecla</title>
+		<style type="text/css">
+			background-color:white;
+			font-family:arial;	
+		</style>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:49 Eventos-->
+		<center><img src="imagenes/pinguim1.png" /></center>
+ 		<center><h2>Eventos</h2></center>
+		<h3>
+			<br />
+			La imagen del ping&uuml;ino cambiar&aacute; cuando escribas en la caja de texto.
+			Lo ver&aacute;s con y sin gafas a medida que vayas pulsando y soltando las teclas.<br />
+		</h3>
+		<h3>
+			<form>
+				Escribe algo en la caja:
+				<input type="text" size="50" onkeyDown="document.pin.src='imagenes/pinguim2.png'"
+						onkeyUp="document.pin.src='imagenes/pinguim3.png'"/>
+				<input type="reset" value="Reset" />
+			</form>
+		</h3>
+		<div align="center">
+			<br />
+			<img src="imagenes/pinguim1.png" name="pin" />
+		</div>
+	</body>
+</html>

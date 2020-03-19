@@ -1,0 +1,56 @@
+-- 13 - Campo entero serial (autoincremento)
+
+drop table if exists libros;
+create table libros(codigo serial,
+					titulo varchar(30),
+					autor varchar(30),
+					editorial varchar(15),
+					primary key (codigo)
+				);
+
+-- Al visualizar la estructura de la tabla:
+select * from information_schema."columns" where table_name = 'libros';
+select * from libros;
+
+-- Ingresamos algunos registros:
+insert into libros (titulo,autor,editorial) values('El aleph','Borges','Planeta');
+ -- Note que al detallar los campos para los cuales ingresaremos valores hemos
+ -- omitido "codigo"; cuando un campo es serial no es necesario ingresar valor
+ -- para él, porque se genera automáticamente.Recuerde que si es obligatorio 
+ -- ingresar los datos de todos los campos que se detallan y en el mismo orden.
+
+ -- Si mostramos los registros:
+ select * from libros;
+ -- vemos que este primer registro ingresado guardó el valor 1 en el campo 
+ -- correspondiente al código, comenzó la secuencia en 1.
+ -------------------------------------------------------------------------------------
+ 
+ 
+ 
+-- Primer problema: Una farmacia guarda información referente a sus medicamentos 
+-- en una tabla llamada "medicamentos".
+
+-- 1- Cree la tabla con la siguiente estructura:
+drop table if exists medicamentos;
+create table medicamentos(codigo serial,
+							nombre varchar(20),
+							laboratorio varchar(20),
+							precio float,
+							cantidad integer,
+							primary key (codigo)
+						);
+
+-- 2- Visualice la estructura de la tabla "medicamentos"
+select * from information_schema."columns" where table_name = 'medicamentos';
+
+-- 3- Ingrese los siguientes registros (insert into):
+insert into medicamentos (nombre, laboratorio,precio,cantidad)
+values('Sertal','Roche',5.2,100);
+insert into medicamentos (nombre, laboratorio,precio,cantidad)
+values('Buscapina','Roche',4.10,200);
+insert into medicamentos (nombre, laboratorio,precio,cantidad)
+values('Amoxidal 500','Bayer',15.60,100);
+
+-- 4- Verifique que el campo "código" generó los valores de modo automático.
+select * from medicamentos;
+

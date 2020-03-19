@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>La palabra clave this</title>
+		<script language="javascript" type="text/javascript">
+			function mostrar_valform(miform)
+			{
+				alert("El valor de la caja de texto es: " + miform.nombrestring.value);
+			}
+			function mostrar_botonval(miboton)
+			{
+				alert("El valor del boton es: " + miboton.value);
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:49 Eventos uso this-->
+		<form name="formulario">
+			<table>
+				<tr>
+					<td>Escribe tu nombre aqui:</td>
+					<td><input type="text" name="nombrestring" size="50" /></td>
+				</tr>
+				<tr>
+					<!--<td><input type="button" value="Imprime texto formulario" onclick="mostrar_valform(this.form);" /></td>-->
+					<td><input type="button" value="Imprime texto formulario" onclick="mostrar_valform(formulario);" /></td>
+					<td><input type="button" value="Imprime texto boton" onclick="mostrar_botonval(this);" /></td>
+					<td><input type="reset" value="Limpiar" /></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

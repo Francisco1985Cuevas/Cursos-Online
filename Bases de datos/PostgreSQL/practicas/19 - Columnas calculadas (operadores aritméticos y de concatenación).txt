@@ -1,0 +1,46 @@
+-- 19 - Columnas calculadas (operadores aritméticos y de concatenación)
+-----------------------------------------------------------------------
+
+-- Primer problema: Un comercio que vende artículos de computación registra los 
+-- datos de sus artículos en una tabla con ese nombre.
+
+-- 1- Cree la tabla:
+drop table if exists articulos;
+create table articulos(codigo serial,
+					   nombre varchar(20),
+					   descripcion varchar(30),
+					   precio decimal(9, 2),
+					   cantidad smallint default 0,
+					   primary key (codigo)
+					);
+
+-- 2- Ingrese algunos registros:
+insert into articulos (nombre, descripcion, precio,cantidad)
+values ('impresora','Epson Stylus C45',400.80,20);
+insert into articulos (nombre, descripcion, precio)
+values ('impresora','Epson Stylus C85',500);
+insert into articulos (nombre, descripcion, precio)
+values ('monitor','Samsung 14',800);
+insert into articulos (nombre, descripcion, precio,cantidad)
+values ('teclado','ingles Biswal',100,50);
+
+select * from articulos;
+
+-- 3- El comercio quiere aumentar los precios de todos sus artículos en un 15%. 
+-- Actualice todos los precios empleando operadores aritméticos.
+update articulos
+set precio = precio+(precio*0.15);
+-- 4- Vea el resultado
+select * from articulos;
+
+-- 5- Muestre todos los artículos, concatenando el nombre y la descripción de 
+-- cada uno de ellos separados por coma.
+select codigo,nombre||', '||descripcion as nombre, precio, cantidad
+from articulos;
+
+-- 6- Reste a la cantidad de todos los teclados, el valor 5, empleando el 
+-- operador aritmético menos ("-")
+select codigo, nombre, descripcion, precio, cantidad-5 as cantidad
+from articulos
+where nombre = 'teclado';
+

@@ -1,0 +1,26 @@
+/*Clase hover...*/
+.hover{
+	/*Cambiar el aspecto del puntero cuando este se situa sobre un objeto dentro de la pagina web...*/
+	cursor: pointer;
+	background: #ffc;
+}
+
+#modificador {
+	position: relative;
+}
+
+.etiqueta {
+	width: 130px;
+}
+
+.boton {
+	width: 140px;
+	padding: 5px;
+	margin: .5em 0;
+	border: 1px solid #e3e3e3;
+	position: relative;
+}
+
+#bravo {
+	position: relative;
+}

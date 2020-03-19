@@ -1,0 +1,238 @@
+-- 13) - Campo con atributo Identity
+-------------------------------------
+
+
+-- Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla "libros", si existe
+if object_id('libros') is not null
+drop table libros;
+
+
+-- Creamos la tabla especificando que el campos "codigo" genere valores secuenciales comenzando en 1 e incrementándose en 1 automáticamente
+create table libros(codigo int identity,
+titulo varchar(40) not null,
+autor varchar(30),
+editorial varchar(15),
+precio float);
+
+-- Ingresamos algunos registros, recordando que si un campo tiene el atributo "identity" debemos omitirlo en la inserción
+insert into libros(titulo, autor, editorial, precio) values('El aleph', 'Borges', 'Emece', 23);
+
+
+-- Veamos cómo se almacenó
+select * from libros;
+-- Este primer registro ingresado guarda el valor 1 en el campo correspondiente al código.
+
+
+-- Continuemos ingresando registros:
+insert into libros(titulo, autor, editorial, precio) values('Uno', 'Richard Bach', 'Planeta', 18);
+insert into libros(titulo, autor, editorial, precio) values('Aprenda PHP', 'Mario Molina', 'Siglo XXI', 45.60);
+insert into libros(titulo, autor, editorial, precio) values('Alicia en el pais de maravillas', 'Lewis Carroll', 'Paidos', 15.50);
+
+-- Veamos cómo se almacenaron
+select * from libros;
+-- el código (dato que no ingresamos) se cargó automáticamente siguiendo la secuencia de autoincremento.
+
+-- Intentemos ingresar un valor para el campo "codigo"
+insert into libros(codigo, titulo, autor, editorial, precio) values(5, 'Martin Fierro', 'Jose Hernandez', 'Paidos', 25);
+-- generará un mensaje de error.
+
+
+-- Un campo "identity" tampoco puede ser actualizado. Intentemos cambiar el valor de código de un registro
+update libros set codigo = 9 where titulo = 'Uno';
+-- aparece un mensaje de error.
+
+-- Vamos a ver la estructura de la tabla ejecutando el siguiente procedimiento almacenado
+sp_columns libros;
+-- Note que en el campo "codigo", en la columna "TYPE_NAME" aparece "int identity" y en la columna IS_NULLABLE" aparece "NO", porque un campo "identity" automáticamente se convierte en "not null". En el campo "titulo", en la columna "IS_NULLABLE" aparece "NO" porque explícitamente indicamos que el campo fuera "not null".
+
+-- Eliminemos el último registro
+delete from libros
+where autor = 'Lewis Carroll';
+
+-- Ingresamos un quinto registro y luego vemos que en el campo código se guardó el valor secuencial sin considerar que el valor "4" ya no existe
+insert into libros (titulo, autor, editorial, precio) values('Martin Fierro', 'Jose Hernandez', 'Paidos', 25); 
+
+select *from libros;
+--************************************************************************************************************--
+
+
+
+
+
+
+
+
+
+
+-- Una farmacia guarda información referente a sus medicamentos en una tabla llamada "medicamentos"
+-- 1- Elimine la tabla, si existe
+if object_id('medicamentos') is not null
+drop table medicamentos;
+
+-- 2- Cree la tabla con un campo "codigo" que genere valores secuenciales automáticamente
+create table medicamentos(codigo int identity, 
+nombre varchar(20) not null, 
+laboratorio varchar(20), 
+precio float, 
+cantidad integer);
+
+-- 3- Visualice la estructura de la tabla "medicamentos"
+sp_columns medicamentos;
+
+
+-- 4- Ingrese los siguientes registros
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Sertal', 'Roche', 5.2, 100);
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Buscapina', 'Roche', 4.10, 200);
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Amoxidal 500', 'Bayer', 15.60, 100);
+
+
+-- 5- Verifique que SQL Server generó valores para el campo "código" de modo automático
+select * from medicamentos;
+
+--6- Intente ingresar un registro con un valor para el campo "codigo"
+insert into medicamentos(codigo, nombre, laboratorio, precio, cantidad) values(4, 'Sertal2', 'Roche2', 5.2, 100);
+
+-- 7- Intente actualizar un valor de código (aparece un mensaje de error)
+update medicamentos set codigo = 8 where codigo = 3;
+
+-- 8- Elimine el registro con codigo "3" (1 registro eliminado)
+delete from medicamentos where codigo = 3;
+
+
+-- 9- Ingrese un nuevo registro
+insert into medicamentos (nombre, laboratorio, precio, cantidad) values('Amoxilina 500', 'Bayer', 15.60, 100);
+
+-- 10- Seleccione todos los registros para ver qué valor guardó SQL Server en el campo código
+select * from medicamentos;
+--************************************************************************************************************--
+
+
+
+
+
+
+
+
+
+
+
+
+-- Un videoclub almacena información sobre sus películas en una tabla llamada "peliculas".
+-- 1- Elimine la tabla si existe
+if object_id('peliculas') is not null
+drop table peliculas;
+
+-- 2- Créela definiendo un campo "codigo" autoincrementable y como clave primaria
+create table peliculas(codigo int identity,
+titulo varchar(40),
+actor varchar(20),
+duracion int,
+primary key(codigo)
+);
+
+-- 3- Ejecute el procedimiento almacenado para visualizar la estructura de la tabla
+sp_columns peliculas;
+
+
+-- 4- Ingrese los siguientes registros
+insert into peliculas(titulo, actor, duracion) values('Mision imposible', 'Tom Cruise', 120);
+insert into peliculas(titulo, actor, duracion) values('Harry Potter y la piedra filosofal', 'Daniel R.', 180);
+insert into peliculas(titulo, actor, duracion) values('Harry Potter y la camara secreta', 'Daniel R.', 190);
+insert into peliculas(titulo, actor, duracion) values('Mision imposible 2', 'Tom Cruise', 120);
+insert into peliculas(titulo, actor, duracion) values('La vida es bella', 'zzz', 220);
+
+-- 5- Seleccione todos los registros y verifique la carga automática de los códigos
+select * from peliculas;
+
+-- 6- Intente actualizar el codigo de una película (aparece un mensaje de error)
+update peliculas set codigo = 4 where codigo = 2;
+
+-- 7- Elimine la película "La vida es bella"
+delete from peliculas where titulo = 'La vida es bella';
+
+-- 8- Ingrese un nuevo registro.
+insert into peliculas(titulo, actor, duracion) values('La vida es bella', 'zzz', 220);
+
+-- 9- Visualice los registros para ver el valor almacenado en codigo (valor 7)
+select * from peliculas;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

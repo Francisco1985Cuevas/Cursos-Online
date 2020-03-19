@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Eventos de carga onload y onunload</title>
+		<script language="javascript" type="text/javascript">
+			var seg=60;
+			function ahora()
+			{
+				//Se crea una instancia de la clase Date.
+				var nuevafecha = new Date();
+				
+				var hora = nuevafecha.getHours();
+				var minutos = nuevafecha.getMinutes();
+				var segundos = nuevafecha.getSeconds();
+				
+				//Formatear minuto y segundo.
+				if(minutos < 10){
+					minutos = "0" + minutos;
+				}
+				if(segundos < 10){
+					segundos = "0" + segundos;
+				}
+			
+				//Crear un reloj.
+				var tiempo = hora+":"+minutos+":"+segundos;
+				
+				//Para saber el nro. de segundos que la página esta cargada.
+				window.setInterval("cronometro()",1000);
+				alert("Tu documento ha terminado de cargar \n"+"La Hora:"+tiempo);
+			}
+			
+			function cronometro()
+			{
+				seg++;
+			}
+			
+			function cuantoTiempo()
+			{
+				alert("Has estado navegando aquí durante "+seg+" segundos");
+			}
+		</script>
+	</head>
+	<body onload="ahora();" onunload="cuantoTiempo();">
+		<!--VideoTutorial Nº:47 Gestor de Eventos-->
+		<font face="arial, helvetica" size="5">
+			Cuando cierres o recargues esta pagina, <br />
+			aparecera una caja de dialogo.
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

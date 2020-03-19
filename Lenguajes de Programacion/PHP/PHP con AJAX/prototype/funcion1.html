@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Ejemplo función $F</title>
+		<script src="prototype.js" Language="JavaScript" type="text/javascript"></script>
+		<script type="text/javascript">
+			function test(){
+				alert(  $F('entrada1')  );
+			}
+		</script>
+	</head>
+	<body>
+		<!--Ejemplo de uso de la funcion $F: Devuelve un campo de entrada(el valor) de un formulario del cual se le indique
+			la id de ese campo de formulario-->
+			
+		<input type="text" id="entrada1" name="campotexto" />
+		<br />
+		<select id="entrada2" name="seleccion">
+			<option value="0">Opción A</option>
+			<option value="1">Opción B</option>
+			<option value="2">Opción C</option>
+		</select>
+		<br />
+		<input type="button" value="Test" onclick="test();" />
+		<br /> 
+	</body>
+</html>

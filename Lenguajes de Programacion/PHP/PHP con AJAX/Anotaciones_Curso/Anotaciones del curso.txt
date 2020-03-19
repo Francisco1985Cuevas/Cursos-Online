@@ -1,0 +1,65 @@
+AJAX: Asynchronous Javascript Y XML
+AJAX no es un lenguaje de programacion definido sino mas bien una combinacion de tecnologias web para
+optimizar una aplicacion web.
+Ajax: Acelerar la velocidad de ejecucion de una aplicacion web haciendo similar a una aplicacion de escritorio
+Tecnologia ajax: Permite acelerar las aplicaciones web.
+php ----- xml puente para pasar datos a  ------ html
+
+
+Protocolo: HTTP: Hiper text transfer protocol
+
+¿Como se usa protoclo http para pedir y recibir informacion?
+cliente http y servidor http
+Protocolo http parecido a una conversacion de preguntas y respuestas, preguntas entre el
+navegador y el servidor. Denominadas HTTP Request(HTTP Preguntas) y HTTP Response(HTTP Respuestas)
+
+El objeto XMLHTTPRequest se encuentra en el corazon de las aplicaciones ajax.y usa el protocolo http para hacer
+peticiones al servidor. y para recibir respuestas.
+xml va a permitir a una aplicacion ajax procesar informacion,
+
+
+El objeto XMLHTTPRequest() es el encargado de establecer una comunicacion entre la pagina web y servidor
+de base de datos. sin necesidad de que ser recargue una pagina nueva. osea hace esta comunicion(pagina-servidor)
+sin la necesidad de enviar por ejemplo los datos de un formulario y esperar una respuesta permitiendo
+seguir en la misma pagina ya sea cargardo datos siguiendo en la misma pagina.
+y creo que crea un motor intermedio entre una pagina web y el servidor de base de datos y ese motor es
+AJAX.
+
+Con ajax necesitamos utilizar xmlhttprequest() para pedir informacion al servidor.
+
+OBJETO: XMLHTTPRequest()
+Este objeto se usa y me sirve como puente para hacer una peticion al servidor de base de datos hace un httprequest()
+sin que sea necesario cargar una nueva pagina... este objeto recarga la informacion devuelta por el servidor
+en la propia pagina que solicita informacion en forma asincronica sin que el usuario se de cuenta...
+tambien informa del progreso que se ha hecho al servidor.
+Si tengo que usar AJAX una aplicacion web... Ver el videotutorial2 estan los pasos GENERALES...
+
+Cualquier tipo de documento puede ser devuelto por el servidor... desde ascii, html,php, etc...
+
+
+
+
+Ajax tiene sentido de uso cuando se tiene una comunicacion con un lenguage del lado del servidor php
+no tiene sentido si la informacion que precisa el usuario esta en la propia pagina.
+
+
+¿Cuando o enque momento se ejecuta una aplicacion ajax?
+Con el gestor de eventos de javascript, osea por ejemplo cuando se pasa el mouse sobre una imagen...onmousehover()
+se ejecuta una peticion ajax al servidor.
+videotutorial numero2: minuto 30 explicacion MUY IMPORTANTE.
+
+VideoTutorial numero3: Objetos en javascript. el objeto XMLHTTPRequest().
+Constructor de un objeto O en mi caso creador de una instancia de un objeto... la palabra clave new.
+
+Para poder utilizar una aplicacion AJAX, para poder crear una instancia del objeto XMLHTTPRequest() hay que utilizar
+diferentes reglas para diferentes navegadores.
+ActiveX es una tecnologia que se usa en paginas web que se usa para habilitar objetos activos en paginas web.
+Para poder crear una instancia se usa el tema del activeX.
+
+Videotutorial numero4: Conversacion con el servidor.
+Crear y recibir mensajes del servidor 
+ONREADYSTATECHANGE COMPRUEBA LOS CAMBIOS QUE VA TENIENDO READYSTATE
+
+Las ventajas de XML con aplicaciones AJAX
+
+

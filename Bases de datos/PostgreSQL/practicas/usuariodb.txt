@@ -1,0 +1,14 @@
+-- Crear usuario --
+create user adm_librarySFA password '@l1br3r¡a%sfa';
+
+
+-- Asignar todos los permisos a un usuario a una base de datos existente
+-- Cuando recien hemos creado un usuario y queremos darle permisos a una base 
+-- de datos existente, podemos utilizar el siguiente comando:
+grant all privileges on database book_repository to adm_librarysfa;
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Formulario de pedido de libros</title>
+	</head>
+	<script language="JavaScript" type="text/JavaScript">
+		function MM_reloadPage(init){  
+			//reloads the window if Nav4 resized
+			if(init==true) with (navigator){
+				if ((appName=="Netscape")&&(parseInt(appVersion)==4)){
+					document.MM_pgW=innerWidth; 
+					document.MM_pgH=innerHeight; 
+					onresize=MM_reloadPage; 
+				}
+			}else if(innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) 
+				location.reload();
+		}
+		
+		MM_reloadPage(true);
+	</script>
+	<body background="imagenes/fondo.png">
+		<!--VideoTutorial Nº:1 Peticion HTTP metodos post y get-->
+		<div id="Layer1" style="position:absolute; width:200px; height:115px; z-index:1; left: 46px; top: 206px;">
+			<form action="ejemplo_ajx1procesadatos.php" method="post">
+			<!--<form action="ejemplo_ajx1procesadatos.php" method="get">-->
+				<table border="0">
+					<tr bgcolor="#cccccc">
+						<td width="150">
+							<font face="Arial, Helvetica, sans-serif">Libro</font>
+						</td>
+						<td width="15">
+							<font face="Arial, Helvetica, sans-serif">Cantidad</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font face="Arial, Helvetica, sans-serif">ActionScript</font>
+						</td>
+						<td align="center">
+							<font face="Arial, Helvetica, sans-serif">
+								<input type="text" name="actionqty" size="3" maxlength="3" />
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font face="Arial, Helvetica, sans-serif">Photoshop</font>
+						</td>
+						<td align="center">
+							<font face="Arial, Helvetica, sans-serif">
+								<input type="text" name="photoqty" size="3" maxlength="3" />
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<font face="Arial, Helvetica, sans-serif">Flash MX </font>
+						</td>
+						<td align="center">
+							<font face="Arial, Helvetica, sans-serif">
+								<input type="text" name="flashqty" size="3" maxlength="3" />
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" value="Enviar Pedido">
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</body>
+</html>

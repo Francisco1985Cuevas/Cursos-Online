@@ -1,0 +1,45 @@
+Curso de wordpress
+
+Videotutorial Nº 1
+
+Estructura de directorios y archivos de WP
+-------------------------------------------
+
+
+ - Wordpress tiene tres directorios por defecto: wp-admin, wp-content, wp-includes.
+
+ - Los archivos del Core(del nucleo) estan todos en los directorios wp-admin y wp-includes, 
+   y la mayoria de los archivos clave en el propio directorio raiz de wordpress.
+
+ - Y el directorio wp-content que es el contiene todos los archivos personalizados por nosotros, incluye
+   los themes, plugins y todo el material multimedia.
+   Este directorio contiene el codigo que controla la manipulacion de contenido
+   y presentacion en wordpress.
+ 
+  El contenido mismo.. todo lo que significa informacion en paginas, en post, noticias,.. esta almacenado
+  en la base de datos MySQL junto con metadatos como la estructura de las categorias o tags.
+  - "Todo el contenido de noticias, estructura, categorias, tags, etc, se encuentran en la base de 
+     datos MySQL"
+
+ - "No modifiques archivos del Core"
+  MODIFICAR CUALQUIERA DE LOS ARCHIVOS DEL CORE DE WORDPRESS PUEDE RESULTAR EN UN SITIO WEB INESTABLE, 
+  QUE NO FUNCIONE.
+  
+  Un cambio muy simple pero que sea erroneo, en el escritorio o en el sistema de login puede hacer 
+  perfectamente que todo nuestro wordpress deje de funcionar.
+
+  Los cambios en el CORE dificulta mucho poder llevar a cabo futuras actualizaciones de wordpress, ya que 
+  al hacer una actualización todos esos cambios que esten en el Core van a ser Sobre-Escritos y se 
+  perderían, así que en general los archivos que se encuentran en el en el directorio raiz, asi como los 
+  directorios wp-admin y wp-include NO deben de ser editados.
+  No hack el Core --> "No hackees nunca el Core de un CMS".
+
+ - Por razones de Seguridad
+   Podemos mover el archivo wp-config.php al directorio padre para impedir el acceso web a ese archivo.
+   y que se pueda tener acceso al usuario y contraseña de la base de datos.
+
+
+
+ - Wordpress: Sistema nacido como creador de "blogs" y se ha convertido en la actulidad como la mas popular
+   Intenta convertirse en Framework para crear aplicaciones Web.
+

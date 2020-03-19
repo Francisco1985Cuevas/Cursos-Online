@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejemplo de Lienzo</title>
+		<script type="text/javascript">
+			function dibujarForma(){
+				//obtenemos el elemento canvas usando el DOM
+				var lienzo = document.getElementById('milienzo');
+				
+				//Nos aseguramos que no se ejecute si canvas no es soportado.
+				if(lienzo.getContext){
+					var ctx = lienzo.getContext('2d');
+					
+					//Dibujar formas
+					ctx.beginPath();
+					ctx.moveTo(75, 25);
+					ctx.quadraticCurveTo(25, 25, 25, 62.5);
+					ctx.quadraticCurveTo(25, 100, 50, 100);
+					ctx.quadraticCurveTo(50, 120, 30, 125);
+					ctx.quadraticCurveTo(60, 120, 65, 100);
+					ctx.quadraticCurveTo(125, 100, 125, 62.5);
+					ctx.quadraticCurveTo(125, 25, 75, 25);
+					ctx.closePath();
+					ctx.stroke();
+					
+					
+					
+				
+				}else{
+					alert('Necesitas un navegador que admita el uso del API Canvas de HTML5');
+				}
+			}
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body onload="dibujarForma();">
+		<h1>Ejemplo de Lienzo</h1>
+		<canvas id="milienzo">
+			
+		</canvas>
+	
+	</body>
+</html>

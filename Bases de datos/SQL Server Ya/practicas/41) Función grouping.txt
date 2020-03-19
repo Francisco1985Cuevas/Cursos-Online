@@ -1,0 +1,97 @@
+-- 41) Función grouping
+------------------------
+
+use Curso_SqlServer;
+
+-- Problema: Un comercio que tiene un stand en una feria registra en una tabla llamada "visitantes" algunos datos de las personas que visitan o compran en su stand 
+-- para luego enviarle publicidad de sus productos.
+-- Eliminamos la tabla si existe
+if object_id('visitantes') is not null
+drop table visitantes;
+
+-- La creamos con la siguiente estructura:
+create table visitantes(nombre varchar(30),
+sexo char(1),
+ciudad varchar(20)
+);
+
+
+-- Ingresamos algunos registros
+insert into visitantes values('Susana Molina', 'f', 'Cordoba');
+insert into visitantes values('Marcela Mercado', 'f','Cordoba');
+insert into visitantes values('Roberto Perez','f',null);
+insert into visitantes values('Alberto Garcia','m','Cordoba');
+insert into visitantes values('Teresa Garcia','f','Alta Gracia');
+
+select * from visitantes;
+
+-- Contamos la cantidad de visitantes agrupando por ciudad y empleando "rollup"
+select ciudad, count(*) as total
+from visitantes
+group by ciudad with rollup;
+
+-- Note que la última fila es la de resumen generada por "rollup", pero no es sencillo distinguirla de la primera fila, en la cual "null" es un valor del campo. 
+-- Para diferenciarla empleamos "grouping"
+select ciudad, count(*) as total, grouping(ciudad) as resumen
+from visitantes
+group by ciudad with rollup;
+
+-- Note que la última fila contiene en la columna generada por "grouping" el valor 1, indicando que es la fila de resumen generada por "rollup"; 
+-- la primera fila, contiene en dicha columna el valor 0, lo cual indica que el valor "null" es un valor del campo "ciudad".
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+-- Primer problema: Una empresa tiene registrados sus empleados en una tabla llamada "empleados".
+-- Elimine la tabla si existe
+if object_id('empleados') is not null
+drop table empleados;
+
+
+-- Créela con la siguiente estructura
+create table empleados(documento varchar(8) not null,
+nombre varchar(30),
+sexo char(1),
+estadocivil char(1), --c=casado, s=soltero,v=viudo
+primary key(documento)
+);
+
+
+-- Ingrese algunos registros
+insert into empleados values ('22222222','Alberto Lopez','m','c');
+insert into empleados values ('23333333','Beatriz Garcia','f','c');
+insert into empleados values ('24444444','Carlos Fuentes','m','s');
+insert into empleados values ('25555555','Daniel Garcia','m','s');
+insert into empleados values ('26666666','Ester Juarez',null,'c');
+insert into empleados values ('27777777','Fabian Torres',null,'s');
+insert into empleados values ('28888888','Gabriela Lopez','f',null);
+insert into empleados values ('29999999','Hector Garcia','m',null);
+
+
+select * from empleados;
+
+
+-- Cuente la cantidad de empleados agrupados por sexo y estado civil, empleando "rollup".
+-- Es dificil distinguir los valores de detalle y resumen.
+select * from empleados order by sexo;
+select sexo, estadocivil, count(*) as total
+from empleados
+group by sexo, estadocivil with rollup;
+
+
+
+-- Realice la misma consulta anterior pero emplee la función "grouping" para los dos campos por los 
+-- que se agrupa para distinguir los valores de resumen y de detalle.
+-- Note que las columnas de resumen contienen 1 y las de detalle 0.
+select sexo, estadocivil, count(*) as total, grouping(sexo) as resumen_sexo, grouping(estadocivil) as resumen_estadocivil
+from empleados
+group by sexo, estadocivil with rollup;
+
+
+
+-- Realice la misma consulta anterior pero con "cube" en lugar de "rollup", distinguiendo los 
+-- valores de resumen y de detalle.
+-- Note que las columnas de resumen contienen 1 y las de detalle 0.
+select sexo, estadocivil, count(*) as total, grouping(sexo) as resumen_sexo, grouping(estadocivil) as resumen_estadocivil
+from empleados
+group by sexo, estadocivil with cube;
+

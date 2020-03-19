@@ -1,0 +1,125 @@
+-- 56 - Restricciones foreign key (acciones).
+----------------------------------------------
+
+-- Problema: Creamos las tablas:
+drop table if exists libros;
+create table libros(codigo serial,
+  					titulo varchar(40),
+  					autor varchar(30),
+  					codigoeditorial smallint,
+  					primary key(codigo)
+				   );
+
+drop table if exists editoriales;
+create table editoriales(codigo serial,
+  						nombre varchar(20),
+  						primary key (codigo)
+						);
+
+-- Ingresamos algunos registros en ambas tablas:
+insert into editoriales(nombre) values('Emece');
+insert into editoriales(nombre) values('Planeta');
+insert into editoriales(nombre) values('Siglo XXI');
+
+insert into libros(titulo,autor,codigoeditorial) values('El aleph','Borges',1);
+insert into libros(titulo,autor,codigoeditorial) values('Martin Fierro','Jose Hernandez',2);
+insert into libros(titulo,autor,codigoeditorial) values('Aprenda PHP','Mario Molina',2);
+
+select * from editoriales;
+select * from libros;
+
+-- Establecemos una restricción "foreign key" para evitar que se ingrese en 
+-- "libros" un código de editorial inexistente en "editoriales" con la 
+-- opción "on cascade" para actualizaciones y eliminaciones:
+alter table libros
+add constraint FK_libros_codigoeditorial
+foreign key (codigoeditorial)
+references editoriales(codigo)
+on update cascade
+on delete cascade;
+
+-- Si actualizamos un valor de código de "editoriales", la modificación se extiende 
+-- a todos los registros de la tabla "libros" que hacen referencia a ella en 
+-- "codigoeditorial":
+update editoriales set codigo = 10 where codigo = 1;
+
+-- Veamos si la actualización se extendió a "libros":
+select titulo, autor, e.codigo,nombre
+from libros as l join editoriales as e on codigoeditorial = e.codigo;
+
+-- Si eliminamos una editorial, se borra tal editorial de "editoriales" y todos 
+-- los registros de "libros" de dicha editorial:
+delete from editoriales where codigo = 2;
+--------------------------------------------------------------------------------------
+
+
+-- Primer problema: Una empresa tiene registrados sus clientes en una tabla 
+-- llamada "clientes", también tiene una tabla "provincias" donde registra 
+-- los nombres de las provincias.
+
+-- 1- Cree las tablas "clientes" y "provincias":
+drop table if exists clientes;
+create table clientes (codigo serial,
+						nombre varchar(30),
+						domicilio varchar(30),
+						ciudad varchar(20),
+						codigoprovincia smallint,
+						primary key(codigo)
+					);
+
+drop table if exists provincias;
+create table provincias(codigo serial,
+						nombre varchar(20),
+						primary key(codigo)
+						);
+
+-- 3- Ingrese algunos registros para ambas tablas:
+insert into provincias values(1,'Cordoba');
+insert into provincias values(2,'Santa Fe');
+insert into provincias values(3,'Misiones');
+insert into provincias values(4,'Rio Negro');
+
+insert into clientes(nombre,domicilio,ciudad,codigoprovincia) 
+values('Perez Juan','San Martin 123','Carlos Paz',1);
+insert into clientes(nombre,domicilio,ciudad,codigoprovincia)
+values('Moreno Marcos','Colon 234','Rosario',2);
+insert into clientes(nombre,domicilio,ciudad,codigoprovincia)
+values('Acosta Ana','Avellaneda 333','Posadas',3);
+  
+select * from provincias;
+select * from clientes;
+
+-- 3- Establezca una restricción "foreign key" especificando la acción 
+-- "en cascade" para actualizaciones y "no_action" para eliminaciones.
+alter table clientes
+add constraint FK_clientes_codigoprovincia
+foreign key (codigoprovincia)
+references provincias(codigo)
+on update cascade
+on delete no action;
+
+-- 4- Intente eliminar el registro con código 3, de "provincias".
+delete from provincias where codigo = 3;
+-- No se puede porque hay registros en "clientes" al cual hace referencia y 
+-- la opción para eliminaciones se estableció como "no action".
+
+-- 5- Modifique el registro con código 3, de "provincias".
+update provincias set codigo = 30 where codigo = 3;
+-- 6- Verifique que el cambio se realizó en cascada, es decir, que se modificó 
+-- en la tabla "provincias" y en "clientes":
+select * from provincias;
+select * from clientes;
+
+-- 7- Intente modificar la restricción "foreign key" para que permita eliminación 
+-- en cascada.
+alter table clientes
+add constraint FK_clientes_codigoprovincia
+foreign key (codigoprovincia)
+references provincias(codigo)
+on update cascade
+on delete cascade;
+-- Mensaje de error, no se pueden modificar las restricciones.
+
+-- 8- Intente eliminar la tabla "provincias".
+drop table provincias;
+-- No se puede eliminar porque una restricción "foreign key" hace referencia a ella.

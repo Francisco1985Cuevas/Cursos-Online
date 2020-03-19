@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mi Aplicacion AJAX</title>
+		<script language="javascript">
+			function Crea_Instancia_XMLHTTPRequest(){
+				try{
+					requerimiento = new XMLHttpRequest();
+				}catch(err1){
+					try{
+						requerimiento = new ActiveXObject("Msxml2.XMLHTTP");
+					}catch(err2){
+						try{
+							requerimiento = new ActiveXObject("Microsoft.XMLHTTP");
+						}catch(err3){
+							requerimiento = false;
+						}
+					}
+				}
+				return requerimiento;
+			}
+			
+			var mipeticion = Crea_Instancia_XMLHTTPRequest();
+			
+			function obtenerTextoServidor(){
+				var miUrl = 'textoservidor2.php';
+				miRand = parseInt(Math.random()*999999999999999);
+				var modurl = miUrl+"?rand="+miRand;
+				mipeticion.open("GET", modurl, true);
+				mipeticion.onreadystatechange = UsarRespuestaAjax;
+				mipeticion.send(null);
+			}
+			
+			function UsarRespuestaAjax(){
+				if(mipeticion.readyState == 4){
+					if(mipeticion.status == 200){
+						var miTexto = mipeticion.responseText;
+						document.getElementById('miElementoPagina').innerHTML = miTexto;
+					}
+				}else{
+					document.getElementById('miElementoPagina').innerHTML = "";
+				}
+			}
+		</script>
+	</head>
+	<body onload="obtenerTextoServidor()">
+	<!--VideoTutorial Nº6 peticion y respuesta de datos con ajax-->
+		<b>El servidor dice:</b><br>
+		<div id="miElementoPagina"></div>
+	</body>
+</html>

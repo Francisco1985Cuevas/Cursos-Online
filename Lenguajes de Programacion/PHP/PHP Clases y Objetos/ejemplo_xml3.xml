@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?> 
+
+<!DOCTYPE receta[
+	<!ELEMENT receta (ingredientes, instrucciones, porciones)>
+	<!ATTLIST receta nombre CDATA #REQUIRED>
+	<!ELEMENT ingredientes (#PCDATA)>
+	<!ELEMENT direcciones (#PCDATA)>
+	<!ELEMENT porciones (#PCDATA)>
+]>
+
+<receta nombre="Salsa Tártara">
+	<ingredientes>Buey</ingredientes>
+	<ingredientes>Salsa</ingredientes>
+	<instrucciones>Añadir la salsa al buey. Servir.</instrucciones>
+	<porciones>12</porciones>
+</receta>

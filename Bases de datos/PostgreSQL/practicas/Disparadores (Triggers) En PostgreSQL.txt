@@ -1,0 +1,154 @@
+-- Disparadores (Triggers) En PostgreSQL --
+-------------------------------------------
+
+-- Esta es la definición del comando SQL que se puede utilizar para definir 
+-- un disparador en una tabla.
+/*
+
+CREATE TRIGGER nombre { BEFORE | AFTER } { INSERT | UPDATE | DELETE [ OR ... ] }
+    ON tabla [ FOR [ EACH ] { ROW | STATEMENT } ]
+    EXECUTE PROCEDURE nombre de funcion ( argumentos )
+
+*/
+
+
+-- Creamos una tabla para poder definir nuestro primer disparador:
+drop table if exists numeros;
+CREATE TABLE numeros(numero bigint NOT NULL,
+						cuadrado bigint,
+						cubo bigint,
+						raiz2 real,
+						raiz3 real,
+						PRIMARY KEY (numero)
+					);
+
+
+-- Después tenemos que crear una función en PL/pgSQL para ser usada por 
+-- nuestro disparador. Nuestra primera función es la más simple que se 
+-- puede definir y lo único que hará será devolver el valor NULL:
+CREATE OR REPLACE FUNCTION proteger_datos() RETURNS TRIGGER AS $proteger_datos$
+	DECLARE
+	BEGIN
+		--
+   		-- Esta funcion es usada para proteger datos en un tabla 
+   		-- No se permitira el borrado de filas si la usamos
+   		-- en un disparador de tipo BEFORE / row-level
+   		--
+		RETURN NULL;
+  	END;
+$proteger_datos$ LANGUAGE plpgsql;
+
+
+-- A continuación definimos en la tabla numeros un disparador del 
+-- tipo BEFORE / row-level para la operación DELETE. Más adelante 
+-- veremos como funciona:
+CREATE TRIGGER proteger_datos BEFORE DELETE 
+	ON numeros FOR EACH ROW 
+    EXECUTE PROCEDURE proteger_datos();
+
+
+-- Ahora vamos a definir una nueva función un poco más complicada y un 
+-- nuevo disparador en nuestra tabla numeros:
+CREATE OR REPLACE FUNCTION rellenar_datos() RETURNS TRIGGER AS $rellenar_datos$
+	DECLARE
+	BEGIN	
+		NEW.cuadrado := power(NEW.numero,2);
+		NEW.cubo := power(NEW.numero,3);
+		NEW.raiz2 := sqrt(NEW.numero);
+		NEW.raiz3 := cbrt(NEW.numero);   
+
+		RETURN NEW;
+	END;
+	
+$rellenar_datos$ LANGUAGE plpgsql;
+
+CREATE TRIGGER rellenar_datos BEFORE INSERT OR UPDATE 
+    ON numeros FOR EACH ROW 
+    EXECUTE PROCEDURE rellenar_datos();
+
+
+SELECT * from numeros;
+INSERT INTO numeros (numero) VALUES (2);
+
+UPDATE numeros SET numero = 4 WHERE numero = 3;
+
+DELETE FROM numeros;
+
+-- Vamos a continuar complicando las cosas. Primero, vamos a desinstalar 
+-- nuestros dos disparadores proteger_datos y rellenar_datos.
+DROP TRIGGER proteger_datos ON numeros;
+
+DROP TRIGGER rellenar_datos ON numeros;
+
+
+/*
+A continuación crearemos un disparador único para las sentencias INSERT, 
+UPDATE y DELETE. Este nuevo disparador utilizará una nueva función en la 
+que tendremos que tener en cuenta que tipo de comando ha activado el 
+disparador, si queremos retornar el valor correcto. Para ello utilizaremos 
+la variable TG_OP.
+*/
+CREATE OR REPLACE FUNCTION proteger_y_rellenar_datos() RETURNS TRIGGER AS $proteger_y_rellenar_datos$
+	DECLARE
+	BEGIN
+		IF (TG_OP = 'INSERT' OR TG_OP = 'UPDATE' ) THEN
+			NEW.cuadrado := power(NEW.numero,2);
+       		NEW.cubo := power(NEW.numero,3);
+       		NEW.raiz2 := sqrt(NEW.numero);
+       		NEW.raiz3 := cbrt(NEW.numero);   
+       		RETURN NEW;
+    	ELSEIF (TG_OP = 'DELETE') THEN
+       		RETURN NULL;
+    	END IF;
+  	END;
+$proteger_y_rellenar_datos$ LANGUAGE plpgsql;
+
+CREATE TRIGGER proteger_y_rellenar_datos BEFORE INSERT OR UPDATE OR DELETE
+    ON numeros FOR EACH ROW 
+    EXECUTE PROCEDURE proteger_y_rellenar_datos();
+------------------------------------------------------------------------------------
+
+/*
+Por último y antes de terminar, vamos a definir un disparador del tipo statement-level 
+que se ejecute despues de nuestras sentencias INSERT, UPDATE y DELETE. La función 
+ejecutada por este disparador grabará datos de la ejecución en la tabla 
+cambios (esto no sirve para mucho en la vida real, pero como ejemplo esta bien para 
+que veais como funciona)
+Para demostrar como podemos utilizar esto vamos a definir una nueva tabla:
+*/
+drop table if exists cambios;
+CREATE TABLE cambios(timestamp_ TIMESTAMP WITH TIME ZONE default NOW(),
+						nombre_disparador text,
+						tipo_disparador text,
+						nivel_disparador text,
+						comando text
+					);
+-- La función la podemos definir asi
+CREATE OR REPLACE FUNCTION grabar_operaciones() RETURNS TRIGGER AS $grabar_operaciones$
+	DECLARE
+	BEGIN
+    	INSERT INTO cambios (nombre_disparador, tipo_disparador, nivel_disparador,
+                				comando) 
+		VALUES (TG_NAME, TG_WHEN, TG_LEVEL, TG_OP);
+
+    	RETURN NULL;
+  	END;
+$grabar_operaciones$ LANGUAGE plpgsql;
+
+-- Y el disparador lo instalariamos de la siguiente forma:
+CREATE TRIGGER grabar_operaciones AFTER INSERT OR UPDATE OR DELETE
+    ON numeros FOR EACH STATEMENT 
+    EXECUTE PROCEDURE grabar_operaciones();
+
+
+SELECT * from cambios;
+INSERT INTO numeros (numero) VALUES (100);
+UPDATE numeros SET numero = 1000 WHERE numero = 100;
+----------------------------------------------------------------------------------
+
+-- Google: triggers en postgresql
+-- https://e-mc2.net/es/disparadores-triggers-en-postgresql
+
+
+
+

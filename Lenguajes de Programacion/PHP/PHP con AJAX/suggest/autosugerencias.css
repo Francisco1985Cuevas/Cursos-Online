@@ -1,0 +1,23 @@
+	
+	div.sugerencias {
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+		background-color: white;
+		border: 1px solid black;
+		position: absolute;   
+	}
+	
+	/*Items de la lista desplegable*/
+	
+	div.sugerencias div {
+		cursor: default;
+		padding: 0px 3px;	/*Marcar la separacion de la caja*/
+	}
+	
+	/*Elemento div que este seleccionado*/
+	/*Para el elemento de la lista que este seleccionado*/
+	div.sugerencias div.sugerencia_actual {
+		background-color: #3366cc;
+		color: white;
+	}
+

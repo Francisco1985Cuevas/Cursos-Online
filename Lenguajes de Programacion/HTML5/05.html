@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Elemento &lt;div&gt; Editable</title>
+		<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+		<script type="text/javascript">
+			function crearEnlace(){
+				var url = prompt("Escribe URL:", "http://");
+				if(url){
+					document.execCommand("createlink", false, url);
+				}
+			}
+			
+			function mostrarFuente(){
+				var content = document.getElementById("div").innerHTML;
+				content.replace(/</g, '&lt;');
+				content.replace(/</g, '&gt;');
+				alert(content);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Elemento &lt;div&gt; Editable</h1>
+		<div>
+			<input type="button" value="Negrita" onclick="document.execCommand('bold', false, null)" />
+			<input type="button" value="Italica" onclick="document.execCommand('italic', false, null)" />
+			<input type="button" value="Subrayado" onclick="document.execCommand('underline', false, null)" />
+			<input type="button" value="Crear Enlace" onclick="crearEnlace();" />
+			<input type="button" value="Mostrar Fuente" onclick="mostrarFuente();" />
+		</div>
+		<div id="div" style="border:solid black; height: 300px; width: 400px;" contenteditable="true">
+			
+		</div>
+	</body>
+</html>
+

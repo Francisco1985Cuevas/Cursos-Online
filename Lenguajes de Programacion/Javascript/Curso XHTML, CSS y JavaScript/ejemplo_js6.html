@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1" />
+		<title>Mostrar Fecha y Hora</title>
+	</head>
+	<body>
+		<script language="javascript" type="text/javascript">
+			//se crea una nueva instancia del objeto date.
+			ahora = new Date();
+			
+			horalocal = ahora.toString();
+			horautc = ahora.toGMTString();
+			
+			horas = ahora.getHours();
+			minutos = ahora.getMinutes();
+			segundos = ahora.getSeconds();
+			
+			document.write("<b>Hora local: </b>" + horalocal + "<br>");
+			document.write("<b>Hora UTC: </b>" + horautc + "<br>");
+			
+			document.write("<font size='+5'>");
+			document.write(horas+":"+minutos+":"+segundos);
+			documento.write("</font>");
+		</script>
+	</body>
+</html>

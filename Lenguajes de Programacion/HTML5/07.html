@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>HTML5 Video</title>
+		<script type="text/javascript">
+			function fallo(e){
+				switch(e.target.error.code){
+					case e.target.error.MEDIA_ERR_ABORTED: 
+						alert('Has abortado el playback');
+						break;
+					case e.target.error.MEDIA_ERR_NETWORK:
+						alert('Error en la red');
+						break;
+					case e.target.error.MEDIA_ERR_DECODE:
+						alert('Problema de codificacion');
+						break;
+					case e.target.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+						alert('Formato no soportado o archivo no encontrado');
+						break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>HTML 5 Video</h1>
+		<!--<video controls height="300" width="400" loop autoplay onerror="fallo(event)" src="ejemplo_conversion.mp4">-->
+		<video controls height="300" width="400" loop autoplay onerror="fallo(event)" >
+			<!--'30-->
+			<!--IDEM PARA AUDIO-->
+			<source src="ejemplo_conversion.webmvp8.webm" type="video/webm" />
+			<source src="ejemplo_conversion.mp4" type="video/h264" />
+			<source src="ejemplo_conversion.theora.ogv" type="video/ogg" />
+		</video>
+	</body>
+</html>

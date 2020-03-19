@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" charset="text/html; charset=iso-8859-1" />
+		<title>Ejemplos con Strings</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº: 35-->
+		<script language="javascript" type="text/javascript">
+			alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			document.write(alfabeto.substring(0,4));
+			document.write("<br />"+alfabeto.substring(24,26));
+			document.write("<br />"+alfabeto.substring(0,26));
+			
+			document.write("<br />"+alfabeto.charAt(0));
+			document.write("<br />"+alfabeto.charAt(25));
+			document.write("<br />"+alfabeto.charAt(10));
+			
+			ejemplo = ("Esto es un ejemplo de un String. Esto es solo un ejemplo");
+			buscar = ejemplo.indexOf("Esto");
+			document.write("<br />"+buscar);
+			
+			buscar = ejemplo.indexOf("Esto",5);
+			document.write("<br />"+buscar);
+			
+			buscar = ejemplo.lastIndexOf("Esto",30);
+			document.write("<br />"+buscar);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Eventos de raton</title>
+		<style type="text/css">
+			body{
+				background-color:orange;
+			}
+		</style>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:48 Eventos de mouse -->
+		<p>
+			<!--Cuando el puntero del mouse se posa sobre este enlace aparecera una imagen-->
+			<p><a href="#" onmouseover="document.raton.src='imagenes/Donald.png';">onMouseOver</a></p>
+			
+			<!--Cuando el puntero del mouse se deja de posar sobre este enlace aparecera otra imagen-->
+			<p><a href="#" onmouseout="document.raton.src='imagenes/DonaldText.png';">onMouseOut</a></p>
+			
+			<img src="imagenes/Mickey.png" width="128" height="128" name="raton" />
+		</p>
+	</body>
+</html>

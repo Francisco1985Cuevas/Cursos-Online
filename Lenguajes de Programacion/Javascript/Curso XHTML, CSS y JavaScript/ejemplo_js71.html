@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Simulacion de eventos con metodos de evento</title>
+		<style type="text/css">
+			body{
+				background-color:#CC9900;
+			}
+		</style>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:47 Gestor de Eventos-->
+		<form name="miform" action="mostrar.php" method="post">
+			<p>Escribe tu Nombre:<br />
+				<input type="text" name="camponombre" size="30" value="Nombre:" onfocus="this.select()" />
+			</p>
+			<p>Escribe tu Direccion:<br />
+				<input type="text" name="campodireccion" size="30" value="Direccion:" onfocus="this.select()" />
+			</p>
+		</form>
+		<a href="#" onclick="javascript:document.miform.submit();">Pulsa aqui para enviar el Formulario</a>
+		<br />
+		<a href="#" onclick="javascript:document.miform.reset();">Pulsa aqui para limpiar tu Formulario</a>
+	</body>
+</html>
+

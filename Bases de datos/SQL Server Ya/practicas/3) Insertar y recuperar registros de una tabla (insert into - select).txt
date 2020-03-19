@@ -1,0 +1,94 @@
+-- 3) Insertar y recuperar registros de una tabla (insert into - select)
+-------------------------------------------------------------------------
+/*
+- Vamos a crear una tabla llamada "usuarios". En primer lugar vamos a eliminar la tabla "usuarios" averiguando 
+ si existe (recuerde que debemos repetir siempre esto porque puede haber otro usuario que haya creado una tabla 
+ con el mismo nombre en el servidor www.sqlserverya.com.ar
+- Recordar que debemos finalizar cada comando con un punto y coma.
+- Creamos la tabla
+*/
+if object_id('usuarios') is not null
+  drop table usuarios;
+
+create table usuarios(nombre varchar(30), clave varchar(10) );
+
+-- Agregamos un registro a la tabla
+insert into usuarios(nombre, clave) values('Mariano', 'Payaso');
+
+-- Veamos si el registro se guardó
+select * from usuarios;
+
+--Ingresemos otro registro colocando los valores en distinto orden en que se nombran los campos
+insert into usuarios(clave, nombre) values('River', 'Juan');
+
+-- Veamos cómo SQL Server almacenó los datos
+select * from usuarios;
+
+-- Ingresemos otro registro colocando los valores en distinto orden en que se nombran los campos
+insert into usuarios(nombre, clave) values('Boca', 'Luis');
+
+-- Veamos cómo se guardaron los datos
+select * from usuarios;
+
+-- Note que la cadena "Boca" se almacenó en el campo "nombre" y la cadena "Luis" en el campo "clave"
+-- ************************************************* --
+
+
+/*
+Trabaje con la tabla "agenda" que almacena información de sus amigos.
+- Elimine la tabla "agenda", si existe
+- Cree una tabla llamada "agenda". Debe tener los siguientes campos: apellido (cadena de 30), 
+nombre (cadena de 20), domicilio (cadena de 30) y telefono (cadena de 11):
+*/
+if object_id('agenda') is not null
+	drop table agenda;
+
+create table agenda( apellido varchar(30), nombre varchar(20), domicilio varchar(20), telefono varchar(20) );
+
+-- Visualice las tablas existentes para verificar la creación de "agenda" 
+sp_tables @table_owner='dbo';
+
+-- Visualice la estructura de la tabla "agenda" (sp_columns).
+sp_columns agenda;
+
+/*Ingrese los siguientes registros:
+ insert into agenda (apellido, nombre, domicilio, telefono) values ('Moreno','Alberto','Colon 123','4234567');
+ insert into agenda (apellido,nombre, domicilio, telefono) values ('Torres','Juan','Avellaneda 135','4458787');
+*/
+insert into agenda(apellido, nombre, domicilio, telefono) values('Moreno', 'Alberto', 'Colon 123', '4234567');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Torres', 'Juan', 'Avellaneda 135', '4458787');
+
+-- Seleccione todos los registros de la tabla:
+select * from agenda;
+
+-- Elimine la tabla "agenda"
+drop table agenda;
+
+-- Intente eliminar la tabla nuevamente (aparece un mensaje de error)
+drop table agenda;
+-- ************************************************* --
+
+/*Trabaje con la tabla "libros" que almacena los datos de los libros de su propia biblioteca. Elimine la tabla "libros", si existe */
+if object_id('libros') is not null
+	drop table libros;
+
+-- Cree una tabla llamada "libros". Debe definirse con los siguientes campos: titulo (cadena de 20), autor (cadena de 30) y editorial (cadena de 15).
+create table libros( titulo varchar(20), autor varchar(30), editorial varchar(15) );
+
+-- Visualice las tablas existentes (sp_tables @table_owner='dbo').
+sp_tables @table_owner='dbo';
+
+-- Visualice la estructura de la tabla "libros" (sp_columns).
+sp_columns libros;
+
+/*Ingrese los siguientes registros
+insert into libros (titulo,autor,editorial) values ('El aleph','Borges','Planeta');
+insert into libros (titulo,autor,editorial) values ('Martin Fierro','Jose Hernandez','Emece');
+insert into libros (titulo,autor,editorial) values ('Aprenda PHP','Mario Molina','Emece');*/
+
+insert into libros(titulo, autor, editorial) values('El aleph', 'Borges', 'Planeta');
+insert into libros(titulo, autor, editorial) values('Martin Fierro', 'Jose Hernandez', 'Emece');
+insert into libros(titulo, autor, editorial) values('Aprenda PHP', 'Mario Molina', 'Emece');
+
+-- Muestre todos los registros (select).
+select * from libros;

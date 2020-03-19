@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Nuestra Primera Aplicacion Ajax</title>
+		<style>
+			.displaybox{
+				width:150px;
+				background-color:#CC9900;
+				border:2px solid #000000;
+				padding:10px;
+				font:24px normal verdana, helvetica, arial, sans-serif;
+			}
+		</style>
+		<!--<script language="javascript" type="text/javascript" src="ajax.js"></script>-->
+		<script language="javascript" type="text/javascript" src="prototype.js"></script>
+		<script language="javascript" type="text/javascript">
+			function getXMLHTTPRequest(){
+				return Try.these(
+					function(){return new ActiveXObject('Msxml2.XMLHTTP')},
+					function(){return new ActiveXObject('Microsoft.XMLHTTP')},
+					function(){return new XMLHttpRequest()}
+				)
+			}
+			
+			var http = getXMLHTTPRequest();
+			
+			/*function horaServidor(){
+				var myurl = 'dimehoraXML.php';
+				myRand = parseInt(Math.random()*999999999999999);
+				var modurl = myurl+"?rand="+myRand;
+				http.open("GET", modurl, true);
+				http.onreadystatechange = useHttpResponse;
+				http.send(null);
+				
+			}
+			
+			function useHttpResponse(){
+				if(http.readyState == 4){
+					if(http.status == 200){
+						var timeValue = http.responseXML.getElementsByTagName("timenow")[0];
+						$('showtime').innerHTML = timeValue.childNodes[0].nodeValue;
+					}
+				}else{
+					$('showtime').innerHTML = '<img src="imagenes/anim.gif">';
+				}
+			}*/
+			
+			
+			/*Nota: onComplete seria cuando readyState = 4*/
+			function horaServidor(){
+				new Ajax.Request(	'dimehoraXML.php',
+										{ 	method: 'get', 
+											parameters: {myRand: parseInt(Math.random()*999999999999999)},
+											onComplete: function useHttpResponse(http){
+															if(http.status == 200){
+																var timeValue = http.responseXML.getElementsByTagName("timenow")[0];
+																$('showtime').innerHTML = timeValue.childNodes[0].nodeValue;
+															}else{
+																$('showtime').innerHTML = '<img src="imagenes/anim.gif">';
+															}
+														}
+										}
+								);
+			}
+			
+		</script>
+	</head>
+	<body  style="background-color: #006666" onLoad="horaServidor()">
+		<!--VideoTutorial Nº10 peticion y respuesta de datos con ajax y ejemplos de uso de la libreria
+			de funciones en javascript prototype.js-->
+		<center>
+			<h1><font color="#FFFF00">Nuestra primera aplicación Ajax</font></h1>
+			<h2><font color="#FFFFFF">Obtener la hora del servidor sin actualizar la página</font></h2>
+			<form>
+				<input type="button" onClick="horaServidor()" value="¿Cuál es la hora del servidor?" />
+			</form>
+			<div id="showtime" class="displaybox"></div>
+		</center>
+	</body>
+</html>
+

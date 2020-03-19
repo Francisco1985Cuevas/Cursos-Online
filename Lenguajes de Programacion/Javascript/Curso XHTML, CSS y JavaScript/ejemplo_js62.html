@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Modificacion dinamica de destino enlace</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:44 DOM Enlaces-->
+		<!--Cambiar por medio de javascript enlaces-->
+		<p>Cual es el deporte que mas te gusta?</p>
+		<a href="http://localhost/curso_js/ejemplo_js60.html">Prueba Enlace 1</a><br />
+		<a href="http://localhost/curso_js/ejemplo_js60.html">Prueba Enlace 2</a><br />
+		<a href="http://localhost/curso_js/ejemplo_js60.html">Prueba Enlace 3</a>
+		<br /><br />
+		<form action="#" method="get">
+			<input type="button" value="Futbol" onclick="document.links[0].href='http://localhost/curso_js/ejemplo_js58.html'" />
+		</form>
+		<br />
+		<form action="#" method="get">
+			<input type="button" value="Baloncesto" onclick="document.links[1].href='http://localhost/curso_js/ejemplo_js57.html'" />
+		</form>
+		<br />
+		<form action="#" method="get">
+			<input type="button" value="Ciclismo" onclick="document.links[2].href='http://localhost/curso_js/ejemplo_js56.html'" />
+		</form>
+		
+	</body>
+</html>

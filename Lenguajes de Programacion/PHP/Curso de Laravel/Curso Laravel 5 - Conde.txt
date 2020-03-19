@@ -1,0 +1,149 @@
+Curso: Curso de Laravel 5 - Jesus Conde.
+----------------------------------------
+
+
+01.- Curso de Laravel 5. Configurar el Entorno de Desarrollo.
+-------------------------------------------------------------
+
+
+
+02.- Curso Laravel 5. Instalar Laravel.
+---------------------------------------
+
+Podemos instalar laravel de dos modos:
+
+1) installer: es un pequeño ejecutable que nos permite instalar laravel con un comando sencillo de usar
+
+2) Composer: 
+
+
+Videotutorial Nº 2 del Curso de Laravel 5 en el que vemos tres modos de instalarlo. Usando Composer en Homestead; Usando el Installer Laravel y usando Composer para instalar una versión específica de Laravel.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+3.- Curso de Laravel 5. Estructura de Laravel.
+----------------------------------------------
+
+Videotutorial Nº 3 del Curso de Laravel 5, en el que vemos en detalle la estructura del proyecto Laravel que se nos ha creado y con la que tendremos que trabajar en los siguientes videotutoriales.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+4) Curso Laravel5. Configurar Laravel.
+---------------------------------------
+
+Entorno: es el lugar en donde se esta ejecutando tu aplicacion
+
+Entorno de produccion: es la aplicacion final que es donde puede acceder cualquiera.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+05.- Curso de Laravel 5. Crear Primera Ruta.
+--------------------------------------------
+
+VideoTutorial Nº 5 del Curso de Laravel 5, en el que vemos como crea las rutas Laravel. Creamos varios ejemplos de Rutas, vemos como añadirle parámetros y utilizamos expresiones regulares para imponer limitaciones al contenido de las rutas.
+
+
+- ¿Como maneja laravel las peticiones entrantes?
+Lo primero que pasa cuando hacemos esta peticion es que el archivo: laravel/public/index.php es EJECUTADO, es el archivo principal para el bug de la aplicacion y tambien es su unico punto de entrada.
+
+Cuando laravel recibe una peticion comprueba un par de cosas.
+Primero comprueba el Metodo = Verbo HTTP.
+En Segundo lugar comprueba la URI.
+
+#TIPS: Cuando envolvemos una palabra entre llaves, es lo que se conoce como un parametro wrap o un parametro envuelto, ejemplo: 'usuarios/{nombre}'.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+6.- Curso Laravel 5. Trabajar con Controllers.
+----------------------------------------------
+
+Videotutorial Nº 6 del Curso de Laravel 5, en el que vemos como usar Controllers para organizar mejor las rutas. Creamos un primer Controller y vemos el modo en el que Laravel 5 lo enlaza con los distintos archivos y directorios de su estructura. 6 minutos.
+
+- En resumen un Controller es una clase PHP con metodos que podemos enrutar, los controllers son usados cuando necesitamos separar y organizar nuestra logica de enrutamiento, asi en lugar de tener una gran aplicacion con cientos de rutas tenemos una aplicacion con 30 o 40 Controllers.
+
+- ¿Como crear Controllers y vincularlos a nuestro archivo routes/web.php?
+
+LARAVEL/APP/HTTP/CONTROLLERS
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+07.- Curso de Laravel 5. Crear Estructura Web
+----------------------------------------------
+
+Videotutorial Nº 7 del Curso de Laravel 5, en el que seguimos con los Controllers y vemos como usarlos para crear una estructura de sitio web, incluyendo varias acciones en la página PagesControllers que accederán a distintas páginas. 5 minutos.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+08.- Curso Laravel 5. Añadir Bootstrap a Laravel.
+-------------------------------------------------
+
+
+Videotutorial Nº 8 del Curso de Laravel 5, en el que seguimos desarrollando un primer sitio web, e incluimos Twitter Bootstrap para dar estilo. 5 minutos.
+
+
+
+
+11.- Curso de Laravel 5. Uso de Bases de Datos.
+
+Videotutorial Nº11 del Curso de Laravel 5, en el que empezamos a crear un sistema de Tickets de soporte. Empezamos por analizar la aplicación y vemos los fundamentales de la configuración de Bases de Datos en Laravel y el uso de mysql a través del CLI. 5 minutos.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+12.- Curso de Laravel 5. Crear Schemas con Migrations.
+
+Videotutorial Nº 12 del Curso de Laravel 5, en el que seguimos creando nuestra aplicación de Tickets de soporte. Usamos Laravel Migrations para crear el Schema de la Base de Datos para nuestra aplicación. 8 minutos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

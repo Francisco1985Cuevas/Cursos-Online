@@ -1,0 +1,44 @@
+-- 38 - Restricción unique.
+----------------------------
+
+
+-- Primer problema: Una empresa de remises tiene registrada la información de 
+-- sus vehículos en una tabla llamada "remis".
+
+-- 1- Cree la tabla con la siguiente estructura:
+drop table if exists remis;
+create table remis(numero serial,
+					patente char(6),
+					marca varchar(15),
+					modelo char(4)
+					);
+
+-- 2- Ingrese algunos registros, 2 de ellos con patente repetida y alguno 
+-- con patente nula:
+insert into remis(patente,marca,modelo) values('ABC123','Renault clio','1990');
+insert into remis(patente,marca,modelo) values('DEF456','Peugeot 504','1995');
+insert into remis(patente,marca,modelo) values('DEF456','Fiat Duna','1998');
+insert into remis(patente,marca,modelo) values('GHI789','Fiat Duna','1995');
+insert into remis(patente,marca,modelo) values(null,'Fiat Duna','1995');
+
+select * from remis;
+
+-- 3- Intente agregar una restricción "unique" para asegurarse que la patente 
+-- del remis no tomará valores repetidos.
+alter table remis
+add constraint UQ_remis_patente
+unique (patente);
+-- No se puede porque hay valores duplicados.
+
+-- 4- Elimine el registro con patente duplicada y establezca la restricción.
+delete from remis where numero = 3;
+-- Note que hay 1 registro con valor nulo en "patente".
+
+-- 5- Intente ingresar un registro con patente repetida (no lo permite)
+insert into remis(patente,marca,modelo) values('DEF456','Fiat Duna','1998');
+
+-- 6- Ingresar un registro con valor nulo para el campo "patente".
+insert into remis(patente,marca,modelo) values(null,'Fiat Palio','1996');
+-- Lo permite.
+
+-- 7- Muestre la información de las restricciones

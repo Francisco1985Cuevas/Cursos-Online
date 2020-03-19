@@ -1,0 +1,21 @@
+vt11PrimerJPA
+
+JAVA NETWORK(ES UNA BD DE JAVA NO DE MYSQL)
+host:localhost
+port:1527
+user:app
+pass:123
+url: jdbc:derby://localhost:1527/primerojpa;create=true
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

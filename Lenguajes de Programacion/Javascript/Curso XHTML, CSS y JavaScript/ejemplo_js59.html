@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Mostrar un Formulario de Entrada</title>
+		<script language="javascript" type="text/javascript">
+			function mostrarForm(miform)
+			{
+				//Se crea una instancia de la clase Window
+				NuevaVentana = window.open('','','width=300,height=200');
+				
+				//Aqui se muestran los datos recibidos.
+				entrada_nombre = "<b>Tu Nombre: " + miform.nombre_usuario.value + "</b><br />";
+				NuevaVentana.document.write(entrada_nombre);
+				
+				entrada_apellido = "<b>Tu Apellido: " + miform.apellido_usuario.value + "</b><br />";
+				NuevaVentana.document.write(entrada_apellido);
+				
+				entrada_direccion = "<b>Tu Direccion: " + miform.direccion_usuario.value + "</b><br />";
+				NuevaVentana.document.write(entrada_direccion);
+				
+				entrada_telefono = "<b>Tu Telefono: "+ miform.telefono_usuario.value + "</b><br />";
+				NuevaVentana.document.write(entrada_telefono);
+				
+			}
+			function cerrar_ventana()
+			{
+				NuevaVentana.window.close();
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:44 DOM-->
+		<h2>Mostrar los datos del formulario en una pequeña ventana</h2>
+			<form name="formtest">
+				<table>
+					<tr>
+						<td>Por favor escribe tu nombre:</td>
+						<td><input type="text" size="50" name="nombre_usuario" /></td>
+					</tr>
+					<tr>
+						<td>Por favor escribe tu apellido:</td>
+						<td><input type="text" size="50" name="apellido_usuario" /></td>
+					</tr>
+					<tr>
+						<td>Por favor escribe tu direccion:</td>
+						<td><input type="text" size="80" name="direccion_usuario" /></td>
+					</tr>
+					<tr>
+						<td>Por favor escribe tu telefono:</td>
+						<td><input type="text" size="30" name="telefono_usuario" /></td>
+					</tr>
+					<tr>
+						<td><input type="buttom" value="Mostrar datos Formulario" onclick="mostrarForm(this.form)" /></td>
+					</tr>
+				</table>
+			</form>
+			<!--Se pone javascript:void(0) para que cuando busque una URL no busque ninguna pagina web.-->
+		<font size="+1">
+			<a href="javascript:void(0)" onclick="cerrar_ventana()">Pulsa aqui para cerrar la ventana pequeña</a>
+		</font>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejemplo de Lienzo</title>
+		<script type="text/javascript">
+			function cargador(){
+				var lienzo = document.getElementById('lienzo');
+				var lienzo1 = lienzo.getContext('2d');
+				lienzo1.fillStyle = "rgba(0, 0, 200, 1)";	//Para el color
+				lienzo1.fillRect(45, 50, 35, 100);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				lienzo1.fillStyle = "rgba(200, 0, 0, 1)";	//Para el color
+				lienzo1.fillRect(70, 50, 65, 110);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				lienzo1.fillStyle = "rgba(4, 175, 21, 1)";	//Para el color
+				lienzo1.fillRect(115, 50, 95, 90);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				
+			}
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body onload="cargador()">
+		<h1>Ejemplo de Lienzo</h1>
+		<canvas id="lienzo" width="600" height="500">
+			
+		</canvas>
+	
+	</body>
+</html>

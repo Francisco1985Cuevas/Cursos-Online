@@ -1,0 +1,86 @@
+-- 17 - Tipo de dato fecha y hora
+----------------------------------
+
+
+-- Problema: Trabajamos con la tabla asistencia, donde almacenamos la fecha y hora 
+-- de ingreso de un empleado:
+drop table if exists asistencia;
+create table asistencia(dni char(8),
+						fecha date,
+						hora time,
+						primary key (dni)
+					);
+
+-- Ingresamos un registro:
+insert into asistencia(dni,fecha,hora) values ('11111111','2008/12/31','13:00:59');
+
+-- Mostramos el registro:
+select * from asistencia;
+
+-- Borramos la tabla:
+drop table asistencia;
+
+-- Creamos nuevamente la tabla pero definimos un solo campo para almacenar la fecha
+-- y hora de ingreso del empleado:
+drop table if exists asistencia;
+create table asistencia(dni char(8),
+						fechahora timestamp,
+						primary key (dni)
+					);
+
+-- Ingresamos un registro:
+insert into asistencia (dni,fechahora) values ('11111111','2008/12/31 13:00:00.59');
+
+-- Mostramos el registro:
+select * from asistencia;
+
+-- Cambiamos el seteo de fecha para ingresar con el formato dia/mes/año:
+set datestyle to 'European';
+-- Ingresamos un nuevo registro con el nuevo formato:
+insert into asistencia (dni,fechahora) values ('22222222','31/12/2018 13:00:00.59');
+-------------------------------------------------------------------------------------
+
+-- Primer problema: Una facultad almacena los datos de sus alumnos en una tabla 
+-- denominada "alumnos".
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para cada campo:
+drop table if exists alumnos;
+create table alumnos(apellido varchar(30),
+					 nombre varchar(30),
+					 documento char(8),
+					 domicilio varchar(30),
+					 fechaingreso date,
+					 fechanacimiento date
+);
+
+
+-- 2- Setee el formato para entrada de datos de tipo fecha para que acepte 
+-- valores "día-mes-año"
+
+-- Cambiamos el seteo de fecha para ingresar con el formato dia/mes/año:
+set datestyle to 'European';
+-- 3- Ingrese un alumno empleando distintos separadores para las fechas:
+insert into alumnos values('Gonzalez','Ana','22222222','Colon 123','20-08-1990','15/02/1972');
+
+select * from alumnos;
+
+-- 4- Ingrese otro alumno empleando solamente un dígito para día y mes y 2 para el año:
+insert into alumnos values('Juarez','Bernardo','25555555','Sucre 456','03-03-1991','15/02/1972');
+
+-- 5- Ingrese un alumnos empleando 2 dígitos para el año de la fecha de ingreso y "null" en 
+-- "fechanacimiento":
+insert into alumnos values('Perez','Laura','26666666','Bulnes 345','03-03-91',null);
+
+-- 6- Intente ingresar un alumno con fecha de ingreso correspondiente a 
+-- "15 de marzo de 1990" pero en orden incorrecto "03-15-90":
+insert into alumnos values('Lopez','Carlos','27777777','Sarmiento 1254','03-15-1990',null);
+-- aparece un mensaje de error porque lo lee con el formato día, mes y año y no reconoce el mes 15.
+
+-- 7- Muestre todos los alumnos que ingresaron antes del '1-1-91'. 1 registro.
+select * from alumnos where fechaingreso < '1-1-91';
+
+-- 8- Muestre todos los alumnos que tienen "null" en "fechanacimiento". 1 registro
+select * from alumnos where fechanacimiento is null;
+
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entradas>
+	<entrada termino="DANZAR" parte="v.i.">
+		<definicion>
+			Dicho de una persona: bailar (ejecutar movimientos acompasados). U. t. c. tr. Danzar un vals. 
+			Dicho de una cosa: Moverse con aceleración, bullendo y saltando. coloq. Mezclarse o 
+			introducirse en un negocio. U. más para zaherir a quien interviene en lo que no le toca.
+		</definicion>
+	</entrada>
+	<entrada termino="DÍA" parte="n.">
+		<definicion>
+			Tiempo que la Tierra emplea en dar una vuelta alrededor de su eje; equivale a 24 horas. 
+			Tiempo en que el Sol está sobre el horizonte. por antonom. Luz del día. Tiempo que hace 
+			durante el día o gran parte de él. Día lluvioso, cubierto, despejado. día en que la Iglesia 
+			celebra al santo, el sagrado misterio, etc., del que una persona toma nombre, con respecto a 
+			esta misma persona. U. m. en pl. Hoy son los días de Eugenio
+		</definicion>
+	</entrada>
+	<entrada termino="DEUDA" parte="n.">
+		<definicion>
+			Obligación que alguien tiene de pagar, satisfacer o reintegrar a otra persona algo, 
+			por lo común dinero. Obligación moral contraída con alguien. Pecado, culpa u ofensa. 
+			Y perdónanos nuestras deudas.
+		</definicion>
+		<cita autor="Real Academia">
+			<linea>
+				amortizable: La del Estado que se ha de amortizar en los plazos previstos por la ley 
+				que autoriza su emisión.
+			</linea>
+			<linea>
+				consolidada: La pública de carácter perpetuo, cuyas inscripciones o títulos 
+				producían una renta fija.
+			</linea>
+			<linea>exterior: La pública que se paga en el extranjero y con moneda extranjera.</linea>
+			<linea>
+				flotante: La pública que no está consolidada, y que, como se compone de vencimientos a 
+				término fijo y de otros    documentos aún no definitivamente arreglados, puede aumentar 
+				o disminuir todos los días.
+			</linea>
+			<linea>interior: La pública que se paga en el propio país con moneda nacional.</linea> 
+		</cita>
+	</entrada>
+	<entrada termino="DIFAMAR" parte="v.t.">
+		<definicion>
+			Desacreditar a alguien, de palabra o por escrito, publicando algo contra su buena opinión 
+			y fama. Poner algo en bajo concepto y estima.
+		</definicion>
+	</entrada>
+</entradas>

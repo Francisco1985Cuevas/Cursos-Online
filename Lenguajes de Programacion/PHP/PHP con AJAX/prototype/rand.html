@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<script src="prototype.js" language="JavaScript" type="text/javascript"></script>
+		<script type="text/javascript">
+			function actualizar(){
+				/*Obtener la id del div al cual se van a actualizar los datos*/
+				var target = $('valores');
+
+				
+				if(!target) 
+					return false;
+					
+				//Frecuencia de llamdas a la funcion periodicalUpdater:3(frequency:'3')
+				new Ajax.PeriodicalUpdater(target, 'rand.php',{frequency:'3'});
+			}
+			
+			/*Para crear un gestor de evento osea programaticamente se utiliza esta funcion Event.observe
+				de la libreria de funciones en javascript prototype.js*/
+			Event.observe(window, 'load', actualizar, false);
+		</script>
+		<title>Lector valores acciones usando Prototype.js</title>
+	</head>
+	<body>
+		<!-- Ejemplo de uso del metodo Ajax.PeriodicalUpdater -->
+		<h2>Lector valores Acciones</h2>
+		<h4>Ejemplo del uso de prototype.js</h4>
+		<p>El precio actual de la acción es:</p>
+		<div id="valores"></div>
+	</body>
+</html>
+

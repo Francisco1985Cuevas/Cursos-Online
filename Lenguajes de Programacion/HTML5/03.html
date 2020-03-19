@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejemplo de Arrastrar y Soltar</title>
+		<style type="text/css">
+			#destino1, #destino2, #destino3{
+				float: left;
+				width: 250px;
+				height: 250px;
+				padding: 10px;
+				margin: 10px;
+			}
+			
+			#arrastrable1, #arrastrable2, #arrastrable3{
+				width: 75px;
+				height: 70px;
+				padding: 5px;
+				margin: 5px;
+			}
+			
+			#destino1{
+				background-color: #8080FF;
+			}
+			
+			#destino2{
+				background-color: #8080FF;
+			}
+			
+			#destino3{
+				background-color: #8080FF;
+			}
+			
+			#arrastrable1{
+				background-color: #CC0;
+			}
+			
+			#arrastrable2{
+				background-color: #FC0;
+			}
+			
+			#arrastrable3{
+				background-color: #9CF;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			function empezar(e){
+				//Objeto dataTransfer
+				e.dataTransfer.effectAlloweb = 'move';	//Configura la operacion de arrastre permitida
+				e.dataTransfer.setData("Data", e.target.getAttribute('id')); //Almacena la id del elemento que esta siendo arrastrado
+				e.dataTransfer.setDragImage(e.target, 0, 0);	//Configura la imagen que se verá cuando el usuario arrastra el obejto
+				return true;
+			}
+			
+			function enter(e){
+				return true;
+			}
+			
+			function over(e){
+				//Verifica si el elemento arrastrado puede ser soltado o no dentro del div contenedor o destino...
+				var esarrastrable = e.dataTransfer.getData("Data");	//El objeto que se esta arrastrando...
+				//alert("esarrastrable: "+esarrastrable);
+				var id = e.target.getAttribute('id'); //Obtiene el id del div "contenedor o destino" sobre el cual se suelta el elemento arrastrable
+				
+				//Si quiero que un objeto movido se pueda soltar sobre un div: false, sino: true
+				if(id == 'destino1'){
+					return false;
+				}
+				
+				if((id == 'destino2') && esarrastrable == 'arrastrable3'){
+					return false;
+				}else{
+					if(id == 'destino3' && (esarrastrable == 'arrastrable1' || esarrastrable == 'arrastrable2')){
+						return false;
+					}else{
+						return true;
+					}
+				}
+				
+				/*if(id == 'destino1' || id == 'destino2' || id == 'destino3'){
+					return false;
+				}*/
+			}
+			
+			function drop(e){
+				var esarrastrable = e.dataTransfer.getData("Data"); //El objeto que se esta arrastrando(id)...
+				e.target.appendChild(document.getElementById(esarrastrable));
+				e.stopPropagation(); //Con esto nos aseguramos que el objeto arrastrado se quede sobre el div que se arrastro..
+				return false;
+			}
+			
+			function end(e){
+				e.dataTransfer.clearData("Data"); //limpia los elementos para volver a usarlos
+				return true;
+			}
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<!--ondragenter, ondragover, ondrop: Atributos de HTML5-->
+		<div id="destino1" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)">
+			<!--draggable, ondragstart, ondragend: Atributos de HTML5-->
+			<div id="arrastrable1" draggable="true" ondragstart="return empezar(event)" ondragend="return end(event)">
+				1
+			</div>
+			<div id="arrastrable2" draggable="true" ondragstart="return empezar(event)" ondragend="return end(event)">
+				2
+			</div>
+			<div id="arrastrable3" draggable="true" ondragstart="return empezar(event)" ondragend="return end(event)">
+				3
+			</div>
+		</div>
+		<div id="destino2" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+		<div id="destino3" ondragenter="return enter(event)" ondragover="return over(event)" ondrop="return drop(event)"></div>
+	</body>
+</html>
+

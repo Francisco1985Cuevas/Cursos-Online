@@ -1,0 +1,4 @@
+AuthName "personal"
+AuthType Basic
+AuthUserFile c:\Nueva Carpeta\.htpasswd
+Require valid-user

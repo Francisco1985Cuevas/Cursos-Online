@@ -1,0 +1,174 @@
+-- 25 - Funciones para el manejo de cadenas
+--------------------------------------------
+
+
+
+-- substring(cadena, inicio, longitud)
+select substring('Buenas tardes', 8, 6) as 'substring'; -- retorna "tardes"
+select substring('Buenas tardes', 8, 5) as 'substring'; -- retorna "tarde"
+select substring('Buenas tardes', 8, 4) as 'substring'; -- retorna "tard"
+
+
+
+-- str(numero, longitud, cantidadDecimales)
+-- Ejemplo: se convierte el valor numérico "123.456" a cadena, especificando 7 de longitud y 3 decimales
+select str(123.456, 7, 3) as 'str'; -- retorna 123.456
+select str(-123.456, 7, 3) as 'str'; -- -123.46
+-- Si no se colocan el segundo y tercer argumeno, la longitud predeterminada es 10 y la cantidad 
+-- de decimales 0 y se redondea a entero. Ejemplo: se convierte el valor numérico "123.456" a cadena
+select str(123.456) as 'str'; -- retorna 123
+
+select str(123.456, 3) as 'str';
+
+-- Si el segundo parámetro es menor a la parte entera del número, devuelve asteriscos (*).
+select str(123.456, 2, 3); -- retorna "**"
+
+
+
+-- stuff(cadena1, inicio, cantidad, cadena2)
+select stuff('abcde', 3, 2, 'opqrs') as 'stuff'; 
+-- retorna "abopqrse". Es decir, coloca en la posición 3 la cadena "opqrs" y reemplaza 2 caracteres 
+-- de la primer cadena
+
+
+
+-- len(cadena)
+select len('Hola') as 'longitud'; -- devuelve 4
+select len('Hola que tal') as 'longitud'; -- devuelve 12
+
+
+
+-- char(x)
+select char(65) as 'char'; --retorna un caracter en código ASCII del entero enviado como argumento
+
+
+
+-- left(cadena, longitud)
+select left('buenos dias', 8) as 'left'; -- retorna "buenos d"
+
+
+
+-- right(cadena, longitud)
+select RIGHT('buenos dias', 8) as 'right'; -- retorn "nos dias"
+
+
+
+-- lower(cadena): retornan la cadena con todos los caracteres en minúsculas. lower significa reducir en inglés
+select lower('HOLA ESTUDIAnte') as 'lower';
+
+-- upper(cadena): retornan la cadena con todos los caracteres en mayúsculas.
+select upper('HOLA ESTUDIAnte') as 'upper';
+
+--ltrim(cadena): retorna la cadena con los espacios de la izquierda eliminados. Trim significa recortar
+select ltrim('     Hola     ') as 'ltrim';
+
+-- rtrim(cadena): retorna la cadena con los espacios de la derecha eliminados
+select rtrim('     Hola     ') as 'rtrim';
+
+
+-- replace(cadena, cadenareemplazo, cadenareemplazar): retorna la cadena con todas las ocurrencias 
+-- de la subcadena reemplazo por la subcadena a reemplazar.
+select replace('xxx.sqlserverya.com', 'x', 'w') as 'replace'; -- retorna: www.sqlserverya.com
+
+
+-- reverse(cadena): devuelve la cadena invirtiendo el orden de los caracteres.
+select reverse('Hola') as 'reverse';
+
+-- patindex(patron, cadena): devuelve la posición de comienzo (de la primera ocurrencia) del patrón 
+-- especificado en la cadena enviada como segundo argumento. Si no la encuentra retorna 0.
+select patindex('%Luis%', 'Jorge Luis Borges') as 'patindex'; -- retorna 7
+
+select PATINDEX('%or%', 'Jorge Luis Borges') as 'patindex'; -- retorna 2
+
+select PATINDEX('%ar%', 'Jorge Luis Borges') as 'patindex'; -- retorna 0
+
+
+-- charindex(subcadena, cadena, inicio): devuelve la posición donde comienza la subcadena en la cadena, 
+-- comenzando la búsqueda desde la posición indicada por "inicio". Si el tercer argumento no se coloca, 
+-- la búsqueda se inicia desde 0. Si no la encuentra, retorna 0.
+select charindex('or', 'Jorge Luis Borges', 5) as 'charindex';
+
+select charindex('or', 'Jorge Luis Borges') as 'charindex';
+
+select charindex('or', 'Jorge Luis Borges', 14) as 'charindex';
+
+
+
+
+-- replicate(cadena, cantidad): repite una cadena la cantidad de veces especificada.
+select replicate('Hola', 3) as 'replicate'; -- retorna "HolaHolaHola"
+
+
+
+-- space(cantidad): retorna una cadena de espacios de longitud indicada por "cantidad", que debe 
+-- ser un valor positivo.
+select 'Hola'+space(1)+'que tal' as 'space';
+select 'Hola'+space(2)+'que tal' as 'space';
+select 'Hola'+space(3)+'que tal' as 'space';
+
+
+-- Se pueden emplear estas funciones enviando como argumento el nombre de un campo de tipo caracter.
+----------------------------------------------------------------------------------------------------
+
+
+
+
+--Problema: Trabajamos con la tabla "libros" de una librería.
+Eliminamos la tabla si existe
+if object_id('libros') is not null
+drop table libros;
+
+-- Creamos la tabla:
+create table libros(codigo int identity,
+titulo varchar(40) not null,
+autor varchar(20) default 'Desconocido',
+editorial varchar(20),
+precio decimal(6, 2),
+cantidad tinyint default 0,
+primary key(codigo)
+);
+
+
+-- Ingresamos algunos registros
+insert into libros(titulo, autor, editorial, precio) values('El aleph', 'Borges', 'Emece', 25);
+insert into libros values('Java en 10 minutos', 'Mario Molina', 'Siglo XXI', 50.40, 100);
+insert into libros(titulo, autor, editorial, precio, cantidad) values('Alicia en el pais de las maravillas', 'Lewis Carroll', 'Emece', 15, 50);
+select * from libros;
+
+-- Mostramos sólo los 12 primeros caracteres de los títulos de los libros y sus autores, 
+-- empleando la función "substring()"
+select substring(titulo, 1, 12) as 'titulo', substring(autor, 1, 12) as autor
+from libros;
+
+-- Mostramos sólo los 12 primeros caracteres de los títulos de los libros y sus autores, 
+-- ahora empleando la función "left()"
+select left(titulo, 12) as 'titulo', left(autor, 12) as autor
+from libros;
+
+
+-- Mostramos los títulos de los libros y sus precios convirtiendo este último a cadena de caracteres 
+-- con un solo decimal, empleando la función "str"
+select titulo, str(precio, 5, 1) as 'precio'
+from libros;
+
+-- Mostramos los títulos de los libros y sus precios convirtiendo este último a cadena de 
+-- caracteres especificando un solo argumento
+select titulo, str(precio) as 'precio'
+from libros;
+
+-- Mostramos los títulos, autores y editoriales de todos libros, 
+-- al último campo lo queremos en mayúsculas
+select titulo, autor, upper(editorial) as editorial
+from libros;
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Uso de With</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:42 Objetos-->
+		<script language="javascript" type="text/javascript">
+			r = 3.4;
+			
+			with(Math){
+				a = PI * r * r;
+				ar = a;
+				y = tan(ar);
+				x = r * cos(ar);
+				z = abs(x);
+			}
+			document.write(z);
+			
+			var num = 27.6;
+			document.write("<br /><I>El numero con el que vamos a trabajar es: ",num,"</I><br /><br />");
+			document.write("El Metodo<I>Math.floor</I> lo redondea hacia abajo a: "+Math.floor(num)+"<br />");
+			document.write("El Metodo<I>Math.ceil</I> lo redondea hacia arriba a: "+Math.ceil(num)+"<br />");
+			document.write("El Metodo<I>Math.round</I> lo redondea al entero mas cercano: "+Math.round(num)+"<br />");
+		</script>
+	</body>
+</html>

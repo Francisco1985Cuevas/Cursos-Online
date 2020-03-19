@@ -1,0 +1,31 @@
+hibernate
+
+- crear proyecto con conexion MySQL y framework hibernate
+
+- configurar hibernate.cfg
+
+- dentro de Source Package crear ingenieria inversa de hibernate, clic en default package
+
+- clic en el proyecto, crear POJOs, al momento de crear tambien crear un paquete entity/
+
+- dentro de Source Package crear un nuevo paquete dao, dentro del paquete dao crear hibernate.util
+
+- dentro del paquete dao, crear Java Class PersonaDAO 
+-----------------------------------------------------------------------------------------
+
+cesar cancino
+
+- crear proyecto con conexion MySQL y framework hibernate
+
+- crear la ingenieria inversa, clic en el proyecto, se crea desde hibernate 
+
+- crear paquete para guardar clases Java paquete:modelos, dentro de modelos /
+
+- clic en el proyecto, desde hibernate crear hibernate.util
+
+- crear POJOs, clic en el proyecto desde hibernate crear POJOs desde hibernate, se guarda dentro
+del paquete modelos.
+
+- 
+
+

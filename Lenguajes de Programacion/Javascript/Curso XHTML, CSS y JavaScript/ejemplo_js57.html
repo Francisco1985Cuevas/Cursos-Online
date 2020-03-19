@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script language="javascript" type="text/javascript">
+			
+			var timeDiff;
+			var selectedCity;
+			var daylightSavingAdjust = 0;	//Ajuste Diario o horario
+			
+			function updateTimeZone()
+			{
+				var lstCity = document.form1.lstCity;
+				timeDiff = lstCity.options[lstCity.selectedIndex].value;	//Aqui se carga el valor del form
+				selectedCity = lstCity.options[lstCity.selectedIndex].text;	//Aqui se carga el nombre del option
+				updateTime();	//Aqui se le llama a esta funcion.
+			}
+			
+			function getTimeString(dateObject)
+			{
+				//Esta funcion le da un formato a la hora; hora:minutos:segundos
+				var timeString;
+				
+				var hours = dateObject.getHours();
+				if(hours < 10){
+					hours = "0"+hours;
+				}
+				
+				var minutes = dateObject.getMinutes();
+				if(minutes < 10){
+					minutes = "0"+minutes;
+				}
+				
+				var seconds = dateObject.getSeconds();
+				if(seconds < 10){
+					seconds = "0"+seconds;
+				}
+				
+				timeString = hours+":"+minutes+":"+seconds;
+				return timeString;
+			}
+			
+			function updateTime()
+			{
+				//Muestra en el marco de la derecha la hora del ordenador y tambien la hora elegida
+				
+				//Se crea un objeto de la clase Date.
+				var nowTime = new Date();
+				var resultsFrame = window.top.resultsFrame.document;
+				resultsFrame.open();
+				//Aqui se escribe lo que se va a mostrar en la pagina
+				resultsFrame.write("La hora local es "+getTimeString(nowTime)+"<br />");
+	
+				nowTime.setMinutes(nowTime.getMinutes()+nowTime.getTimezoneOffset()+parseInt(timeDiff)+daylightSavingAdjust);
+				resultsFrame.write("La Hora de "+selectedCity+" es "+getTimeString(nowTime));
+				resultsFrame.close();
+			}
+			
+			//La hora de verano aumenta 1 hora las que se le pasa como parametro.
+			function chkDaylightSaving_onclick()
+			{
+				if(document.form1.chkDaylightSaving.checked){
+					//Si se checkea aumentar una hora.
+					daylightSavingAdjust = 60;
+				}else{
+					daylightSavingAdjust = 0;
+				}
+				
+				updateTime();	//Aqui se le llama a esta funcion.
+			}
+		</script>
+	</head>
+	<body onload="updateTimeZone()">
+		<!--VideoTutorial Nº:43 Objeto Date-->
+		<form name="form1">
+			<!--Caja de Lista-->
+			<!--El evento onchange() se activa cuando cambia un valor de la lista-->
+			<select size="5" name="lstCity" language="javascript" onchange="updateTimeZone();">
+				<option value="60" selected>Berlin</option>
+				<option value="330">Bombay</option>
+				<option value="0">Londres</option>
+				<option value="180">Moscu</option>
+				<option value="-300">Nueva York(EST)</option>
+				<option value="60">Paris</option>
+				<option value="-480">San Francisco(PST)</option>
+				<option value="600">Sydney</option>
+			</select>
+			
+			<!--Caja de Chequeo-->
+			
+			<!--El evento onclick() se activa cuando se checkea un valor-->
+			<!--Y invoca a esta funcion-->
+			<p>
+				Si en la ciudad seleccionada es verano y su pais ajusta el horario de verano
+				<input type="checkbox" name="chkDaylightSaving" language="javascript" onclick="return chkDaylightSaving_onclick()" />
+			</p>	
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+CURSO DE DRUPAL
+----------------
+
+
+
+INSTALACION
+* crear la base de datos.
+ir hasta la carpeta: drupal/sites/default
+
+copiar el archivo: default.settings.php en el escritorio y cambiarle el nombre
+por settings.php y volver a copiar en la misma carpeta.
+
+OJO: No borrar el archivo default.settings.php
+
+
+* si hay problemas en la instalacion con el idioma.. 
+http://drupal.stackexchange.com/questions/164172/problem-installing-drupal-8-in-local-the-translation-server-is-offline
+
+este enlace muestra los pasos para solucionar esto
+
+Copy the download file in sites/default/files/translations
+
+
+primero crear la base de datos antes de hacer la instalacion.
+
+
+usuario: administrador
+contraseña: 123456
+
+
+
+CRON
+administrar -> informes -> informe de estado
+
+
+URL LIMPIAS
+administrar -> configuracion

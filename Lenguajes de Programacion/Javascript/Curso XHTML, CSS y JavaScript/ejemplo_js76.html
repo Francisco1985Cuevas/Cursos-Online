@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Dibujos Animados</title>
+		<style type="text/css">
+			body{
+				background-color:cornflowerblue;
+				font-family:arial;
+				text-align:center;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			
+			//Se crea un Array.
+			//Este Array se va a usar para almacenar las distintas imagenes.
+			var dibujo = new Array();
+			
+			//Se crea una variable global indx, que hara las veces de cronometro.
+			var indx = 0;
+			
+			//Este tiempo esta expresado en milisegundos.(Velocidad del slide show)
+			//Este es el tiempo en que tardaran en cambiarse las imagenes en el slide show.(2 segundos)
+			var tiempoEspera = 2000;
+			
+			if(document.images){	//Si existe la imagen en la pagina... cargar las demas en el vector.
+				
+				//Se crea un nuevo objeto.
+				dibujo[0] = new Image();
+				//Asignarle a cada elemento del Array la imagen.(Imagenes Precargadas)
+				dibujo[0].src = "imagenes/Mickey.png";
+				
+				dibujo[1] = new Image();
+				dibujo[1].src = "imagenes/Goofi1.png";
+				dibujo[2] = new Image();
+				dibujo[2].src = "imagenes/Goofi2.png";
+				dibujo[3] = new Image();
+				dibujo[3].src = "imagenes/Goofi3.png";
+			}
+			
+			function cambiaDibujo()
+			{
+				//El objetivo de esta funcion es hacer que cambie la imagen cada 2 segundos.
+				var size = dibujo.length - 1;
+				
+				if(indx < size){
+					indx++;
+				}else{
+					indx = 0;
+				}
+				document.dibujos.src = dibujo[indx].src;
+				//Aqui se le define el tiempo de espera para volver a autollamarse a la funcion cambiaDibujo().
+				//Hasta que pasen 2 segundos se ejecute el llamado a la funcion cambiaDibujo().
+				//Sintaxis:SetTimeout(accion a ejecutar,tiempo hasta que se ejecute la accion.)
+				timeout = setTimeout('cambiaDibujo()', tiempoEspera);
+					
+			}
+		
+			function detenShow()
+			{
+				//Funcion para que se detenga el slide show.
+				clearTimeout(timeout);
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:48 Eventos de mouse -->
+		<h2>Dibujos Animados</h2>
+		Para ver un "slide show", pon el puntero del raton en la imagen.<br />
+		Quita el puntero de la imagen para detenerlo.
+		<a href="javascript:void(null);" onmouseover="return cambiaDibujo();" onmouseout="return detenShow();">
+			<img name="dibujos" src="imagenes/Mickey.png" align="left" border="8" hspace="10" width="128" height="128" />
+		</a>
+	</body>
+</html>
+

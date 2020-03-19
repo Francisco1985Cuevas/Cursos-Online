@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!--Este es el Prologo del documento xml e Indica la version del documento XML-->
+
+<!--VideoTutorial Nº: 1 Ajax Creacion del documento XML-->
+<!DOCTYPE partido SYSTEM "partido.xml">
+<partido>
+	<!--Las etiquetas en XML tambien pueden tener Propiedades como en este Ejemplo-->
+	<equipo numero="74">
+		<nombre>Punto Norte</nombre>
+		<entrenador>Alberto Garrido</entrenador>
+		<jugador>Juan Vergara</jugador>
+	</equipo>
+	<equipo numero="43">
+		<nombre>Hombres Libres</nombre>
+		<entrenador>Genaro Descalzo</entrenador>
+		<jugador>Pablo Tamayo</jugador>
+	</equipo>
+</partido>

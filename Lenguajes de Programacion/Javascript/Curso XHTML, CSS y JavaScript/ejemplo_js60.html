@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Propiedades y Metodos objeto document</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:44 DOM-->
+		<script language="javascript" type="text/javascript">
+			direccion = window.document.URL;
+			document.write("La dirección URL de esta página es: " + direccion);
+			document.write("<br />");
+			titulo = window.document.title;
+			document.write("El título de esta página es: " + titulo);
+		</script>
+		<br />
+		<a href="http://localhost/curso_js/ejemplo_js59.html">Prueba Enlace</a>
+		<form action="#" method="get">
+			<input type="button" value="cambia enlace" onclick="document.links[0].href='http://localhost/curso_js/ejemplo_js58.html'" />
+		</form>
+		
+	</body>
+</html>

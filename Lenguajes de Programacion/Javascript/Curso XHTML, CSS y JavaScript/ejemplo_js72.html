@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Gestor de Evento que devuelve un valor</title>
+		<script language="javascript" type="text/javascript">
+			function compruebaFormulario(tuinfo)
+			{
+				if(tuinfo.camponombre.value == "" || tuinfo.camponombre.value == null){
+					alert("Por favor, escribe tu nombre");
+					return false;
+				}else{
+					return true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:47 Gestor de Eventos-->
+		<!--De acuerdo al valor que retorne la funcion(verdadero o falso) se va a ir o no al script mostrar.php-->
+		<form name="info" action="mostrar.php" method="post" onsubmit="return compruebaFormulario(window.document.info);">
+			<p><b>Escribe tu nombre aqui:</b></p>
+			<input type="text" name="camponombre" size="50" />
+			<br />
+			<br />
+			<input type="submit" value="Enviar" />
+			<input type="reset" value="Limpiar" />
+		</form>
+	</body>
+</html>

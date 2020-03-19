@@ -1,0 +1,25 @@
+add tomcat to netbeans ubuntu
+
+https://www.youtube.com/watch?v=QvksjC3w-WM
+https://www.programadornovato.com/2019/09/instalar-apache-tomcat-9-en-ubuntu-1804.html
+
+
+
+Cannot find /usr/lib/setclasspath.sh This file is needed to run this program
+https://superuser.com/questions/519695/cannot-find-users-user-tomcat-bin-setclasspath-sh
+
+
+
+
+Access to Tomcat server has not been authorized netbeans 8 ubuntu
+https://stackoverflow.com/questions/17155837/netbeans-7-0-1-access-to-tomcat-server-has-not-been-authorized
+
+
+
+
+
+
+/usr/local/apache-tomcat-9.0.30/tomcat-users.xml
+
+
+

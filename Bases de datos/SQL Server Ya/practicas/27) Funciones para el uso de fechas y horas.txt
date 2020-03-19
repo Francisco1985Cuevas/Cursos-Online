@@ -1,0 +1,171 @@
+-- 27 - Funciones para el uso de fechas y horas
+------------------------------------------------
+
+use Curso_SqlServer;
+
+-- getdate(): retorna la fecha y hora actuales.
+select getdate();
+
+-- datepart(partedefecha, fecha): retorna la parte específica de una fecha, el año, trimestre, 
+-- día, hora, etc.
+-- Los valores para "partedefecha" pueden ser: year (año), quarter (cuarto), month (mes), day (dia), 
+-- week (semana), hour (hora), minute (minuto), second (segundo) y millisecond (milisegundo).
+select datepart(month, getdate());	-- retorna el número de mes actual;
+select datepart(day, getdate());	-- retorna el numero del dia actual;
+select datepart(hour, getdate());	-- retorna el numero de la hora actual;
+
+-- datename(partedefecha, fecha): retorna el nombre de una parte específica de una fecha. 
+-- Los valores para "partedefecha" pueden ser los mismos que se explicaron anteriormente.
+select datename(year, getdate());	-- retorna el numero del año actual;
+select datename(month, getdate());	-- retorna el NOMBRE del mes actual;
+select datename(day, getdate());	-- retorna el numero del dia actual;
+select datename(hour, getdate());	-- retorna el numero de la hora actual;
+select datename(quarter, getdate());
+select datename(week, getdate());
+
+-- dateadd(partedelafecha, numero, fecha): agrega un intervalo a la fecha especificada, es decir, 
+-- retorna una fecha adicionando a la fecha enviada como tercer argumento, el intervalo de tiempo 
+-- indicado por el primer parámetro, tantas veces como lo indica el segundo parámetro. 
+-- Los valores para el primer argumento pueden ser: year (año), quarter (cuarto), month (mes), 
+-- day (dia), week (semana), hour (hora), minute (minuto), second (segundo) y millisecond (milisegundo).
+select dateadd(day, 3, '1980/11/02');	-- retorna "1980/14/02", agrega 3 días.
+select dateadd(month, 3, '1980/11/02'); -- retorna "1980/05/11", agrega 3 meses.
+select dateadd(hour, 2, '1980/11/02'); -- retorna "1980/11/02 02:00:00", agrega 2 horas.
+select dateadd(minute, 16, '1980/11/02'); -- retorna 1980-02-11 00:16:00.000, agrega 16 minutos
+
+
+-- datediff(partedelafecha, fecha1, fecha2): calcula el intervalo de tiempo (según el primer argumento) 
+-- entre las 2 fechas. El resultado es un valor entero que corresponde a fecha2-fecha1. 
+-- Los valores de "partedelafecha) pueden ser los mismos que se especificaron anteriormente.
+select datediff(day, '2005/10/28', '2006/10/28'); -- retorna 365 (días).
+select datediff(month, '2005/10/28','2006/11/29'); -- retorna 13 meses.
+
+-- - day(fecha): retorna el día de la fecha especificada.
+select day(getdate());
+
+--- month(fecha): retorna el mes de la fecha especificada.
+select month(getdate());
+
+-- year(fecha): retorna el año de la fecha especificada.
+select year(getdate());
+--------------------------------------------------------------------------------------------------------
+
+
+
+
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla si existe
+if object_id('libros') is not null
+drop table libros;
+
+-- Creamos la tabla
+create table libros(titulo varchar(40) not null,
+autor varchar(20) default 'Desconocido',
+editorial varchar(20),
+edicion datetime,
+precio decimal(6, 2)
+);
+
+-- Ingresamos algunos registros
+insert into libros values('El aleph', 'Borges', 'Emece', '1980/10/10', 25.33);
+insert into libros values('Java en 10 minutos', 'Mario Molina', 'Siglo XXI', '2000/05/05', 50.65);
+insert into libros values('Alicia en el pais de las maravillas', 'Lewis Carroll', 'Emece', '2000/08/09', 19.95);
+insert into libros values('Aprenda PHP', 'Mario Molina', 'Siglo XXI', '2000/02/04', 45);
+
+select * from libros;
+
+
+--Mostramos el título del libro y el año de edición
+select titulo, datepart(year, edicion) as edicion 
+from libros;
+
+
+-- Mostramos el título del libro y el nombre del mes de edición
+select titulo, datename(month, edicion) as edicion 
+from libros;
+
+
+-- Mostramos el título del libro y los años que tienen de editados
+select titulo, datediff(year, edicion, getdate()) as 'Años'
+from libros;
+
+
+-- Muestre los títulos de los libros que se editaron el día 9, de cualquier mes de cualquier año
+select titulo
+from libros
+where datepart(day, edicion) = 9;
+------------------------------------------------------------------------------------------------
+
+
+
+-- Primer problema: Una empresa almacena los datos de sus empleados en una tabla denominada "empleados".
+-- Elimine la tabla si existe
+if object_id('empleados') is not null
+drop table empleados;
+
+
+-- Cree la tabla
+create table empleados(nombre varchar(30) not null,
+apellido varchar(20) not null,
+documento char(8),
+fechanacimiento datetime,
+fechaingreso datetime, 
+sueldo decimal(6, 2),
+primary key(documento)
+);
+
+-- Ingrese algunos registros
+insert into empleados values('Ana', 'Acosta', '22222222', '1970/10/10', '1995/05/05', 228.50);
+insert into empleados values('Carlos', 'Caceres', '25555555', '1978/02/06', '1998/05/05', 309);
+insert into empleados values('Francisco', 'Garcia', '26666666', '1978/15/10', '1998/10/02', 250.68);
+insert into empleados values('Gabriela', 'Garcia', '30000000', '1985/25/10', '2000/22/12', 300.25);
+insert into empleados values('Luis', 'Lopez', '31111111', '1987/02/10', '2000/21/08', 350.98);
+
+select * from empleados;
+
+
+-- Muestre nombre y apellido concatenados, con el apellido en letras mayúsculas, el documento 
+-- precedido por "DNI Nº " y el sueldo precedido por "$ ".
+-- solucion 1
+select concat(nombre, ' ', upper(apellido)) as Nombre_Apellido,
+		concat('DNI Nº ', documento) as documento,
+		concat('$ ', sueldo) as sueldo
+from empleados;
+-- solucion 2
+select nombre+space(1)+upper(apellido) as nombre,
+		stuff(documento, 1, 0, 'DNI Nº ') as documento,
+		stuff(sueldo, 1, 0, '$ ') as sueldo
+from empleados;
+
+
+-- Muestre el documento y el sueldo redondeado hacia arriba y precedido por "$ ".
+-- solucion 1
+select documento, concat('$ ', ceiling(sueldo)) as sueldo
+from empleados;
+-- solucion 2
+select documento, stuff(ceiling(sueldo), 1, 0, '$ ') 
+from empleados;
+
+-- Muestre los nombres y apellidos de los empleados que cumplen años en el mes "october" (3 registros)
+select nombre, apellido, datename(month, fechanacimiento)
+from empleados
+where datename(month, fechanacimiento) = 'Octubre';
+
+-- Muestre los nombres y apellidos de los empleados que ingresaron en un determinado año (2 registros).
+-- solucion 1
+select nombre, apellido
+from empleados
+where datename(year, fechaingreso) = 1998;
+-- solucion 2
+select nombre, apellido 
+from empleados
+where datepart(year, fechaingreso) = 2000;  
+
+
+
+
+
+
+
+

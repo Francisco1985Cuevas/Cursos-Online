@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: 62.5% Arial, Verdana, sans-serif;
+  color: #000;
+  background: #F2EC9F;
+}
+#contenedor {
+  font-size: 1.2em;
+  margin: 10px 2em;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0;
+  color:#000099;
+}
+h1.subtitulo {
+  font: italic normal 1.5em "Times New Roman", Times, serif;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+h2 {
+  font-size: 1.3em;
+  margin-bottom: .5em;
+}
+h2.subtitulo {
+  font: italic normal 1em "Times New Roman", Times, serif;
+  margin-top: 0;
+  margin-bottom: .5em;
+}
+h3 {
+  font-size: 1.1em;
+  margin-bottom: 0;
+ 
+}
+h3.subtítulo {
+color:#FFFFFF;
+font:bold;
+}

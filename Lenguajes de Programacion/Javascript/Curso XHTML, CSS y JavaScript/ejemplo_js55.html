@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Determinar Fecha con Objeto Date</title>
+		<style type="text/css">
+			body{
+				background-color:#003366;
+				color:#DEDECA;
+				font-family:"Trebuchet MS";
+				font-weight:bolder;
+				font-size:20px;
+			}
+			h1{
+				color:#FFFF33;
+				text-align:center;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			var saludo;
+			
+			//Crear una instancia de la clase Date()
+			var fechaActual = new Date();
+			
+			//Obtener la hora, minuto y segundos actuales por medio de los metodos preconstruidos del Objeto Date()
+			var horaActual = fechaActual.getHours();
+			var minutoActual = fechaActual.getMinutes();
+			var segundoActual = fechaActual.getSeconds();
+			
+			//Para los minutos y segundos menores a 10(diez) agregarle un 0(cero) para un mejor formateo en pantalla
+			if(minutoActual < 10){
+				minutoActual = "0" + minutoActual;
+			}
+			if(segundoActual < 10){
+				segundoActual = "0" + segundoActual;
+			}
+			
+			//Mostrar Saludo
+			if(horaActual < 12){
+				saludo = "Buenos Días";
+			}else if(horaActual >= 12 && horaActual < 19){
+				saludo = "Buenas Tardes";
+			}else{
+				saludo = "Buenas Noches";
+			}
+			
+			//Mostrar Resultado en la Pagina
+			document.write("<h1>Mostrar Hora Actual con el uso de &quot;Date&quot;</h1>");
+			document.write("<h4>"+saludo+" y Bienvenido a mi Página Web</h4>");
+			document.write("La hora que marca tu reloj es ");
+			document.write(horaActual+":"+minutoActual+":"+segundoActual+"hs.");
+		</script>
+	</head>
+	<body>
+	<!--VideoTutorial Nº:43 Objeto Date-->
+	</body>
+</html>

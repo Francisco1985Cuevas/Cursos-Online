@@ -1,0 +1,137 @@
+-- 16 - Tipo de dato numérico.
+------------------------------
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Creamos la tabla con la siguiente estructura:
+drop table if exists libros;
+create table libros(codigo serial,
+					titulo varchar(40) not null,
+					autor varchar(30),
+					editorial varchar(15),
+					precio decimal(10,2),
+					cantidad smallint,
+					primary key (codigo)
+				   );
+
+-- En el campo precio podemos almacenar un número de hasta 10 dígitos con 2 decimales.
+-- El tipo "float" no es el más adecuado para representar precios porque no es exacto 
+-- y muestra muchos decimales innecesarios.
+-- Como los valores para el campo "cantidad" no superarán los 32000, definimos el 
+-- campo de tipo "smallint". Si estimamos que tendremos más cantidad de libros 
+-- podemos emplear "int" que tiene un rango mayor.
+
+-- Analicemos la inserción de datos numéricos.
+insert into libros (titulo,autor,editorial,precio,cantidad)
+values('El aleph','Borges','Emece',25.6666, 260);
+select * from libros;
+-- Se redondea el campo precio por el valor 25.67.
+
+-- Intentamos ingresar un precio que supera el rango:
+insert into libros (titulo,autor,editorial,precio,cantidad)
+values('El aleph','Borges','Emece',120000000000.66, 260);
+-- aparece un mensaje de error y la instrucción no se ejecuta.
+
+-- Intentemos ingresar un valor mayor al permitido para el campo cantidad:
+insert into libros (titulo,autor,editorial,precio,cantidad)
+values('El aleph','Borges','Emece',25000,100000);
+--------------------------------------------------------------------------------------
+
+
+-- Primer problema: Un banco tiene registrados las cuentas corrientes de sus clientes 
+-- en una tabla llamada "cuentas".
+-- La tabla contiene estos datos:
+/*
+Número de Cuenta	Documento	Nombre		Saldo
+______________________________________________________________
+1234				25666777	Pedro Perez     500000.60
+2234				27888999	Juan Lopez      -250000
+3344				27888999	Juan Lopez      4000.50
+3346				32111222	Susana Molina   1000
+*/
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para almacenar los datos 
+-- descriptos arriba:
+/*
+ - Número de cuenta: entero, no puede haber valores repetidos, clave primaria;
+ - Documento del propietario de la cuenta: cadena de caracteres de 8 de 
+   longitud (siempre 8), no nulo;
+ - Nombre del propietario de la cuenta: cadena de caracteres de 30 de longitud,
+ - Saldo de la cuenta: valores altos con decimales.
+*/
+drop table if exists cuentas;
+create table cuentas(numero serial,
+					 documento varchar(8) not null,
+					 nombre varchar(30),
+					 saldo decimal(15,2),
+					 primary key (numero)
+					);
+
+
+-- 2- Ingrese los siguientes registros:
+insert into cuentas(numero,documento,nombre,saldo)
+values('1234','25666777','Pedro Perez',500000.60);
+insert into cuentas(numero,documento,nombre,saldo)
+values('2234','27888999','Juan Lopez',-250000);
+insert into cuentas(numero,documento,nombre,saldo)
+values('3344','27888999','Juan Lopez',4000.50);
+insert into cuentas(numero,documento,nombre,saldo)
+values('3346','32111222','Susana Molina',1000);
+-- Note que hay dos cuentas, con distinto número de cuenta, de la misma persona.
+select * from cuentas;
+
+-- 3- Seleccione todos los registros cuyo saldo sea mayor a "4000" (2 registros)
+select * from cuentas where saldo > 4000;
+
+-- 4- Muestre el número de cuenta y saldo de todas las cuentas cuyo propietario sea "Juan Lopez" (2 
+-- registros)
+select numero, saldo from cuentas where nombre = 'Juan Lopez';
+
+-- 5- Muestre las cuentas con saldo negativo (1 registro)
+select * from cuentas where saldo < 0;
+
+-- 6- Muestre todas las cuentas cuyo número es igual o mayor a "3000" (2 registros):
+select * from cuentas where numero >= 3000;
+-------------------------------------------------------------------------------------
+
+
+
+-- Segundo problema: Una empresa almacena los datos de sus empleados en una 
+-- tabla "empleados" que guarda los siguientes datos: nombre, documento, 
+-- sexo, domicilio, sueldobasico.
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para cada campo:
+drop table if exists empleados;
+create table empleados( nombre varchar(30),
+					   documento char(8),
+					   sexo char(1),
+					   domicilio varchar(30),
+					   sueldobasico decimal(7,2), --máximo estimado 99999.99
+					   cantidadhijos smallint --no superará los 255
+					);
+
+
+-- 2- Ingrese algunos registros:
+insert into empleados (nombre,documento,sexo,domicilio,sueldobasico,cantidadhijos)
+values ('Juan Perez','22333444','m','Sarmiento 123',500,2);
+insert into empleados (nombre,documento,sexo,domicilio,sueldobasico,cantidadhijos)
+values ('Ana Acosta','24555666','f','Colon 134',850,0);
+insert into empleados (nombre,documento,sexo,domicilio,sueldobasico,cantidadhijos)
+values ('Bartolome Barrios','27888999','m','Urquiza 479',10000.80,4);
+
+select * from empleados;
+
+-- 3- Ingrese un valor de "sueldobasico" con más decimales que los definidos (redondea los decimales al 
+-- valor más cercano 800.89):
+insert into empleados (nombre,documento,sexo,domicilio,sueldobasico,cantidadhijos)
+values ('Susana Molina','29000555','f','Salta 876',800.888,3);
+
+-- 4- Intente ingresar un sueldo que supere los 7 dígitos (no lo permite)
+insert into empleados (nombre,documento,sexo,domicilio,sueldobasico,cantidadhijos)
+values ('Marta Juarez','32444555','f','Sucre 1086',5000000,2);
+  
+-- 5- Muestre todos los empleados cuyo sueldo no supere los 900 pesos (1 registro):
+select * from empleados where sueldobasico < 900;
+
+-- 6- Seleccione los nombres de los empleados que tengan hijos (3 registros):
+select nombre from empleados where cantidadhijos > 0;
+

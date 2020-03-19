@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Documento sin título</title>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jQuery.pagePeel.1.2.1.js"></script>
+		<script type="text/javascript">
+			$().ready(function(){
+				//alert('jQuery running');
+				
+				$('#pagePeel').pagePeel({
+					introAnim: true
+				});
+		
+				$('#insidePeel').pagePeel({
+					adLink: 'index.html',
+					hPosition: 'left',
+					vPosition: 'bottom',
+					bigSWF: 'pp-src/page-peel-big-BL.swf'
+				});
+		
+				$('a').linkControl({overlay:true});
+			});
+		</script>
+		<style type="text/css">
+			<!-- .ce { text-align: center; } -->
+		</style>
+	</head>
+	<body>
+		<div id="pagePeel"> </div>
+		<div id="contenedor">
+			<div style="float: left; margin-right: 3px;"><img src="pp-src/bigAd_original.jpg" width="350" height="234" alt="spotify"></div>
+			
+			<div style="margin-right: 150px;"> 
+				<p>
+					Spotify es sin duda el Servicio Musical de moda. Después del amago de Last.fm de pasar a ser de cobro se ha convertido en el referente para 
+					escuchar música online. Cuenta con un plugin que es necesario instalar pero que mejora mucho la calidad del sonido y en poco tiempo prometen 
+					tener una versión para dispositivos móviles. Pero sin duda el punto fuerte de Spotify es su impresionante catálogo, en el que puedes encontrar 
+					prácticamente todo, todo. En apartados como música clásica y Jazz, que otros servicios lo tienen bastante desatendido, cuenta con una cantidad 
+					y variedad enorme.
+				</p>
+				<p>
+					De momento sólo puede usarse en unos cuantos países europeos, entre ellos España, y está en versión Beta cerrada, por lo que se requiere una 
+					invitación para su uso. He conseguido otras 10 invitaciones que pasaré a aquellos que dejan su email en los comentarios. 
+				</p>
+				<p>
+					<div id="contenedor">
+						<div style="float: left; margin-right: 3px;"><img src="pp-src/bigAd_original.jpg" width="400" height="265" alt="twitter"></div>
+						
+						<div style="margin-right: 4px;"> 
+							<p>Recopilatorio de tutoriales, noticias, recursos y enlaces que he ido publicando en Twitter estos días:</p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+jQuery" target="_blank">Sobre jQuery</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+CSS" target="_blank">Sobre CSS</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+photoshop" target="_blank">Sobre Photoshop</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+flash" target="_blank">Sobre Flash</a></p>
+							<ul>
+								<li><a href="http://search.twitter.com/search?q=0utKast+php" target="_blank">Sobre PHP</a></li>
+							</ul>
+							<p><a href="http://search.twitter.com/search?q=0utKast+javascript" target="_blank">Sobre JavaScript</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+videotutorial" target="_blank">Sobre VideoTutorial</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+videotutoriales" target="_blank">Sobre VideoTutoriales</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+tutorial" target="_blank">Sobre Tutorial</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast+tutoriales" target="_blank">Sobre Tutoriales</a></p>
+							<p><a href="http://search.twitter.com/search?q=0utKast" target="_blank">Todos</a> (364 tweets de momento)</p>
+							<p><a href="http://twitter.com/0utKast" target="_blank">Puedes seguirme en twitter desde este enlace.</a></p>
+							<p>
+								La rapidez de publicación y la flexibilidad y libertad de uso de la información mediante feeds, por ejemplo, así como el potente 
+								sistema de búsqueda con el que cuenta lo convierten en un magnífico sistema para organizar la información y acceder a ella a 
+								través de los mil y un medios que nos ofrece la red.
+							</p>
+						</div>
+					</div>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

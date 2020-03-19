@@ -1,0 +1,103 @@
+-- Comandos de Git(I) --
+-- Video Tutorial Nº 2 --
+--------------------------
+
+
+-- Como inicializar un repositorio en un directorio ya existente.
+
+Git hace que tome como directorio raiz, el directorio de nuestro nombre en windows aunque podemos seleccionar otro 
+cualquiera. Tambien desde la consola podemos crear los directorios que queramos.
+Pero en muchas ocasiones cuando estemos trabajando en un proyecto pues crearemos directorios por nuestra cuenta y 
+posteriormente vamos a querer que sea rastreado por Git asi que lo veremos en un ejemplo concreto.
+
+Dentro de: C:\Users\Francisco  crear un directorio cualquiera.
+
+C:\Users\Francisco\presentacion
+o tambien podemos hacerlo desde la consola del git bash con el comando:
+mkdir presentacion
+
+
+
+
+
+Ahora abriremos la consola de git bash y trabajaremos en el.
+
+Lo que vamos a hacer es convertir el directorio que acabamos de crear en un repositorio git.
+
+
+
+dentro de la consola del git bash acceder al directorio:
+********************************************************
+cd presentacion
+
+
+
+Ahora para convertirlo en un repositorio de git usamos el comando init.
+***********************************************************************
+git init
+
+- Al hacer este paso lo que se hace es convertir a dicho directorio en un repositorio de git.
+
+
+Ejercicios
+crear dos directorios, se pueden crear directamente desde windows o la consola del git bash
+presentacion2 y presentacion3
+añadirle archivos de pruebas..
+
+1) Primer paso: inicializar repositorios: git init, dentro del directorio desde del git bash
+2) agregar al stage: git add 
+3) commit
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-- Otra forma de inicializar un repositorio en un directorio ya existente es clonando:
+-- Lo que se hace es, se obtiene una copia de un repositorio git ya existente...
+
+* Siempre trabajando desde la linea de comandos del git bash escribimos:
+git clone RUTA DEL DIRECTORIO EL CUAL QUEREMOS CLONAR.
+
+git clone git://github.com/schacon/grit.git
+
+
+- Tambien se puede clonar un repositorio y le podemos agregar un nombre que queramos.
+
+git clone git://github.com/schacon/grit.git migrit
+git clone git://github.com/schacon/grit.git Nombre_de_Prueba
+
+
+* Para este tutorial estos ejemplos y directorios se van almacenando en: C:\Users\Francisco
+
+
+
+-- Como saber el Estatus de un Archivo --
+git status
+
+
+-- Como rastrear un archivo_
+git add NOMBRE_DEL_ARCHIVO
+
+
+-- Como hacer para que git ignore archivos o directorios.
+
+Se debe crear un archivo .gitingore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

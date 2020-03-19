@@ -1,0 +1,42 @@
+- Comando que muestra los cambios que hemos hecho a los archivos, Solo en los archivos modificados.
+  y que no han sido enviados aun al stage.
+****************************************************************************************************
+git diff
+
+
+git diff --staged
+
+
+
+- Comandos que se pueden usar con commit
+******************************************
+git commit -v
+
+git commit –m “carga tu comentario”
+
+git commit –m “carga tu comentario” -a (hace commit de los archivos aun sino hemos agregado al stage esos archivos)
+
+
+
+-- Comando para eliminar un archivo en git:
+********************************************
+git rm
+
+git rm -f enstage.c (para borrar archivos que ya estan en el stage)
+
+git rm --cached NOMBREARCHIVO.EXTENSION
+
+
+-- Comando para renombrar un archivo desde git
+**********************************************
+git mv nombre_antiguo nombre_nuevo
+
+mv nombre_nuevo nombre_antiguo
+
+
+
+
+
+
+
+

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Un lector de Titulares RSS Ajax</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<style type="text/css">
+			.title{
+				font:16px bold helvetica, arial, sans-serif;
+				padding:0px 30px 0px 30px;
+				text-decoration:underline;
+			}
+			.descrip{
+				font:14px normal helvetica, arial, sans-serif;
+				text-decoration:italic;
+				padding:0px 30px 0px 30px;
+				background-color:#cccccc;
+			}
+			.link{
+				font:9px bold helvetica, arial, sans-serif;
+				padding:0px 30px 0px 30px;
+			}
+			.displaybox{
+				border:1px solid black;
+				padding:0px 50px 0px 50px;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			function getXMLHTTPRequest(){
+				try{
+					req = new XMLHttpRequest(); /* p.e. Firefox */
+				}catch(e){
+					try{
+						req = new ActiveXObject("Msxml2.XMLHTTP");
+						/* algunas versiones IE */
+					}catch(e){
+						try{
+							req = new ActiveXObject("Microsoft.XMLHTTP");
+							/* algunas versiones IE */
+						}catch(E){
+							req = false;
+						}
+					}
+				}
+				return req;
+			}
+
+			var http = getXMLHTTPRequest();
+
+			function getRSS(){
+				var myurl = 'rssproxy.php?feed=';
+				var myfeed = document.form1.feed.value;
+				myRand = parseInt(Math.random()*999999999999999);
+				//saltarse la cache
+
+				var modurl = myurl+escape(myfeed)+"&rand="+myRand;
+				http.open("GET", modurl, true);
+				http.onreadystatechange = useHttpResponse;
+				http.send(null);
+			}
+			
+			function useHttpResponse(){
+				if(http.readyState == 4){
+					if(http.status == 200){
+						//Primero elimina los nodos hijos
+						//Presentes en el contenedor div (Acciones DOM)
+						
+						//Borrar la informacion que pueda haber en el div
+						while(document.getElementById('news').hasChildNodes()){
+							document.getElementById('news').removeChild(document.getElementById('news').firstChild);
+						}
+						
+						//Recuperar los datos o valores que tengan estas etiquetas
+						var titleNodes = http.responseXML.getElementsByTagName("title");
+						var descriptionNodes = http.responseXML.getElementsByTagName("description");
+						var linkNodes = http.responseXML.getElementsByTagName("link");
+						
+						for(var i =1; i<titleNodes.length; i++){
+							//Extraer el texto que tenga el titulo
+							var newtext = document.createTextNode(titleNodes[i].childNodes[0].nodeValue);
+							//Crear un elemento HTML parrafo para que se nos muestre en pantalla
+							var newpara = document.createElement('p');
+							//Añadir este elemento creado como hijo del elemento div(news)
+							var para = document.getElementById('news').appendChild(newpara);	
+							//Añadir como appendChild osea al PARRAFO el texto recuperado
+							//Utilizar como hijo quiere decir que meta la informacion que recupere dentro de este parrafo,
+							//y asi para todas las etiquetas
+							newpara.appendChild(newtext);
+							//darle un estilo
+							newpara.className = "title";//css
+
+							
+							
+							var newtext2 = document.createTextNode(descriptionNodes[i].childNodes[0].nodeValue);
+							var newpara2 = document.createElement('p');
+							var para2 = document.getElementById('news').appendChild(newpara2);
+							newpara2.appendChild(newtext2);
+							newpara2.className = "descrip";
+							
+							
+							var newtext3 = document.createTextNode(linkNodes[i].childNodes[0].nodeValue);
+							var newpara3 = document.createElement('p');
+							var para3 = document.getElementById('news').appendChild(newpara3);
+							newpara3.appendChild(newtext3);
+							newpara3.className = "link";
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h3>Un Lector RSS Ajax</h3>
+		<form name="form1">
+			URL o feed RSS:<input type="text" name="feed" size="50" value="http://" />
+			<input type="button" value="Obtener Feed" />
+			<br /><br />
+			<div id="news" lang="es" class="displaybox"><h4>Titulares Feeds</h4></div>
+		</form>
+	</body>
+</html>

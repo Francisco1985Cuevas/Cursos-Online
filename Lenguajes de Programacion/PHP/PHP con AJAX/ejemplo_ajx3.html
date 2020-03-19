@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<title>Ejemplo de Uso de Try Catch</title>
+		<script language="javascript" type="text/javascript">
+			var txt="";
+			function mensaje(){
+				try{
+					//addlert("Bienvenido Guest!");
+					//document.write("Bienvenido Guest!");
+					alert("Bienvenido Guest!");
+				}catch(err){
+					//err es un objeto creado cuando se detecta un error... actua como id_error
+					//txt = "There was an error on Esta pagina.\n\n";
+					//txt+= "Descripcion del Error: " + err.description + "\n\n";
+					//txt+= "Click ok para Continuar.\n\n";
+					//alert(txt);
+					alert(err.description);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:3 try catch-->
+		<input type="button" value="Ver Mensaje" onclick="mensaje()" />
+	</body>
+</html>

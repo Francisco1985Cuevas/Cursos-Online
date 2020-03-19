@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Uso del Switch</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:38 Condicionales Switch-->
+		<h1>Ejemplo de respuestas de Usuarios</h1>
+		<!--Escribe el programa sobre el que quieres descargar VideoTutoriales.<br />-->
+		
+		<script language="javascript" type="text/javascript">
+			//donde = "Photoshop";
+			donde = prompt("De qué programa quieres VideoTutoriales");
+			donde = donde.toLowerCase();
+			switch(donde){
+				case "flash":
+				//window.location="http://www.illasaron.com/html/modules?Donwloads";
+				window.location="http://localhost/paginacion/busquedas.php?page=1";
+				
+				break;
+				
+				case "dreamweaver":
+				//window.location="http://www.illasaron.com/html/modules?Donwloads";
+				window.location="http://localhost/paginacion/busquedas.php?page=2";
+				break;
+				
+				case "photoshop":
+				//window.location = "http://www.illasaron.com/html/modules?Donwloads";
+				window.location = "http://localhost/paginacion/busquedas.php?page=3";
+				break;
+				
+				default:
+				//window.location = "http://www.illasaron.com/html/modules?Donwloads";
+				window.location = "http://localhost/paginacion/busquedas.php?page=4";
+			}
+		</script>
+	</body>
+</html>

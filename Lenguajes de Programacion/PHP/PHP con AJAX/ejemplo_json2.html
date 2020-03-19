@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>JSON Ejemplo Encoding</title>
+        <script type="text/javascript" src="json.js"></script>
+
+    </head>
+    <body>
+        <script type="text/javascript">
+            var oCoche = new Object();
+            oCoche.puertas = 4;
+            oCoche.color = "azul";
+            oCoche.fecha = 1995;
+            oCoche.conductores = new Array("Gonzalo", "Daniel", "Cristina");
+            
+            document.write(JSON.stringify(oCoche));
+        
+        </script>    
+    </body>
+</html>

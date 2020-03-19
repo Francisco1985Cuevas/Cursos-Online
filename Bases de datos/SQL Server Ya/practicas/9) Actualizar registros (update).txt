@@ -1,0 +1,144 @@
+-- 9) - Actualizar registros (update)
+--------------------------------------
+
+-- Trabajamos con la tabla "usuarios".
+
+sp_tables @table_owner='dbo';
+sp_columns usuarios;
+select * from usuarios;
+
+-- Eliminamos la tabla si existe
+-- Creamos la tabla, nombre varchar(20), clave varchar(10)
+if object_id('usuarios') is not null
+	drop table usuarios;
+
+create table usuarios(nombre varchar(20), clave varchar(10));
+
+-- Ingresamos algunos registros
+insert into usuarios(nombre, clave) values('Marcelo', 'River');
+insert into usuarios(nombre, clave) values('Susana', 'chapita');
+insert into usuarios(nombre, clave) values('Carlosfuentes', 'Boca');
+insert into usuarios(nombre, clave) values('Federicolopez', 'Boca');
+
+select * from usuarios;
+
+-- Cambiaremos los valores de todas las claves, por la cadena "RealMadrid"
+update usuarios set clave = 'RealMadrid';
+ 
+-- El cambio afectó a todos los registros, veámoslo
+select * from usuarios;
+
+
+-- Necesitamos cambiar el valor de la clave del usuario llamado "Federicolopez" por "Boca"
+update usuarios set clave = 'Boca' where nombre = 'Federicolopez'; 
+
+-- Verifiquemos que la actualización se realizó
+select * from usuarios;
+
+-- Vimos que si Microsoft SQL Server no encuentra registros que cumplan con la condición no se modifican registros
+update usuarios set clave = 'payaso' where nombre = 'JuanaJuarez';
+
+
+-- Si vemos la tabla veremos que no a cambiado
+select * from usuarios;
+ 
+-- Para actualizar varios campos en una sola instrucción empleamos
+update usuarios set nombre = 'Marceloduarte', clave = 'Marce' where nombre = 'Marcelo';
+ 
+-- Si vemos la tabla
+select * from usuarios;
+-- ************************************************* --
+
+
+
+
+
+
+
+
+
+
+-- Trabaje con la tabla "agenda" que almacena los datos de sus amigos.
+sp_tables @table_owner='dbo';
+sp_columns agenda;
+select * from agenda;
+
+-- 1- Elimine la tabla si existe
+-- 2- Cree la tabla: apellido varchar(30), nombre varchar(20), domicilio varchar(30), telefono varchar(11)
+ 
+
+-- 3- Ingrese los siguientes registros (1 registro actualizado)
+insert into agenda(apellido, nombre, domicilio, telefono) values('Acosta', 'Alberto', 'Colon 123', '4234567');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Juarez', 'Juan', 'Avellaneda 135', '4458787');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Lopez', 'Maria', 'Urquiza 333', '4545454');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Lopez', 'Jose', 'Urquiza 333', '4545454');
+insert into agenda(apellido, nombre, domicilio, telefono) values('Suarez', 'Susana', 'Gral. Paz 1234', '4123456');
+
+select * from agenda;
+
+-- 4- Modifique el registro cuyo nombre sea "Juan" por "Juan Jose" (1 registro afectado)
+update agenda set nombre = 'Juan Jose' where nombre = 'Juan';
+select * from agenda;
+
+-- 5- Actualice los registros cuyo número telefónico sea igual a "4545454" por "4445566"  (2 registros afectados)
+update agenda set telefono = '4445566' where telefono = '4545454';
+select * from agenda;
+
+-- 6- Actualice los registros que tengan en el campo "nombre" el valor "Juan" por "Juan Jose" (ningún registro afectado porque ninguno cumple con la condición del "where")
+update agenda set nombre = 'Juan Jose' where nombre = 'Juan';
+select * from agenda;
+
+-- 7 - Luego de cada actualización ejecute un select que muestre todos los registros de la tabla.
+-- ************************************************* --
+
+
+
+
+
+
+
+
+
+
+-- Trabaje con la tabla "libros" de una librería.
+sp_tables @table_owner='dbo';
+sp_columns libros;
+select * from libros;
+
+-- 1- Elimine la tabla si existe:
+if object_id('libros') is not null
+	drop table libros;
+	 
+-- 2- Créela con los siguientes campos: titulo (cadena de 30 caracteres de longitud), 
+-- autor (cadena de 20), editorial (cadena de 15) y precio (float)
+
+-- 3- Ingrese los siguientes registros
+insert into libros(titulo, autor, editorial, precio) values('Martin Fierro', 'Jose Hernandez', 'Planeta', 35.50);
+insert into libros(titulo, autor, editorial, precio) values('Aprenda PHP', 'Mario Molina', 'Emece', 45.50);
+insert into libros(titulo, autor, editorial, precio) values('Cervantes y el quijote', 'Borges', 'Emece', 25);
+insert into libros(titulo, autor, editorial, precio) values('Matematica estas ahi', 'Paenza', 'Siglo XXI', 15);
+
+-- 4- Muestre todos los registros (5 registros):
+select * from libros;
+
+-- 5- Modifique los registros cuyo autor sea igual  a "Paenza", por "Adrian Paenza" (1 registro afectado)
+update libros set autor = 'Adrian Paenza' where autor = 'Paenza';
+select * from libros; 
+
+-- 6- Nuevamente, modifique los registros cuyo autor sea igual  a "Paenza", por "Adrian Paenza" (ningún 
+-- registro afectado porque ninguno cumple la condición)
+update libros set autor = 'Adrian Paenza' where autor = 'Paenza';
+select * from libros; 
+
+-- 7- Actualice el precio del libro de "Mario Molina" a 27 pesos (1 registro afectado)
+update libros set precio = 27 where autor = 'Mario Molina';
+select * from libros; 
+
+-- 8- Actualice el valor del campo "editorial" por "Emece S.A.", para todos los registros cuya 
+-- editorial sea igual a "Emece" (3 registros afectados)
+update libros set editorial = 'Emece S.A.' where editorial = 'Emece';
+select * from libros; 
+
+-- 9 - Luego de cada actualización ejecute un select que mustre todos los registros de la tabla.
+-- ************************************************* --
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Determinar Fecha con Objeto Date</title>
+		<style type="text/css">
+			body{
+				background-color:#003366;
+				color:#DEDECA;
+				font-family:"Trebuchet MS";
+				font-weight:bolder;
+				font-size:20px;
+			}
+			h1{
+				color:#FFFF33;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<!--VideoTutorial Nº:43 Objeto Date-->
+	<body>
+		<h1>Mostrar Fecha Actual con el uso de &quot;Date&quot;</h1>
+		<p>&nbsp;</p>
+		<p>
+			<script language="javascript" type="text/javascript">
+				//Crear un array
+				var meses = new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+				//Se crea una instancia del Objeto Date
+				var dateNow = new Date();
+				
+				var yearNow = dateNow.getFullYear();
+				var monthNow = meses[dateNow.getMonth()];
+				var dayNow = dateNow.getDate();
+				
+				document.write("Hoy es el día "+dayNow);
+				document.write(" del mes de "+monthNow);
+				document.write(" del año "+yearNow);
+			</script>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+init->iniciar
+getleft->obtener_coordenada_izquierda
+getTop->obtener_coordenada_superior
+createDropDown->crearListaDesplegable
+handleKeyDown-> manejarTeclaAbajo
+handleKeyUp->manejarTeclaArriba
+
+
+Line 207: 	AutoSuggestControl.prototype.handleKeyUp = function (oEvent /*:Event*/) {
+	Line 278: 			//llama al método handleKeyUp() con el objeto evento
+	Line 279: 			oThis.handleKeyUp(oEvent);			oThis.handleKeyDown(oEvent);

@@ -1,0 +1,282 @@
+Curso: Curso de WordPress Paso a Paso | Tutorial de WordPress(FUNTOR)
+---------------------------------------------------------------------
+
+
+
+¿Que temas abordaremos en este Curso?
+
+* Hosting y Dominio
+* Instalacion de Wordpress
+* Configuraciones basicas
+* Modo mantenimiento
+* Como trabajar con wordpress
+* Creacion de Contenido
+* Paginas
+* Categorias y Entradas
+* Widgets
+* Plugins
+* Gestion del menu
+* Temas Gratis
+* Temas Profesionales
+* Apariencia
+* Usuarios
+* Soporte
+* Mantenimiento
+* Comentarios
+* Plugins recomendados
+* Formulario de contacto
+* Tiempos de carga
+
+
+
+¿Que necesito para Empezar?
+
+- Una cuenta de mail
+- descargar wordpress
+- Necesitamos un hosting y un dominio.
+
+
+* Hosting: Es donde va a estar alojado toda aquella informacion que tenga tu sitio web, es decir fotos, textos, videos, todo lo que ustedes quieran alojar van a estar dentro de un hosting, imaginense un hosting como podriamos decirlo como una especie de ordenador que no se apaga nunca.
+* Dominio: Es la direccion de tu sitio web en internet, el dominio es unico, es decir que no existen dominios iguales.
+
+- Para un wordpress basico no llega a pesar 1Gb, el peso de un sitio web depende de la cantidad de informacion que yo le meta adentro.
+- TRANSFERENCIA: Si es nuestro primer sitio web podemos empezar con un hosting inicio algo basico, y a medida que empezamos a notar que necesitamos mas espacio, tiene mas trafico, aumenta la taza de transferencia, nos pasamos a otro plan.
+
+#IMPORTANTE: Cuando se fijan lo que es la extension del DOMINIO prestar atencion de tratar de ir por las extensiones de dominio populares(.com, .net, .es(España, o el punto REFERENTE A SU PAIS) si van a trabajar un mercado local, Hay un TEMA DE SEO, de localizacion que beneficia mas).
+
+Si queremos un dominio y no esta disponible, Alternativas: Poner un guion en medio ejemplo: mv-villalba.com, NO PONER NUMEROS intentar no poner numeros en los dominios, intentar NO poner LETRAS MUDAS como la "h" o usar la "ñ", letras que pueden prestarse a la confusion, QUE NO LE TENGAMOS QUE ESTAR EXPLICANDO AL CLIENTE ES CON "H", ES CON "Ñ".. intentemos evitar eso.
+
+#IMPORTANTE: Tener en cuenta si vamos a buscar un hosting, que tenga CPANEL, Compatible 100% con wordpress.
+
+En wordpress se trabaja siempre de esta forma, van a tener el frontend que es lo que van a ver los usuarios, y lo que es el backend que es todo donde ustedes vana a crear el contenido y van a administrar el sitio web.
+LO IDEAL ES QUE TRABAJEN CON DOS PESTAÑAS, es decir una pestaña frontend y una pestaña backend.
+
+
+Configuraciones Basicas de Wordpress.
+-------------------------------------
+
+* Primero antes de trabajar en wordpress, hacer configuraciones basicas.
+
+
+- Ir hasta el menu: Ajustes-> Lectura: TILDAR "Visual a los motores de busqueda de indexar este sitio", para poder aparecer en el listado de google.
+
+- Ir hasta el menu: Ajustes-> Enlaces Permanentes: Marcar "Nombre de Entrada", ¿Para que es esto? Arquitectura de URL nivel SEO, el SEO es posicionamiento en buscadores, es la mejor estructura a nivel SEO que pueden tener en su sitio web o o blog.
+
+Se agrega un plugin que muestra la pagina en mantenimiento.
+
+
+
+Generar contenido en wordpress ENTRADAS.
+----------------------------------------
+
+
+- Hay dos maneras de generar contenido en wordpress:
+
+1) A traves de la creacion de ENTRADAS que aplican a lo que es el formato BLOG, son noticias que van ordenadas de forma cronologica es decir las mas nuevas arriba y las mas viejas van abajo, los usuarios pueden dejar un comentario.
+
+Mientras que las PAGINAS, por ejemplo la de contacto son de contenido ESTATICO, es decir en este caso un formulario una explicacion y ya esta.
+Por ejemplo si tengo que hacer un apartado que es "Quienes Soy o Quienes Somos" voy a utilizar una PAGINA y si tengo que hacer algun tipo de noticia, voy a utilizar una ENTRADA.
+
+Entendamos una cosa, Yo puedo tener una pagina web que adentro tenga un blog y a su vez puedo tener un blog que tambien tenga  PAGINAS no separen conceptos porque pueden ir juntos.
+
+
+- Entradas: Las entradas van CATEGORIZADAS, es decir yo NECESITO agrupar las entradas, Por ejemplo si en nuestro hablamos de SEO, BUSCADORES, EMAILMARKETING, se pueden crear diferentes categorias.
+EJEMPLO: IMAGINENSE QUE TIENEN UN "BLOG" DE MUSICA, LAS CATEGORIAS SERIAN: LOS DIFERENTES ESTILOS DE MUSICA(JAZZ, ROCK, POP, ETC.) Y DENTRO TENGO "NOTICIAS" POR EJEMPLO EN ROCK TENGO UNA NOTICIA QUE DICE QUE LOS ROLLING STONES VAN A TOCAR VAN A DAR UN CONCIERTO EN BARCELONA, ESO SERIA UNA NOTICIA QUE PERTENECE A LA CATEGORIA ROCK.
+
+
+- Las CATEGORIAS pueden ir aninadas..
+
+#IMPORTANTE: Mucho cuidado con copiar texto de otras webs, porque es una cosa que google PENALIZA, es decir si vos lo que estas haciendo es copiar contenido de otra web y lo pegas en tu blog, Google entiende que vos te estas copiando, Google NO ES TONTO EN ESTO y va por aquellos blogs o sitios web que tienen contenido duplicado es decir que, entiendanlo de esta manera Google intenta dar buenos resultados a los usuarios NUNCA varia de resultados dos paginas web que tienen el mismo contenido, el contenido duplicado va PENALIZADO. NO DUPLICAR CONTENIDO, preferible contratar REDACTOR, preferible modificar texto es decir hacer un RESEARCH de informacion, Generar tus propios textos.
+
+
+#IMPORTANTE: Intenten no hacer blogs donde tienen 20 tipos de letras diferentes, 20 tipos de tamaño diferente, SER SIMPLES no intentar por hacer algo diferente y bonito que termine siendo un desastre.
+
+#IMPORTANTE: Siempre en las entradas si vamos a añadir un enlace, añadir un enlace externo en una nueva pestaña. Esto es una buena practica a nivel de SEO, ejemplo los enlaces en la wikipedia.
+
+
+- Etiquetas: Ya no se utilizan tanto las etiquetas, recomendacion No darle mucha relevancia a las etiquetas.
+Las ETIQUETAS sirven para agrupar contenido, es decir que si yo a una entrada le pongo la etiqueta Rolling Stone, cuando el usuario haga clic en esa etiqueta le va a llevar a VER todas esas entradas(post) que estan etiquetadas con esa ETIQUETA.
+
+
+#IMPORTANTE: buscar, banco de imagenes.
+##TIPS: No estirar las imagenes cuando publicamos en las entradas porque pierden calidad.
+
+
+
+PASOS PARA CREAR UN PROYECTO O SITIO WEB.
+-----------------------------------------
+
+- PRIMERO: Definir que tipo de sitio web vamos a hacer, o un BLOG o un SITIO web, o si vamos a hacer un sitio web que tenga un Blog dentro, es decir definir la ESTRUCTURA.. Que paginas voy a UTILIZAR? Inicio?, Quienes Somos?, Servicios?, Blog? Contacto?
+
+Luego a nivel de blog que Categorias voy a utilizar? Por ejemplo si estoy haciendo un blog de Musica: Rock, Pop, Jazz.
+Organizar, agarrar lapiz y papel y escribir todo eso.
+
+Primero vamos a crear la estructura de la web y luego empezamos a darle diseño.
+
+
+#IMPORTANTE: Si ustedes comienzan a generar entradas, 
+Paginas, categorias, etc., y DESPUES cambian la PLANTILLA(la apariencial) lo que va a pasar es que tal vez NO SE ADAPTE a ese Modelo.
+
+
+##TIPS: Primero generar la estructura de la web y LUEGO generar Contenido.
+
+
+TODA ESTA EXPLICACION HASTA EL MINUTO 42, HASTA AQUI SE EXPLICO LAS CONFIGURACIONES BASICAS DE WORDPRESS, LAS ENTRADAS, CATEGORIAS Y ETIQUETAS.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+PASOS A SEGUIR PARA CREAR UN PROYECTO.
+--------------------------------------
+
+* La Estructura de este sitio web sera la siguiente: El Blog lo que va a ser es mostrar las Entradas y la Pagina principal va  a ser la Pagina de inicio.
+
+
+
+1) Primero Definir las PAGINAS que voy a utilizar:
+ * Inicio (Publicar sin contenido)
+ * Acerca mio
+ * Servicios
+ * Blog
+ * Contacto
+
+- AHORA CONFIGURAR LA PAGINA PRINCIPAL:
+
+Ir a Ajustes -> Lectura -> tu portada muestra -> Marcar: Una pagina estatica, Seleccionar Pagina de Inicio, Seleccionar Pagina de Blog como pagina de entradas.
+
+Si lo que quieren hacer ustedes es un blog es el formato que se suele utilizar(el que esta tildado por default) es decir que cuando yo entro al inicio de la we muestro las entradas, pero ahora se utiliza mucho
+
+- Blog va a ser una PAGINA pero que va a contener las entradas del blog.
+
+
+2) Segundo Punto que vamos a organizar: MENU
+
+Ir hasta: Apariencia -> Menus
+
+* Crear un menu, añadimos las paginas que acabamos de crear al nuevo menu creado, lo ordenamos como queremos
+
+* En AJUSTES DEL MENU: Marcar -> Donde se vera: Menu Superior 
+
+Imaginense que un sitio web puede tener 40 o 50 paginas, entonces wordpress no sabe cuales de esas paginas quieren que vos las pongas en el menu principal.
+
+##TIPS: Borrar la entrada de ejemplo, Lo que borran se mantiene por 30 dias en la papelera y despues wordpress ya lo elimina
+tambien borrar la pagina de ejemplo.
+
+
+
+3) Tercer Punto: TEMA
+
+No dejen la plantilla base, porque? porque es la plantilla que por ahi tiene todo EL MUNDO, porque van a ir muy limitados en aspectos de diseño, es decir, wordpress gestiona lo que es el diseño de los sitios web a traves de lo que es 
+apariencia->temas.
+Recomendacion: No quedarse con el tema base, porque te esta limitando en un monton de aspectos de diseño, de funciones, veremos PORQUE hay temas gratuitos y porque hay temas de Pago, EL TEMA es lo que da la ESTETICA de la web.
+
+##TIPS: En la libreria de wordpress de Temas, hay un objetivo detras de los temas gratuitos, que pueden ser que despues compres la version PRO. Se pueden instalar la cantidad de Temas que quieran pero lo RECOMENDABLE es que sino vas a usar lo desisntalen porque va a ocupar espacio.
+
+* ¿Porque No trabajar con un TEMA Gratuito?
+
+Porque muy pocos de ellos estan en español, porque NO van a tener SOPORTE OFICIAL, porque se van a encontrar LIMITADOS EN ASPECTO DE DISEÑO, por ahi se encuentran con que NO PUEDEN CAMBIAR EL ASPECTO DE LAS LETRAS, que No pueden cambiar COLORES, que No pueden poner SU LOGO, No van a encontrar muchas veces documentacion oficial, es decir que van a tener que pelear para ver como funciona el Tema.
+La otra cuestion es que si yo empiezo a INSTALAR PLUGINS al final el sitio web se puede poner lento, bajar el rendimiento, INCOMPATIBILIDAD de Plugins, o actualizo un Plugin y No es Compatible con el otro, son cosas que tampoco son tan frecuentes pero pueden pasar.
+
+RECOMENDADO PARA HACER TU PROPIO SITIO WEB: Utilices una plantilla PROFESIONAL que te da monton de opciones extra, y que a nivel de diseño te deja "jugar", es decir que tenes muchas mas opciones...
+
+
+
+###ERROR LIMITACION DE SUBIDA DE ARCHIVOS: Entrar al cpanel -> Select PHP Version -> subir a la ultima version de PHP, porque les va a dar mucho mejor RENDIMIENTO DE WORDPRESS.
+upload_max_filesize: AUMENTAR A 32b.
+
+
+
+* ¿Porque utilizar un Tema Profesional?
+
+Acceden primero:
+ a un monton de funciones que No van a encontrar en un Tema Gratuito, Acceden a un Soporte Oficial, Acceden a un monton de herramientas que No tienen en un Tema Gratuito, y sobre todas las cosas se AHORRAN INSTALAR UN MONTON DE PLUGINS.
+Ejemplo: Si tengo un Tema Gratuito y quiero HACER UN FORMULARIO CONTACTO lo que tendria que hacer es instalar un Plugin, si por ejemplo quisiera añadir un PORTFOLIO tendria que INSTALAR UN PLUGIN, es decir CADA COSA extra que por ahi no viene prediseñada con la plantilla, tendria que ir y INSTALAR UN PLUGIN, otro plugin, otro plugin...y al final te encontras con sitios web que tienen instalados 30 plugins y lo que puede pasar es que el RENDIMIENTO no vaya muy bien, son COSAS A TENER EN CUENTA!
+
+Ir a: Apariencia->Temas->Personalizar.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+- Widgets: Desde aqui puedo desactivar las opciones del footer.
+
+- Plugins: ¿Que son los Plugins? Los Plugins aportan NUEVAS FUNCIONALIDADES, es decir si yo quiero en el caso de que no este usando un Tema Profesional y quiero añadir algo, como puede ser un formulario de Contacto que no viene predefinido con wordpress tengo que ir y recurrir a un Plugin. 
+
+#IMPORTANTE: No todos funcionan bien, No todos tienen la funcionalidad que estas buscando, No todos estan actualizados
+Puntos a TENER EN CUENTA:
+
+1) FIJARSE LAS VALORACIONES
+
+2) FIJARSE LA CANTIDAD DE INSTALACIONES ACTIVAS
+
+3) LA ULTIMA ACTUALIZACION
+
+4) SI ES COMPATIBLE CON TU VERSION DE WORDPRESS
+
+5) LEER LAS FUNCIONALIDADES
+
+Siempre cuando se instala y activa un plugin pueden aparecer mas opciones dentro de nuestro menu en wordpress.
+nuevas opciones por ejemplo dentro de Menu->herramientas, o puede estar dentro de Ajustes.
+
+
+
+
+- Usuarios: 
+
+ - Administrador: Tiene control total sobre la web.
+ - Editor: Puede hacer de todo menos configuraciones
+ - Autor: Puede publicar entradas o paginas
+ - Colaborador: Puede publicar pero va a revision, es decir que si publica uno de rango superior tiene que aprobar 
+ - Suscriptor: Que no tiene ninguna funcionalidad.
+
+Si yo quisiera tener una web, puede tener mas de un usuario.
+
+#IMPORTANTE: Un error comun, dar Administradores a gente que no tiene conocimiento como administradores, es decir si ustedes van a generar un nuevo usuario para alguien que va a escribir en su blog o que va a hacer algunas correcciones no es necesario que sea administrador, si le pueden dar un editor o un autor porque por ahi si le dan un administrador ve una actualizacion, va y actualiza y despues tienen problemas.
+
+
+- Comentarios: 
+
+
+
+
+
+
+
+
+INFORMACION
+------------
+
+google: menu en wordpress
+
+
+https://www.youtube.com/channel/UCHtdH2OKputNVaotlkonTEA/playlists
+
+
+https://www.youtube.com/watch?v=cgNLIRrHZ8Q&list=PLcgxTq-49r4WoR1d-VIWSKPzx3HW-8NOS
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+Titulo del sitio: Nico Ciana
+Nombre usuario: wp_admin
+contrasenha: qU54YHLlOZYTT%ce!O
+correo: fmcuevas1985@outlook.com
+---------------------------------
+
+
+
+
+
+
+
+
+
+
+ 
+
+

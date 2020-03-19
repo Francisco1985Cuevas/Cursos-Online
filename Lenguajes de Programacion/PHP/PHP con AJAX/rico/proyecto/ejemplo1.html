@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+		<title>Ejemplo1</title>
+		<link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+		<script src="../src/rico.js" type="text/javascript"></script>
+		<script type='text/javascript'>
+			Rico.loadModule('Accordion');
+			
+			Rico.onLoad(function(){ new Rico.Accordion( $$('div.panelTitulo'), $$('div.panelContenido'), 
+														{panelHeight:350, hoverClass: 'mdHover', selectedClass: 'mdSelected'} );
+						});
+			
+		</script>
+	</head>
+	<body>
+		<!-- Videotutorial Nº11: Uso de la libreria javascript RICO -->
+		<div style='clear:both;'>
+			<div id="accordionExample">
+				<div class="panelTitulo">¿Quién es Homero?</div>
+				<div class="panelContenido">
+					<ul>
+						<li> 
+							<div align="left">
+								<b>n.</b>Legendario Poeta de la antigua Grecia que en la actualidad trabaja en la 
+								planta nuclear de Springfield . 
+								Trabaja como Aedo en la tienda de Moe, donde recita trozos de la Iliada y la 
+								Odisea para sus amigos Barney, Carl y Lenny. 
+							</div>
+						</li>
+						<li>
+							<div align="left">
+								<b>frases c&eacute;lebres de Homero .*</b>Televisi&oacute;n, maestra, madre, amante 
+								secreta.; *&iquest;Por qu&eacute; siempre me pasa todo lo malo a m&iacute; y a 
+								mi cerveza?; *Hijos, hicieron su mejor esfuerzo y fracasaron miserablemente, 
+								la moraleja es: Nunca se esfuercen; *Dios es mi personaje de ficci&oacute;n favorito; 
+								* Ya has o&iacute;do sus incoherencias: Est&aacute; perfectamente. *Homer: Como 
+								se supone que la educaci&oacute;n me va a hacer sentir m&aacute;s  inteligente? 
+								Adem&aacute;s, cada vez que aprendo algo nuevo, algo viejo se va  de mi cerebro. 
+								&iquest;Recuerdas cuando tom&eacute; ese curso para hacer vino casero,  y olvide 
+								como conducir?Marge: Eso fue porque estabas como una cuba
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="panelTitulo">¿La Evolución Humana?</div>
+				<div class="panelContenido">
+					<img src='homer.png'></img>
+				</div>	
+			</div>
+		</div>
+	</body>
+</html>

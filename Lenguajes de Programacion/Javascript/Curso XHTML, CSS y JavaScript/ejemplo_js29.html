@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content/type" content="text/html; charset=iso-8859-1" />
+		<title>Ejemplo de Mensaje en Scroll</title>
+		<script LANGUAGE="JavaScript" type="text/javascript">
+			msj = "Este es un mensaje de scroll de texto. !!!www.videotutoriales.com¡¡¡";
+			msj = "...          ..." + msj; 
+			pos = 0;
+			function MensajeScroll() {
+				window.status = msj.substring(pos, msj.length) + msj.substring(0, pos);
+				pos++;
+				if (pos > msj.length) pos = 0;
+					window.setTimeout("MensajeScroll()",200);
+			}
+			MensajeScroll();
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:36 Arrays-->
+		<h1>Ejemplo de Mensaje de scroll</h1>
+		Mira en la línea de status en la parte inferior izquierda de esta página. 
+		(No lo mires mucho tiempo que marea :-)
+	</body>
+</html>

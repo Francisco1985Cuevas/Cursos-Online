@@ -1,0 +1,158 @@
+-- 38) Seleccionar grupos (having)
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla, si existe
+if object_id('libros') is not null
+drop table libros;
+
+
+-- Creamos la tabla
+create table libros(codigo int identity,
+titulo varchar(40),
+autor varchar(30),
+editorial varchar(15),
+precio decimal(5, 2),
+cantidad tinyint,
+primary key(codigo)
+);
+
+
+-- Ingresamos algunos registros:
+insert into libros values('El aleph','Borges','Planeta',35,null);
+insert into libros values('Martin Fierro','Jose Hernandez','Emece',22.20,200);
+insert into libros values('Martin Fierro','Jose Hernandez','Planeta',40,200);
+insert into libros values('Antologia poetica','J.L. Borges','Planeta',null,150);
+insert into libros values('Aprenda PHP','Mario Molina','Emece',18,null);
+insert into libros values('Manual de PHP', 'J.C. Paez', 'Siglo XXI',56,120);
+insert into libros values('Cervantes y el quijote','Bioy Casares- J.L. Borges','Paidos',null,100);
+insert into libros values('Harry Potter y la piedra filosofal','J.K. Rowling',default,45.00,90);
+insert into libros values('Harry Potter y la camara secreta','J.K. Rowling','Emece',null,100);
+insert into libros values('Alicia en el pais de las maravillas','Lewis Carroll','Paidos',42,80);
+insert into libros values('PHP de la A a la Z',null,null,110,0);
+insert into libros values('Uno','Richard Bach','Planeta',25,null);
+
+select * from libros;
+
+-- Queremos saber la cantidad de libros agrupados por editorial pero considerando sólo algunos grupos, 
+-- por ejemplo, los que devuelvan un valor mayor a 2, usamos la siguiente instrucción
+select editorial, count(*) as cantidad
+from libros
+group by editorial
+having count(*) > 2;
+
+-- Queremos el promedio de los precios de los libros agrupados por editorial, pero solamente de 
+-- aquellos grupos cuyo promedio supere los 25 pesos
+select editorial, avg(precio) as promedio_precio
+from libros
+group by editorial
+having avg(precio) > 25;
+
+
+-- Queremos la cantidad de libros, sin considerar los que tienen precio nulo (where), 
+-- agrupados por editorial (group by), sin considerar la editorial "Planeta" (having)
+select * from libros order by editorial;
+select editorial, count(*) as cantidad
+from libros
+where precio is not null
+group by editorial
+having editorial <> 'Planeta';
+-- ¿Porque desaparecio el grupo de null, si le quito el having.. se ve que esta ese grupo de NULL?
+-- ¿Porque desparece entonces al agregarle el having?
+
+
+
+-- Necesitamos el promedio de los precios agrupados por editorial, de aquellas editoriales que 
+-- tienen más de 2 libros
+select editorial, avg(precio) as promedio_precios
+from libros
+group by editorial
+having count(*) > 2;
+
+
+-- Buscamos el mayor valor de los libros agrupados y ordenados por editorial y seleccionamos 
+-- las filas que tienen un valor menor a 100 y mayor a 30
+select * from libros order by editorial;
+select editorial, max(precio) as mayor_valor
+from libros
+group by editorial
+having max(precio) < 100 and max(precio) > 30
+order by editorial;
+--------------------------------------------------------------------------------------------------
+
+
+
+
+-- Primer problema: Una empresa tiene registrados sus clientes en una tabla llamada "clientes".
+-- Elimine la tabla "clientes", si existe
+if object_id('clientes') is not null
+drop table clientes;
+
+
+-- Créela con la siguiente estructura
+create table clientes(codigo int identity,
+nombre varchar(30) not null,
+domicilio varchar(30),
+ciudad varchar(20),
+provincia varchar(20),
+telefono varchar(11),
+primary key(codigo)
+);
+
+-- Ingrese algunos registros
+insert into clientes values ('Lopez Marcos','Colon 111','Cordoba','Cordoba','null');
+insert into clientes values ('Perez Ana','San Martin 222','Cruz del Eje','Cordoba','4578585');
+insert into clientes values ('Garcia Juan','Rivadavia 333','Villa del Rosario','Cordoba','4578445');
+insert into clientes values ('Perez Luis','Sarmiento 444','Rosario','Santa Fe',null);
+insert into clientes values ('Pereyra Lucas','San Martin 555','Cruz del Eje','Cordoba','4253685');
+insert into clientes values ('Gomez Ines','San Martin 666','Santa Fe','Santa Fe','0345252525');
+insert into clientes values ('Torres Fabiola','Alem 777','Villa del Rosario','Cordoba','4554455');
+insert into clientes values ('Lopez Carlos',null,'Cruz del Eje','Cordoba',null);
+insert into clientes values ('Ramos Betina','San Martin 999','Cordoba','Cordoba','4223366');
+insert into clientes values ('Lopez Lucas','San Martin 1010','Posadas','Misiones','0457858745');
+
+select * from clientes;
+
+
+-- Obtenga el total de los registros agrupados por ciudad y provincia (6 filas)
+select ciudad, provincia, count(*) as total
+from clientes
+group by ciudad, provincia;
+
+
+-- Obtenga el total de los registros agrupados por ciudad y provincia sin considerar los que tienen 
+-- menos de 2 clientes (3 filas)
+select ciudad, provincia, count(*) as total
+from clientes
+group by ciudad, provincia
+having count(*) > 2;
+
+
+-- Obtenga el total de los clientes que viven en calle "San Martin" (where), agrupados por provincia 
+-- (group by), teniendo en cuenta todos los valores (all), de aquellas ciudades que tengan menos de 2 
+-- clientes (having) y omitiendo la fila correspondiente a la ciudad de "Cordoba" (having) (4 filas 
+-- devueltas)
+select ciudad, count(*) as total 
+from clientes
+where domicilio like '%San Martin%'
+group by all ciudad
+having count(*) < 2 and ciudad <> 'Cordoba';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

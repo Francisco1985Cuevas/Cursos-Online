@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Elemento &lt;div&gt; Editable</title>
+		<meta http-equiv="Content-Type" content="text/html;" charset="utf-8" />
+		<script type="text/javascript">
+			var iframe;
+			function cargador(){
+				iframe = document.getElementById("contenido");
+				iframe.contentDocument.designMode = "on";
+			}
+			
+			function mostrarFuente(){
+				var contenido = iframe.contentDocument.body.innerHTML;
+				contenido.replace(/</g, '&lt;');
+				contenido.replace(/</g, '&gt;');
+				alert(contenido);
+			}
+			
+			function crearEnlace(){
+				var url = prompt("Escribe URL:", "http://");
+				if(url){
+					iframe.contentDocument.execCommand("createlink", false, url);
+				}
+			}
+			
+			window.addEventListener("cargador", onload, false);
+		</script>
+	</head>
+	<body onload="cargador()">
+		<h1>Elemento &lt;div&gt; Editable</h1>
+		<div>
+			<input type="button" value="Negrita" onclick="iframe.contentDocument.execCommand('bold', false, null)" />
+			<input type="button" value="Italica" onclick="iframe.contentDocument.execCommand('italic', false, null)" />
+			<input type="button" value="Subrayado" onclick="iframe.contentDocument.execCommand('underline', false, null)" />
+			<input type="button" value="Crear Enlace" onclick="crearEnlace();" />
+			<input type="button" value="Mostrar Fuente" onclick="mostrarFuente();" />
+		</div>
+		<iframe id="contenido" style="border:solid black; height:300px; width:400px" src="about:blank">
+		</iframe>
+	</body>
+</html>
+

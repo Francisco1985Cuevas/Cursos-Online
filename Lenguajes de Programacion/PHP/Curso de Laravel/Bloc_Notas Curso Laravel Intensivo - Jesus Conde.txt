@@ -1,0 +1,130 @@
+Curso de Laravel Intensivo por Jesus Conde.
+
+
+--- VIDEOTUTORIAL: 01 ---
+
+ - Curso intensivo del Framework PHP para artesanos de la web.
+  ------------------------------------------------------------
+
+
+ - Laravel es un Framework de Desarrollo Web MVC Escrito en PHP de última Generación que reduce 
+   el tiempo y costo del desarrollo inicial y tambien su mantenimiento.
+
+ - Aprendiendo de los anteriores frameworks aporta una sintáxis muy expresiva y clara en la 
+   forma de escritura y un completisimo set de funcionalidades que salvan horas y 
+   horas de trabajo.
+
+ - Sigue la Filosofía que Prima: "Convención sobre Configuración".
+   ¿Qué Significa?
+    * Formas Rígidas
+    * Reacción Inteligente
+    * Flexibilidad.
+
+ - Como muchos otros Frameworks MVC, Laravel fue diseñado siguiendo la Filosofía que Prima: 
+   " La Convención sobre la Configuración.
+    ¿Que Significa?
+      
+    * Formas Rígidas: Normas Rígidas(Cómo se debe escribir el código, como llamar a los Modelos, 
+      Vistas y Controladores, etc).
+    * Reacción Inteligente: Siguiendo estas Normas hace que el framework ya sepa en muchas 
+      ocasiones que es lo que debe hacer sin necesidad de escribir código.
+      Laravel aporta mejoras, aumenta su inteligencia respecto a otros frameworks MVC
+    
+    * Flexibilida: Hace mucho más flexible y adaptable practicamente a cualquier proyecto que
+      quieras realizar.
+ 
+ - Busca ese punto de Encuentro entre minimalismo y funcionalidad(filosofia zen)
+  * Sencillo de entender
+  * Limpio, Simple Elegante
+  * Evolución anteriores
+
+ 
+ - Modularidad
+  Ofrece MODULARIDAD del Código. Gracias a la combinación de Drivers y su Sistema de Paquetes.
+  * Los "Drivers": Permiten extender y Cambiar funcionalidades comunes en todas las aplicaciones, 
+    como pueden ser el Cachin, Sessiones, Bases de datos o Autentificación.
+  
+  * El "Empaquetado": Permite Reutilizar cualquier tipo de código o compartirlo con toda la 
+    comunidad de laravel. Se puede empaquetar desde una librería, hasta una aplicación 
+    web entera..
+
+  # IMPORTANTE: laravel Bundles web site nos permite navegar por toda la comunidad, Ver proyectos,
+    lirerias de otros programadores.
+
+
+ - El sistema de Migraciones facilita mucho el trabajo con bases de datos.
+  * Ofrece una Suit de herramientas de última generación para Interactuar con bases de datos.
+  
+  * El sistema de Migraciones de bases de datos nos habilita para facilmente diseñar
+    y modificar bases de datos de un modo independiente de la plataforma, las migraciones
+    pueden aplicarse a cualquier base de datos que soporte laravel(MySQL, PostgreSQL, 
+    MSSQL y SQLite), librando con esto cualquier problema de compatibilidad.
+
+ - Integra un sistema de consultas a la base de datos, Permite Construir y Ejecutar 
+   consultas mucho mas robustas.
+   Las Migraciones pueden aplicarse a cualquier base de datos que soporte laravel.
+
+
+ - Eloquente
+  * Interactua con la Base de datos de un modo totalmente orientado a objetos siguiendo los
+    estandares mas modernos.
+  
+  * Con Eloquent Podemos Crear, Recuperar, Actualizar y Borrar los Registros de la base de 
+    datos sin necesidad de escribir ni una sola línea de Código SQL.
+  
+  * Además de esto Eloquent nos Proveé de un Poderoso Sistema de Manejo de Relaciones y 
+    puede incluso Gestionar la paginación automáticamente por nosotros.
+
+
+ - Artisan
+  * Herramienta de Interface de línea de comandos totalmente Configurable.
+    Con Artisan un desarrollador puede interactuar con su aplicación para disparar, para 
+    desencadenar acciones como puede ser: ejecutar Migraciones, Pruebas de unidades, Tareas
+    programadas, etc.
+    
+    Artisan es completamente extensible asi que podemos escribir cualquier tipo de funcionalidad
+    que queramos.
+
+
+ - Routing
+  * Controlar urls
+  * Helper HTML Integrado
+  * Enlaces auto actualizables
+ 
+  Permite controlar totalmente las URL de nuestro sitio usando el Helper HTML Integrado
+  podemos crear enlaces desde dentro del sitio que se actualizaran automaticamente si cambiamos
+  las URL, lo que hace el trabajo de mantener un sitio web mucho mas sencillo.
+
+
+ - Motor de plantillas(Blade)
+  * Vistas mucho más Sencillas y limpias e incluye importantes mejoras en la presentacion
+    de la aplicación.
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 02 ---
+
+ * Este tutorial muestra los elementos que se van a instalar para el curso.
+   El curso se desarrolla en Windows 7.
+   Se busca y descarga la ultima version del Composer.
+
+
+ * Este tutorial muestra como instalar y configurar laravel en nuestro sistema operativo.
+ - ¿Que necesito para instalar Laravel?
+   * Comprobar que cumplimos todas las configuraciones que indica laravel.
+     Requerimientos
+     - Entorno de desarrollo Web.
+       Servidor web con APACHE, IIS(Internet Information Server) o NGINX cualquiera de ellos.
+     - PHP 5.3 o Superior
+     - Necesita tambien contar con una base de datos pueden ser(MYSQL, MSSQL, POSTGRESQL, SQLITE)
+
+  - "Un framework FACILITA mucho el trabajo a gente que ya sabe programar"
+-----------------------------------------------------------------------------------------------
+
+
+
+
+

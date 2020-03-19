@@ -1,0 +1,165 @@
+-- 15 - Tipo de dato texto.
+---------------------------
+
+drop table if exists visitantes;
+create table visitantes(nombre varchar(30),
+						edad integer,
+						sexo char(1),
+						domicilio varchar(30),
+						ciudad varchar(20),
+						telefono varchar(11)
+						);
+
+-- Intentamos ingresar una cadena de mayor longitud que la definida:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono)
+values ('Juan Juarez',32,'masc','Avellaneda 789','Cordoba','4234567');
+-- aparece un mensaje de error y la sentencia no se ejecuta
+
+-- Ingresamos un número telefónico olvidando las comillas, es decir,
+-- como un valor numérico:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono)
+values ('Marcela Morales',43,'f','Colon 456','Cordoba',4567890);
+-- lo convierte a cadena, veámoslo:
+ 
+select * from visitantes;
+
+-- Ahora borramos la tabla y la creamos utilizando como tipo de campo
+-- los alias existentes para los tipos de datos varchar y char:
+drop table visitantes;
+
+create table visitantes(
+nombre character varying(30),
+edad integer,
+sexo character(1),
+domicilio character varying(30),
+ciudad character varying(20),
+telefono character varying(11)
+);
+
+-- Insertamos un registro:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono)
+values ('Marcela Morales',43,'f','Colon 456','Cordoba',4567890);
+
+-- Mostramos el registro cargado:
+select * from visitantes;
+--------------------------------------------------------------------------------------
+
+-- Problema: Un comercio que tiene un stand en una feria registra en una tabla 
+-- llamada "visitantes" algunos datos de las personas que visitan o compran en 
+-- su stand para luego enviarle publicidad de sus productos.
+
+-- Creamos con la siguiente estructura:
+drop table  if exists visitantes;
+create table visitantes(nombre varchar(30),
+						edad integer,
+						sexo char(1),
+						domicilio varchar(30),
+						ciudad varchar(20),
+						telefono varchar(11)
+						);
+-- Los campos "nombre", "domicilio" y "ciudad" almacenarán valores cuya 
+-- longitud varía, por ello elegimos el tipo "varchar" y le damos a cada uno 
+-- una longitud máxima estimando su tamaño. El campo "sexo" se define de tipo 
+-- "char", porque necesitamos solamente 1 caracter "f" o "m", que siempre 
+-- será fijo. El campo "telefono" también se define como varchar porque no todos 
+-- los números telefónicos tienen la misma longitud.
+
+-- Intentamos ingresar una cadena de mayor longitud que la definida:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono)
+values ('Juan Juarez',32,'masc','Avellaneda 789','Cordoba','4234567');
+-- aparece un mensaje de error y la sentencia no se ejecuta
+
+-- Ingresamos un número telefónico olvidando las comillas, es decir, como un valor numérico:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono)
+values ('Marcela Morales',43,'f','Colon 456','Cordoba',4567890);
+-- lo convierte a cadena, veámoslo:
+
+select * from visitantes;
+-- Ahora borramos la tabla y la creamos utilizando como tipo de campo los 
+-- alias existentes para los tipos de datos varchar y char:
+drop table visitantes;
+create table visitantes(nombre character varying(30),
+						edad integer,
+						sexo character(1),
+						domicilio character varying(30),
+						ciudad character varying(20),
+						telefono character varying(11)
+						);
+-- Insertamos un registro:
+insert into visitantes (nombre,edad,sexo,domicilio,ciudad,telefono) 
+values ('Marcela Morales',43,'f','Colon 456','Cordoba',4567890);
+
+-- Mostramos el registro cargado:
+select * from visitantes;
+--------------------------------------------------------------------------------------
+
+
+-- Primer problema: 
+-- Una concesionaria de autos vende autos usados y almacena los datos de los 
+-- autos en una tabla llamada "autos".
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para cada campo, estableciendo 
+-- el campo "patente" como clave primaria:
+drop table if exists autos;
+create table autos(patente char(6),
+					marca varchar(20),
+					modelo char(4),
+					precio float,
+					primary key (patente)
+					);
+
+-- Hemos definido el campo "patente" de tipo "char" y no "varchar" porque la cadena de caracteres 
+-- siempre tendrá la misma longitud (6 caracteres). Lo mismo sucede con el campo "modelo", en el cual 
+-- almacenaremos el año, necesitamos 4 caracteres fijos.
+
+-- 2- Ingrese los siguientes registros:
+insert into autos
+values('ACD123','Fiat 128','1970',15000);
+insert into autos
+values('ACG234','Renault 11','1990',40000);
+insert into autos
+values('BCD333','Peugeot 505','1990',80000);
+insert into autos
+values('GCD123','Renault Clio','1990',70000);
+insert into autos
+values('BCC333','Renault Megane','1998',95000);
+insert into autos
+values('BVF543','Fiat 128','1975',20000);
+
+-- 3- Seleccione todos los autos del año 1990:
+select * from autos where modelo = '1990';
+
+-- 4- Borre la tabla.
+truncate table autos;
+
+-- 5- Crearla nuevamente con la misma estructura pero utilizando las otras palabras claves para los tipos
+-- de datos char y varchar.
+drop table if exists autos;
+create table autos(patente character(6),
+					marca character varying(20),
+					modelo character(4),
+					precio float,
+					primary key (patente)
+					);
+					
+-- 6- Ingrese un registro.
+insert into autos values('ACD123','Fiat 128','1970',15000);
+
+-- 7- Mostrar el contenido de la tabla.
+select * from autos;
+---------------------------------------------------------------------------------------
+-- PENDIENTE
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 

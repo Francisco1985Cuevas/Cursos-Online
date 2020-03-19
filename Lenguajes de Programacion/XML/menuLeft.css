@@ -1,0 +1,28 @@
+<style type="text/css">
+	body{
+		/*Se utilizara una imagen que aparecera como fondo de la aplicacion*/
+		background-image: url("binaryBG.gif");
+	}
+	
+	h1{
+		/*Se define un tipo de letra y color para la etiqueta h1*/
+		color: #0000FF;
+		font-family: "Comic Sans MS";
+		text-align: center;
+	}
+	
+	span.menuPanel{
+		position: absolute;
+		left: 1%;
+		width: 15%;
+		background-color: #D5942B;
+		font-family: "HeliosBlack";
+	}
+	
+	span.item{
+		position: absolute;
+		left: 17%;
+		width: 70%;
+		background-color: #CCCCFF;
+	}
+</style>

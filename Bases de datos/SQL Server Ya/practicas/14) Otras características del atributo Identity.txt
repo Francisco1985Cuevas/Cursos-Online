@@ -1,0 +1,142 @@
+-- 14) - Otras características del atributo Identity
+-----------------------------------------------------
+
+
+-- Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla "libros", si existe
+if OBJECT_ID('libros') is not null
+drop table libros;
+ 
+-- Creamos la tabla especificando que el campos "codigo" genere valores secuenciales comenzando en 100 e incrementándose en 2 automáticamente
+create table libros(codigo int identity(100, 2), 
+titulo varchar(20), 
+autor varchar(30),
+precio float);
+
+-- Ingresamos algunos registros, recordando que si un campo tiene el atributo "identity" debemos omitirlo en la inserción
+insert into libros(titulo, autor, precio) values('El aleph', 'Borges', 23);
+insert into libros(titulo,autor,precio) values('Uno', 'Richard Bach', 18);
+insert into libros(titulo, autor, precio) values('Aprenda PHP', 'Mario Molina', 45.60);
+
+-- Veamos cómo se almacenaron
+select * from libros;
+-- el código (dato que no ingresamos) se cargó automáticamente, iniciándose en 100 y siguiendo la secuencia de autoincremento (2).
+
+
+
+-- Para saber cuál es el valor de inicio del campo "identity" de la tabla "libros" tipeamos
+select ident_seed('libros');
+-- retorna "100".
+
+-- Si intentamos ingresar un valor para el campo "codigo"
+insert into libros(codigo, titulo, autor, precio) values(106, 'Martin Fierro', 'Jose Hernandez', 25);
+-- generará un mensaje de error.
+
+-- Para permitir ingresar un valor en un campo de identidad activamos la opción "identity_insert"
+set identity_insert libros on;
+-- Recordemos que si "identity_insert" está en ON, la instrucción "insert" DEBE explicitar un valor
+insert into libros(codigo, titulo, autor) values(100, 'Matematica estas ahi', 'Paenza');
+-- Note que ingresamos un valor de código que ya existe; esto está permitido porque el atributo "identity" no implica unicidad
+
+
+-- Ingresamos otro registro
+insert into libros(codigo, titulo, autor) values(1, 'Ilusiones', 'Richard Bach');
+-- Note que ingresamos un valor de código menor al valor de inicio de la secuencia, está permitido.
+
+-- Si no se coloca un valor para el campo de identidad, la sentencia no se ejecuta y aparece un mensaje de error
+insert into libros(titulo, autor) values('Uno', 'Richard Bach');
+
+
+-- Para desactivar la opción "identity_insert" tipeamos
+set identity_insert libros off;
+
+-- Intentemos ingresar un valor para el campo "codigo"
+insert into libros(codigo, titulo, autor) values(300, 'Uno', 'Richard Bach');
+-- aparece un mensaje de error.
+--*************************************************************************************************************************************************--
+
+
+
+
+
+
+-- Primer problema
+-- Una farmacia guarda información referente a sus medicamentos en una tabla llamada "medicamentos".
+-- 1- Elimine la tabla, si existe
+if object_id('medicamentos') is not null
+drop table medicamentos;
+
+-- 2- Cree la tabla con un campo "codigo" que genere valores secuenciales automáticamente comenzando en 10 e incrementándose en 1
+create table medicamentos(codigo int identity(10, 1),
+nombre varchar(20) not null,
+laboratorio varchar(20),
+precio float,
+cantidad int); 
+
+-- 3- Ingrese los siguientes registros
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Sertal', 'Roche', 5.2, 100);
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Buscapina', 'Roche', 4.10, 200);
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Amoxidal 500', 'Bayer', 15.60, 100);
+
+-- 4- Verifique que SQL Server generó valores para el campo "código" de modo automático
+select * from medicamentos;
+
+-- 5- Intente ingresar un registro con un valor para el campo "codigo".
+insert into medicamentos(codigo, nombre, laboratorio, precio, cantidad) values(13,'Sertal', 'Roche', 5.2, 100);
+
+-- 6- Setee la opción "identity_insert" en "on"
+set identity_insert medicamentos on;
+
+-- 7- Ingrese un nuevo registro sin valor para el campo "codigo" (no lo permite)
+insert into medicamentos(nombre, laboratorio, precio, cantidad) values('Amoxilina 500', 'Bayer', 15.60, 100);
+
+-- 8- Ingrese un nuevo registro con valor para el campo "codigo" repetido.
+insert into medicamentos(codigo, nombre, laboratorio, precio, cantidad) values(12,'Sertal2', 'Roche2', 5.2, 100);
+
+--9- Use la función "ident_seed()" para averiguar el valor de inicio del campo "identity" de la tabla "medicamentos"
+select ident_seed('medicamentos');
+
+-- 10- Emplee la función "ident_incr()" para saber cuál es el valor de incremento del campo "identity" de "medicamentos"
+select ident_incr('medicamentos');
+--*************************************************************************************************************************************************--
+
+
+
+
+-- Segundo problema
+-- Un videoclub almacena información sobre sus películas en una tabla llamada "peliculas".
+-- 1- Elimine la tabla si existe
+if object_id('peliculas') is not null
+drop table peliculas;
+
+-- 2- Créela definiendo un campo "codigo" autoincrementable que comience en 50 y se incremente en 3
+create table peliculas(codigo int identity (50, 3),
+titulo varchar(40),
+actor varchar(20),
+duracion int);
+
+-- 3- Ingrese los siguientes registros 
+insert into peliculas(titulo, actor, duracion) values('Mision imposible', 'Tom Cruise', 120);
+insert into peliculas(titulo, actor, duracion) values('Harry Potter y la piedra filosofal', 'Daniel R.', 180);
+insert into peliculas(titulo, actor, duracion) values('Harry Potter y la camara secreta', 'Daniel R.', 190);
+
+-- 4- Seleccione todos los registros y verifique la carga automática de los códigos
+select * from peliculas;
+
+-- 5- Setee la opción "identity_insert" en "on"
+set identity_insert peliculas on;
+
+6- Ingrese un registro con valor de código menor a 50.
+
+7- Ingrese un registro con valor de código mayor al último generado.
+
+8- Averigue el valor de inicio del campo "identity" de la tabla "peliculas".
+
+9- Averigue el valor de incremento del campo "identity" de "peliculas".
+
+10- Intente ingresar un registro sin valor para el campo código.
+
+11- Desactive la opción se inserción para el campo de identidad.
+
+12- Ingrese un nuevo registro y muestre todos los registros para ver cómo SQL Server siguió la 
+secuencia tomando el último valor del campo como referencia.

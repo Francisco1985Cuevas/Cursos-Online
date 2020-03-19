@@ -1,0 +1,82 @@
+.htaccess
+
+
+
+
+- vt1: Que es htaccess
+
+¿que es el archivo .htaccess?
+
+¿como podemos utilizarlo?
+
+¿para que nos puede servir?
+
+Normalmente cuando vamos a subir los archivos al servidor por FTP
+este archivo no suele verse porque esta oculto
+
+En el dashboard del servidor tenemos que verificar en la parte de phpinfo()
+apache2handler si tenemos cargado mod_rewrite.
+--------------------------------------------------------------------------
+
+
+
+- vt2: Restringiendo acceso
+
+Para poder probar lo desarrollado en este video... desde la URL del navegador
+intentar ingresar en la carpeta css o js o cualquier otra carpeta de nuestro
+proyecto de prueba y el archivo .htaccess debe bloquear cualquier acceso
+a algun directorio o carpeta de nuestro proyecto.
+---------------------------------------------------------------------------
+
+
+- vt3: Personalizar pagina de errores.
+
+Para poder probar lo desarrollado en este video... desde la URL del navegador
+intentar ingresar en la carpeta css o js o cualquier otra carpeta de nuestro
+proyecto de prueba y el archivo .htaccess debe bloquear cualquier acceso
+a algun directorio o carpeta de nuestro proyecto.
+
+Tambien desde la URL, escribir o intentar llamar a algun archivo HTML o PHP que no existe en nuestro servidor y debe mostar la pagina programa por nosotros del error 404, y 403
+
+ejemplos:
+http://localhost/cursos/practicas_htaccess/example2/home.html
+
+http://localhost/cursos/practicas_htaccess/example2/css/
+---------------------------------------------------------------------------
+
+
+- vt4: Aplicando la configuracion "global" al servidor
+
+
+
+en este video se muestra como proteger todas las carpetas del servidor
+--------------------------------------------------------------------------
+
+
+
+- vt5: Protegiendo proyectos con usuario y clave en servidor local
+
+google: htpasswd generator
+
+link: http://www.htaccesstools.com/htpasswd-generator/
+
+para poder probar todo lo desarrollado, hay que borrar el historial de navegacion.
+-----------------------------------------------------------------------
+
+
+- vt6: Protegiendo proyectos con usuario y clave en servidor remoto.
+
+se muestra como poner usuario y contraseña desde el cpanel de un servidor remoto.
+-------------------------------------------------------------------------
+
+
+- vt7: URL amigables en PHP con dos o mas variables.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+/*CSS Document*/
+
+html, body{
+	margin: 3;
+	padding: 0;
+}
+
+body{
+	font: 62.5% Arial, Verdana, sans-serif;
+	color: #000;
+	background: #fff;
+}
+
+#contenedor{
+	font-size: 1.2em;
+	margin: 10px 2em;
+}
+
+h1{
+	font-size: 2.5em;
+	margin-bottom: 0;
+}
+
+h1.subtitulo{
+	font: italic normal 1.5em "Times New Roman", Times, serif;
+	margin-top: 0;
+	margin-bottom: 2em;
+}
+
+h2{
+	font-size: 1.3em;
+	margin-bottom: .5em;
+}
+
+h2.subtitulo{
+	font: italic normal 1em "Times New Roman", Times, serif;
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+
+h3{
+	font-size: 1.1em;
+	margin-bottom: 0;
+}
+
+#marcador{
+	border-bottom: 1px solid #e3e3e3;
+	margin-bottom: .5em;
+}
+
+#numero-capitulo{
+	float: right;
+	font: normal 7em "Times New Roman", Times, serif;
+	margin-top: -15px;
+}

@@ -1,0 +1,517 @@
+Curso de Laravel 5. por Jesus Conde.
+
+
+--- VIDEOTUTORIAL: 01 ---
+
+ - El primer video muestra como configurar todo el entorno de desarrollo. 
+
+ - Configurar Laravel Homestead
+ 
+ - Primero se descarga e instala el VirtualBox(proveedor)
+ - Lo segundo es descargar e instalar Vagrant
+ - Ahora instalar laravel/homestead
+ - Windows10 no tiene una terminal(cmd), entonces utilizamos la terminal Git Bash
+ - Instalamos el repositorio Homestead.
+----------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 02 ---
+
+ - Instalacion de Laravel
+   
+   * Podemos instalar Laravel de dos modos, podemos usar el Installer Laravel que es basicamente
+     un pequeño ejecutable que nos permite rapidamente instalar laravel con un comando sencillo
+     de usar.
+     El otro modo es usar COMPOSER directamente.
+
+   * Para este curso se instalo laravel/homestead y como el entorno de trabajo "Homestead" ya 
+     tiene instalado composer se utilizara este medio.
+------------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 03 --- 
+ - La estructura de Laravel
+
+  - El directorio raíz de Laravel y algunos de sus principales archivos de configuraciones.
+   ----------------------------------------------------------------------------------------
+
+   * El archivo .env que se encuentra en el directorio raíz de Laravel, se copio del archivo .env.example que tambien se encuentra
+     en la carpeta raíz, cuando se instala por primera vez el framework.
+   
+   * Su objetivo es el de permitirnos configurar ciertos aspectos de laravel dependiendo del ambiente de trabajo que estemos usando.
+   
+   * La mayor parte de la configuracion es automatica.
+
+   * Tambien estan los archivos relacionados con GIT, .gitattributes, .gitignore  por ejemplo el archivo .gitignore es donde podemos
+     indicar aquellos directorios o archivos que NO queremos que se incluyan cuando hagamos un commit a GIT.
+
+   * El archivo artisan, es el punto de entrada para poder ejecutar comandos ARTISAN y que puede ser usado 
+     ejecutando php artisan nombre_comando desde la terminal(cmd).
+
+   * El archivo composer.json es donde vamos a definir las dependencias de nuestro proyecto
+
+   * El archivo composer.lock es el estado salvado(Guardado) las dependencias que tengamos instaladas.
+
+   * El archivo server.php se usa para emular la funcionalidad mod_rewrite cuando usamos el comando "serve" de artisan.
+
+
+
+  - El directorio vendor
+   * Es donde se localizan todas las dependencias de laravel
+
+  - El directorio test
+   * Almacena todo lo que tiene que ver con los test de la aplicacion.
+
+  - El directorio storage
+   * Contiene a su vez varios directorios, ejemplo el directorio logs cuando estemos trabajando con la aplicacion en esta carpeta
+     se almacenara un archivo (.log) que es importante para poder localizar posibles errores e informacion sobre el funcionamiento
+     general de la aplicacion
+
+  - El directorio routes
+   * Contiene todas las definiciones de rutas para nuestra aplicacion.
+
+   * Los archivos web.php y api.php lo que hacen es contener las rutas que coloca el RouteServiceProvider en un caso desde el 
+     middleware "web" en el grupo middleware "web" y en el otro caso desde el grupo middleware "api"
+
+  - El directorio resources
+   * Contiene cosas como los assets procesados, los archivos de idiomas y las views.
+
+  - El directorio public
+   * Cuenta con varios archivos entre ellos index.php que es el PUNTO DE ENTRADA a nuestra aplicacion.
+
+  - El directorio database
+   * se almacenan las migraciones, seeds y factories.
+
+  - El directorio config
+   * Contiene varios archivos que son cruciales para la configuracion de nuestro sitio web o aplicacion.
+     cada archivo de este directorio contiene una parte especifica de la aplicacion.
+     El archivo app.php es el archivo principal de la configuracion.
+
+  - El directorio bootstrap
+   * Es el modo en que la aplicacion se va a iniciar, lo que se denomina bootear.
+
+  - El directorio app
+   * Se almacena toda la logica de funcionamiento de la aplicacion.
+----------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 04 --- 
+ - Configurar Laravel
+
+ 
+  * Configuracion CORE En config/app.php
+  * Todo lo que contiene este archivo se contiene en un return(), si lo abrimos veremos que es un array con pares clave=>valor
+    * 'name' => 'Laravel'   Indica el nombre de la aplicacion
+
+    * 'env' => env('APP_ENV', 'production')   Define el nombre de entorno en que nuestra aplicacion se esté ejecutando.
+
+    * 'debug' => env('APP_DEBUG', false)  Indica si queremos que esta aplicacion se ejecute en modo debug o No.
+
+    * 'url' => env('APP_URL', 'http://localhost')  Esta opcion es usada por la linea de comandos(cmd) en la consola para generar
+                                                   las URL con las direcciones apropiadas.
+
+    * 'timezone' => 'America/Asuncion'  Es usada por date de PHP y otras funciones de tiempo.
+
+    * 'locale' => 'en', 'fallback_locale' => 'en'  Hacen referencia al contenido de la carpeta laravel/resources/lang/en
+
+    * 'providers' => []  contiene todo el conjunto de proveedores de servicios que son importantes para el inicio de Laravel, cuando
+                         se lleva a cabo el bootstrap(arranque, inicio de laravel).
+
+   - ¿Que son los Entornos?
+     -El entorno es el lugar en el que se esta ejecutando tu aplicacion.
+     En general le damos a los entornos nombres como ENTORNO LOCAL el usado para desarrollar la aplicacion localmente
+     en nuestra propia maquina que para nosotros(localhost, homestead)
+   
+     - Cuando hemos finalizado una parte de la aplicacion, queremos subirla para mostrar los cambios y la situamos en lo
+       que se denomina el Test environment o ENTORNO DE PRUEBA donde podemos llevar a cabo algunas pruebas. 
+   
+     - Una vez que estamos seguro que todo funciona de modo correcto es cuando podemos colocarlo en modo de PRODUCCION.
+
+     # Esta necesidad de trabajar con distintos Entornos es la que explica la importancia de usar Maquinas Virtuales
+       para poder simular como sera posteriormente el funcionamiento tanto en el Entorno de Prueba, como en el Entorno
+       de Produccion.
+       Con este modo de trabajo cuando tengamos que colocar el codigo desde nuestro entorno local al entorno de Produccion
+       no tendremos errores por ejemplo porque esten utilizando distintas versiones de PHP.
+
+
+   * Configuracion CORE En .env
+     - Es el archivo de Configuracion de Entorno y es donde tenemos que definir todas nuestras variables de Entorno.
+----------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 05 ---
+ - Rutas en Laravel.
+
+ - Crear Primera Ruta.
+
+ - ¿Como podemos hacer peticiones a una aplicacion?
+
+ - Ciclo de vida de la peticion.
+
+ - ¿Como podemos crear nuestras rutas?
+
+ - ¿Como maneja Laravel las peticiones entrantes?
+
+ * Lo primero que pasa cuando el usuario hace una peticion, es que se ejecuta el archivo
+   public/index.php.
+
+ * Es el archivo principal para el boot(arranque) de la aplicacion y tambien es su UNICO
+   punto de entrada.
+
+ * require __DIR__.'/../bootstrap/autoload.php': Este es archivo que carga todas las dependencias
+   del framework laravel de modo que esten preparadas para ser usadas cuando sea necesario.
+
+ * $app = require_once __DIR__.'/../bootstrap/app.php': Es el responsable de preparar la aplicacion
+     actual y algunos de los Bindings esenciales.
+
+
+ $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class)  -> Aquí crea un nuevo Kernel
+ 
+ 
+$response = $kernel->handle(
+$request = Illuminate\Http\Request::capture())  -> Kernel que se va a 
+  utilizar para manejar las peticiones entrantes en nuestra aplicacion, y se espera que devuelva
+  una respuesta.
+ 
+
+ $response->send()
+
+  -> Respuesta que es enviado
+ 
+ $kernel->terminate($request, $response)  -> El kernel cierra el ciclo de la peticion.
+
+ * Resumiendo, una peticion entrante es enviada a traves del kernel que por su parte devuelve
+  una respuesta. 
+  Respuesta que es enviada al navegador y mostrada al usuario.
+
+ 
+ - Cuando Laravel recibe una peticion, comprueba un par de cosas.
+
+   * Lo primero que comprueba es metodo de la peticion, que pueden ser cualquiera de los que se
+     denominan "verbos" HTTP, Pueden ser GET, POST, DELETE, PATH, etc.
+   
+   * Ademas del verbo, tambien comprueba la URI. de las peticiones, se trata de la direccion que
+     llega despues del nombre de dominio ejemplo: www.laravel/usuario
+
+   Primero comprueba el Método = Verbo HTTP.
+   En segundo lugar comprueba la URI.
+
+  * Route: Es la fasat a la que apunta el router
+----------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 06 ---
+ - Controllers en Laravel.
+
+ - Trabajar con controllers.
+
+ - ¿Que son los Controllers? **
+
+ - ¿Cómo podemos usarlos para organizar nuestras rutas?
+
+ * Los closures(función anonima) con los que se crean rutas son excelentes, pero solo hasta
+   un cierto tamaño de las aplicaciones son la mejor opción para aplicaciones que no superen
+   las 20 o 30 rutas. Pero a partír de ahi el archivo routes/web.php con closures puede 
+   convertirse en caotico. Podemos organizarlo mejor usando Controllers.
+
+
+ ** Un controller es una clase PHP con métodos que podemos enrutar, los controllers son usados
+   cuando necesitamos separar y organizar nuestra logica de enrutamiento, Así en lugar de tener
+   una gran aplicación con cientos de rutas, tenemos una aplicacion con 30 o 40 Controllers.
+
+ - ¿Cómo crear Controllers y Vincularlos a nuestro archivo routes/web.php?
+ 
+ * Los Controllers se encuentran dentro del directorio laravel/app/Http/Controllers
+ * Dentro del directorio Controllers por defecto ya se tenemos una carpte llamada Controllers
+   con un archivo(controller.php), pero podemos crear mas carpetas dentro del directorio 
+   Controllers.. carpeta a las que suelen darsele Namespace para organizar los Controladores.
+
+ * Dentro del archivo Http/Controllers/Controller.php, el archivo solo contiene el "import" de
+   unas cuantas clase que necesita y la definicion de la CLASE CONTROLLER que extiende 
+   a BaseController, se trata por tanto de la BASE para nuestros controladores lo que significa
+   que todos los controladores que vayamos a utilizar van a tener que extender esta clase.
+
+ # La clase: "class Controller extends BaseController" es la base para todos los controllers.
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 07 ---
+ - Crear Estructura Web(Seguimos Profundizando en los Controllers).
+
+ - Route::get('/', function (){
+     return view('welcome')
+   
+})
+   
+   * Esta ruta le dice a Laravel que nos devuelva la view('welcome') cuando alguien haga una
+     peticion "get" a la raiz de nuestra aplicacion que viene representada por: '/'
+
+
+ - Las Views son las que contienen el HTML que va a ser servido por nuestra aplicacion.
+
+ - Las view(vistas) se almacenan en el directorio: laravel/resources/views
+
+ - Los controllers nos permiten estructurar el codigo de modo mas sencillo y claro
+
+ # Resumiendo todo el proceso sería: 
+   * Crear un Controller(laravel/app/Http/Controllers), 
+   * Enrutar el Controlador(laravel/routes/web.php)
+   * Dentro del Controlador crear la funcion que llama o invoca a una view(vista).
+   * Crear la view(laravel/resources/views/NombreVista.blade.php)
+
+ - Para este videotutorial se crea el Controller:PagesController, Pasos
+  * Creamos Controller: Pages Controller
+
+  * Incluir acciones predeterminadas
+     make: controller pagesController  --resource
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 08 ---
+
+ - Añadir Bootstrap a Laravel
+
+ - Crear una página de Inicio personalizada para el sitio.
+
+ - Laravel incluye una página de inicio predeterminada: laravel/resources/views/welcome.blade.php
+
+ - Para este videotutorial crearemos una nueva que vamos a llamar: laravel/resources/views/home.blade.php
+  * Proceso: Crear una pagina con el nombre de home.blade.php que debemos de situar dentro de la
+    carpeta views con ese nombre.
+    A continuacion llevar a cabo los cambios necesarios en PagesController.php, simplemente
+    en la funcion home() retornar que devuelve la vista: home_old1.blade.php
+
+ - Descargar Bootstrap(Donwload Source)
+ - Cuando se descarga bootstrap, al momento de incluir en el proyecto, solo incluir el contenido de la carpeta 
+   dist(css, fonts, js   incluir solo estas carpetas).
+
+ - Dentro del directorio "public" de laravel, colocar las tres carpetas mencionadas del 
+   bootstrap(css, fonts, js)
+
+ - Ahora en las views incluir las rutas de los css,js, etc..., Para indicar las rutas a las 
+   carpetas del bootstrap desde nuestro proyecto en laravel, las rutas se indican desde donde 
+   esta el archivo index.php de laravel (laravel/public/index.php)
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 09 ---
+
+ - El Motor de Plantillas Blade.
+
+ * Blade es el motor de Plantillas oficial de Laravel que nos permite construir Layouts 
+   para nuestras aplicaciones.
+
+ - Los archivos view de "Blade" tienen una extension .blade.php
+ - Las plantilas Blade suelen situarse dentro del directorio laravel/resources/views y una
+   de sus grandes ventajas es que podemos usar PHP plano dentro de las plantillas Blade.
+
+ - Todas las expresiones "Blade" empiezan con @(arroba), Ejemplo: @extends('master'),
+   @section('titel', 'About'), @endsection
+
+ - Ademas Blade tambien soporta todos los Loops y condicionales PHP. 
+   Ejemplo: @if($product == 1){
+		!!$product->name!!
+	    }
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 10 ---
+
+ - Uso de Material Design.
+
+ - ¿Como aplicar el theme material design a nuestro sitio laravel?
+
+ - El theme Material Design nos provee con un modo sencillo de usar las nuevas guias Material Design de google
+
+ - Ir a la pagina oficial en Github de material design y descargar ultima version.
+   Descomprimir el archivo y copiar solo el contenido css y js de la carpeta "dist" a nuestro proyecto.
+   Esto se debe copiar dentro de: laravel/public
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 11 ---
+
+ - Uso de Bases de Datos.
+
+ - Create, Read, Update, Delete
+
+ - Sistema de Tickets Soporte
+
+ - Veremos distintos elementos de ELOQUENT como ORM o RELATIONSHIPS, veremos las MIGRACIONES,
+   REQUEST, Laravell COLLECTIVE, Envio de Emails.
+
+ - Explicacion en el tutorial del sistema de Tickets.
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 12 ---
+
+ - Crear Schemas con Migrations.
+
+ - Para construir el esquema de nuestra base de datos, siempre debemos usar "Migrations".
+
+ - Artisan:
+    Es la CLI: Command Line Interface.
+    * Para ver una lista de los comandos artisan: php artisan list
+
+ - Crear una TABLA con Artisan: php artisan make:migration create_tickets_table
+
+ - Existe otro método más rapido para crear una tabla: 
+   php artisan make:migration create_tickets_table --create=tickets
+
+ - Si da un error hay que regenerar la vista de todas las clases que necesita laravel que sean
+   incluidas. Para ello ejecutar este comando:
+   
+    composer dump-autoload -o
+
+ - La clase "Schema" de la parte de Migrations
+
+  * Schema es una clase que podemos usar para definir y manipular tablas.
+
+  * Ejemplo: Shema::create -> Metodo que nos sirve para crear tablas, este metodo tiene dos
+    parametros('Nombre_tabla', 'closure(parametro)')
+
+ - Para crear la tabla tickets y sus columnas tenemos que utilizar artisan: php artisan migrate
+
+ - Laravel crea por default la tabla: migrations que es donde se guarda la informacion de todas
+   las migraciones que vayamos creando.
+
+ - Tambien crea por defecto las tablas users y passwords_resets que implementa la autentificacion
+   predeterminada de laravel. tambien se pueden borrar estas tablas sino se desea ejecutar
+   la autentificacion predeterminada.
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 13 ---
+
+ - Eloquent, el ORM de Laravel.
+
+ - Eloquent ORM nos provee con un modo sencillo de poder usar el patron "Active Record" cuando
+   trabajamos con bases de datos, usando esta tecnica nos permite envolver nuestras bases de datos
+   dentro de los "objetos".
+
+ - En programacion orientada a objetos un objeto puede ser cualquier cosa que tenga propiedades y
+   acciones que puedan modificar a ese objeto, aunque lo modifiquemos sigue basando en su original
+   y ese original es lo que se conoce como un MODELO.
+
+ - Un MODELO es simplemente una clase que tiene sus propias variables, caracteristicas y 
+   metodos(acciones que pueden llevarse a cabo).
+
+ - El Modelo es conocido como "M" en el sistema MVC de Modelo-Vista-Controlador.
+
+ - Para este videotutorial, se muestra como convertir la tabla "tickets" en un Modelo para poder
+   manejarla de un modo muy sencillo gracias a ELOQUENT.
+
+ - ELOQUENT ORM, vamos a poder Crear, Editar, Manipular y Borrar los datos de la tabla "Tickets"
+   sin tener que escribir ni una sola linea de SQL.
+
+ - Para empezar crear el Modelo Ticket: php artisan make:model Ticket
+   #Importante: El nombre del modelo tiene que ser el singular del nombre que tiene la tabla
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 14 ---
+
+ - La Página crear Tickets.
+
+ - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

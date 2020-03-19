@@ -1,0 +1,75 @@
+-- 74 - Función SQL que retorna un dato compuesto.
+--------------------------------------------------
+
+
+-- Problema:
+-- Creamos la tabla libros:
+drop table if exists libros;
+create table libros(codigo serial,
+					titulo varchar(40) not null,
+					autor varchar(20) default 'Desconocido',
+					editorial varchar(20),
+					precio decimal(6,2),
+					primary key (codigo)
+					);
+-- Insertamos cuatro registros:
+insert into libros (titulo,autor,editorial,precio)
+values('El aleph','Borges','Emece',25.33);
+insert into libros (titulo,autor,editorial,precio)
+values('Java en 10 minutos','Mario Molina','Siglo XXI',50.65);
+insert into libros (titulo,autor,editorial,precio)
+values('Alicia en el pais de las maravillas','Lewis Carroll','Emece',19.95);
+insert into libros (titulo,autor,editorial,precio)
+values('Alicia en el pais de las maravillas','Lewis Carroll','Planeta',15);
+
+-- Implementamos una función que reciba un código de libro y retorne 
+-- toda el registro que coincida con dicho código:
+create or replace function retornarlibro(int) returns libros 
+	as
+ 		'select * from libros where codigo=$1 ;'
+language sql;
+
+-- Llamamos a la función:
+select retornarlibro(4);
+-----------------------------------------------------------------------------------
+
+
+
+-- Primer problema: 
+-- Trabaje con la tabla llamada "medicamentos" de una farmacia.
+
+-- 1- Cree la tabla con la siguiente estructura:
+drop table if exists medicamentos;
+create table medicamentos(codigo serial,
+							nombre varchar(20),
+							laboratorio varchar(20),
+							precio decimal(5,2),
+							cantidad smallint,
+							primary key(codigo)
+							);
+
+-- 2- Ingrese algunos registros:
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Sertal','Roche',5.2,100);
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Buscapina','Roche',4.10,200);
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Amoxidal 500','Bayer',15.60,100);
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Paracetamol 500','Bago',1.90,200);
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Bayaspirina','Bayer',2.10,150); 
+insert into medicamentos (nombre,laboratorio,precio,cantidad)
+values('Amoxidal jarabe','Bayer',5.10,250); 
+
+-- 3- Implementar una función que retorne el registro completo del 
+-- medicamento más caro. 
+create or replace function medicamentomascaro() returns medicamentos
+as
+	'select * 
+	from medicamentos 
+	where precio = (select max(precio) from medicamentos);'
+language sql;
+ 
+-- 4- Proceder a llamar a la función.
+select medicamentomascaro();

@@ -1,0 +1,112 @@
+-- 19 - Tipo de dato (fecha y hora)
+------------------------------------
+
+use Curso_SqlServer;
+
+-- Problema: Una empresa almacena los datos de sus empleados en una tabla "empleados".
+-- Eliminamos la tabla, si existe
+if object_id('empleados') is not null
+drop table empleados;
+ 
+-- Creamos la tabla eligiendo el tipo de dato adecuado para cada campo
+create table empleados(nombre varchar(20),
+documento char(8),
+fechaingreso datetime
+);
+
+-- Seteamos el formato de la fecha para que guarde día, mes y año
+set dateformat dmy;
+
+select * from empleados;
+
+-- Ingresamos algunos registros
+insert into empleados(nombre, documento, fechaingreso) values('Ana Gomez', '22222222', '12-01-1980');
+insert into empleados(nombre, documento, fechaingreso) values('Bernardo Huerta', '23333333', '15-03-81');
+insert into empleados(nombre, documento, fechaingreso) values('Carla Juarez', '24444444', '20/05/1983');
+insert into empleados(nombre, documento, fechaingreso) values('Daniel Lopez', '25555555', '2.5.1990');
+-- El segundo registro ingresado tiene 2 dígitos correspondientes al año; 
+-- en el tercero empleamos la barra ('/') como separador y en el cuarto empleamos como separador 
+-- el punto ('.') y colocamos un sólo dígito en la parte del día y el mes.
+
+-- Recuperamos los registros
+select * from empleados;
+
+-- Note que el formato de visualización es "y-m-d"
+
+-- Mostramos los datos de los empleados cuya fecha de ingreso es anterior a '01-01-1985'
+select * from empleados where fechaingreso < '01-01-1985';
+
+-- Actualizamos el nombre a "Maria Carla Juarez' del empleado cuya fecha de ingreso es igual a '20/05/1983'
+update empleados set nombre = 'Maria Carla Juarez' where fechaingreso = '20/05/1983';
+update empleados set nombre = 'Maria Carla Juarez' where fechaingreso = '20.5.83';
+-- Veamos si se actualizó
+select * from empleados;
+
+-- Borramos los empleados cuya fecha de ingreso es distinta a '20.5.83'
+delete from empleados where fechaingreso <> '20.5.83';
+
+-- Veamos si se eliminaron
+select * from empleados;
+--**********************************************************************************--
+
+
+
+
+-- Primer problema: Una facultad almacena los datos de sus alumnos en una tabla denominada "alumnos".
+-- 1- Elimine la tabla, si existe
+if object_id('alumnos') is not null
+drop table alumnos;
+
+-- 2- Cree la tabla eligiendo el tipo de dato adecuado para cada campo
+create table alumnos(apellido varchar(30),
+nombre varchar(30),
+documento char(8),
+domicilio varchar(30),
+fechaingreso datetime,
+fechanacimiento datetime);
+
+-- 3- Setee el formato para entrada de datos de tipo fecha para que acepte valores "día-mes-año"
+set dateformat 'dmy';
+ 
+-- 4- Ingrese un alumno empleando distintos separadores para las fechas
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Gonzalez', 'Ana', '22222222', 'Colon 123', '10-08-1990', '15/02/1972');
+
+select * from alumnos;
+
+-- 5- Ingrese otro alumno empleando solamente un dígito para día y mes y 2 para el año
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Juarez', 'Bernardo', '25555555', 'Sucre 456', '03-03-1991', '15/02/1972');
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Benitez', 'Beatriz', '23333333', 'Sucre 457', '6.5.83', '15/02/1972');
+
+-- 6- Ingrese un alumno empleando 2 dígitos para el año de la fecha de ingreso y "null" 
+-- en "fechanacimiento":
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Perez', 'Laura', '26666666', 'Bulnes 345', '03-03-91', null);
+
+-- 7- Intente ingresar un alumno con fecha de ingreso correspondiente a "15 de marzo de 1990" pero en 
+-- orden incorrecto "03-15-90"
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Lopez', 'Carlos', '27777777', 'Sarmiento 1254', '03-15-1990', null);
+-- aparece un mensaje de error porque lo lee con el formato día, mes y año y no reconoce el mes 15.
+
+-- 8- Muestre todos los alumnos que ingresaron antes del '1-1-91'. (1 registro)
+select * from alumnos where fechaingreso < '01-01-91';
+
+-- 9- Muestre todos los alumnos que tienen "null" en "fechanacimiento" (1 registro)
+select * from alumnos where fechanacimiento is null;
+
+-- 10- Intente ingresar una fecha de ingreso omitiendo los separadores
+insert into alumnos(apellido, nombre, documento, domicilio, fechaingreso, fechanacimiento) 
+values('Rosas', 'Romina', '28888888', 'Avellaneda 487', '03151990', null);
+-- No lo acepta.
+
+-- 11- Setee el formato de entrada de fechas para que acepte valores "mes-dia-año".
+set dateformat mdy;
+
+-- 12- Ingrese el registro del punto 7.
+select * from alumnos;
+--**********************************************************************************--
+
+

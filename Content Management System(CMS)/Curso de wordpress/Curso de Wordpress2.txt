@@ -1,0 +1,219 @@
+Curso: Curso Completo de Wordpress desde 0
+------------------------------------------
+
+
+* VT Nº 01
+* Curso Básico de Wordpress desde Cero 1.- Instalación
+
+¿Que aprendere en este Curso?
+
+En este curso aprenderas como Utilizar y Configurar uno de los mejores y mas utilizados Gestores de Contenido en el mundo, con el cual podras administrar facilmente un sitio web sin la necesidad de tocar codigo.
+
+
+¿Que es Wordpress?
+
+Wordpress es un gestor de Contenido, digamoslo que es una plataforma en la cual nosotros podemos agregar contenido es decir, textos, articulos, imagenes a nuestro sitio web de una manera mas facil.
+Wordpress es un CMS, Gestor de Contenido, nos sirve para practicamente muchas cosas, Podemos hacer desde un Sitio Web, hacer desde un Blog, incluso con un poco mas de herramientas podemos llegar a hacer una Tienda.
+
+
+Ejemplo: Podemos utilizar wordpress para crear un blog, ejemplo un blog de diseño web, si necesitamos escribir articulos, agregar imagenes, compartir cosas.
+Si estamos recien saliendo del mundo de HTML, CSS pensaras que los sitios web se hacen escribiendo codigo TODO EL TIEMPO y la verdad es que si pero este codigo se vuelve un poco tedioso de mantener cuando tu quieres agregar diferentes articulos.
+si queremos editar un articulo de una pagina web, tenemos que entrar en el codigo mirar el texto donde esta mal escrito nuestro texto y entrar en el codigo a modificarlo. HOY en dia no es asi.. PORQUE?, porque tenemos una plataforma que nos permite administrar todo esto.. esta plataforma se llama WORDPRESS.
+
+Es un sistema en el cual tienes todas las entradas(post) ordenadas, y si queremos añadir una nueva entrada simplemente añadimos una nueva entrada(post).
+
+Wordpress no solo se utiliza para hacer blogs, se utiliza tambien hacer sitios web[Paginas, Formularios de Contacto].
+
+
+
+¿Que tenemos que hacer Primero?
+
+Tenemos que entrar a wordpress.org, existe wordpress.com pero es DIFERENTE, wordpress.com es un SERVICIO, a nosotros nos interesa entrar a lo que es la plataforma en si, de preferencia descargar wordpress en tu idioma(español).
+
+
+- Descargar wordpress, descomprimirlo y copiarlo en nuestro servidor local(puede ser wampserver,xampp)
+
+- Crear la base de datos.
+
+- Ejecutar wordpress desde el localhost, http://localhost/curso_wordpress
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 02
+* Curso de Wordpress 2.- Escritorio, Perfil y Entorno
+
+
+- Escritorio: En el escritorio de wordpress es donde estamos viendo datos del sitio y algunas otras cosas, en la pestaña o opcion "Opciones de pantalla" se pueden configurar ciertos aspectos del escritorio de wordpress.
+
+En la pestaña "De un vistazo" podemos ver las entradas que tiene el sitio, los comentarios, las paginas, el Tema que tiene actualmente el wordpress.
+
+- Actualizaciones: ¿Para que sirven estas actualizaciones? wordpress constantemente se esta actualizando, Mejoran la SEGURIDAD, agregan otras funciones y hacen otras cosas.
+
+- Barra: Se pueden editar desde la barra el perfil.. 
+  
+  #TIPS: 
+    - Es conveniente por cuestiones de SEGURIDAD mostrar otro nombre publicamente, del que creamos cuando hicimos la  instalacion del wordpress. ¿Porque? Porque aunque no vas a asegurar al 100% tu seguridad No le vas a decir a tus usuarios con que usuario estas ingresando session.
+
+    - La imagen o foto de Perfil, No se cambia desde wordpress, eso se cambia desde un servicio externo llamado GRAVATAR.
+      GRAVATAR: Simplemente es hacerse una cuenta y subir la imagen con el correo que te registraste en tu sitio y ya esta.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 03
+* Curso de Wordpress 3.- Entradas, Categorías y Etiquetas
+
+- Entradas: 
+  Hay que hacer clic en el Titulo de la entrada para que te lleve a todo el contenido de la entrada, para poder entre otras cosas comentar.
+
+Que diferencia hay entre la pagina de inicio y darle un clic en la entrada, 
+Entrada es lo mismo que decir Articulo.
+
+
+- Categorias: Depende de la tematica de tu sitio, si por ejemplo son coches puedes tener una categoria que se llame "Motores" otra categoria que se llame "Carroceria", otra que se llame "llantas", etc.,
+
+- Etiquetas: Si nuestro Articulo(entrada) se trata sobre "llantas de Motocicletas", le podemos crear una etiqueta "llantas", podemos crear otra "Motocicleta", etc., le podemos agregar lo que nosotros queramos y estas etiquetas nos sirven mas o menos para identificar de que trata lo que es la entrada(articulo).
+
+- Tambien podemos agregar Imagen destacada:
+
+- Extracto: El extracto es una pequeña descripcion de lo que trata el articulo.
+
+
+
+- Categorias:
+  ¿Que es el slug? Es lo que ven en la direccion URL, AYUDA en los buscadores.
+
+
+- Etiquetas:
+  Son similares a las categorias, pero las etiquetas con motivo son para escribir articulos. Si tu tienes un sitio web de coches pues puedes tener una etiqueta de llantas otra de motores otra de supongamos vidrios, etc. dependiendo de lo que sea tu sitio.
+
+
+La parte de las entradas es lo principal para tener un sitio web,
+Las entradas son para hablar sobre algo, hablar por ejemplo de autos, casas, etc., lo que tu quieras.
+-----------------------------------------------------------------------------------------------------------------------------
+
+ 
+
+* VT Nº 04
+* Curso de Wordpress 4.- Medios y Paginas
+
+- Paginas: La gente se confunde con las "Paginas" y las "Entradas".
+  ¿Que son las "Entradas(post, Articulos)"? Las entradas son Articulos, son digamos textos que Tu agregas hablando sobre algo... y las PAGINAS son estaticas, se les conoce asi No porque no puedes cambiar el contenido, sino porque una pagina estatica SIRVE para poner las tipicas secciones de: "Acerca de Nosotros", "Poner un formulario de Contacto", etc., para ESO SON LAS PAGINAS.
+
+Por ejemplo: para la pagina "Acerca de" depende de lo que sea tu sitio web, podemos poner la ubicacion de tu negocio o cualquier cosa.
+
+#Tips para las Paginas: 
+
+Atributos de pagina: 
+Las Paginas pueden tener paginas Superiores, supongamos que aqui tienes una pagina que se llama "Empresa" y dentro tu tienes una que se llame supongamos "Departamentos de Contabilidad", "Departamentos de Ventas", etc., pues la "Empresa" seria la pagina superior y las demas serian las inferiores, Esto realmente no se utiliza mucho pero es bueno conocer y saber que es.
+
+Permitir Comentarios: No todas las paginas deben permitir comentarios, por ejemplo si tienes una "Pagina de Contacto" para que quieres que te publiquen comentarios?
+
+trackbacks y pingbacks: Son cuando alguien cita en su articulo de su sitio web un articulo tuyo, es decir te pone una URL en su sitio, entonces lo que hacen los trackbacks y pingbacks es que te avisan, y pueden decirte quien te cito.
+
+
+- Tambien podemos agregar imagenes destacadas.
+
+
+Las PAGINAS practicamente nunca las vas a modificar y casi nunca quieres que comenten en ella, SON PARA MOSTRAR LA INFORMACION AL PUBLICO.
+
+
+Y las entradas(post, Articulos) son para hablar sobre algo, para hablar sobre.. Autos, Casas, lo que tu quieras. Esa es la diferencia entre entradas y Paginas.
+Trata de usar las entradas si tienes un blog, y las PAGINAS solo se usan si tu tienes cosas que quieras mostrar Acerca de Ti, etc., 
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+* VT Nº 05
+* Curso de Wordpress 5.- Apariencia, Temas (Themes) y Personalización
+
+
+- Comentarios: En la pestaña Comentarios simplemente te van a aparecer todos los comentarios que haya de todos tus articulos, 
+ en algunos casos se muestra el nombre del usuario que comento, el correo, y su direccion IP, esto para saber si te estan spameando o no de todos modos hay PLUGINS que te editan el "SPAM" y hay algunas otras opciones.
+
+Incluso podemos rechazar un comentario, podemos responderlo, incluso editarlo si el comentario tiene palabras antisonantes tu las puedes editar aqui, incluso lo puedes marcar como spam y Enviar a la papelera.
+
+
+- Apariencia: En la parte de "Apariencia" tenemos lo que son los temas, hay Temas gratuitos, Temas de Paga, incluso tu puedes hacer el tuyo, si quieres aprender como hacer el tuyo necesitas saber programacion y si sabes un poco de HTML y CSS puedes ver un curso sobre como crear un tema para wordpress.
+ Cada nuevo Tema cambia muchas cosas como por ejemplo la parte del footer, del sidebar, Las Tipografias, entonces depende de cada tema que tu tienes como se va a VISUALIZAR y algunas funciones, por ejemplo algunos Temas son adaptables a dispositivos moviles otros no.
+
+Personalizando un Tema
+-----------------------
+
+Si quieres personalizar un Tema, pulsar sobre el boton "Personalizar" del tema y te debe llevar a la pagina de inicio del tema y tu puedes Personalizar lo que tu quieras.
+Puedes cambiarle el Titulo del Tema, Puedes cambiarle los colores(No todos los tema te lo permiten modificar), Puedes modificar la imagen de Cabecera puedes ocultar la imagen o agregar una nueva.
+
+Widgets: Es la parte de "ABAJO" el footer, por ejemplo si yo NO quiero que aparezca la parte de comentarios en la pagina principal, se puede desactivar desde aqui.
+
+Para agregar un nuevo Tema tienes dos opciones: 
+1) En la parte del directorio raiz de nuestro sitio wordpress tenemos una carpeta llamada: wp-content, dentro tenemos la carpeta donde se van agregando los temas, plugins, si alguna vez tienes un problema con un plugin simplemente borrar la carpeta de ese plugin, y en la carpeta "Themes", tenemos lo que son los temas de nuestro sitio.. tambien se puede agregar directamente en esta carpeta y hay que activar desde el escritorio de wordpress.
+
+2) Desde el escritorio de wordpress podemos facilmente añadir un nuevo tema, puedes buscar temas que otras personas hayan creado, temas gratuitos, temas de paga, o tu puedes subir tu propio tema, si compraste uno tambien puedes subirlo.
+
+
+- Menus: Es tan sencillo como darle en Que Quieres? Una Pagina? Un Enlace? o Una Categoria?
+  si tu quieres un link, por ejemplo a tu PAGINA DE FACEBOOK o a tu galeria o a cualquier cosa, simplemente se agrega la direccion en la parte de la URL.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 06
+* Curso de Wordpress 6.- Plugins
+
+- Plugins: ¿Que es un Plugin?
+ Un Plugin es una añadido que podemos agregar a nuestra instalacion de wordpress a nuestro sitio, un añadido(plugin) puede ser desde un calendario, los plugins permiten agregar muchas cosas como por ejemplo botones para compartir en las redes sociales, agregar algunas otras funciones para los posts, enviar los tipos de comentarios, prevenir spam, etc., Hay todo tipo de plugins, la mayoria de ellos son GRATUITOS y algunos otros son de paga asi como los themes
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 07
+* Curso de Wordpress 7.- Tipos de Usuarios
+
+- Usuarios: Por defecto hay uno que es el ADMIN, podemos editarlo, podemos ver el tipo de perfil que tiene y el numero de entradas que tiene tambien, esto es importante porque puedes tener un sitio en el cual hay muchos muchos usuarios trabajando en el.
+
+- Nuevo usuario: La opcion de añadir un nuevo usuario nos permite crear una cuenta nosotros para alguien mas, porque nosotros dependiendo de la configuracion de nuestro blog podemos decir que los usuarios NO PUEDAN REGISTRARSE o que SI puedan registrarse, entonces sino queremos que se puedan registrar por si mismos nosotros PODEMOS CREAR LAS CUENTAS y darselas 
+ PERFIL: 
+  - Tenemos el perfil de visitante que es cualquier persona que entra a tu sitio web sin haberse registrado, sin hacer nada.
+  - Tenemos el perfil de suscriptor te permite que estas personas solo puedan acceder a contenido para personas que sean registradas, si una persona no se ha registrado TU puedes hacer que no pueda ver un articulo o que no pueda usar algo de tu sitio.
+ - Tenemos el perfil de colaborador te permite crear nuevos articulos y editarlos, es decir que el colaborador puede crear articulos y editarlos pero tiene una diferencia y es que NO PUEDE PUBLICARLOS directamente, tiene que habe alguien que aprueba estos articulos, entonces es importante y es ideal para cualquier blog que tenga muchas personas trabajando en medio.
+entonces si tu tienes un blog y quieres que las personas escriban en el pero tu quieres revisar sus articulos les pones el perfil de colaborador, y una que que ellos terminen el articulo TU lo tienes que revisar y aprobarlo para que se publique.
+ - Tenemos el perfil de autor que es digamos es similar al de colaborador pero tiene una diferencia y es que el autor SI PUEDE publicar los articulos directamente sin aprobacion.
+ - Tenemso el perfil del editor es una especie de ADMINISTRADOR puede trabajar con todo lo que seria el panel de wordpress epxecto algunas cosas administrativas como Plugins, Apariencia, Herramientas, Ajustes, etc., solo puede trabajar con lo que son articulos, medios, paginas, etc.,
+ - Tenemos el perfil del administrador que es el que tiene pleno control de todo lo que es nuestro sistema wordpress.
+
+
+Esta parte es importante porque TU puedes ver cuantas entradas ha escrito cada uno y asi tener una idea de cuales son tus mejores colaboradores o escritores de tu sitio web.
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+* VT Nº 08
+* Curso de Wordpress 8.- Herramientas y Ajustes
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+https://www.youtube.com/watch?v=t6xwV-QVMgk&list=PLhSj3UTs2_yWMco69NRWxwIww844JN9yl&index=8
+
+
+https://www.youtube.com/user/FalconMasters/playlists
+
+
+
+
+
+
+
+
+bootstrap
+https://www.youtube.com/playlist?list=PLhSj3UTs2_yWTKvu1Aq3xUhzIJNBZ3MFW
+
+https://www.youtube.com/watch?v=xSTwyYDT-A8&list=PLhSj3UTs2_yUrzFL3f2zDwBCKMpAVBBz_
+ 
+
+

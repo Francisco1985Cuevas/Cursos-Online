@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Expresiones Condicionales</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:38 Condicionales-->
+		<script language="javascript" type="text/javascript">
+			document.write("<h2>");
+			var edad= eval( prompt("¿Cuantos años tienes?",""));
+			
+			if(edad > 0 && edad <= 12){
+				document.write("Usted paga la tarifa de niños.");
+			}else if(edad > 12 && edad < 60){
+				document.write("Usted paga la tarifa normal de adultos.");
+			}else{
+				document.write("Usted paga la tarifa de la Tercera Edad");
+			}
+			document.write("</h2>");
+		</script>
+	</body>
+</html>

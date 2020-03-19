@@ -1,0 +1,10 @@
+AuthName "Autorizacion requerida"
+AuthUserFile C:\wamp64\www\cursos\practicas_htaccess\htpasswd\.htpasswd
+#AuthUserFile \cursos\practicas_htaccess\htpasswd\.htpasswd
+#AuthUserFile /cursos/practicas_htaccess/htpasswd/.htpasswd
+#AuthUserFile cursos\practicas_htaccess\htpasswd\.htpasswd
+#AuthUserFile \cursos\practicas_htaccess\htpasswd\.htpasswd
+#AuthUserFile C:/wamp648/www/cursos/practicas_htaccess/htpasswd/.htpasswd
+#AuthUserFile /cursos/practicas_htaccess/htpasswd\.htpasswd
+AuthType Basic
+require user carlos usuario1

@@ -1,0 +1,73 @@
+- Primer Paso:
+Para poder usar git y subir nuestros proyectos, archivos o cosas que queramos guardar en la nube (GitHub) primero
+debemos tener un directorio de trabajo donde vayamos guardando nuestras cosas para poder subirlas despues
+en la nube (GitHub)
+
+* Si empezamos desde cero(0) podemos crear manualmente un directorio o carpeta para guardar nuestras cosas
+
+* O si queremos agregarle cosas, ya sea nuevos archivos o directorios a un proyecto o directorio ya existente
+  debemos clonar el repositorio, al clonar un repositorio este ya contiene la carpeta oculta (.git) con el 
+  que trabaja Git.
+
+* Si creamos desde cero(0) un directorio debemos inicializar el directorio para que Git lo reconozca como
+  directorio de trabajo e ir agregando todo lo que hacemos al area de stage.
+
+
+-- Clonar un repositorio:
+git clone RUTA_URL
+
+-- Inicializar un respositorio:
+git init
+
+
+
+
+
+- Segundo Paso:
+Agregar los archivos o nuevos directorios que hayamos creado al area de stage.
+git add NOMBRE_ARCHIVO
+
+#Importante: Podemos verificar desde git el estado en el que se encuentran los archivos que queremos hacer commit-
+git status
+
+
+
+
+- Tercer Paso:
+Hacemos commit de los cambios o nuevos archivos que hemos agregado o modificado al git.
+git commit
+
+
+
+- Cuarto Paso:
+Hacemos push de los cambios o nuevos archivos que hemos agregado o modificado al git.
+
+
+
+- Quinto Paso:
+Como ultimo paso, nos loguemos si ya tenemos una cuenta en GitHub y subimos los archivo en la nube (GitHub)
+git push
+--------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

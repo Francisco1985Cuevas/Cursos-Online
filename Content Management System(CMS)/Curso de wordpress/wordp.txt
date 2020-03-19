@@ -1,0 +1,71 @@
+- Primer paso, descargar wordpress
+https://wordpress.org
+
+- Segundo paso, crear una nueva base de datos
+
+- Tercer paso, descomprimir el archivo de wordpress
+  y copiar en el directorio web(www o htdocs).
+  A la carpeta descomprimida se le pueda dar el nombre
+  que uno quiera.
+
+- ya se puede acceder a wordpress desde el navegador.
+
+- Se empiezan a cargar las configuraciones del wordpress
+  como son la base de datos, el usuarios de la base de datos,
+  el servidor, etc.
+
+* usuario: usuario_wpt
+* password: V0e5mKE6n7X&)74oEx
+
+- Ingresar con el usuario y password elegidos, y ya se debe de poder entrar en el escritorio de wordpress.
+
+-------------------------------------------------------------
+
+- Como cambiar el titulo y el subtitulo del sitio web
+  Ir a: Ajustes -> Generales
+        Ajustes -> lectura
+	Ajustes -> Enlaces permanentes
+
+  Para crear una pagina se deben tener en cuenta: 
+  Primer paso es crear una categoria de "MiTema"
+  segundo paso es crear el permalink(enlace permanente) a esa 
+  categoria
+  Tercer paso es añadir un item al menu que apunta a ese
+  permalink
+-------------------------------------------------------------
+
+ POST = ENTRADA
+
+ Hay que organizar la informacion, CATEGORIAS Y ETIQUETAS(TAGS)
+
+ Cada POST O BLOG O ENTRADA puede tener asignada una o varias
+ categorias.
+
+
+ Las etiquetas(TAGS) son atajos para los temas mas tratados
+ en nuestro sitio.
+------------------------------------------------------------
+
+ SELECCIONAR UNA IMAGEN DESTACADA PARA UNA ENTRADA
+-----------------------------------------------------------
+
+ CREAR PAGINA DE INICIO
+ Ajustes -> Lectura
+ Donde dice Pagina Frontal seleccionar -> Pagina Estatica
+----------------------------------------------------------
+
+
+http://localhost/wordpress/pagina-ejemplo/
+
+
+
+EL ACTUAL
+http://localhost/wordpress
+-------------------------------------------------------
+
+
+
+usuario:usuario_wpt
+password:0RA)o!ABfwTgbevLyU
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Nuestra Primera Aplicacion Ajax</title>
+		<style>
+			.displaybox{
+				width:150px;
+				background-color:#CC9900;
+				border:2px solid #000000;
+				padding:10px;
+				font:24px normal verdana, helvetica, arial, sans-serif;
+			}
+		</style>
+		<script language="javascript" type="text/javascript" src="ajax.js"></script>
+	</head>
+	<body  style="background-color: #006666" onLoad="horaServidor()">
+		<!--VideoTutorial Nº6 peticion y respuesta de datos con ajax-->
+		<center>
+			<h1><font color="#FFFF00">Nuestra primera aplicación Ajax</font></h1>
+			<h2><font color="#FFFFFF">Obtener la hora del servidor sin actualizar la página</font></h2>
+			<form>
+				<input type="button" onClick="horaServidor()" value="¿Cuál es la hora del servidor?" />
+			</form>
+			<div id="showtime" class="displaybox"></div>
+		</center>
+	</body>
+</html>
+

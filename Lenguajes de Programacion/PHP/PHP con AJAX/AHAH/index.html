@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Capturador del Metatag 'Keywords'</title>
+		<script language="javaScript" SRC="miAHAHlib.js"></script>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr>
+					<td>URL: http://</td>
+					<td>
+						<input type="text" id="miurl" name="miurl" size="30" />
+						<input type="button" onclick ="llamarAHAH('scriptservidor.php?url='+document.getElementById('miurl').value,'mostrardiv', 'Espera, por favor; cargando contenido ...')" value="Encuentra" />
+					</td>
+				</tr>
+				<tr><td colspan="2" height="50" id="mostrardiv"></td></tr>
+			</table>
+		</form>
+	</body>
+</html>
+
+

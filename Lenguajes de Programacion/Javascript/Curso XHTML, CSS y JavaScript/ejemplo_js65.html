@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Propiedades del Objeto Documento</title>
+	</head>
+	<body bgcolor="silver" text="forestgreen" link="blue" vlink="#660099">
+		<!--VideoTutorial Nº:45 DOM-->
+		<font face="arial" size="+2">
+			<script language="javascript" type="text/javascript">
+				var abre_tag = "<em><b>";
+				var cierra_tag = "</b></em><br />";
+				
+				//Muestra la localizacion del documento.
+				document.write("La localizacion del documento es: " + abre_tag + document.location + cierra_tag);
+				
+				//Muestra el titulo del documento.
+				document.write("<br />El título del documento: " + abre_tag + document.title + cierra_tag);
+				
+				//Muestra el color de fondo de la pagina.
+				document.write("<br />El color de fondo es: " + abre_tag + document.bgColor + cierra_tag);
+				
+				//Muestra el color del enlace.
+				document.write("<br />El color del enlace es: " + abre_tag + document.linkColor + cierra_tag);
+				
+				//Muestra el color del texto.
+				document.write("<br />El color del texto es: " + abre_tag + document.fgColor + cierra_tag);
+				
+				//Muestra el documento HTML modificado por ultima vez.
+				document.write("<br />El documento fue modificado por última vez: " + abre_tag + document.lastModified + cierra_tag);
+			</script>
+			<a href="http://localhost/curso_js/ejemplo_js64.html">¡Visitanos!</a>
+		</font>
+	</body>
+</html>

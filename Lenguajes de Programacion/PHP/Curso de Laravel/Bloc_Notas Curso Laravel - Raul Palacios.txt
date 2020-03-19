@@ -1,0 +1,869 @@
+Curso de Laravel 5.0 por Raul Palacios.
+
+
+--- VIDEOTUTORIAL: 01 ---
+
+ * ¿Qué es Laravel?
+ 
+ - Laravel es un Framework PHP, basado en Arquitectura MVC el cual fue desarrollado en el año 2.011
+   por el señor Taylor Otwell, Laravel tiene una gran influencia de Frameworks como RUBY on rails 
+   y ASP.NET.
+ 
+ - Laravel es un Framework(de PHP) de Código Abierto Para Desarrollar aplicaciones y servicios 
+   web con PHP 5. Su filosofia es Desarrollar Código PHP de forma Elegante y Simple, evitando 
+   el "código Espagueti". Fue creado en 2.011 por el Señor Taylor Otwell y tiene una gran 
+   influencia de frameworks como Ruby on Rails y ASP.NET MVC.
+
+
+ * ¿Por qué es buena idea hacer uso de Laravel?
+
+ - Eloquent-ORM(nada de SQL)
+ - Motor de plantillas(Blade)
+ - Excelente Documentación
+ - Deploy
+
+
+ Eloquent-ORM(nada de SQL)
+
+   - Laravel incorpora un ORM(Siglas en Ingles Object-Relational mapping), básicamente lo que 
+     hace el ORM es sustituir el lenguage SQL por "objetos".
+
+ Motor de plantillas(Blade)
+   
+   - Laravel incorpora un motor de Plantillas, gracias a esto podemos generar un layout que 
+     contenga elementos comunes de todo nuestro sitio y así generar menos líneas HTML.
+   - (no esta**)vistas Mucho más Sencillas y limpias.
+
+ Excelente Documentación
+ 
+  - Laravel tiene una Excelente Documentación Clara y Concisa.
+
+ Deploy
+
+
+
+ "No hay un Framework mejor que otro, sino que existen frameworks que se adaptan mejor a 
+  nuestras necesidades".
+
+
+ - Preguntas Frecuentes
+   --------------------
+
+  - ¿Necesito saber PHP?
+     SI, tener fundamentos de PHP 
+  
+  - ¿Que tengo que instalar?
+    Se vera en el tutorial.
+
+  - ¿Que aprendere :)?
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 02 ---
+
+ * Este tutorial muestra los elementos que se van a instalar para el curso.
+   El curso se desarrolla en Windows 7.
+   Se busca y descarga la ultima version del Composer.
+
+ - ¿Qué es el Composer?
+  - Composer es una herramienta de administracion de dependencias para PHP.
+    Composer esta altamente inspirado por ejemplo por el npm de node.js
+    Composer es nuestro administrador de dependencias.
+  
+  - Descargar el composer y configurar para que en el proceso de instalacion busque
+    la ruta donde esta el PHP(php.exe)
+
+  - Para este curso tambien se instala el xampp.
+    ¿Que es xampp?
+    * XAMPP es un paquete de instalación el cual contiene un servidor web Apache, un gestor
+      de base de datos MySQL y Lenguajes de programacion(PHP, Perl).
+
+  - Primero se instala el XAMPP, lo segundo que hay que instalar es el COMPOSER y por
+    ultimo descargar el proyecto de LARAVEL por la vía COMPOSER.
+ 
+  - Para descargar el proyecto laravel, abrir la consola de comandos(cmd) y posicionarse
+    desde la consola de comandos en el ESCRITORIO de windows.
+    * Via Composer Create-Project: composer create-project --prefer-dist laravel/laravel blog
+      Al ejecutar este comando desde la consola lo que hace es descargar laravel en nuestro 
+      escritorio.
+ 
+  - El ultimo paso seria simplemente copiar la carpeta que se descargo de laravel a nuestro
+    XAMPP o WAMP dependiendo del que se este usando.
+
+  - Testear o probar el sitio.
+
+
+  ----- Resumiendo -----
+  
+   Las herramientas o programas o software en este caso que voy a necesitar para aprender Laravel son:
+   
+     * Composer
+     
+     * Algun paquete de instalacion el cual contenga algun Servidor web(Servidor HTTP Apache), Un gestor
+       de base de datos(Mysql, PostgreSql).. y Lenguajes de Programacion como lo es PHP, Perl...
+       puede ser: XAMPP, WAMP...
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+--- VIDEOTUTORIAL: 04 ---
+
+ * CONFIGURACIONES Basicas de un Proyecto Laravel.
+ 
+ 
+  - Diferencia entre Página estática y Pagina dinamica
+    --------------------------------------------------
+    * Página Dinamica: Panel de administración con inicio de session para ir agregando informacion.
+    * Pagina Estatica: Son páginas enfocadas principalmente a mostrar una información permanente.
+
+
+  - Después de instalar Laravel, debe configurar la raíz de document/web de su servidor web 
+    como el directorio público. El index.php en este directorio sirve como controlador frontal 
+    para todas las solicitudes HTTP que ingresan a su aplicación.
+
+  - Archivos de configuración
+    * Todos los archivos de configuración para el framework Laravel se almacenan en el directorio 
+      config. (www/laravel/config/)
+      
+
+  - Permisos del directorio
+    Después de instalar Laravel, puede que tenga que configurar algunos permisos.
+
+  * Despues de la instalación podemos darle un NOMBRE a nuestra aplicacion web. Para ello:
+    - Por default el namespace de nuestro directorio esta bajo el nombre de "app" autocargado
+      por composer.
+    - Para CAMBIAR EL NOMBRE de la aplicacion, hay que abrir la consola de comandos(cmd) 
+      situarse hasta la carpeta donde tenemos alojado el proyecto laravel(wamp64/www/laravel) 
+      y ejecutar este comando Artisan: php artisan app:name nombre_proyecto
+
+
+  - ¿Que es Artisan?
+    
+    * Artisan es el nombre que se le dio a la interfaz de linea de comandos que incluye laravel.
+    
+    * Artisan nos proporciona una serie de comandos que nos ayudan durante la etapa de desarrollo 
+      del sitio.
+    
+    * Artisan Herramienta de Interface de línea de Comandos totalmente configurable.
+
+  - ¿Cómo se pueden ver todos los comandos de Artisan?
+     
+    * Primero, para poder hacer uso de los comandos que tiene Artisan: Abrir la consola de
+      comandos(cmd) posicionarse o ubicarse hasta donde tenemos el proyecto 
+      Laravel(C:\wamp64\www\laravel)
+      
+      Se debe ejecutar este comando: php artisan -h
+
+    * Para INICIAR, REFRESCAR o ACTUALIZAR el servidor(localhost) 
+      Se debe ejecutar este comando: php artisan serve
+
+    * Para DETENER el servidor: Ctrol+C
+
+  
+  - Otras Configuraciones
+
+   * Archivo: C:\wamp64\www\laravel\config\app.php
+   ------------------------------------------------
+   - 'debug' => env('APP_DEBUG', false) -> Hace referencia al archivo .env de ENVIROMENT ese 
+      archivo esta en la carpeta raiz y contiene las configuraciones para la base de datos y 
+      debug en proceso de desarrollo.
+      Se muestran los errores de manera mas detallada.
+      Esto se debe configurar nuevamente a false una vez que el proyecto ya este en su etapa 
+      de produccion.
+
+
+  * Archivo: C:\wamp64\www\laravel\config\app.php
+   ------------------------------------------------
+    - Tambien hay que cambiarle el TIMEZONE... 
+      En el buscador escribir "php timezone", Entrar en el Listado de zonas horarias admitidas
+      de php.net  
+      Buscar asuncion y modificar en este archivo: 
+      - 'timezone' => 'UTC' por 'timezone' => 'America/Asuncion'
+
+
+   * Otra parte importante de las configuraciones es cambiarle el LENGUAGE que va a tener la 
+     aplicacion, por defecto viene en ingles, cambiarle al español, Para ello: 
+      * Archivo: C:\wamp64\www\laravel\config\app.php
+      ------------------------------------------------     
+      
+       - 'locale' => 'en' Por 'locale' => 'es'
+
+    OJO!: Pero no basta solo con eso.. buscar en el navegador, laravel 5 lang de github 
+          buscar español...
+          dentro de la carpeta resources(C:\wamp64\www\laravel\resources\lang\es) crear una 
+          nueva carpeta "es" y copiarle los mismos nombres de archivos que tiene la carpeta 
+          del github a la nueva carpeta "es" y ver la codificacion de cada uno en el github y 
+          copiar y pegar dentro de cada archivo
+    
+       'locale' => 'es' busca esa carpeta de español.. por eso es importante copiar esa 
+       carpeta de lenguage.
+
+* Tambien ver en el videotutorial Nº11, como instalar y configurar laravelcollective
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 05 ---
+
+ * Rutas en Laravel.
+
+  - Cuando nosotros trabajamos con recursos de sitios web, es necesario especificar una "ruta" 
+    de acceso a ese recurso, podemos utilizar una ruta para hacer referencia a un archivo, A UNA 
+    PAGINA, o a la direccion url de una PAGINA de otro sitio.
+   
+  - Basicamente una ruta es una peticion de parte del usuario(ver arquitectura MVC en 
+    laravel img_01.png)
+  
+  - Arquitectura MVC en laravel (img_01.png)
+     -> El usuario hace peticiones 
+     -> Las cuales son enrutadas 
+     -> La ruta le notifica al controlador esa peticion 
+     -> El controlador procesa la peticion 
+     -> Y decide si ir al modelo(donde el modelo va a consultar la base de datos) y le va a 
+        retornar esa informacion al controlador 
+     -> Donde el controlador podra enviarselo a la vista 
+     -> Y la vista se encargara de mostrar esa informacion al usuario.
+
+ 
+  * Para definir las rutas o paginas solicitadas.. entrar en: laravel/routes/web.php o laravel/app/Http/routes.php
+------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 06 ---
+
+ * Controladores en Laravel.
+
+ - ¿Qué son los Controladores? 
+   * Un Controlador es el encargado de responder a las peticiones del usuario. Y este es capaz de 
+     invocar al MODELO cuando se hace alguna peticion sobre informacion ya sea EDITAR o REGISTRAR 
+     un elemento en nuestra BASE DE DATOS. Tambien puede invocar a la vista que tenga asociado.
+   
+   * Basicamente un Controlador es el intermediario entre el "Modelo" y la "Vista".
+	
+   * Los CONTROLADORES se Generan o GUARDAN en la siguiente carpeta: laravel/app/Http/Controllers
+   
+   # Nota: Cuando se crea un Controlador lo primero que hay que hacer despues de CREARLO es Enrutar 
+     ese controlador (laravel/routes/web.php)
+
+ - ¿Que podemos hacer si un Controlador tiene muchos Métodos?
+  * Para esto se usan los "Controladores RestFull", que Genera "MULTIPLES" rutas.
+  
+  * Al crear un "Controlador Restfull" desde la consola de comandos con "artisan", lo que hace es crear una clase 
+    con todas las funciones tanto para manejar esa "tabla" o Controlador, crea los metodos para crear un nuevo 
+    registro, actualizar, eliminar, y consultar registros. Esto es Genial!
+  
+
+ * Paso a Paso Crear Controlador RestFull:
+   - Primero: Enrutar el controlador restfull(resource), 
+   - Segundo: Generar" el Controlador: Detener el servidor  -> Ctrl + C
+     				       Crear el Controlador -> php artisan make:controller PhotoController --resource
+
+
+
+  ----- Resumiendo todo los pasos Serian: -----
+     Crear un Controller, 
+     Enrutarlo, y si dentro del Controller se hace mencion a una VIEW, 
+     crear las vistas solicitadas y enrutarlas siempre..
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 07 ---
+
+ * Modelos en Laravel.
+
+ - Un Modelo es la representacion de la información con la cual el sistema va a operar. 
+   Por lo tanto gestiona todos los accesos a dicha informacion, que va desde hacer CONSULTAS, 
+   hasta hacer ACTUALIZACIONES.
+   
+ - Básicamente el Modelo es la representacion de una tabla de nuestra base de datos.
+
+ - ¿Cómo se Crea un Modelo?
+  * Desde la consola de comando(cmd) ejecutar el comando artisan: php artisan make:model Nombre_del_Modelo
+
+ - ¿Dónde se almacenan los Modelos?
+  * Cuándo se genera un "Modelo" o una "Representacion de una Tabla" se guarda en la sgte 
+    carpeta: laravel/app/
+
+
+ - Code Firts(img_02-codefirst.png) -- ¿Que es Code Firts?
+  * "El Codigo Primero" o Code Firts, es un enfoque que plantea que tú creés las clases, las 
+     Relaciones entre las clases o "Representacion de Tabla", y que te olvides de como crear la 
+     Base de datos. Dicho de otra forma... Tratar de manejar todo por programacion desde la 
+     aplicacion.
+  * Lo importante es entender que con "Code Firts" lo PRIMER es el código y despues se genera 
+    la base de datos.
+  * Con Code Firts tambien podemos trabajar con base de datos existentes.
+  
+  # Nota: Lo recomendado es que del modelo, crear nuestra base de datos.
+  
+  - Dentro del código de un nuevo Modelo creado, se crea la clase para esa "Representacion de 
+    la tabla", y se tienen que definir los campos que va a tener ese "Modelo".
+   * Timestamps:
+     -  created_at: Hace referencia a cuando fue generado el recurso(registro en la tabla?)
+     - update_at: Hace referencia a cuando fue actualizado la ultima vez este recurso.
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 08 ---
+
+ * Migraciones en Laravel.
+
+  - Una MIGRACION es un tipo de control de versiones de nuestra base de datos, esto le permite 
+    a un equipo modificar un esquema de base de datos y estar al día con estas modificaciones.
+
+  - Las MIGRACIONES se crean en la carpeta: laravel/database/migrations/
+  
+  - El comando para crear la MIGRACION desde la linea de comandos(cmd) es: 
+    php artisan make:migration create_NOMBRETABLA_table
+   
+  - Al hacer este paso se crea un archivo de migraciones con la fecha y nombre de la migracion.. 
+    Ejemplo: laravel/database/migrations/2016_10_08_192828_create_movies_table.php
+     
+  - Desde la pagina de laravel se pueden mirar estos dos apartados y ver los 
+    Ejemplos: "Creating Columns" y "Foreign Key Constraints"
+  
+  - Para deshacer una migracion: php artisan migrate: rollback
+
+  - Para este videotutorial, se editan los archivos: 
+    laravel/database/migrations/2017_04_16_190609_create_genres_table.php
+    laravel/database/migrations/2017_04_16_190609_create_movies_table.php
+  
+    Despues de crear las columnas en los archivos de migraciones, entrar en la consola 
+    de comandos y ejecutar este comando en el cmd: php artisan migrate.
+
+    Lo que hace es: genéra en la BASE DE DATOS las tablas con todas sus columnas y 
+    tipos de datos.
+
+  - Tambien al hacer esto se crea una tabla que se llama migrations, en donde se van a ir 
+    almacenando todas las veces que hacemos migraciones de nuestra base de datos.
+
+  # Nota: No tocar la tabla "migrations" ya que ahi se guardan todas las veces que 
+    hacemos MIGRACIONES...
+
+  # PASOS - CREAR VISTA, LA CUAL HACE REFERENCIA A UN CONTROLLER, CREAR CONTROLLER, 
+    CREAR MODELO, CREAR MIGRACION.
+
+
+  # https://laravel.com/docs/5.0/schema#adding-columns   En este link vemos todo lo necesario
+                                                         trabajar a la hora de tener que crear
+                                                         nuestras tablas en la base de datos
+                                                         estan los tipos de datos para cada 
+                                                         columna, claves primarias, etc...
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 09 ---
+
+ * Vistas en Laravel.
+
+  - Las vistas contienen el codigo HTML el cual es servido por nuestra aplicacion, sirve como 
+    un método conveniente de separar el "Controlador"/Aplicacion y la "Logica" de dominio de 
+    nuestra logica de presentación.
+
+  - Las vistas se almacenan en el directorio: laravel/resources/views
+
+  - Para poder mostrar una "Vista", primero se tiene que crear una "Ruta", la cual va a ser una 
+    peticion de nuestro usuario.
+ 
+  - Y la vista debe hacer referencia a un "Controlador" que es el que se va a encargar de 
+    resolver la peticion desde la url.
+
+  - #Recordemos: Para crear un controlador: php artisan make:controller FrontController --resource
+     ahora enrutar al controlador creado, laravel/routes/web.php
+
+  - ¿Como podemos retornar una vista?
+    Desde el nuevo controller creado se hace un return a la view, que hace referencia a la vista
+    que esta dentro del directorio: laravel/resources/views/nombre_vista.php
+
+    Previamente a este paso se debe crear la vista. La vista se puede crear como se crea cualquier
+    archivo index.php por ejemplo..
+
+  - #Nota: IMPORTANTE! Las hojas de estilo "CSS", Los archivos JS, Fuentes y demas se 
+     encuentran dentro de la carpeta:
+	laravel/public/css
+   	laravel/public/jss
+   	laravel/public/fonts
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 10 ---
+
+  * Templates en Laravel.
+
+ - Un motor de plantillas nos ayuda a reducír las líneas que nosotros tengamos que
+   generamos de HTML.
+ 
+ - Blade es un motor de plantillas simple pero potente el cual es proporcionado con laravel.
+ 
+ - Blade es impulsado por la Herencia de Plantillas y Secciones y TODAS las Plantillas deben 
+   tener extension '.blade.php'
+
+ - Se basa en Secciones y Herencia.
+
+ - Las Plantillas Blade se almacenan en laravel/resources/views/
+
+ - @extends('')  -> Herencia
+ - @section('')  -> Seccion
+
+ # Ejercicio de este tutorial paso a paso:
+   - Se crea la ruta al controller: FrontController
+   - El controller llama a las views:
+      index.blade.php
+      contacto.blade.php
+      reviews.blade.php
+
+   - De los cuales, el archivo index.blade.php hace un @extends('layouts.principal')
+     herencia al archivo que esta dentro de la carpeta de vistas layouts/principal.blade.php
+     Idem para contacto.blade.php y reviews.blade.php
+   - Se crea un nuevo directorio dentro de las views(admin) que sera heredado para la parte
+     del backend del sistema. admin/index.blade.php
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 11 ---
+
+ * CRUD Crear usuarios en Laravel.
+
+ - CRUD: Create, Read, Update, Delete
+
+ - Eloquent ORM
+
+ - Crear una vista, enrutarla
+ - Generar un controlador: UsuarioController.php
+ - Crear un enrutado restfull: Route::resource('usuario', 'UsuarioController');
+ - Dentro de las views, se crea una nueva carpeta(usuario)
+
+ - En este videotutorial se muestra como instalar laravelcollective
+
+ - HTTP REQUEST, un REQUEST es la informacion que nos es enviada desde un form.
+
+ - UsuarioController.php, web.php, create.blade.php, composer.json, app.php, admin.blade.php, User.php
+----------------------------------------------------------------------------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 12 ---
+
+
+ * CRUD Leer usuarios en Laravel.
+
+
+
+
+
+--- VIDEOTUTORIAL: 13 ---
+
+ * Upgrade
+------------------------------------
+
+
+
+
+
+--- VIDEOTUTORIAL: 14 ---
+
+ * ACTUALIZAR usuarios en Laravel.
+
+
+
+
+--- VIDEOTUTORIAL: 15 ---
+
+ * ELIMINAR usuarios en Laravel.
+
+
+
+
+
+
+--- VIDEOTUTORIAL: 16 ---
+
+ * VALIDACIONES(REQUEST) en Laravel.
+
+Se debe crear un validador desde la consola: php artisan make:request NOMBRESIMBOLICO
+eJ.: php artisan make:request UserCreateRequest
+	php artisan make:request UserUpdateRequest
+
+- Los VALIDADORES(REQUEST) se almacenan en: laravel/app/Http/Request/
+
+- Basicamente lo que tenemos que hacer es ingresar las reglas con las cuales queremos que sean validados cada campo.
+
+
+- Tambien ir hasta los controladores y hacer en las funciones de insert(store)/update que hagan referencia al request que
+acabamos de crear.
+Tenemos que "importar" en el controlador.
+
+- Cada vez que nosotros creamos un Request, tenemos que especificar si esta autorizado o no este Request.
+
+
+
+
+
+--- VIDEOTUTORIAL: 17 ---
+
+ * PAGINACION en Laravel.
+
+- Muestra un cierto numero de recursos en nuestra pagina.
+- Dentro del controlador de usuarios(UsuarioController.php), en la funcion index()
+  para que funcione la paginacion se modifico el metodo $users = User::All() por
+  $users = User::paginate(NUMERO_DE_ELEMENTOS_QUE_QUEREMOS_QUE_SE_MUESTREN_EN_CADA_PAGINA)
+
+- Ahora renderear la paginacion: para ello, en laravel\resources\views\usuario\index.blade.php
+  referenciamos a la variable que tenemos en nuestro controlador, para este ejemplo es la variable
+  $users que es la que contiene el listado de todos los usuarios.
+ 
+
+
+
+
+--- VIDEOTUTORIAL: 18 ---
+
+ * Soft Deleting en Laravel.
+
+- En una base de datos nunca es recomendable eliminar los recursos que estan dentro de esta, basicamente
+  para eso son las bases de datos, para tener almacenada nuestra informacion y las cuales esten accesibles
+  en el momento en que nosotros queramos.
+- Soft Delting lo que hace es OCULTAR el elemento que es eliminado pero nunca lo elimina de nuestra base de 
+  datos.
+
+- Para usar soft deleting: Ir hasta el Modelo y en la parte de los "use".. pegar este codigo:
+use Illuminate\Database\Eloquent\SoftDeletes; (lo incluimos)
+
+ Vamos a especificar que vamos a hacer uso del soft Deleting
+ y crear la variable: protected $dates = ['deleted_at']; dentro del modelo
+
+ Ahora agregamos la columna: deleted_at en nuestra tabla, para ello: 
+ Nos vamos hasta la consola y vamos a crear una migracion con el siguiente comando:
+ php artisan make:migration add_deleted_to_users_table --table=users
+
+ Dentro de la migracion que acabamos de crear, pegar el siguiente codigo: 
+  dentro de la funcion up()
+	$table->softDeletes();
+	basicamente lo que hacemos aqui es agregar el nuevo campo "softdelete"
+
+ Nos vamos nuevamente a nuestra consola y corremos la migracion: php artisan migrate
+ Ahora verificamos en nuestra base de datos nuestra nueva columna.
+
+
+- Ahora modificar el metodo destroy() de nuestro controlador, para este ejemplo es UsuarioController.php
+
+
+
+
+--- VIDEOTUTORIAL: 20 ---
+
+ * Form Login/Logout(Autentificacion de un usuario) en Laravel.
+
+ - Iniciar Laravel(php artisan serve)
+
+ - Laravel nos provee de un modulo de autentificacion, si entramos dentro del archivo: laravel/config/auth.php
+   encontraremos que laravel nos provee de dos drivers "database", "eloquent".
+   Si nosotros utilizamos el driver eloquent tenemos que especificarle que Modelo es el que va a usar para llevar
+   a cabo la autentificacion.
+   Si utilizamos el driver database, tenemos que especificarle la tabla a la cual hara referencia para llevar a cabo
+   la autentificacion.
+
+
+
+ - Primer Paso: Se crea un controlador: php artisan make:controller LogController
+
+ - Segundo Paso: Tambien se crea un "Request": php artisan make:request LoginRequest
+ -- ¿Donde se guardan los Request?
+    Los Request se guardan en la carpeta: laravel/app/Http/Request
+    
+   *IMPORTANTE: cuando se crean los Request se debe habilitar para poder utilizarlos en la aplicacion,
+     public function authorize()
+     {
+        return true;
+     }
+
+ - Tercer Paso: Especificar la ruta en el archivo enrutador de la aplicacion, routes.php, especificamos direccionando
+   al nuevo controlador que acabamos de crear(LogController).
+
+
+
+ - Cuarto Paso: En el archivo: laravel/resources/views/index.blade.php, se crea el formulario que piden: email y
+   contraseña al usuario para poder loguearse en el sistema, los datos se van a procesar en el nuevo controlador
+   creado para este proposito de autentificacion de usuarios(app/Http/Controllers/LogController.php/store())
+
+ - Cuarto Paso: Programacion en el controlador LogController.php, procedemos a programar la Validacion.
+ * Importante: El paquete Auth, nos brinda de varios metodos, entre otros el metodo: 
+   ** Auth::user() el cual nos va a brindar acceso a la informacion que tiene el usuario: {!! Auth::user()->name !!}  [Muestra el nombre del usuario]
+   **Auth::logout() [Hace el proceso de logout de la aplicacion]
+
+- Quinto Paso: probar todo lo hecho, cargar la pagina principal en la URL, tratar de ingresar con el usuario correcto.
+  En la parte del menu debe aparecer el nombre del usuario logueado, y la opcion logout debe cerrar session y salir del sistema.
+  Si se ingresa mal el correo o password, debe salir un mensaje de error avisando al usuario que se cargaron mal los datos.
+  Sino se ingresa nada tambien debe salir el mensaje de error de campos obligatorios.
+  Si se ingresan bien los datos se debe direccionar al panel de administracion.
+
+--- TODOS LOS ARCHIVOS QUE SE CREARON O MODIFICARON PARA ESTE TUTORIAL SON: ---
+C:\wamp64\www\laravel\config\auth.php
+C:\wamp64\www\laravel\app\Http\Controllers\LogController.php
+se programaron las funciones store(), logout()
+C:\wamp64\www\laravel\resources\views\layouts\admin.blade.php
+Se agrego en el menu para que aparezca el nombre del usuario y la parte del logout que redirecciona al metodo logout.
+C:\wamp64\www\laravel\resources\views\alerts\errors.blade.php
+se programo de cero este archivo
+C:\wamp64\www\laravel\app\Http\Requests\LoginRequest.php
+Se programo de cero este archivo, se agregan las reglas, se autoriza al uso de este archivo.
+C:\wamp64\www\laravel\app\Http\routes.php
+Se agregan las rutas al controlador LogController
+C:\wamp64\www\laravel\resources\views\index.blade.php
+Se agrego el form para acceder al panel de administracion
+
+
+
+/*
+libro de registros
+galardonador
+lo que sembramos, cosechamos
+
+*/
+
+
+
+
+
+--- VIDEOTUTORIAL: 21 ---
+
+ * HTTP Middleware en Laravel.
+
+ ¿Que es un Middleware?
+ 
+ - Un Middleware nos provee de un mecanismo conveniente para filtrar las solicitudes HTTP que entran a nuestra aplicacion.
+   por ejemplo.. Laravel incluye un Middleware que verifica que el usuario en tu aplicacion este autenticado, si el usuario
+   no esta autenticado el Middleware redireccionara al usuario a la pagina de login.
+
+ - Laravel ya incluye un Middleware de autentificacion, Auth() es el middleware por default que ya incluye laravel.
+
+ - Ahí es donde intervienen el middleware de acceso a datos y los sistemas de desarrollo de aplicaciones en línea.
+
+
+
+
+ ¿Como puedo utilizar un Middleware?
+
+ Podemos declarar un Middleware desde un Controlador.
+ Ejemplo: desde el Controlador: FrontController:
+	public function __construct(){
+	   //Middleware en laravel
+	   //$this->middleware('auth'); // aplica el middleware a TODO el Controlador
+	   $this->middleware('auth', ['only' => 'admin']); // aplica el middleware solamente al metodo admin
+
+	}
+ Para este ejemplo "protegemos" al Controlador FrontController.
+
+ Hasta aqui, para probar lo que hemos programado...
+
+ http://localhost:8000/admin
+ http://localhost:8000/usuario/create
+ http://localhost:8000/usuario	
+ Debe redireccionar todo hacia el index principal...
+
+
+
+ ¿Como puedo crear un Middleware?
+ 
+ - php artisan make:middleware Admin
+
+ ¿Donde se almacenan los Middleware?
+
+ - laravel/app/Http/Middleware
+
+
+ - Una vez creado nuestro Middleware.. tenemos que registrar nuestro middleware.. Como?
+
+  Ir hasta el archivo: app/Http/Kernel.php y registrarlo en la variable: $routeMiddleware
+  Ejemplo:
+   
+   protected $routeMiddleware = [
+		'auth' => 'Cinema\Http\Middleware\Authenticate',
+		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+		'guest' => 'Cinema\Http\Middleware\RedirectIfAuthenticated',
+		'Nombre del Middleware' => 'Cinema\Http\Middleware\Admin',
+
+
+		'Nombre del Middleware' => 'Especificar donde esta el middleware',
+	];
+
+
+--- VIDEOTUTORIAL: 22 ---
+
+* Peticiones Ajax
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+contrasenha: 5AkeG27AJp7JnA8
+
+
+
+
+
+-- Archivos --
+
+C:\wamp64\www\laravel\composer.json
+
+C:\wamp64\www\laravel\app\User.php
+
+C:\wamp64\www\laravel\bootstrap\cache\.gitignore
+
+C:\wamp64\www\laravel\bootstrap\autoload.php
+
+C:\wamp64\www\laravel\resources\views\usuario\forms\usr.blade.php
+
+C:\wamp64\www\laravel\resources\views\genero\edit.blade.php
+
+C:\wamp64\www\laravel\resources\views\genero\edit.blade.php
+
+C:\wamp64\www\laravel\resources\views\genero\edit.blade.php
+
+C:\wamp64\www\laravel\resources\views\usuario\edit.blade.php
+
+C:\wamp64\www\laravel\resources\views\usuario\edit.blade.php
+
+C:\wamp64\www\laravel\resources\views\usuario\index.blade.php
+
+C:\wamp64\www\laravel\resources\views\usuario\create.blade.php
+
+C:\wamp64\www\laravel\app\Http\Controllers\UsuarioController.php
+
+C:\wamp64\www\laravel\resources\views\layouts\admin.blade.php
+
+C:\wamp64\www\laravel\resources\views\admin\index.blade.php
+
+C:\wamp64\www\laravel\resources\views\layouts\principal.blade.php
+
+C:\wamp64\www\laravel\resources\views\reviews.blade.php
+
+C:\wamp64\www\laravel\resources\views\reviews.blade.php
+
+C:\wamp64\www\laravel\resources\views\contacto.blade.php
+
+C:\wamp64\www\laravel\resources\views\index.blade.php
+
+C:\wamp64\www\laravel\app\Http\Controllers\FrontController.php
+
+C:\wamp64\www\laravel\app\Genre.php
+
+C:\wamp64\www\laravel\resources\views\genero\index.blade.php
+
+C:\wamp64\www\laravel\resources\views\genero\forms\genre.blade.php
+
+C:\wamp64\www\laravel\resources\views\genero\create.blade.php
+
+C:\wamp64\www\laravel\app\Http\Controllers\GeneroController.php
+
+C:\wamp64\www\laravel\app\Http\routes.php
+
+C:\wamp64\www\laravel\.env
+
+C:\wamp64\www\laravel\config\app.php
+
+C:\wamp64\www\laravel\resources\views\alerts\success.blade.php
+
+
+
+
+
+                                            
+-- Documentacion --
+https://laravel.com/docs/5.0/configuration
+
+https://laravel.com/docs/5.0/routing
+
+https://laravel.com/docs/5.0/controllers#restful-resource-controllers
+
+https://laravel.com/docs/5.0/eloquent
+
+https://laravel.com/docs/5.0/schema#adding-columns
+
+https://laravel.com/docs/5.0/views
+
+https://laravel.com/docs/5.0/templates
+
+https://laravel.com/docs/5.0/eloquent
+
+https://laravelcollective.com/docs/5.0/html
+   
+https://laravel.com/docs/5.1/upgrade#upgrade-5.1.0
+
+https://laravel.com/docs/5.1/pagination
+
+https://laravel.com/docs/5.1/eloquent#soft-deleting
+
+https://laravel.com/api/5.0/Illuminate/Routing/Route.html
+
+https://laravel.com/docs/5.1/middleware
+
+https://laravel.com/api/5.0/Illuminate/Contracts/Auth/Guard.html
+
+
+
+
+
+
+lógica de presentacion
+lógica de dominio
+lógica de negocios
+
+----
+presentation logic
+domain logic
+business logic
+
+
+
+
+
+
+
+
+
+
+
+

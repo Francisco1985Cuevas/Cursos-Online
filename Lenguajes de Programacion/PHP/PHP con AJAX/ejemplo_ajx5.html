@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Enviar una petición al servidor</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº3 peticion y respuesta de datos con ajax-->
+		<script language="javascript">
+			function getXMLHTTPRequest(){
+				//Esta funcion me permite crear una instancia del obejto XMLHTTPRequest() 
+				//Dicho de otra forma me permite crear una variable llamada requerimiento y dentro de esa
+				//variable poder usar los atributos y metodos del objeto XMLHTTPRequest()
+				//Para TODOS los navegadores.
+				var req = false;
+				
+				//Try Catch: Manejador de Errores.
+				try{
+					req = new XMLHttpRequest(); /* p.e. Firefox */
+					//xmlhttprequest es un objeto del lenguaje javascript
+				}catch(err1){
+					try{
+						req = new ActiveXObject("Msxml2.XMLHTTP");
+						/* algunas versiones IE */
+					}catch(err2){
+						try{
+							req = new ActiveXObject("Microsoft.XMLHTTP");
+							/* algunas versiones IE */
+						}catch(err3){
+							req = false;
+						}
+					}
+				}
+				return req;
+			}
+			
+			//Aqui se crea la instancia o Variable http del objeto XMLHttpRequest().
+			//Ahora recien se tiene una instancia llamda http del objeto xmlhttprequest().
+			//En este caso ya se esta usando una funcion o metodo del objeto XMLHttpRequest().
+			var miPeticion = getXMLHTTPRequest();
+
+			function llamarAjax(){
+				//Esta funcion establece una conversacion con el servidor
+				//Declara una variable que contiene alguna información para pasar al servidor
+				//var apellido = 'Carmona';
+				var apellido = document.form1.minombre.value;
+				miAleatorio = parseInt(Math.random()*999999999999999);
+				//Construye la  URL del script del servidor que queremos llamar
+				var url = "miscriptdeservidor2.php?apellido=" + apellido;
+				
+				//Pedimos a nuestro objeto XMLHTTPRequest que abra una conexión con el servidor
+				miPeticion.open("GET", url+ "&rand=" + miAleatorio, true);
+				
+				//Preparamos una función respuestaAjax() para ejecutarse cuando la respuesta haya llegado
+				miPeticion.onreadystatechange = respuestaAjax;
+				
+				//Y finalmente enviamos la petición
+				miPeticion.send(null);
+				//Al ser el metodo de envio GET se le pasa null como parametro porque
+				//la informacion de donde va a ir ya va incluida en la variable 'url'.
+			}
+
+			function respuestaAjax(){
+				//Sólo estamos interesados en un readyState de 4, es decir "completado".
+				if(miPeticion.readyState == 4){
+					//Si la respuesta HTTP del servidor es "ok"
+					if(miPeticion.status == 200){
+						//... declaraciones a ejecutar por el programa ...
+						//Lo que responde el servidor... responda en modo XML.
+						//alert("El server dijo: "+miPeticion.responseXML);
+						var nodoSaludo = miPeticion.responseXML.getElementsByTagName("saludo")[0];
+						//El primero de los valores del elemento hijo
+						var textoSaludo = nodoSaludo.childNodes[0].nodeValue;
+						alert("Texto del Saludo: "+textoSaludo);
+						///******/
+						/*Cargar un array*/
+						//var misElementos = object.getElementsByTagName('saludo');
+						/*Longitud de un array*/
+						//misElementos.length
+						/*Acceder a los elementos del array*/
+						//misElementos[0], misElementos[1],...
+						/*Acceder directamente a un elemento concreto del array*/
+						//var unElemento = object.getElementsByTagName('saludo')[0];
+						///******/
+					}else{
+						//Crear un mensaje de error para cualquier otra respuesta
+						//HTTP del servidor.
+						alert("Ha ocurrido un error: " + miPeticion.statusText);
+					}
+				}else{
+					//Mientras readyState todavia no alcance el valor 4... Mostrar imagen de espera.
+					//innerHTML: Reemplaza el contenido del objeto por el contenido HTML que se le indica.
+					document.getElementById('esperando').innerHTML = '<img src="imagenes/anim.gif">';
+				}
+			}
+		</script>
+		<div id="esperando"></div>
+		<form name='form1'>
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type='text' name='minombre' onblur='llamarAjax()' ></td>
+				</tr>
+				<tr>
+					<td>Tel:</td>
+					<td><input type='text' name='teln' /></td>
+				</tr>
+				<tr><td><input type='submit' value="enviar" /></td></tr>
+			</table>
+		</form>
+	</body>
+</html>

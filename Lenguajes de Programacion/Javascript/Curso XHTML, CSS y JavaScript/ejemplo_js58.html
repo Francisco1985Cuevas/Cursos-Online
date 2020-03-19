@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Uso del Objeto Date</title>
+		<script language="javascript" type="text/javascript">
+			
+			var days = new Array();
+			
+			days[0] = "Domingo";
+			days[1] = "Lunes";
+			days[2] = "Martes";
+			days[3] = "Miercoles";
+			days[4] = "Jueves";
+			days[5] = "Viernes";
+			days[6] = "Sabado";
+			
+			function dayOfWeek()
+			{
+				var form = document.form1;
+				var date = parseInt(form.txtDate.value);
+				var year = parseInt(form.txtYear.value);
+				
+				if(isNaN(date) || isNaN(year)){
+					alert("Por favor escribe un número completo válido");
+				}else{
+					if(date < 1 || date > 31){
+						alert("El día del mes debe estar entre 1 y 31");
+					}else{
+						userDate = date+" ";
+						userDate = userDate+form.selMonth.options[form.selMonth.selectedIndex].value;
+						userDate = userDate+" "+year;
+						var dateThen = new Date(userDate);
+						alert(days[dateThen.getDay()]);	//Esta funcion es la que devuelve el dia
+					}
+				}
+			}	
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:43 Objeto Date-->
+		<p>Encuentra el día de tu nacimiento</p>
+		<p>
+			<form name="form1">
+				<input type="text" name="txtDate" size="2" maxlength="2" />
+				<select name="selMonth">
+					<option selected value="Jan">Ene</option>
+					<option selected value="Feb">Feb</option>
+					<option selected value="Mar">Mar</option>
+					<option selected value="Apr">Abr</option>
+					<option selected value="May">May</option>
+					<option selected value="Jun">Jun</option>
+					<option selected value="Jul">Jul</option>
+					<option selected value="Aug">Agt</option>
+					<option selected value="Sept">Sept</option>
+					<option selected value="Oct">Oct</option>
+					<option selected value="Nov">Nov</option>
+					<option selected value="Dec">Dic</option>
+				</select>
+				<input type="text" name="txtYear" size="4" maxlength="4" />
+				<br />
+				<input type="button" value="Dia de la Semana" onclick="dayOfWeek()" name="button1" />
+			</form>
+		</p>
+	</body>
+</html>
+

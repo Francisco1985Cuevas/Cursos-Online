@@ -1,0 +1,65 @@
+-- 4 - Tipos de datos básicos
+-- Primer problema: Un videoclub que alquila películas en video almacena la 
+-- información de sus películas en una tabla llamada "peliculas"; para cada 
+-- película necesita los siguientes datos:
+-- -nombre, cadena de caracteres de 20 de longitud,
+-- -actor, cadena de caracteres de 20 de longitud,
+-- -duración, valor numérico entero.
+-- -cantidad de copias: valor entero.
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para cada campo.
+drop table if exists peliculas;
+create table peliculas(nombre varchar(20), 
+					   actor varchar(20),
+					   duracion integer,
+					   cantidad integer
+);
+
+-- 2- Vea la estructura de la tabla.
+select *
+from information_schema.columns
+where table_name = 'peliculas';
+
+
+-- 3- Ingrese los siguientes registros:
+insert into peliculas (nombre, actor, duracion, cantidad)
+values ('Mision imposible','Tom Cruise',128,3);
+insert into peliculas (nombre, actor, duracion, cantidad)
+values ('Mision imposible 2','Tom Cruise',130,2);
+insert into peliculas (nombre, actor, duracion, cantidad)
+values ('Mujer bonita','Julia Roberts',118,3);
+insert into peliculas (nombre, actor, duracion, cantidad)
+values ('Elsa y Fred','China Zorrilla',110,2);
+
+-- 4- Muestre todos los registros.
+select * from peliculas;
+------------------------------------------------------------------------------------
+
+
+-- Segundo problema: Una empresa almacena los datos de sus empleados en una tabla 
+-- "empleados" que guarda los siguientes datos: nombre, documento, sexo, domicilio, sueldobasico.
+
+-- 1- Cree la tabla eligiendo el tipo de dato adecuado para cada campo.
+drop table if exists empleados;
+create table empleados(nombre varchar(30), 
+					   documento varchar(8),
+					   sexo varchar(1),
+					   domicilio varchar(30),
+					   sueldobasico float
+);
+
+-- 2- Vea la estructura de la tabla:
+select *
+from information_schema.columns
+where table_name = 'empleados';
+
+-- 3- Ingrese algunos registros:
+insert into empleados (nombre, documento, sexo, domicilio, sueldobasico)
+values ('Juan Perez','22333444','m','Sarmiento 123',500);
+insert into empleados (nombre, documento, sexo, domicilio, sueldobasico)
+values ('Ana Acosta','24555666','f','Colon 134',650);
+insert into empleados (nombre, documento, sexo, domicilio, sueldobasico)
+values ('Bartolome Barrios','27888999','m','Urquiza 479',800);
+
+-- 4- Seleccione todos los registros.
+select * from empleados;

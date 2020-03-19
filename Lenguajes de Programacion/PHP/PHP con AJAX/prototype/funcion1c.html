@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>ejemplo uso prototype.js</title>
+		<script src="prototype.js" Language="JavaScript" type="text/javascript"></script>
+		<script type="text/javascript">
+			function test3(){
+				alert(  $F('checkfield')  );
+			}
+			//$F("textfield");      // devuelve el valor de la entrada de texto
+			//$F("areafield");      // devuelve el valor del area de texto
+			//$F("selectfield");    // devuelve el valor de la opción seleccionada
+			//$F("checkfield");     // devuelve indefinido si no está marcado, o el valor
+		</script>	
+	</head>
+	<body>
+		<!--Ejemplo de uso de la funcion $F: Devuelve un campo de entrada(el valor) de un formulario del cual se le indique
+			la id de ese campo de formulario-->
+		<form>
+			<input type="text" id="textfield" name="textfield" value="campo de texto" />
+			<textarea rows="5" cols="5" id="areafield" name="areafield"></textarea>
+			<select id="selectfield" name="selectfield">
+				<option value="1" selected>One</option>
+				<option value="2">Two</option>
+			</select>
+			<input type="checkbox" id="checkfield" name="checkfield" value="1" checked />
+		</form>
+		<input type="button" value="Probar" onclick="test3();"><br> 
+	</body>
+</html>

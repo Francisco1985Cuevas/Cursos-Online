@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" type="text/html; charset=iso-8859-1"  />
+		<title>Eventos de tecla</title>
+	</head>
+	<body bgcolor="yellow" 
+			onkeypress="if(navigator.appName == 'Netscape'){
+							alert('La tecla pulsada: ' + event.which + '' + 'ASCII' + '' + String.fromCharCode(event.which));
+						}else{
+							alert('La tecla pulsada: ' + event.keyCode + '' + 'ASCII' + '' + String.fromCharCode(event.keyCode));
+						}">
+		<!--VideoTutorial Nº:49 Eventos-->
+		<!--String.fromCharCode convierte en cadena-->
+		<font face="verdana">
+		<b>¡Pulsa sobre cualquier tecla en tu teclado para ver lo que pasa!</b>
+	</body>
+</html>

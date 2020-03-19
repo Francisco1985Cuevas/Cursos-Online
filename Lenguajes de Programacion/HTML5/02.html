@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<title>Ejemplo de Lienzo</title>
+		<script type="text/javascript">
+			function cargador(){
+				var lienzo = document.getElementById('lienzo');
+				var lienzo1 = lienzo.getContext('2d');
+				lienzo1.fillStyle = "rgba(0, 0, 200, 1)";	//Para el color
+				lienzo1.fillRect(45, 50, 35, 100);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				lienzo1.fillStyle = "rgba(200, 0, 0, 1)";	//Para el color
+				lienzo1.fillRect(70, 50, 65, 110);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				lienzo1.fillStyle = "rgba(4, 175, 21, 1)";	//Para el color
+				lienzo1.fillRect(115, 50, 95, 90);	//Dibuja un rectangulo con las coordenadas que se le pasan como parametros...
+				
+				//Triangulos con lineas
+				lienzo1.beginPath();
+				lienzo1.strokeStyle = "rgba(0, 0, 200, 0.8)";
+				lienzo1.moveTo(200, 405);
+				lienzo1.lineTo(200, 175);
+				lienzo1.lineTo(60, 405);
+				lienzo1.closePath();
+				lienzo1.stroke();
+				
+				lienzo1.beginPath();
+				lienzo1.strokeStyle = "rgba(0, 200, 0, 0.8)";
+				lienzo1.moveTo(400, 405);
+				lienzo1.lineTo(400, 375);
+				lienzo1.lineTo(260, 405);
+				lienzo1.closePath();
+				lienzo1.stroke();
+				
+				lienzo1.beginPath();
+				lienzo1.strokeStyle = "rgba(200, 200, 0, 1)";
+				lienzo1.moveTo(300, 305);
+				lienzo1.lineTo(300, 375);
+				lienzo1.lineTo(260, 305);
+				lienzo1.closePath();
+				lienzo1.stroke();
+				
+				//Triangulo relleno
+				lienzo1.fillStyle = "rgba(125, 0, 125, 0.5)";
+				lienzo1.beginPath();
+				lienzo1.strokeStyle = "rgba(200, 200, 0, 1)";
+				lienzo1.moveTo(225, 5);
+				lienzo1.lineTo(305, 5);
+				lienzo1.lineTo(225, 200);
+				lienzo1.closePath();
+				lienzo1.fill();
+				
+				//Corazon
+				lienzo1.fillStyle = "rgba(200, 0, 0, 0.5)";
+				lienzo1.beginPath();
+				lienzo1.moveTo(75, 250);
+				lienzo1.bezierCurveTo(75, 247, 70, 235, 50, 235);
+				lienzo1.bezierCurveTo(20, 235, 20, 272.5, 20, 272);
+				lienzo1.bezierCurveTo(20, 290, 40, 312, 75, 330);
+				lienzo1.bezierCurveTo(110, 312, 130, 290, 130, 272);
+				lienzo1.bezierCurveTo(130, 272.5, 130, 235, 100, 235);
+				lienzo1.bezierCurveTo(85, 235, 75, 247, 75, 250);
+				lienzo1.closePath();
+				lienzo1.fill();
+				
+				//Curvas Cuadraticas
+				lienzo1.strokeStyle = "rgba(50, 100, 150, 1)";
+				lienzo1.beginPath();
+				lienzo1.moveTo(275, 125);
+				lienzo1.quadraticCurveTo(225, 125, 325, 162);
+				lienzo1.quadraticCurveTo(260, 200, 265, 200);
+				lienzo1.quadraticCurveTo(325, 200, 325, 162);
+				lienzo1.quadraticCurveTo(325, 125, 275, 125);
+				lienzo1.closePath();
+				lienzo1.stroke();
+				
+				//Arcos
+				lienzo1.beginPath();
+				lienzo1.arc(375, 275, 50, 0, Math.PI * 2, true);
+				lienzo1.moveTo(340, 275);
+				lienzo1.arc(375, 275, 35, 0, Math.PI * 2, false);
+				lienzo1.moveTo(300, 255);
+				lienzo1.closePath();
+				lienzo1.stroke();
+				
+				lienzo1.font = 'italic 40px sans-serif';
+				lienzo1.strokeText("HTML 5", 50, 450);
+					
+			}
+		</script>
+		<meta charset="utf-8" />
+	</head>
+	<body onload="cargador()">
+		<h1>Ejemplo de Lienzo</h1>
+		<canvas id="lienzo" width="600" height="500">
+			
+		</canvas>
+	
+	</body>
+</html>

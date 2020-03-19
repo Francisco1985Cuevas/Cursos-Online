@@ -1,0 +1,34 @@
+index.xhtml -> usa un facelet template(template.xhtml)
+		->apunta a un ManagedBean: Alumno(nombre, primerApellido, segundoApellido, fechaNacimiento)
+
+tambien tiene un boton que apunta a un #{alumnoController.salvarAlumno}
+
+
+confirmacion.xhtml -> usa un facelet template(template.xhtml)
+		->obtiene datos de un ManagedBean:Alumno
+
+
+
+template.xhtml -> es una plantilla facelet, tiene una seccion top y content nada mas.
+<title>Informacion ALumno</title>
+
+
+com.cursojavaee.primefaces
+
+ManagedBean: Alumno(String nombre, primerApellido, segundoApellido, Date fechaNacimiento, SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy")   Getter&Setter)
+
+
+De PrimeFaces se usa el sistema de Pestañas(TabView)
+
+
+
+
+crear un proyecto que crea una pagina de entrada de datos de alumnos, similar a otros pero ahora
+añadiendo componentes PrimeFaces.
+
+se debe crear un nuevo proyecto.
+
+creamos tambien una pagina de confirmacion simplemente para que muestre los datos escritos por el usuario y nos permita conectar las views de entrada y salida con toda la logica de negocio del ManagedBean.
+
+ademas en este proyecto vamos a utilizar tambien el sistema de generacion de plantillas Facelet
+

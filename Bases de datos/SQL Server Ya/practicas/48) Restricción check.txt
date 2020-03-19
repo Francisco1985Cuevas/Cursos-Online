@@ -1,0 +1,155 @@
+-- 48) Restricción check --
+----------------------------
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla, si existe
+if object_id('libros') is not null
+drop table libros;
+
+
+-- La creamos e ingresamos algunos registros
+create table libros(codigo int identity,
+titulo varchar(40),
+autor varchar(30),
+editorial varchar(15),
+preciomin decimal(5,2),
+preciomay decimal(5,2));
+
+
+insert into libros values ('Uno','Bach','Planeta',22,20);
+insert into libros values ('El quijote','Cervantes','Emece',15,13);
+insert into libros values ('Aprenda PHP','Mario Molina','Siglo XXI',48,53);
+insert into libros values ('Java en 10 minutos','Garcia','Siglo XXI',35,40);
+
+select * from libros;
+
+-- Agregamos una restricción "check" para asegurar que los valores de los campos correspondientes a precios no puedan ser negativos
+alter table libros
+add constraint CK_libros_precios_positivo
+check(preciomin >= 0 and preciomay >= 0);
+
+
+
+-- Si intentamos ingresar un valor inválido para algún campo correspondiente al precio, que vaya en contra de la restricción, 
+-- por ejemplo el valor "-15" aparecerá un mensaje de error indicando que hay conflicto con la restricción creada anteriormente 
+-- y la inserción no se realiza. Igualmente si intentamos actualizar un precio, que vaya en contra de la restricción.
+
+-- Si intentamos agregar una restricción que no permita que el precio mayorista supere el precio minorista, aparece un mensaje de error 
+-- y la sentencia no se ejecuta, porque hay registros que no cumplen con la restricción que intentamos establecer. 
+-- Podemos modificar los datos que no cumplen la condición de la restricción o eliminar los registros
+update libros set preciomay = 48 where titulo = 'Aprenda PHP';
+delete from libros where titulo = 'Java en 10 minutos'; 
+
+
+-- Ahora SQL Server si nos permite agregar la restricción "check" que impida que se ingresen valores para "preciomay" superiores a "preciomin"
+alter table libros
+add constraint CK_libros_preciominmay
+check (preciomay <= preciomin);
+
+
+-- Veamos las restricciones de la tabla
+sp_helpconstraint libros;
+
+
+-- Ingresamos un registro con valores por defecto
+insert into libros default values;
+-- Note que los campos correspondientes a precios admiten valores 0 y 999.99 (por el tipo de dato y la restricción), además del valor "null".
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+-- Primer problema: Una empresa tiene registrados datos de sus empleados en una tabla llamada "empleados".
+-- Elimine la tabla si existe
+if object_id('empleados') is not null
+drop table empleados;
+
+
+-- Créela con la siguiente estructura
+create table empleados(documento varchar(8),
+nombre varchar(30),
+fechanacimiento datetime,
+cantidadhijos tinyint,
+seccion varchar(20),
+sueldo decimal(6,2));
+
+
+-- Agregue una restricción "check" para asegurarse que no se ingresen valores negativos para el sueldo
+alter table empleados
+add constraint CK_empleados_sueldo
+check (sueldo >= 0);
+
+
+-- Ingrese algunos registros válidos
+insert into empleados values ('22222222','Alberto Lopez','1965/10/05',1,'Sistemas',1000);
+insert into empleados values ('33333333','Beatriz Garcia','1972/15/08',2,'Administracion',3000);
+insert into empleados values ('34444444','Carlos Caseres','1980/10/05',0,'Contaduría',6000);
+
+
+-- Intente agregar otra restricción "check" al campo sueldo para asegurar que ninguno supere el valor 5000
+alter table empleados
+add constraint CK_empleados_sueldo_maximo
+check(sueldo <= 5000);
+-- La sentencia no se ejecuta porque hay un sueldo que no cumple la restricción.
+
+-- Elimine el registro infractor y vuelva a crear la restricción
+delete from empleados where sueldo = 6000;
+
+alter table empleados
+add constraint CK_empleados_sueldo_maximo
+check(sueldo <= 5000);
+
+
+-- Establezca una restricción para controlar que la fecha de nacimiento que se ingresa no supere la fecha actual
+alter table empleados
+add constraint CK_empleados_fechanacimiento_actual
+check(fechanacimiento < getdate());
+------------------------------------------------------------------------------------------------------------------
+
+
+-- Segundo problema
+-- Una playa de estacionamiento almacena los datos de los vehículos que ingresan en la tabla llamada "vehiculos".
+-- Elimine la tabla, si existe
+if object_id('vehiculos') is not null
+drop table vehiculos;
+
+
+-- Cree la tabla
+create table vehiculos(numero int identity,
+patente char(6),
+tipo char(4),
+fechahoraentrada datetime,
+fechahorasalida datetime
+);
+
+
+-- Ingresamos algunos registros
+insert into vehiculos values('AIC124','auto','2007/17/01 8:05','2007/17/01 12:30');
+insert into vehiculos values('CAA258','auto','2007/17/01 8:10',null);
+insert into vehiculos values('DSE367','moto','2007/17/01 8:30','2007/17/01 18:00');
+
+select * from vehiculos;
+
+-- Agregue una restricción "check" que especifique un patrón de 3 letras y 3 dígitos para "patente"
+alter table vehiculos
+add constraint CK_vehiculos_patente_patron
+check(patente like '[A-Z][A-Z][A-Z][0-9][0-9][0-9]');
+
+
+-- Intente ingresar un registro con un valor inapropiado para "patente"
+insert into vehiculos values('AB1234','auto',getdate(),null);
+-- No lo permite.
+
+
+-- Agregue una restricción "check" que especifique que el campo "tipo" acepte solamente los valores "auto" y "moto"
+alter table vehiculos
+add constraint CK_vehiculos_
+
+
+
+
+
+
+
+
+

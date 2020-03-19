@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Manejar Eventos</title>
+		<script language="javascript" type="text/javascript">
+			var intentos = 0;
+			function aleatorio(){
+				// El número aleatorio es configurado cuando el documento se carga.
+				
+				//Se crea una nueva instancia de la clase Date().
+				//Se iniciliaza el objeto date().
+				var ahora = new Date();
+				
+				num = (ahora.getSeconds())%10;	// Utiliza getSeconds para determinar un número aleatorio
+				num++;
+			}
+			
+			function adivina(form){
+				// Esta función es llamada cada vez que el usuario pulsa el botón
+				if(form.tfield.value == num){
+					alert("¡¡Correcto!!");
+					form.tfield.focus();
+					intentos = 0;
+					aleatorio();
+				}else{
+					if(intentos != 0){
+						intentos++;
+						alert(intentos + " Fallos. Prueba de nuevo.");
+						form.tfield.value = "";	//Limpia la caja de texto
+						form.tfield.focus();	//Pone el cursor en la caja de texto.
+					}else{
+						intentos++;
+						alert(intentos + " Fallo. Prueba de nuevo.");
+						form.tfield.value = "";	//Limpia la caja de texto
+						form.tfield.focus();	//Pone el cursor en la caja de texto.
+					}
+				}
+			}
+		</script>
+	</head>
+	<body bgcolor="lightgreen" onload="aleatorio();">	<!--Llama a la función cuando la pagina es cargada-->
+	<!--VideoTutorial Nº:49 Eventos-->
+		<center>
+			<p>
+				<b>Escoge un numero entre el 1 y el 10.</b>
+				<form name="formulario">
+                 	<input name="tfield" type="textbox" size="4" />
+					<p><input type="button" name="button1"  onclick="adivina(this.form);" value="Comprobar" /></p>
+                </form>
+			</p>
+		</center>
+	</body>
+</html>

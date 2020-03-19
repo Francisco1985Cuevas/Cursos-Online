@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Uso de Metodos DOM</title>
+		<script language="javaScript" type="text/javascript">
+			function saludo(){
+				var nodotexto = document.createTextNode('¡Buenos Días!');
+				document.getElementById('mostrardiv').appendChild(nodotexto);
+				
+			}
+		</script>
+	</head>
+	<body onload="saludo()">
+		<!--Video Tutorial Nº:8 Uso de Metodos DOM-->
+		Queremos colocar  un texto aquí: <br />
+		<div id="mostrardiv"></div>
+	</body>
+</html>
+
+

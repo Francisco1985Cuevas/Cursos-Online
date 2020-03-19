@@ -1,0 +1,17 @@
+#RewriteEngine On: con esto estamos diciendo que vamos a habilitar lo que es la 
+#escritura en el servidor
+
+#RewriteRule ^([a-zA-Z0-9/]+)$ index.php?view=$1: la regla(rule) 
+#dentro de los corchetes[] le decimos que tipo de caracteres
+#podemos pasar en la URL, entonces para este caso seria: letras de la a-z en minusculas
+#letras de la A-Z en mayusculas, numeros del 0-9, y la barra diagonal: /
+#index.php?view=$1 
+#con esta regla nosotros estamos diciendo que el navegador va a entender cuando 
+#nosotros pasemos lo que es solamente un texto en la URL, va a entender que nosotros 
+#queremos redireccionar lo que es la pagina al archivo index.php y lo que viene en la 
+#URL es el valor de la variable "view"
+#$1: seria todo lo que escribimos dentro del corchetes, para este caso: [a-zA-Z0-9/]
+
+
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9/]+)$ index.php?view=$1

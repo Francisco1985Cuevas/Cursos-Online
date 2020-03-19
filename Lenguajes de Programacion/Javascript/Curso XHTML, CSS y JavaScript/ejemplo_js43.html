@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Constructores de Loops</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:40 Loops con Array-->
+		<h2>Usar "break" y "continue"</h2>
+		<script language="javascript" type="text/javascript">
+			document.write("<font size='+2'>");
+			while(true){
+				var nota=(prompt("¿Cual es tu nota? ",""));
+				
+				if(nota < 0 || nota > 10){
+					document.write("Elección no válida<br>");
+					continue;	//vuelve al principio del loop
+				}
+				
+				if(nota >= 8 && nota < 11){
+					document.write("Sobresaliente<br />");
+				}else if(nota >= 7 && nota < 8){
+					document.write("Notable<br />");
+				}else if(nota >= 6 && nota < 7){
+					document.write("Bien<br />");
+				}else if(nota >= 5 && nota < 6){
+					document.write("Aprobado<br/>");
+				}else{
+					document.write("Has suspendido.<br />");
+				}
+				
+				responde = prompt("¿Quieres escribir otra nota?","");
+				if(responde=="si" || responde=="sí"){
+					continue;	//vuelve al principio del loop.
+				}else{
+					break;
+				}	
+			}
+			document.write("Hasta pronto.<br />");
+		</script>
+	</body>
+</html>

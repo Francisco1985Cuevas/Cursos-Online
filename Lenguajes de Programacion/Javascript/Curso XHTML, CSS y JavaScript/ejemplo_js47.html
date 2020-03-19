@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" type="text/html; charset=iso-8859-1" />
+		<title>Uso de with</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:41 Objetos-->
+		<html>
+			<head>
+				<meta http-equiv="content-type" type="text/html; charset=iso-8859-1" />
+				<title>Uso de with</title>
+			</head>
+			<body>
+				<script language="javascript" type="text/javascript">
+					//Se crea la instancia del objeto String
+					var apellidos = new String("Fernandez Riego");
+					
+					
+					//window.alert("El tamaño de apellido es:"+apellidos.length);
+					//mayus = apellidos.toUpperCase();
+					//document.write(mayus);
+					with(apellidos){
+						window.alert("El tamaño de apellido es: "+length);
+						mayus = toUpperCase();
+						document.write(mayus);
+					}
+					
+				</script>
+			</body>
+		</html>
+	</body>
+</html>

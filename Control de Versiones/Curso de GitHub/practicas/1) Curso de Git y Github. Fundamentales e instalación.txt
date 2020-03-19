@@ -1,0 +1,101 @@
+-- Curso de Git y Github. Fundamentales e instalación. --
+-- Video Tutorial Nº 1 --
+-----------------------------------------------------------
+
+
+
+
+
+-- Practicas por linea de comandos desde el git bash para el curso de GitHub. --
+
+* Todos estos comandos son para escribirlos y ejecutarlos en el git bash de git.
+
+* Lista de Comandos y una breve descripcion de lo que hace cada uno de ellos, siguiendo los ejemplos del tutorial.
+
+
+
+
+- Comprobar si hay alguna clave SSH en nuestro ordenador:
+*********************************************************
+cd ~/.ssh
+
+
+- comando
+**********
+ls
+
+
+- comando para crear un directorio: mkdir
+******************************************
+- Crear un directorio desde la linea de comando del git bash:
+mkdir key_backup
+
+
+- comando
+***************************
+cp id_rsa* key_backup
+
+
+
+- comando para remover un directorio o archivo: rm
+*************************************************
+- Remover archivo
+rm id_rsa*
+
+
+- comando para acceder dentro de un directorio: cd
+***************************************************
+
+
+
+- Inicilializar un repositorio en GIT:
+***************************************
+git init
+
+
+
+- comando para colocar un archivo: touch
+*****************************************
+
+
+- comando para agregar un archivo en el staged: git add
+*******************************************************
+
+
+- comando para crear un nuevo archivo, hay que acceder previamente a la carpeta donde se desea crearlo.
+********************************************************************************************************
+> webpage.html
+
+
+- Si queremos añadir(add) todos los archivos con una determinada extension lo hacemos usando: *
+git add *.c
+git add *.txt
+git add *.html
+Con esto ya tenemos los archivos en el stage.
+
+
+- comando para pasar un commit con un mensaje:
+git commit -m 'primera version del proyecto'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

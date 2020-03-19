@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" type="text/html; charset=iso-8859-1" />
+		<title>Eventos de Raton</title>
+		<style type="text/css">
+			body{
+				background-color:#CC9900;
+			}
+		</style>
+		<script language="javascript" type="text/javascript">
+			
+			var contador = 0;
+			
+			function alertame(){
+				alert("¡La ventana se cerrara!");
+				window.close();
+			}
+			
+			function cuenta_Veces(){
+				contador++;
+				if(contador==1){
+					alert(contador+" movimiento de ratón de momento");
+				}else{
+					alert(contador+" movimientos de ratón de momento");
+				}
+			}
+		</script>
+	</head>
+	<body ondblclick="alertame();">
+		<!--VideoTutorial Nº:48 Eventos de mouse -->
+		<p><font face="arial" size="3">
+			!Haz doble click en cualquier sitio de la pagina para salir!
+			<p>
+				Cuando el puntero del raton se mueve sobre el enlace, es disparado un evento.
+				<a href="#" onmouseover="alert('Evento: onMouseOver');">onMouseOver</a>
+			</p>
+			<p>
+				Cuando el puntero del raton se quita de un enlace, es disparado en evento.
+				<a href="#" onmouseout="alert('Evento: onMouseOut');">onMouseOut</a>
+			</p>
+			Cuando el puntero del raton se mueve sobre el boton, es llamada una funcion<br />
+			que mantiene la cuenta de las veces que el puntero toca el boton.
+			<form>
+				<input type="button" value="onmousemove" onmousemove="cuenta_Veces();" />
+			</form>
+		</p>
+	</body>
+</html>

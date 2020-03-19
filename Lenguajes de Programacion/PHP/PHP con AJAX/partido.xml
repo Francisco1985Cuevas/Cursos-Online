@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!--Definicion o Declaracion del tipo de Documento XML-->
+<!--Validacion de un Documento XML-->
+<!--VideoTutorial Nº: 1 Ajax-->
+<!ELEMENT partido(equipo+)><!--Con esto se le indica al documento que tiene que haber
+por lo menos un elemento hijo de partido en este caso es el elemento equipo, signo
++ quiere decir puede tener el numero de elementos hijo que sea...-->
+
+<!ELEMENT equipo(nombre, entrenador, jugador)><!--Tipos de etiquetas que va a tener equipo-->
+<!ATTLIST equipo numero #CDATA #REQUIRED><!--Atributo numero: Caracter data y requerido-->
+<!ELEMENT nombre(#PCDATA)>	<!--Tipos de datos que pueden tener estas etiquetas-->
+<!ELEMENT entrenador(#PCDATA)>
+<!ELEMENT jugador(#PCDATA)>

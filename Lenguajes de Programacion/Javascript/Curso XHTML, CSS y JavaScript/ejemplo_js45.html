@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Ejemplo de Loop</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:40 Loops Anidados-->
+		<h1>Ejemplo de Loop</h1>
+		<p>Escribe una serie de nombres. Se mostraran en una lista numerada.</p>
+		<script language="javascript" type="text/javascript">
+			nombres = new Array();
+			i=0;
+			
+			do{
+				otro = window.prompt("Escribe otro nombre","");
+				if(otro > " "){
+					nombres[i] = otro;
+				}
+				i=i+1;
+			}while(otro > " ");
+			
+			document.write("<h2>"+(nombres.length)+" nombres escritos.</h2>");
+			
+			nombres_ordenados = nombres.sort();
+			
+			document.write("<ol>");
+			for(i in nombres_ordenados){
+				document.write("<li>"+nombres_ordenados[i]+"</li><br />");
+			}
+			document.write("</ol>");
+			
+		</script>
+	</body>
+</html>

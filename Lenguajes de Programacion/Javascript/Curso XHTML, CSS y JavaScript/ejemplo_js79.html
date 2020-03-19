@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Gestores de eventos en formularios</title>
+		<script language="javascript" type="text/javascript">
+			function saludo(mensaje){
+				alert(mensaje);
+			}
+		</script>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:49 Eventos uso this-->
+		<form>
+			<input type="button" value="Mañana" onclick="saludo('¡Buenos dias, hora de levantarse!')" />
+			<input type="button" value="Mediodia" onclick="saludo('Es la hora de comer.')" />
+			<input type="button" value="Noche" onclick="saludo('Que tengas felices sueños.')" />
+		</form>
+	</body>
+</html>

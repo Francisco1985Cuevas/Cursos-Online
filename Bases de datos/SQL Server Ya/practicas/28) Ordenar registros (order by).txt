@@ -1,0 +1,143 @@
+-- 28 Ordenar registros (order by)
+----------------------------------
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla si existe
+if object_id('libros') is not null
+drop table libros;
+
+-- Creamos la tabla
+create table libros(codigo int identity,
+titulo varchar(40) not null,
+autor varchar(20) default 'Desconocido',
+editorial varchar(20),
+precio decimal(6, 2),
+primary key(codigo)
+);
+
+-- Ingresamos algunos registros
+insert into libros(titulo, autor, editorial, precio) values('El aleph', 'Borges', 'Emece', 25.33);
+insert into libros values('Java en 10 minutos', 'Mario Molina', 'Siglo XXI', 50.65);
+insert into libros(titulo, autor, editorial, precio) values('Alicia en el pais de las maravillas', 'Lewis Carroll', 'Emece', 19.95);
+insert into libros(titulo, autor, editorial, precio) values('Alicia en el pais de las maravillas', 'Lewis Carroll', 'Planeta', 15);
+
+select * from libros;
+
+-- Recuperamos los registros ordenados por el título
+select *
+from libros
+order by titulo;
+
+-- Ordenamos los registros por el campo "precio", referenciando el campo por su posición en la lista 
+-- de selección
+select codigo, titulo, autor, editorial, precio
+from libros
+order by 5;
+
+
+-- Los ordenamos por "editorial", de mayor a menor empleando "desc"
+select codigo, titulo, autor, editorial, precio
+from libros
+order by editorial desc;
+
+-- Ordenamos por dos campos 
+select codigo, titulo, autor, editorial, precio
+from libros
+order by titulo, editorial;
+
+-- Ordenamos en distintos sentidos
+select *
+from libros
+order by titulo asc, editorial desc;
+
+-- Podemos ordenar por un campo que no se lista en la selección
+select titulo, autor
+from libros
+order by precio;
+
+
+-- Está permitido ordenar por valores calculados
+select titulo, autor, editorial, precio+(precio*0.1) as 'precio con descuento'
+from libros
+order by 4;
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+-- Primer problema: En una página web se guardan los siguientes datos de las visitas: número de visita, 
+-- nombre, mail, pais, fecha.
+-- Elimine la tabla "visitas", si existe
+if object_id('visitas') is not null
+drop table visitas;
+
+
+-- Créela con la siguiente estructura
+create table visitas(numero int identity,
+nombre varchar(30) default 'Anonimo',
+mail varchar(50),
+pais varchar(20),
+fecha datetime,
+primary key(numero)
+);
+
+
+-- Ingrese algunos registros
+insert into visitas (nombre, mail, pais, fecha) values('Ana Maria Lopez', 'AnaMaria@hotmail.com', 'Argentina', '2006-10-10 10:10');
+insert into visitas (nombre, mail, pais, fecha) values('Gustavo Gonzalez', 'GustavoGGonzalez@hotmail.com', 'Chile', '2006-10-10 21:30');
+insert into visitas (nombre, mail, pais, fecha) values('Juancito', 'JuanJosePerez@hotmail.com', 'Argentina', '2006-10-11 15:45');
+insert into visitas (nombre, mail, pais, fecha) values('Fabiola Martinez', 'MartinezFabiola@hotmail.com', 'Mexico', '2006-10-12 08:15');
+insert into visitas (nombre, mail, pais, fecha) values('Fabiola Martinez', 'MartinezFabiola@hotmail.com', 'Mexico', '2006-09-12 20:45');
+insert into visitas (nombre, mail, pais, fecha) values('Juancito', 'JuanJosePerez@hotmail.com', 'Argentina', '2006-09-12 16:20');
+insert into visitas (nombre, mail, pais, fecha) values('Juancito', 'JuanJosePerez@hotmail.com', 'Argentina', '2006-09-15 16:25');
+
+select * from visitas;
+
+-- Ordene los registros por fecha, en orden descendente.
+select numero, nombre, mail, pais, fecha
+from visitas
+order by fecha desc;
+
+
+-- Muestre el nombre del usuario, pais y el nombre del mes, ordenado por pais (ascendente) y nombre 
+-- del mes (descendente)
+-- solucion 1
+select  nombre,  pais, datename(month, fecha) as fecha
+from visitas
+order by pais asc, fecha desc;
+-- solucion 2
+select nombre, pais, datename(month,fecha)
+from visitas
+order by pais, datename(month, fecha) desc;
+
+
+-- Muestre el pais, el mes, el día y la hora y ordene las visitas por nombre del mes, del día y la hora.
+-- solucion 1
+select pais,
+		datename(month, fecha) as mes, 
+		datepart(day, fecha) as dia,
+		datepart(hour, fecha) as hora
+from visitas
+order by mes, dia, hora;
+-- solucion 2
+select pais,
+		datename(month, fecha) as mes,
+		datename(day, fecha) as dia,
+		datename(hour, fecha) as hora
+from visitas
+order by 2, 3, 4;
+
+
+-- Muestre los mail, país, ordenado por país, de todos los que visitaron la página en octubre
+select mail, pais
+from visitas
+where datename(month, fecha) = 'Octubre'
+order by pais;
+
+
+select mail, pais
+from visitas
+where datename(month, fecha) = 'Octubre'
+order by 2;

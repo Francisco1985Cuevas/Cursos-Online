@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>Ejemplo uso prototype.js</title>
+		<script src="prototype.js" Language="JavaScript" type="text/javascript"></script>
+		<script type="text/javascript">
+			function test3(){
+				campos = Form.serialize('miform');
+				alert( campos );
+			}
+		</script>	
+	</head>
+	<body>
+		<!--Ejemplo de uso del metodo Form.serialize 
+			Devuelve el contenido de un formulario como un string de pares serializados
+			parametro/valor codificados para enviar con el metodo GET,
+			del cual se le indique la id de ese formulario-->
+		<form id="miform">
+			<input type="text" id="textfield" name="textfield" value="campo de texto" />
+			<textarea rows="5" cols="5" id="areafield" name="areafield"></textarea>
+			<select id="selectfield" name="selectfield">
+				<option value="1" selected>One</option>
+				<option value="2">Two</option>
+			</select>
+			<input type="checkbox" id="checkfield" name="checkfield" value="1" checked />
+		</form>
+		<input type="button" value="Probar" onclick="test3();" /> 
+	</body>
+</html>

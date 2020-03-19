@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<libro>
+	<h1>cabecera</h1>
+	<logo href="imagen.jpg" />	<!--Ejemplo de elemento autocerrado-->
+	<editor>Septimo Continente Virtual</editor>
+	<titulo>Creacion aplicaciones dinamicas Web con PHP y MySQL</titulo>
+	<capitulo titulo="PHP Y XML">
+		<seccion titulo="¿Que es XML?">
+			<parrafo>
+				Si ya conoces HTML, te sera mas facil entender XML.
+			</parrafo>
+			<parrafo>
+				Ambos son lenguajes marco, pero XML es mas estructurado que HTML.
+			</parrafo>
+		</seccion>
+	</capitulo>	
+</libro>

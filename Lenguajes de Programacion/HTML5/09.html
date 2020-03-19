@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Juego de memoria usando pol&iacute;gonos</title>
+		<script type="text/javascript">
+			
+			var cancho = 900;						//ancho del canvas
+			var calto = 900;						//alto del canvas
+			var ctx = ;								//contexto del canvas
+			var primeraeleccion = true;				//declara e inicializa primera eleccion
+			var primeracarta;						//declara variable para contener informacion sobre 1era. carta
+			var segundacarta;						//declara variable para contener informacion sobre 2da. carta
+			var colordorso = "rgb(128, 0, 128)";	//configura color para dorso de las cartas
+			var frontbgcolor = "rgb(251, 215, 73)";	//Configura color de fondo para frente cartas
+			var colorpoli = "rgb(255, 255, 255)";	//configura el color de la mesa de juego
+			var cardrad = 30;						//configura el radio para los poligonos
+			var baraja = [];						//declara la baraja, inicialmente un array vacío
+			var primersx = 30;						//configura la posicion x de la primera carta
+			var primersy = 50;						//configura la posicion y de la segunda carga
+			var margen = 30;						//configura el espacio entre cartas
+			var cartaancho = 4*cardrad;				//configura el ancho de la carta cuatro veces el radio de poligonos
+			var cartaalto = 4*cardrad;				//configura el alto de la carta cuatro veces el radio de poligonos
+			var tid;	
+			var coinciden;							//variable elegida y usada en la funcion darvuelta
+			var tiempoinicio;						//variable configurada en la funcion init y usada para calcular el tiempo gastado
+			
+			
+			//Carta contiene informacion de las cargas: la locali
+			//identificacion
+			//info de la identificacion(coincidencia) en este caso es el
+			function Carta(sx, sy, sancho, salto, info){
+				//Constructor
+				this.sx = sx;
+				this.sy = sy;
+				this.sancho = sancho;
+				this.salto = salto;
+				this.info = info;
+				this.dibujar = dibujardorso;
+			}
+			
+			//genera la baraja de cartas con 6 pares de poligonos
+			function hacerbaraja(){
+				var i;	//para usar en el loop for
+				var acarta;
+				var bcarta;
+				var cx = primersx;	//posicion x de la primera carta
+				var cy = primersy;	//posicion y de la segunda carta
+				
+				for(i=3; i<9; i++){
+					acarta = new Carta(cx, cy, cartaancho, cartaalto, i);	//Crea una nueva carta
+					baraja.push(acarta);
+					cx = cx+cartaancho+margen;
+					acarta.dibujar();
+					bcarga.dibujar();
+				}
+				
+				barajar();
+			}
+			
+			
+			
+			function init(){
+				ctx = document.getElementById('canvas').getContext('2d');
+				canvas1 = document.getElementById('canvas');
+				canvas1.addEventListener('click', elige, false);
+				hacerbaraja();
+				document.f.contador.value = "0";	//f-> el formulario
+				document.f.transcurrido.value = "";
+				tiempoinicio = new Date();
+				tiempoinicio = Number(tiempoinicio.getTime());
+				barajar();
+			}
+			
+			
+			function barajar(){
+				//funcion encargada de barajar las cartas para modificar su posicion aleatoriamente
+				var i;
+				var k;
+				var contenedor;
+				var dl = baraja.length;
+				var nt;
+				
+				for(nt=0; nt < 3*dl; nt++){	//hacer el intercambio 3 veces segun baraja.length
+					i = Math.floor(Math.random()*dl);
+					k = Math.floor(Math.random()*dl);
+					contenedor = baraja[i].info;
+					baraja[i].info = baraja[k].info;
+					baraja[k].info = contenedor;
+				}
+				
+			}
+			
+			function elije(ev){
+				var mx;
+				var my;
+				var eleccion1;
+				var eleccion2;
+				
+				if(ev.layerX || ev.layerY == 0){	//Firefox
+					mx = ev.layerX;
+					my = ev.layerY;
+				}else if(ev.offsetX || ev.offsetX == 0){	//Opera
+					mx = ev.offsetX;
+					my = ev.offsetY;
+				}
+				
+				var i;
+				for(i = 0; i < baraja.length; i++){
+					var carta = baraja[i];
+					
+					if(carta.sx >= 0){	//este es el modo de evitar que se pulse sobre una carta ya eliminada
+						if( (mx > carta.sx) && (mx < carta.sx + carta.sancho) && (my > carta.sy) && (my < carta.sy+carta.salto) ){
+							if( (primeraeleccion) || (i != primeracarta) ){
+								break;
+							}
+						}
+						
+						if(i < baraja.length){	//pulsado en una carta
+							if(primeraeleccion){
+								primeracarta = i;
+								primeraeleccion = false;
+								//crea poligono para dibujar
+								eleccion1 = new Policarta(carta.sx+cartaancho*.5, carta.sy+cartaalto*.5, cardrad, carta.info);
+								eleccion1.dibujar();
+							}else{
+								segundacarta = i;
+								eleccion2 = new Policarta(carta.sx+cartaancho*.5, carta.sy+cartaalto*.5, cardrad, carta.info);
+								eleccion2.dibujar();
+								if(baraja[i].info == baraja[primeracarta].info){
+									coinciden = true;
+									var nm = 1+Number(document.f.contador.value);
+									document.f.contador.value = String(nm);
+									if(nm >= .5*baraja.length){
+										var now = new Date();
+										var nt = Number(now.getTime());
+										var segundos = Math.floor(.5+(nt-tiempoinicio)/1000);
+										document.f.transcurrido.value = String(segundos);
+										//necesario para dar vuelta en la ultima coincidencia.
+									}
+								}else{
+									coinciden = false;
+								}
+								
+								primeraeleccion = true;
+								tid = setTimeout(darvuelta, 1000);
+								
+							}
+						}
+						
+					}
+				}
+			}
+			
+			//Policarta producira la cara de la carta. Dorsocarta producira
+			function Policarta(sx, sy, rad, n){
+				this.sx = sx;
+				this.sy = sy;
+				this.rad = rad;
+				this.dibujar = dibujarpoli;
+				this.n = n;
+				this.angulo = (2*Math.PI)/n;
+				this.muevela = movgeneral;
+			}
+			
+			function dibujarpoli(){
+				ctx.fillStyle = frontbgcolor;
+				ctx.strokeStyle = colordorso;
+				ctx.fillRect(this.sx-2*this.rad, this.sy-2*this.rad, 4*this.rad, 4*this.rad);
+				
+				ctx.beginPath();
+				ctx.fillStyle = colorpoli;
+				var i;
+				var rad = this.rad;
+				ctx.moveTo(this.sx+rad*Math.cos(-.5*this.angulo), this.sy+rad*Math.sin(-.5*this.angulo));
+				
+				for(i = 1; i < this.n; i++){
+					ctx.lineTo(this.sx+rad*Math.cos((i-.5)*this.angulo), this.sy+rad*Math.sin((i-.5)*this.angulo));
+					ctx.fill();
+				}
+			}
+			
+			function dibujardorso(){
+				ctx.fillStyle = colordorso;
+				ctx.fillRect(this.sx, this.sy, this.sancho, this.salto);
+				//minuto 30
+			}
+			
+		</script>
+		<style>
+			form{
+				width: 330px;
+				margin: 20px;
+				background-color: gray;
+				padding: 20px;
+			}
+			
+			input{
+				text-align:right;
+			}
+		</style>
+	</head>
+	<body onload="init();">
+		<canvas id="canvas" width="900" height="400"> Tu navegador no soporta el elemento canvas de HTML5 </canvas>
+		<br />
+		Pulsa en dos cartas para ver si coinciden.
+		<form name="f">
+			N&uacute;mero de coincidencias:<input type="text" name="contador" value="0" size="1"/>
+			<p>
+				Tiempo tomado para completar el puzzle:<input type="text" name="transcurrido" value=" " size="4" /> segundos.
+			</p>
+		</form>
+	</body>
+</html>

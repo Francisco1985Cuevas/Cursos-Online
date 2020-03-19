@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<title>Usar Arrays String</title>
+	</head>
+	<body>
+		<!--VideoTutorial Nº:36 Arrays-->
+		<script language="javascript" type="text/javascript">
+			comunidades = ["Galicia","Asturias","Cantabria","Pais Vasco","Santander"];
+			document.write("Array comunidades: "+comunidades[3].substring(5,10));
+			
+			//Cortar un string//
+			cortar = (comunidades[3].split(" "));
+			document.write("<br />Array cortar: "+cortar[0]);
+			document.write("<br />Array cortar 2do: "+cortar[1]);
+			
+			//Unir Strings//
+			unir = cortar.join(" ");
+			document.write("<br />"+unir);
+			
+			//Clasificar un array string//
+			//El metodo sort() Ordena alfabeticamente un array de strings.//
+			clasificar = comunidades.sort();
+			document.write("<br />Array Ordenado: "+clasificar);
+		</script>
+	</body>
+</html>

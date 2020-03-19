@@ -1,0 +1,66 @@
+-- 26 - Funciones matemáticas
+-------------------------------
+
+
+-- abs(x): retorna el valor absoluto del argumento "x".
+select abs(-20) as 'abs'; -- retorna 20
+
+-- ceiling(x): redondea hacia arriba el argumento "x".
+select ceiling(12.34) as 'ceiling'; -- retorna 13
+
+-- floor(x): redondea hacia abajo el argumento "x".
+select floor(12.34) as 'floor'; -- retorna 12
+
+-- %: %: devuelve el resto de una división.
+select 10%3 as '%'; -- retorna 1
+select 10%2 as '%'; -- retorna 0
+
+-- power(x, y): retorna el valor de "x" elevado a la "y" potencia.
+select power(2, 3) as 'power'; -- retorna 8
+
+-- round(numero, longitud): retorna un número redondeado a la longitud especificada. 
+-- "longitud" debe ser tinyint, smallint o int. Si "longitud" es positivo, el número 
+-- de decimales es redondeado según "longitud"; si es negativo, el número es redondeado 
+-- desde la parte entera según el valor de "longitud".
+select round(123.456, 1) as 'round'; -- retorna "123.500", es decir, redondea desde el primer decimal.
+select round(123.456, 2) as 'round'; -- retorna "123.460", es decir, redondea desde el segundo decimal.
+select round(123.456, -1) as 'round'; -- retorna "120.000", es decir, redondea desde el primer valor entero (hacia la izquierda).
+select round(123.456, -2) as 'round'; -- retorna "100.000", es decir, redondea desde el segundo valor entero (hacia la izquierda).
+
+-- sign(x): si el argumento es un valor positivo devuelve 1;-1 si es negativo y si es 0, 0.
+
+-- square(x): retorna el cuadrado del argumento.
+select square(3) as 'square'; -- retorna 9
+
+-- srqt(x): devuelve la raiz cuadrada del valor enviado como argumento.
+--*****************************************************************************************************--
+
+
+
+
+-- Problema: Trabajamos con la tabla "libros" de una librería.
+-- Eliminamos la tabla si existe
+if object_id('libros') is not null
+drop table libros;
+
+-- Creamos la tabla
+create table libros(codigo int identity,
+titulo varchar(40) not null,
+autor varchar(20) default 'Desconocido',
+editorial varchar(20),
+precio decimal(6, 2),
+primary key(codigo)
+);
+
+-- Ingresamos algunos registros
+insert into libros(titulo, autor, editorial, precio) values('El aleph', 'Borges', 'Emece', 25.33);
+insert into libros values('Java en 10 minutos', 'Mario Molina', 'Siglo XXI', 50.65);
+insert into libros(titulo, autor, editorial, precio) values('Alicia en el pais de las maravillas', 'Lewis Carroll', 'Emece', 19.95);
+
+select * from libros;
+
+-- Vamos a mostrar los precios de los libros redondeando el valor hacia abajo y hacia arriba
+select titulo, autor, precio, floor(precio) as 'abajo', ceiling(precio) as 'arriba' 
+from libros;
+
+ 

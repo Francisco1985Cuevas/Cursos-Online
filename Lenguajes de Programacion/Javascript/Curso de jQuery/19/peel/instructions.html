@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>jQuery Page Peel Plugin</title>
+		<style type="text/css">
+			body{
+				background:#ccc; 
+				font:normal normal 12px Verdana, Arial, Helvetica, sans-serif;
+			}
+			
+			#container{
+				width:580px; 
+				padding:10px; 
+				border:#333 3px solid; 
+				background:#fff; 
+				color:#333; 
+				margin:0 auto; 
+				position:relative; 
+				padding-bottom:105px;
+			}
+			
+			h1{
+				font-size:1.8em; 
+				text-align:center;
+			}
+			
+			h1 span{
+				color:#aaa;
+			}
+			
+			h2{
+				font-size:1.4em; 
+				color:#555; 
+				margin:20px 0 5px;
+			}
+			
+			p{
+				background:#eee; 
+				border:#aaa 1px dashed; 
+				padding:10px; 
+				margin:0 0 5px 0;
+			}
+			
+			p.fix{
+				background:#99FF66;
+			}
+			
+			.script{
+				display:block; 
+				background:#ddd; 
+				border:#aaa 1px solid; 
+				margin:5px 0; 
+				padding:4px;
+			}
+			
+			.indent{
+				display:block; 
+				padding-left:10px;
+			}
+			
+			a{
+				color:#00CCFF; 
+				font-weight:bold; 
+				cursor:pointer;
+			}
+			
+			a:hover{
+				color:#333;
+			}
+		</style>
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="jQuery.linkControl.js"></script>
+		<script type="text/javascript" src="jQuery.pagePeel.1.2.1.js"></script>
+		<script type="text/javascript">
+			$().ready(function(){
+				//alert('jQuery running');
+		
+				$('#pagePeel').pagePeel({
+					introAnim: true
+				});
+		
+				$('#insidePeel').pagePeel({
+					adLink: 'index.html',
+					hPosition: 'left',
+					vPosition: 'bottom',
+					bigSWF: 'pp-src/page-peel-big-BL.swf'
+				});
+		
+				$('a').linkControl({overlay:true});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="pagePeel"></div>
+		<div id="container">
+			<div id="insidePeel"></div>
+			<h1>jQuery Page Peel 1.2.1<span> - One step further</span></h1>
+			<h2>Demos</h2>
+			<p>
+				If you haven't seen it by now, check out the upper right corner of this page, or check out the <b>new</b> page peel in the bottom left of this box!
+				<br />
+				<br />
+				Now, the one contained inside of the box has its limitations. You have to have enough room to display the full page out (this one's set up as 
+				500x500). Also, I've set the bottom padding of this box to 105px so I don't cover any content. You could also indent the content 105px or 
+				just cover your content. Whatever floats your boat.
+				<br />
+				<br />
+				I guess I should show you a bit of code on how to accomplish this... here it goes.
+			</p>
+			<h2>Adding to Your Website</h2>
+			<p>
+				To add this you'll need <a href="http://www.jquery.com">jQuery</a> and <a href="jQuery.pagePeel.js">jQuery.pagePeel.js</a>, then add the following 
+				to the head of your document:
+				<span class="script">
+					&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;<br />
+					&lt;script type=&quot;text/javascript&quot; src=&quot;js/jQuery.pagePeel.js&quot;&gt;&lt;/script&gt;<br />
+					<br />
+					&lt;script type=&quot;text/javascript&quot;&gt;<br /><br />
+    
+					$().ready(function(){
+						<br />
+						<span class="indent">$('<b>pagePeel</b>').pagePeel({});</span>
+					}<br /><br />
+            
+					&lt;/script&gt;<br /><br />
+					&lt;body&gt;<br /><br />
+					&lt;div id="pagePeel"&gt; &lt;/div&gt;<br /><br />
+				</span>
+				The area in <b>bold</b> is the DOM element you want place the page peel inside of. If you want to add it to the body, place it right under 
+				the opening '&lt;body&gt;' tag. If you want it added inside a div, place it right after the opening '&lt;div id='yourDiv'&gt;' tag. Be sure 
+				that div's position is set to relative in you CSS.
+			</p>
+			<h2>Options</h2>
+			<p>
+				<b>options, options, options...</b> That's the main thing I think about when building plugins, and this one is filled with them. They go inside 
+				the open/close brackets The ones displayed are the default options.
+				<br />
+				<br />
+				<span class="indent">
+					<b>SET WIDTH / HEIGHT OF SMALL AD</b><br />
+					smallWidth: 120<br />
+					smallHeight: 120<br />
+					smallBG: 'pp-src/smallBG.png' // if you are not using flash, this is where your small ad image is located<br /><br />
+					<b>SET WIDTH / HEIGHT OF INTRO</b><br />
+					introWidth: 300<br />
+					introHeight:300<br /><br />
+					<b>SET WIDTH / HEIGHT OF BIG AD (SAME AS .SWF)</b><br />
+					bigWidth: 500<br />
+					bigHeight: 500<br />
+					bigBG: 'pp-src/bigBG.png' // if you are not using flash, this is where your large ad image is located<br />
+					bigAd: 'pp-src/bigAd.jpg' // if you are using flash, this is where your ad image is located<br />
+					bigSWF: 'pp-src/page-peel-big.swf' // if your flash file is in a different directory<br /><br />
+					<b>ADD LINK AND TARGET OPTIONS</b><br />
+					adLink: 'blank' // this is where you insert a URL (i.e. http://www.smple.com) || if left 'blank' no link will be applied<br />
+					adLinkTarget: '_blank' // this is where you specify your target (i.e. '_parent' or '_blank')<br /><br />
+					<b>SET POSITION OF YOUR AD</b><br />
+					hPosition: 'right' // can use 'left' or 'right'<br />
+					vPosition: 'top' // can use 'top' or 'bottom'<br /><br />
+					<b>CHOOSE WHETHER TO USE FLASH OR NOT</b><br />
+					flash: true<br /><br />
+					<span class="indent">
+						note: Only upper-right source .fla's are included for both with or without an intro. There is also a lower-left for demonstration purposes. 
+						Feel free to edit the files to suite your needs, but remember to change the file path if you change the file name.
+					</span>
+					<br />
+					<b>WHETHER TO USE INTRO ANIMATION OR NOT AND WHAT FILE TO USE</b>
+					<br />
+					introAnim: false<br />
+					bigSWFIntro: 'pp-src/page-peel-big-intro.swf' // this is the default file location for the intro animation file<br /><br />
+					<span class="indent">
+						note: The intro option is currently set up to only work in the upper-right hand corner, however can be changed if you edit the source .fla.
+					</span>
+				</span>
+			</p>
+			<h2>Other Plugins</h2>
+			<p>
+				Right now I've only got 1 other one, but be assured, the list will grow.
+				<br /><br />
+				<a href="../link-control">jQuery Link Control</a>: A jQuery plugin designed to give the end user control over whether they want to open a link 
+				in a new window or not without having to right click and such.
+			</p>
+			<h2>Fixes</h2>
+			<p class="fix">
+				<a href="jQuery.pagePeel.1.2.1.js">jQuery.pagePeel.1.2.1</a> - Quick fix, when using an intro animation the holder was set to 300x300 and when 
+				moused over, the user couldn't access content behind it. Now when the user mouses over the div magically pops back to the default small size 
+				until moused over.
+				<br /><br />
+				In a nutshell, I'm allowing content behind the intro animation to be clicked.
+			</p>
+		</div>
+		
+		<!-- Piwik -->
+		<a href="http://piwik.org" title="Web analytics" onclick="window.open(this.href);return(false);">
+			<script type="text/javascript">
+				var pkBaseURL = (("https:" == document.location.protocol) ? "https://smple.com/stats/" : "http://smple.com/stats/");
+				document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+			</script>
+			<script type="text/javascript">
+				piwik_action_name = '';
+				piwik_idsite = 1;
+				piwik_url = pkBaseURL + "piwik.php";
+				piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+			</script>
+			<object><noscript><p>Web analytics <img src="http://smple.com/stats/piwik.php?idsite=1" style="border:0" alt=""/></p></noscript></object>
+		</a>
+		<!-- End Piwik Tag -->
+	</body>
+</html>
