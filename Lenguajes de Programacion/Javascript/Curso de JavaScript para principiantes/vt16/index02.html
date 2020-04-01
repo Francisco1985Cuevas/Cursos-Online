@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Alcance Variables</title>
+		<script type="text/javascript">
+			//defino una variable global
+			var total = "Esta variable es global";
+
+			//define nuestra funcion agregar impuesto
+			function agregarImpuesto(subtotal, tasaImpuesto){
+				var total = subtotal * (1+(tasaImpuesto/100));
+				return total;
+			}
+		</script>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//calcula el valor de una factura y muestralo en una ventana alert
+			//var valorFactura = agregarImpuesto(450, 20);
+			//alert(valorFactura);
+
+			alert(total);
+		</script>
+
+	</body>
+
+</html>

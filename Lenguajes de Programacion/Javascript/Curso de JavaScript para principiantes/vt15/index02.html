@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Uso de Return</title>
+		<script type="text/javascript">
+			function areaCir(r){
+				this.r = r;//aqui asigna
+				return 3.1416 * (r*r);
+			}
+		</script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var r = r;//aqui ya se puede usar
+			var $resultado = areaCir(4);
+			document.write("El area del circulo de radio "+r+" es: "+$resultado);
+		</script>
+	</body>
+
+</html>

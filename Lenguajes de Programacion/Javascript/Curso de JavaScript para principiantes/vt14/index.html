@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo de Funcion</title>
+		<script type="text/javascript">
+			function informeBoton(botonId, botonNombre, botonValor){
+				//informacion sobre la id del boton
+				var userMessage1 = "Id del boton: "+botonId+"\n";
+				//informacion sobre el nombre del boton
+				var userMessage2 = "Nombre del boton: "+botonNombre+"\n";
+				//informacion del button value
+				var userMessage3 = "Valor del boton: "+botonValor+"\n";
+
+				//alert the user
+				alert(userMessage1+userMessage2+userMessage3);
+
+			}
+		</script>
+	</head>
+	<body>
+		14.- Curso de JavaScript para principiantes. Ejemplo práctico de trabajo con funciones.
+		Al usar la palabra clave "this", estamos indicando que los valores que deben ser recuperados, deben ser los del boton sobre el que se ha apuntado.
+		<br/>
+
+		<input type="button" name="Boton izquierdo" id="id1" value="izquierdo" onclick="informeBoton(this.id, this.name, this.value)" />
+
+		<input type="button" name="Boton centro" id="id2" value="centro" onclick="informeBoton(this.id, this.name, this.value)" />
+
+		<input type="button" name="Boton derecho" id="id3" value="derecho" onclick="informeBoton(this.id, this.name, this.value)" />
+		<script type="text/javascript">
+			
+		</script>		
+	</body>
+
+</html>

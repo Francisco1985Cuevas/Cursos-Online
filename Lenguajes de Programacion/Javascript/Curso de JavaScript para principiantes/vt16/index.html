@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Alcance Variables</title>
+		<script type="text/javascript">
+
+			//define nuestra funcion agregar impuesto
+			function agregarImpuesto(subtotal, tasaImpuesto){
+				var total = subtotal * (1+(tasaImpuesto/100));
+				return total;
+			}
+		</script>
+	</head>
+	<body>
+		
+		16.- Curso de JavaScript. El Scope. El alcance de las variables.
+		
+		<script type="text/javascript">
+			//calcula el valor de una factura y muestralo en una ventana alert
+			var valorFactura = agregarImpuesto(450, 20);
+			alert(valorFactura);
+		</script>
+
+	</body>
+
+</html>
