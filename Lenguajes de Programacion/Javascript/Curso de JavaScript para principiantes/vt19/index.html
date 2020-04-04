@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>location</title>
+	</head>
+	<body>
+		<p>
+			019._ Curso de JavaScript para principiantes. Usos del Objeto Location.
+
+			Object Location: contiene informacion sobre la pagina que tenemos cargada en ese momento en el navegador.
+
+			podemos pensar en la pagina url como serie de partes:
+
+			http:		//www.sitioweb.com:8080		/videos/display.php?section=53
+			protocolo	//[hostname]      :[puerto] /[pathname]			[search][hash]
+
+			original se mantiene en el historial
+		</p>
+		<script type="text/javascript">
+			function illasaron(){
+				document.location.href = 'http://www.illasaron.com';
+			}
+		</script>
+
+		<button onclick="illasaron()">Illasaron</button>
+	</body>
+</html>

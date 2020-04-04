@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>history</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function siguiente(){
+				window.history.forward();
+			}
+			//history.go(-3); //vuelve hacia atras tres paginas
+			//history.go(2); //va hacia adelante dos paginas
+			alert("has visitado: "+history.length+" paginas web en esta seccion del navegador");
+		</script>
+
+		<button onclick="siguiente()">Siguiente</button>
+	</body>
+
+</html>

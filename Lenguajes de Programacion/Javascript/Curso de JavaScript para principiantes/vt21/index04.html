@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fecha y hora actual</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var miFecha = new Date(); //fecha y hora actual
+			document.write("Objeto creado el dia: "+
+				miFecha.getDate()+"<br/>");
+			miFecha.setDate(15); //cambiar dia del mes al 15
+			document.write("Despues de modificar la fecha, el numero del dia es: "+miFecha.getDate());
+		</script>
+	</body>
+</html>

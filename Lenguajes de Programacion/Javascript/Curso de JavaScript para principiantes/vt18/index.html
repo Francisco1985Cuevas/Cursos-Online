@@ -1,0 +1,31 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>innerHTML</title>
+	</head>
+	<body>
+		018.- Curso de JavaScript para principiantes. ¿Cómo identifica JavaScript los elementos del DOM?
+
+		- identificar elementos de un documento web.
+		getElementById()
+		- innerHTML Propiedad.
+
+
+		- Acceder a la historia del navegador.
+		Objeto window.history
+		Propiedad length
+		METODOS: forward(), back(), go()
+		<div id="div1">
+			<p>Contenido del elemento div</p>
+		</div>
+
+		<script type="text/javascript">
+			//var miDivContenido = document.getElementById("div1").innerHTML;
+			var miDivContenido = document.getElementById("div1").innerHTML = "<p>Este es el parrafo que hemos modificado</p>";
+			alert(miDivContenido);
+		</script>
+	</body>
+
+</html>

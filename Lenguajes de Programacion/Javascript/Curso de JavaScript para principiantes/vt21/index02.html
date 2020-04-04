@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fecha y hora actual</title>
+		<style type="text/css">
+			p{font: 14px normal arial, verdana, helvetica;}
+		</style>
+		<script type="text/javascript">
+			//var miFecha Contiene un objeto Date
+			//var miFecha = new Date();
+
+			function dilafechayhora(){
+				var salida = "";
+				var d = new Date();
+				var mes = new Array();
+				mes[0] = "Enero";
+				mes[1] = "Febrero";
+				mes[2] = "Marzo";
+				mes[3] = "Abril";
+				mes[4] = "Mayo";
+				mes[5] = "Junio";
+				mes[6] = "Julio";
+				mes[7] = "Agosto";
+				mes[8] = "Septiembre";
+				mes[9] = "Octubre";
+				mes[10] = "Noviembre";
+				mes[11] = "Diciembre";
+
+				var m = mes[d.getMonth()];
+				var ahora = new Date();
+
+				salida += "<br />Fecha: "+ahora.getDate();
+				//salida += "<br />Mes: "+ahora.getMonth();
+				salida += "<br />Mes: "+m;
+				salida += "<br />Año: "+ahora.getFullYear();
+				salida += "<br />Horas: "+ahora.getHours();
+				salida += "<br />Minutos: "+ahora.getMinutes();
+				salida += "<br />Segundos: "+ahora.getSeconds();
+
+				document.getElementById("div1").innerHTML = salida;
+			}
+		</script>
+	</head>
+	<body>
+
+		<div id="div1"></div>
+		<script type="text/javascript">
+			dilafechayhora();
+		</script>
+
+		<!-- boton usado para recargar la pagina-->
+		<input type="button" value="Recargar" onclick="location.reload()">
+	</body>
+
+</html>

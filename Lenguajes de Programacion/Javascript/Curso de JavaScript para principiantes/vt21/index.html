@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Fecha y hora actual</title>
+		<style type="text/css">
+			p{font: 14px normal arial, verdana, helvetica;}
+		</style>
+		<script type="text/javascript">
+			//var miFecha Contiene un objeto Date
+			//var miFecha = new Date();
+
+			function dilafechayhora(){
+				var salida = "";
+				var ahora = new Date();
+
+				salida += "<br />Fecha: "+ahora.getDate();
+				salida += "<br />Mes: "+ahora.getMonth();
+				salida += "<br />Año: "+ahora.getFullYear();
+				salida += "<br />Horas: "+ahora.getHours();
+				salida += "<br />Minutos: "+ahora.getMinutes();
+				salida += "<br />Segundos: "+ahora.getSeconds();
+
+				document.getElementById("div1").innerHTML = salida;
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			021._ Curso de JavaScript para principiantes. El uso del Objeto Date.
+			FECHA Y HORA
+
+			Usos del Objeto Date.
+			se trata de un Objeto que no forma parte del DOM, en este caso vamos a tener que crear nuestros Objetos Date. Y cada uno de los Objetos Date que creemos puede representar una FECHA y HORA diferente.
+
+			FECHA Y HORA ACTUAL
+			var mydate = new Date()
+
+			USO DE ARGUMENTOS
+			var d1 = new Date("22 Octubre, 1995 10:57:22")
+
+			EDITAR FECHAS Y HORAS
+			toDateString()  toTimeString()
+
+			EN JAVASCRIPT los meses son un ARRAY de 0 a 11
+
+			instancias de Date pueden tomar argumentos.
+		</p>
+
+		<div id="div1"></div>
+		<script type="text/javascript">
+			dilafechayhora();
+		</script>
+
+		<!-- boton usado para recargar la pagina-->
+		<input type="button" value="Recargar" onclick="location.reload()">
+	</body>
+
+</html>
