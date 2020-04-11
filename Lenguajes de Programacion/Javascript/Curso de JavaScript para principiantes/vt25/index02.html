@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>programacion orientada a objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			//primero creamos function constructor
+			function miTipoObjeto(){
+				/*cuerpo funcion
+				dentro del cuerpo de la funcion constructor debemos incluir, en lugar del nombre del objeto la palabra clave this, lo que hara que sea valido para todas las instancias de objetos que creemos a partir de una funcion constructor*/
+
+				this.info = 'soy un nuevo objeto basico';
+				this.mostrarInfo = function(){
+					alert(this.info);
+				}
+
+				//cambia el contenido de la propiedad info
+				this.configurarInfo = function(nuevaInfo){
+					this.info = nuevaInfo;
+				}
+			}
+
+			var miNuevoObjeto1 = new miTipoObjeto();
+			var miNuevoObjeto2 = new miTipoObjeto();
+
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" value="Mostrar Info1" onclick="miNuevoObjeto1.mostrarInfo()">
+		
+		<input type="button" value="Mostrar Info2" onclick="miNuevoObjeto2.mostrarInfo()">
+		
+		<input type="button" value="Cambiar Info de objeto2" onclick="miNuevoObjeto2.configurarInfo('Nueva Informacion')">
+		
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

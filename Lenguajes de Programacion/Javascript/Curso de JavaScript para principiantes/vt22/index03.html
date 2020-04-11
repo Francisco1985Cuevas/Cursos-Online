@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Math</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+		</script>
+	</head>
+	<body>
+		<p>Math.floor() combinado con Math.random() puede devolver enteros de modo aleatorio</p>
+
+		<button onclick="miFunc()">Pruebalo</button>
+		<p id="div1"></p>
+		<script type="text/javascript">
+			function miFunc(){
+				document.getElementById("div1").innerHTML = Math.floor(Math.random()*11);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript Orientado a Objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			miNuevoObjeto = new Object();
+
+			//anhadimos una propiedad a nuestro nuevo Objeto.
+			miNuevoObjeto.info = 'Soy un nuevo objeto basico';
+
+			//crear un metodo de nuestro Objeto. para poder crear un metodo primero crear Funcion
+			function miFunc(){
+				alert(this.info);
+			}
+
+			//asignamos funcion al Metodo
+			miNuevoObjeto.mostrarInfo = miFunc;
+			//lo que asignamos es la definicion de la funcion.
+
+
+		</script>
+	</head>
+	<body>
+		<p>
+			024._ Curso de JavaScript para principiantes. JavaScript orientado a Objetos.
+
+			- Crear Instancia de un Objeto de modo directo.
+			- Un Objeto encapsula propiedades y metodos.
+
+			- this: se refiere al objeto del metodo.
+
+			- funciones anonimas
+
+		</p>
+
+		<input type="button" value="Llamada a miFunc" onclick="miFunc()"/>
+
+		<input type="button" value="Llamada a mostrarInfo Mal" onclick="mostrarInfo()"/>
+
+		<input type="button" value="Llamada a mostrarInfo Bien" onclick="miNuevoObjeto.mostrarInfo()"/>
+		
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

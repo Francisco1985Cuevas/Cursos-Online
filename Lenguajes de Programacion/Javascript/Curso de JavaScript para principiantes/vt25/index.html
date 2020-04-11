@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>constructor</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			miNuevoObjeto = new Object();
+
+			//anhadimos una propiedad a nuestro nuevo Objeto.
+			miNuevoObjeto.info = 'Soy un nuevo objeto basico';
+			
+			//asignamos una funcion anonima a nuestro Objeto.
+			miNuevoObjeto.mostrarInfo = function(){
+				alert(this.info);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<p>
+			025._ Curso de JavaScript para principiantes. Crear objetos con funciones constructor.
+
+			- funciones anonimas con objetos
+
+			- crear objetos con JavaScript Object Notation
+
+			- funciones constructor
+
+			- permite crear solo patron de diseño singleton un objeto.
+			
+		</p>
+
+		<input type="button" value="Llamada a miFunc" onclick="miFunc()"/>
+
+		<input type="button" value="Llamada a mostrarInfo Mal" onclick="mostrarInfo()"/>
+
+		<input type="button" value="Llamada a mostrarInfo Bien" onclick="miNuevoObjeto.mostrarInfo()"/>
+
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>
