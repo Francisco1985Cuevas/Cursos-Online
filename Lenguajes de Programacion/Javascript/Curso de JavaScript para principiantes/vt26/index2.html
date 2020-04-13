@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Programacion Orientada a Objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+
+			
+			//podemos añadir la cantidad de argumentos que queramos.
+
+
+			//creamos una funcion "Constructor"
+			function Coche(color, marca, modelo, kilometros){
+
+				//propiedades
+				//estamos usando una funcion "Constructor" por tanto tenemos que utilizar la palabra clave "this".
+				this.color = color;
+				//aqui lo que hacemos es crear una variable "color" a la que "asignamos" el parametro "color".
+				//this.color almacena lo que se pasa como argumento a: persona(nombrePersona)
+				this.marca = marca;
+				this.modelo = modelo;
+				this.kilometros = kilometros;
+				
+				this.info = 'Este coche es de la marca '+this.marca+', es de color '+this.color+' es del anho '+this.modelo+' y tiene '+this.kilometros+' kilometros';
+				
+
+				//metodos
+				//creamos una funcion Anonima.
+				//creamos el metodo "mostrarInfo" al que le asignamos la funcion anonima que hara que se muestre lo que tenga la "propiedad" "info" en una ventana alert...
+				this.mostrarInfo = function(){
+					alert(this.info);
+				}
+
+
+			}
+
+
+			//Al crear instancias Objeto de la funcion Constructor Coche, debemos pasar los argumentos: color, marca, modelo, kilometros.
+			var coche1 = new Coche('Blanco', 'Renault', '2015', '32.000');
+			var coche2 = new Coche('Rojo', 'Peugeot', '2011', '12.000');
+
+
+			//lo siguiente que veremos seran los: Prototypes.
+			//Veremos como podemos extender y heredar de unos Objetos a otros lo que en JavaScript se hace mediante el uso de "Prototypes".
+
+		</script>
+	</head>
+	<body>
+		
+		<input type="button" name="boton1" value="Mostrar Info 'Renault'" onclick="coche1.mostrarInfo()"/>
+
+		<input type="button" name="boton2" value="Mostrar Info 'Peugeot'" onclick="coche2.mostrarInfo()"/>
+
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

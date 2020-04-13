@@ -7,22 +7,36 @@
 		<script type="text/javascript">
 			//primero creamos function constructor
 			function miTipoObjeto(){
+				//Funcion con propiedades y metodos.
+
 				/*cuerpo funcion
 				dentro del cuerpo de la funcion constructor debemos incluir, en lugar del nombre del objeto la palabra clave this, lo que hara que sea valido para todas las instancias de objetos que creemos a partir de una funcion constructor*/
 
+				//propiedad
 				this.info = 'soy un nuevo objeto basico';
+				
+				
+				//metodos
+				//asignar un metodo
 				this.mostrarInfo = function(){
+					//muestra una informacion
 					alert(this.info);
 				}
 
+
+				//asignar un metodo
 				//cambia el contenido de la propiedad info
 				this.configurarInfo = function(nuevaInfo){
+					//este metodo permite modificar la informacion
 					this.info = nuevaInfo;
 				}
 			}
 
+			//crear una instancia de un objeto se conoce como "instanciar un objeto".
+			//Instanciamos objetos usando la palabra clave "new"
 			var miNuevoObjeto1 = new miTipoObjeto();
 			var miNuevoObjeto2 = new miTipoObjeto();
+			//creamos una variable y le asignamos mediante el uso de "new" una llamada a nuestra "funcion constructor".
 
 		</script>
 	</head>

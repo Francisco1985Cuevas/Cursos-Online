@@ -10,14 +10,14 @@
 			//anhadimos una propiedad a nuestro nuevo Objeto.
 			miNuevoObjeto.info = 'Soy un nuevo objeto basico';
 
-			//crear un metodo de nuestro Objeto. para poder crear un metodo primero crear Funcion
+			//crear un metodo de nuestro Objeto. para poder crear un metodo primero tenemos que crear una Funcion
 			function miFunc(){
 				alert(this.info);
 			}
 
 			//asignamos funcion al Metodo
 			miNuevoObjeto.mostrarInfo = miFunc;
-			//lo que asignamos es la definicion de la funcion.
+			//de este modo lo que asignamos es la definicion de la funcion por eso NO LLEVA PARENTESIS, le asignamos a "mostrarInfo" la definicion de la funcion "miFunc".
 
 
 		</script>
@@ -35,10 +35,13 @@
 
 		</p>
 
+		<!--Este boton llama directamente a la funcion "miFunc"-->
 		<input type="button" value="Llamada a miFunc" onclick="miFunc()"/>
 
+		<!--Este boton llama directamente al metodo mostrarInfo-->
 		<input type="button" value="Llamada a mostrarInfo Mal" onclick="mostrarInfo()"/>
 
+		<!--Modo Correcto: usamos la sintaxis de punto, indicamos el objeto al que pertenece el metodo-->
 		<input type="button" value="Llamada a mostrarInfo Bien" onclick="miNuevoObjeto.mostrarInfo()"/>
 		
 		<script type="text/javascript">

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Programacion Orientada a Objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+
+			
+			//podemos añadir la cantidad de argumentos que queramos.
+
+
+			//creamos una funcion "Constructor"
+			function Persona(nombrePersona){
+
+				//propiedades
+				//estamos usando una funcion "Constructor" por tanto tenemos que utilizar la palabra clave "this".
+				this.nombre = nombrePersona;
+				//aqui lo que hacemos es crear una variable "nombre" a la que "asignamos" el parametro "nombrePersona".
+
+				//this.nombre almacena lo que se pasa como argumento a: persona(nombrePersona)
+
+				this.info = 'Esta persona se llama '+this.nombre;
+
+
+
+				//metodos
+				//creamos una funcion Anonima.
+				//creamos el metodo "mostrarInfo" al que le asignamos la funcion anonima que hara que se muestre lo que tenga la "propiedad" "info" en una ventana alert...
+				this.mostrarInfo = function(){
+					alert(this.info);
+				}
+
+
+			}
+
+
+			//Al crear instancias Objeto de la funcion Constructor Persona, debemos pasar el argumento: nombrePersona.
+			var persona1 = new Persona('Francisco');
+			var persona2 = new Persona('Miguel');
+
+		</script>
+	</head>
+	<body>
+		<p>
+			026._ Curso de JavaScript para principiantes. Pasar Argumentos a Funciones Constructor.
+			<br>
+			- Podemos personalizar las funciones constructor pasandoles argumentos cuando instanciamos un objeto.
+			<br>
+		</p>
+
+		<input type="button" name="boton1" value="Mostrar Info 'Francisco'" onclick="persona1.mostrarInfo()"/>
+
+		<input type="button" name="boton2" value="Mostrar Info 'Miguel'" onclick="persona2.mostrarInfo()"/>
+
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

@@ -1,0 +1,322 @@
+JavaBeans
+- Es como un "Frasco" un contenedor donde se pueden cargar cosas y acceder a esas cosas dentro de ese frasco.
+
+- La caracteristica de un JavaBean es que todos sus atributos tienen que ser privados, y solo tienen que ser
+accesados por metodos Setter & Getter.
+
+- ¿Como se pobla un JavaBean?
+Se puede poblar creando unn formulario y asociamos sus valores ingresados con el JavaBean.
+----------------------------------------------------------------------------------------------------------------------------
+
+Servlets
+
+¿Que son los Servlets?
+Un Servlet no es mas que una simple Clase Java que se ejecuta del lado del Servidor y que permite aceptar las peticiones que hace
+un Cliente desde un navegador web.
+
+Un servlet es una Clase comun y corriente en Java pero que "extiende" de HTTPSERVLET lo que la hace "convertirse" en un Servlet y que
+se puede ejecutar del lado del Servidor y aceptar las peticiones desde el cliente.
+
+- Un Servlet tiene dos metodos principales el "doGet() y el doPost()" estos metodos permiten recibir las peticiones desde el Cliente
+a traves de un navegador web pero lo hacen de diferente manera.
+
+- doGet() recibe peticiones a traves del metodo GET desde el Cliente.
+- doPost() recibe peticiones a traves del metodo POST. 
+
+- Estos dos metodos tienen dos "parametros" que permiten realizar operaciones internas con los datos que vienen del lado del Cliente, estos dos parametros son "request" y "response". 
+
+request: Es el parametro que trae toda la informacion desde el lado del Cliente, trae todo lo que esta en la parte de la vista. Dentro 
+mi Servlet en cualquier metodo que yo utilice para procesar esa informacion puedo acceder a traves del request, a todos los elementos
+y poder trabajar con ellos, ejemplo:
+request.nombres;
+
+response: El parametro "response" es la respuesta que hace el Servlet hacia la vista. basicamente el parametro "response" me permite
+llevar valores hacia la vista.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+- ¿Que es un Framework?
+
+Un Framework no es mas que un marco de trabajo, es un conjunto de:
+
+* Convenciones, estandares o paradigmas y buenas practicas.
+
+* Funcionalidades costosas ya desarrolladas.
+
+Es decir con un framework nos ahorramos trabajo. Tenemos un marco de trabajo, una serie de Clases, funciones, estructuras de 
+directorio ya creadas y nosotros solamente nos tenemos que encargar de crear ciertas cosas.
+
+
+- El objetivo de un Framework.
+
+* Servir como base para tus programas.
+
+* Evitar tareas repetitivas.
+
+* Aumentar la productividad.
+
+* Favorecer el trabajo en equipo.
+
+* Infundirte buenas practicas.
+
+* "Construye tu aplicacion, no tus herramientas".
+----------------------------------------------------------------------------------------------------------------------------------
+
+JavaServer Faces.
+
+- Java Server Faces(JSF) NO es un framework de aplicaciones web, es un framework Componente y por lo tanto podemos usarlo para desarrollar aplicaciones web o que no estén basadas en la web.
+
+- Desde el punto de vista de un desarrollador de aplicaciones una aplicación Java Server Faces(JSF) consiste en:
+* Una serie de paginas XHTML.
+* Que contienen Tags JSF Personalizados.
+* Uno o mas JSF Managed Beans.
+* Y un archivo de configuración: faces-config.xml.
+----------------------------------------------------------------------------------------------------------------------------------
+
+¿Que es un Managed Beans?
+Managed Beans: Encargados de procesar datos.
+JavaBeans: Son JavaBeans estándar.
+Contienen datos: Usados para contener datos de los usuarios.
+Usados en JavaServer Faces(JSF): En aplicaciones creadas con JSF.
+
+Managed Beans es un termino que se utiliza en JavaServer Faces(JSF), y con ello nos referimos a JavaBeans estándar y el uso que tiene es para "contener" datos que vayan introduciendo los usuarios en aplicaciones creadas con JavaServer Faces(JSF), teniendo esto claro podemos crear un Managed Beans en nuestro proyecto.
+
+- Alcance de un Managed Bean:
+request: significa que el Bean esta solo disponible en una única consulta HTTP.
+session: están disponibles en una única sesión HTTP de usuario.
+application: el Bean esta accesible para todos los usuarios en la aplicación a lo largo de las sesiones de usuarios.
+none: el ManagedBean no esta almacenado en ningún alcance pero es creado en demanda cuando es necesario.
+view: el Bean esta disponible hasta que el usuario navega a otra pagina, este tipo de Managed Bean, son los que se utilizan cuando se usan peticiones Ajax.
+
+- El Managed Bean esta formado simplemente por una serie de Métodos Setter & Getter para cada una de las variables que enviamos desde los campos de un formulario.
+
+- En JavaServer Faces(JSF) para la parte de vistas se usan "archivos.xhtml" en los cuales usamos EXPRESIONES DE VALOR VINCULADO en cada
+uno de los campos de entrada de un formulario, ejemplo:
+<h:inputText id="nombre" label="Nombre" value="#{registrationBean.nombre}" />
+Para este ejemplo debe existir un "Managed Bean" llamado "registrationBean".
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+- Plantillas  Facelets.
+Una de las principales ventajas que tienen los facelets sobre el uso directo de JSP es el mecanismo de las plantillas. 
+Las Plantillas nos permiten especificar el diseño de Paginas en un lugar, luego podemos crear "Plantillas Cliente" que usen el diseño definido en esa plantilla. 
+
+En la actualidad la mayoría de las aplicaciones web tienen diseños consistentes que se repiten en muchas paginas, pues usar plantillas hace que nuestra aplicación sea mucho mas sostenible, los cambios en el diseño solo tendremos que hacerlos en un lugar, centralizado y se le aplicara ya a todas las paginas que lo usen.
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+- PrimeFaces
+Es una Librería de Componentes Open Source que se ha creado para aprovechar las posibilidades de JavaServer Faces(JSF), una de las grandes ventajas de JavaServer Faces(JSF) es que permite desarrollar de modo muy sencillo Componentes Personalizados y esto ha hecho que vayan apareciendo distintas librerías de Componentes muy completas. Y una de estas librerías de Componentes es "PrimeFaces" que usa como Logo una imagen de “Transformers” lo que tiene bastante sentido ya que su función es la de "transformar", la de cambiar totalmente el aspecto de nuestras aplicaciones en un “suspiro”.
+
+- PrimeFaces nos permite desarrollar aplicaciones web con muy buen aspecto y con muy poco esfuerzo.
+
+- Se puede definir como un Framework de Interface de usuario para JavaServer Faces(JSF).
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+- ¿Qué es una API?
+
+* Una API (siglas de 'Application Programming Interface') es un conjunto de reglas (código) y especificaciones que las aplicaciones 
+pueden seguir para comunicarse entre ellas: sirviendo de interfaz entre programas diferentes de la misma manera en que la interfaz 
+de usuario facilita la interacción humano-software.
+
+* API Java
+
+La API Java es una interfaz de programación de aplicaciones (API, por sus siglas del inglés: Application Programming Interface) provista 
+por los creadores del lenguaje de programación Java, que da a los programadores los medios para desarrollar aplicaciones Java.
+
+Como el lenguaje Java es un lenguaje orientado a objetos, la API de Java provee de un conjunto de clases utilitarias para efectuar 
+toda clase de tareas necesarias dentro de un programa.
+
+* Existen numerosas API de Java para realizar todo tipo de operaciones, algunas de las más conocidas son:
+JAXP: para procesar XML.
+Servlets: para facilitar la implementación de soluciones web.
+Hibernate: para facilitar la implementación de persistencia.
+
+
+* Las API son valiosas, ante todo, porque permiten hacer uso de funciones ya existentes en otro software (o de la infraestructura 
+ya existente en otras plataformas) para no estar reinventando la rueda constantemente, reutilizando así código que se sabe que 
+está probado y que funciona correctamente. 
+
+
+* Al instalar Java (el paquete JDK) en nuestro ordenador, además del compilador y la máquina virtual de Java se instalan 
+bastantes más elementos. Entre ellos, una cantidad muy importante de clases que ofrece la multinacional desarrolladora de 
+Java y que están a disposición de todos los programadores listas para ser usadas. 
+Estas clases junto a otros elementos forman lo que se denomina API (Application Programming Interface) de Java.
+
+La mayoría de los lenguajes orientados a objetos ofrecen a los programadores bibliotecas de clases que facilitan el trabajo 
+con el lenguaje.
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Entidades JPA (Java Persistence API).
+
+- La Java Persistencia API(JPA), es una API ORM de Mapeo Objeto Relacional su misión es la de automatizar la asignación de Objetos Java a Tablas de Bases de datos Relacionales y sustituye a las EntityBeans.
+
+JPA trabaja a través de Entities que son simples Clases Java llamadas: Plain Old Java Objects(POJOS) que no necesitan extender a ninguna otra Clase o interface y se definen a través de una serie de Anotaciones en el código.
+
+@Entity: Es la que sirve para indicar que una Clase Java es una Entidad JPA.
+
+- Los proyectos que utilizan JPA necesitan una “Unidad de Persistencia”.
+
+- Todos los proyectos que utilicen JPA requieren siempre lo que se denomina una “unidad de persistencia” esta unidad de persistencia se define en un archivo que se llama: persistence.xml, Debemos indicar el proveedor de persistencia.
+Se deben crear: Conexión Pool y la fuente de datos.
+
+- “Persistir Significa Guardar Datos de un Objeto Java en una Base de Datos”.
+Para poder hacerlo tenemos que enlazar una Base de Datos mediante e uso de un Conexión Pool y una Fuente de datos.
+
+- Ejemplo de uso: Podriamos crear una Entidad JPA que interactué con El EntityManager, vamos a generar formularios en 
+JavaServer Faces(JSF) que interactúen con la Base de datos “desde Entidades JPA”.
+
+
+
+- EntityManager.
+* Una instancia "EntityManager" está asociado con un contexto de Persistencia. Que para cada Entidad Persistente hay una instancia de 
+Entidad única... La "API EntityManager" se utiliza para Crear y Eliminar instancias Persistentes Entidad, para Encontrar Entidades 
+por su clave primaria, y para Consultar sobre las Entidades.
+
+* Una Entidad es algo que se puede "Persistir". 
+En el archivo: persistence.xml debemos Registrar la Entidad para que sea "Mapeada" a la Base de datos, hay que decirle a JPA donde 
+estan las clases a Mapear.
+
+* EntityManager es basicamente una "Interfaz de tipo EntityManager" que contiene los metodos para poder: Insertar, Obtener,
+Recuperar y Borrar elementos... Las operaciones CRUD... y tambien metodos para iniciar Consultas con el lenguaje JPQL que es 
+muy parecido al SQL o por ejemplo para iniciar Transacciones y queremos meter multiples cosas de golpe.
+
+
+
+
+- Entity Bean
+Traducción del inglés-Un "Bean de entidad" es un tipo de "Enterprise JavaBean", un componente Java EE del lado del Servidor, que 
+representa datos persistentes mantenidos en una base de datos. Un bean de entidad puede gestionar su propia persistencia o puede 
+delegar esta función en su contenedor EJB.
+
+Los "Entity Beans" otorgan una vista de objeto Java a los datos del negocio guardados en una unidad de almacenamiento. Permiten un 
+acceso compartido de múltiples usuarios y tienen un tiempo de vida independiente de la duración de las sesiones de los clientes.
+
+Los "Entity Beans" son componentes de datos que conocen como utilizar una unidad de almacenamiento para mantener la información 
+que guardan en forma persistente. Por tanto proporcionan una capa que envuelve el almacenamiento de los datos simplificando la 
+tarea de su acceso y manipulación.
+
+Los "Entity Beans" se utilizan para dar una visión y un acceso orientado a objetos de una base de datos relacional. Para esto 
+debe decidirse la granularidad del modelo, es decir el nivel de detalle de los objetos "Entity Beans" a crear. 
+
+* Estructura
+La estructura utilizada para su creación es similar a los "session bean", es decir, cuenta con una interfaz remota o local y 
+con una interfaz home que también puede ser remota o local. Las interfaces de acceso proporcionarán funcionalidades específicas 
+a cada instancia como leer y asignar valores a los campos, llamados "getter y setter", y obtener y modificar las relaciones con 
+otros entity beans. Los métodos de una clase que son independientes de una instancia son declarados en la interfaz home como métodos 
+para crear instancias, métodos para buscar instancias y otros independientes de ellas como por ejemplo el cálculo del promedio 
+del valor de un campo en particular de las instancias.
+
+
+
+
+- Enterprise JavaBeans
+* No se debe confundir con JavaBeans.
+
+*
+
+
+
+
+- ¿Qué es una entidad en JPA?
+Una entidad de persistencia (entity) es una clase de Java ligera, cuyo estado es persistido de manera asociada a una tabla en 
+una base de datos relacional.
+
+
+- ¿Qué es JPA y para qué sirve?
+JPA es la propuesta estándar que ofrece Java para implementar un Framework Object Relational Mapping (ORM), que permite interactuar 
+con la base de datos por medio de objetos, de esta forma, JPA es el encargado de convertir los objetos Java en instrucciones para 
+el Manejador de Base de Datos (MDB).
+
+
+
+- Primero se debe crear una ENTIDAD y luego su CONTROLADOR, para esto usamos "DAO" que crea una Clase con todos los metodos
+para poder hacer CRUD, osea crea el Controlador para cada entidad.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------
+que son los javabeans
+https://www.youtube.com/watch?v=I9yZLrPx-S4
+
+que son los servlets
+https://www.youtube.com/watch?v=qT9mUsD8aPg
+
+que es un framework web
+https://www.youtube.com/watch?v=_-TKjgEsukM
+
+que es un managed bean
+https://www.youtube.com/watch?v=WvhhfPJ7r0w
+
+que es el entitymanager
+
+--------
+
+
+
+
+primefaces postgresql
+
+que es data access object
+
+que es una interfaz en java
+
+https://www.youtube.com/watch?v=7MlB-K9AMxY
+https://www.youtube.com/watch?v=wSt523lfPFY
+
+
+diferencia entre interfaz y clase abstracta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

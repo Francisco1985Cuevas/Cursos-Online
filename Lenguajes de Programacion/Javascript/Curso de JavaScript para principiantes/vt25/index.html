@@ -10,7 +10,15 @@
 			//anhadimos una propiedad a nuestro nuevo Objeto.
 			miNuevoObjeto.info = 'Soy un nuevo objeto basico';
 			
-			//asignamos una funcion anonima a nuestro Objeto.
+			/*function miFunc(){
+				alert(this.info);
+			}
+			miNuevoObjeto.mostrarInfo = miFunc;
+			*/
+
+
+			//CAMBIO: en lugar de pasar la definicion de la funcion ahora lo que hacemos es pasar esa funcion anonima, osea asignamos una funcion anonima a nuestro Objeto.
+			//FUNCION ANONIMA: function(){ cuerpo de la funcion... }
 			miNuevoObjeto.mostrarInfo = function(){
 				alert(this.info);
 			}
