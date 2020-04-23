@@ -150,93 +150,116 @@ con el lenguaje.
 
 
 
+
+
 Entidades JPA (Java Persistence API).
 
 - La Java Persistencia API(JPA), es una API ORM de Mapeo Objeto Relacional su misión es la de automatizar la asignación de Objetos Java a Tablas de Bases de datos Relacionales y sustituye a las EntityBeans.
 
-JPA trabaja a través de Entities que son simples Clases Java llamadas: Plain Old Java Objects(POJOS) que no necesitan extender a ninguna otra Clase o interface y se definen a través de una serie de Anotaciones en el código.
+* ¿Qué es JPA y para qué sirve?
+JPA es la propuesta estándar que ofrece Java para implementar un Framework Object Relational Mapping (ORM), que permite interactuar con la base de datos por medio de objetos, de esta forma, JPA es el encargado de convertir los objetos Java en instrucciones para el Manejador de Base de Datos (MDB).
+
+
+
+- Entity
+* ¿Qué es una entidad en JPA?
+Una entidad de persistencia (entity) es una clase de Java ligera, cuyo estado es persistido de manera asociada a una tabla en una base de datos relacional.
+
+* JPA trabaja a través de "Entities" que son simples Clases Java llamadas: "Plain Old Java Objects(POJOS)" que no necesitan extender a ninguna otra Clase o interface y se definen a través de una serie de Anotaciones en el código, por ejemplo:
 
 @Entity: Es la que sirve para indicar que una Clase Java es una Entidad JPA.
 
-- Los proyectos que utilizan JPA necesitan una “Unidad de Persistencia”.
+* Una Entidad es algo que se puede "Persistir".
+Persistir Significa Guardar Datos de un Objeto Java en una Base de Datos”. 
+Para poder hacerlo, tenemos que enlazar a una Base de Datos mediante el uso de: 
+1) Conexión Pool 
+2) Fuente de datos.
 
-- Todos los proyectos que utilicen JPA requieren siempre lo que se denomina una “unidad de persistencia” esta unidad de persistencia se define en un archivo que se llama: persistence.xml, Debemos indicar el proveedor de persistencia.
-Se deben crear: Conexión Pool y la fuente de datos.
 
-- “Persistir Significa Guardar Datos de un Objeto Java en una Base de Datos”.
-Para poder hacerlo tenemos que enlazar una Base de Datos mediante e uso de un Conexión Pool y una Fuente de datos.
+- Unidad de Persistencia(persistence.xml)
+* Los proyectos que utilizan JPA necesitan una “Unidad de Persistencia”.
 
-- Ejemplo de uso: Podriamos crear una Entidad JPA que interactué con El EntityManager, vamos a generar formularios en 
+* Todos los proyectos que utilicen JPA requieren SIEMPRE lo que se denomina una “unidad de persistencia”. 
+Esta "unidad de persistencia" se define en un archivo que se llama: "persistence.xml", Debemos indicar el proveedor de persistencia.
+Se deben crear dos cosas: Conexión Pool y la fuente de datos.
+
+* En el archivo "persistence.xml" debemos "Registrar la Entidad" para que sea "Mapeada" a la Base de datos, hay que decirle a JPA donde estan "las clases a Mapear".
+
+* Ejemplo:
+ Podriamos crear una Entidad JPA que interactué con El EntityManager, vamos a generar formularios en 
 JavaServer Faces(JSF) que interactúen con la Base de datos “desde Entidades JPA”.
-
-
-
-- EntityManager.
-* Una instancia "EntityManager" está asociado con un contexto de Persistencia. Que para cada Entidad Persistente hay una instancia de 
-Entidad única... La "API EntityManager" se utiliza para Crear y Eliminar instancias Persistentes Entidad, para Encontrar Entidades 
-por su clave primaria, y para Consultar sobre las Entidades.
-
-* Una Entidad es algo que se puede "Persistir". 
-En el archivo: persistence.xml debemos Registrar la Entidad para que sea "Mapeada" a la Base de datos, hay que decirle a JPA donde 
-estan las clases a Mapear.
-
-* EntityManager es basicamente una "Interfaz de tipo EntityManager" que contiene los metodos para poder: Insertar, Obtener,
-Recuperar y Borrar elementos... Las operaciones CRUD... y tambien metodos para iniciar Consultas con el lenguaje JPQL que es 
-muy parecido al SQL o por ejemplo para iniciar Transacciones y queremos meter multiples cosas de golpe.
-
-
-
-
-- Entity Bean
-Traducción del inglés-Un "Bean de entidad" es un tipo de "Enterprise JavaBean", un componente Java EE del lado del Servidor, que 
-representa datos persistentes mantenidos en una base de datos. Un bean de entidad puede gestionar su propia persistencia o puede 
-delegar esta función en su contenedor EJB.
-
-Los "Entity Beans" otorgan una vista de objeto Java a los datos del negocio guardados en una unidad de almacenamiento. Permiten un 
-acceso compartido de múltiples usuarios y tienen un tiempo de vida independiente de la duración de las sesiones de los clientes.
-
-Los "Entity Beans" son componentes de datos que conocen como utilizar una unidad de almacenamiento para mantener la información 
-que guardan en forma persistente. Por tanto proporcionan una capa que envuelve el almacenamiento de los datos simplificando la 
-tarea de su acceso y manipulación.
-
-Los "Entity Beans" se utilizan para dar una visión y un acceso orientado a objetos de una base de datos relacional. Para esto 
-debe decidirse la granularidad del modelo, es decir el nivel de detalle de los objetos "Entity Beans" a crear. 
-
-* Estructura
-La estructura utilizada para su creación es similar a los "session bean", es decir, cuenta con una interfaz remota o local y 
-con una interfaz home que también puede ser remota o local. Las interfaces de acceso proporcionarán funcionalidades específicas 
-a cada instancia como leer y asignar valores a los campos, llamados "getter y setter", y obtener y modificar las relaciones con 
-otros entity beans. Los métodos de una clase que son independientes de una instancia son declarados en la interfaz home como métodos 
-para crear instancias, métodos para buscar instancias y otros independientes de ellas como por ejemplo el cálculo del promedio 
-del valor de un campo en particular de las instancias.
-
 
 
 
 - Enterprise JavaBeans
 * No se debe confundir con JavaBeans.
 
-*
+
+
+- EntityManager
+* La "API EntityManager" se utiliza para Crear, Eliminar Entidades, Encontrar Entidades por su clave primaria, Consultar sobre las Entidades...
+
+* Es basicamente una interfaz de "tipo EntityManager" que contiene los metodos para poder: insertar, obtener, recuperar, borrar elementos... Las operaciones CRUD. 
+Tambien metodos para iniciar consultas con el lenguaje "JPQL" que es muy parecido al SQL o para iniciar Transacciones si queremos meter multiples cosas de golpe a la base de datos.
 
 
 
 
-- ¿Qué es una entidad en JPA?
-Una entidad de persistencia (entity) es una clase de Java ligera, cuyo estado es persistido de manera asociada a una tabla en 
-una base de datos relacional.
+- Entity Bean
+Traducción del inglés - Un "Bean de entidad" es un tipo de "Enterprise JavaBean", un componente 
+Java EE del lado del Servidor, que representa datos persistentes mantenidos en una base de datos.
+ 
+Un "Bean de entidad" puede gestionar su propia persistencia o puede delegar esta función en su "contenedor EJB".
 
 
-- ¿Qué es JPA y para qué sirve?
-JPA es la propuesta estándar que ofrece Java para implementar un Framework Object Relational Mapping (ORM), que permite interactuar 
-con la base de datos por medio de objetos, de esta forma, JPA es el encargado de convertir los objetos Java en instrucciones para 
-el Manejador de Base de Datos (MDB).
+Los "Entity Beans" otorgan una vista de Objeto Java a los datos del negocio guardados en una unidad 
+de almacenamiento. 
+Permiten un acceso compartido de múltiples usuarios y tienen un tiempo de vida independiente de la duración de las sesiones de los clientes.
+
+
+Los "Entity Beans" son componentes de datos que conocen como utilizar una unidad de almacenamiento para mantener la información que guardan en forma persistente. 
+
+Por tanto proporcionan una capa que envuelve el almacenamiento de los datos, simplificando la 
+tarea de su acceso y manipulación.
+
+
+Los "Entity Beans" se utilizan para dar una visión y un acceso orientado a objetos de una base 
+de datos relacional. 
 
 
 
-- Primero se debe crear una ENTIDAD y luego su CONTROLADOR, para esto usamos "DAO" que crea una Clase con todos los metodos
-para poder hacer CRUD, osea crea el Controlador para cada entidad.
+- Data Access Object(DAO)
+* Es un Patrón de Diseño.
 
+* Crea separación, manteniendo las funcionalidades de acceso a Bases de Datos en Clases DAO.
+
+* NetBeans los usa en las "Clases Controller".
+
+* El uso de un Patrón de Diseño: Data Access Object(DAO) es un tipo de Patrón de Diseño que debe 
+usarse cuando escribimos código que interactuá con una Base de Datos, este Patrón de Diseño 
+lo que hace es mantener todas las funcionalidades de acceso a las Bases de Datos en estas Clases, 
+en las Clases DAO, lo que tiene el beneficio de crear una clara separación de las distintas partes 
+que forman la aplicación dejando a otras capas de la aplicación, la Lógica de la Interface 
+del usuario o la Lógica del Negocio, mientras que la Lógica de Persistencia se concentra en 
+estas Clases DAO.
+
+* Pasos a seguir,
+Primero se deben crear las Entidades JPA.
+Segundo paso, creamos sus Controladores para esto usamos "DAO" que crea Clases con los metodos
+crear, retrieve(recuperar), actualizar, eliminar, se crea un Controlador(DAO) para cada Entity.
 ---------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

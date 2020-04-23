@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Programacion Orientada a Objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			/*function Constructor() llamada "Persona" y toma
+			un unico argumento.*/
+			function Persona(nombrePersona){
+				this.nombre = nombrePersona;
+				this.info = 'Esta persona se llama '+nombrePersona;
+
+				this.mostrarInfo = function(){
+					alert(this.info);
+				}
+			}
+
+			var persona1 = new Persona('Adam');
+			var persona2 = new Persona('Eva');
+			
+			//vamos a modificar el codigo utilizando "Prototype"
+			//para crear un nuevo metodo de la funcion Constructor()
+			//persona.
+			//lo usamos despues de las instanciaciones que ya tenemos
+			Persona.prototype.diHola = function(){
+				alert(this.nombre+" dice hola");
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			027._ Curso de JavaScript para principiantes. Extender 
+			Objetos con el uso de Prototypes.
+		</p>
+		<p>
+			Es lo mismo que lo que se conoce  en Programacion
+			Orientada a Objetos(POO) como "extender" heredar.
+			JavaScript tambien permite herencias.
+
+			Para lo que nos sirve "prototype" es para añadir un nuevo
+			atributo o metodo a una funcion ya creada, por eso se dice
+			que es algo parecido a "heredar" de la POO.
+		</p>
+		<p>
+			PROTOTYPES: Permiten tambien que los Objetos HEREDEN
+		</p>
+
+		<input type="button" value="Mostrar Info Adam" onclick="persona1.mostrarInfo()" />
+		<input type="button" value="Mostrar Info Eva" onclick="persona2.mostrarInfo()" />
+
+		<!--Agregamos dos nuevos input para probar el nuevo metodo: diHola()-->
+		<input type="button" value="Adam dice hola" onclick="persona1.diHola()" />
+		<input type="button" value="Eva dice hola" onclick="persona2.diHola()" />
+
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

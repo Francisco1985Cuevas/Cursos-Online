@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Programacion Orientada a Objetos</title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			/*Primer paso Creamos
+			Objeto Domestico
+			Con propiedades y metodos.*/
+			function Domestico(){ //funcion Constructor()
+				//propiedades/atributos
+				this.animal = "";
+				this.nombre = "";
+
+				//metodos/funciones
+				this.configurarAnimal = function(nuevoAnimal){
+					this.animal = nuevoAnimal;
+				}
+				
+				this.configurarNombre = function(nuevoNombre){
+					this.nombre = nuevoNombre;
+				}
+
+				//this.mostrarInfo = function(){
+				//	alert("Mi mascota es un "+this.animal+" y se llama "+this.nombre);
+				//}
+			}
+			
+			//instanciamos el Objeto como gato y le damos un nombre.
+			var miGato = new Domestico();
+			miGato.configurarAnimal("Gato");
+			miGato.configurarNombre("Silvestre");
+			
+			
+			
+			//Herencias en JavaScript
+			Perro.prototype = new Domestico();
+			/*ahora a partir de aqui heredamos de la clase Domestico
+			y podemos agregarle mas propiedades o metodos.
+			a partir de aqui todo lo que esta en Domestico()
+			tambien esta en el Objeto Perro.*/
+
+			/*Creamos nueva funcion Constructor
+			Perro, que hereda
+			de Objeto Domestico.*/
+			function Perro(){
+				this.raza = "";
+				this.configurarRaza = function(nuevaRaza){
+					this.raza = nuevaRaza;
+				}
+
+				this.mostrarInfo = function(){
+					alert(this.nombre+" es un "+this.raza);
+				}
+			}
+			
+			var miPerro = new Perro();
+			miPerro.configurarNombre("Montano");
+			miPerro.configurarRaza("San Bernardo");
+		</script>
+	</head>
+	<body>
+		<p>
+			028._ Curso de JavaScript para principiantes. Crear Herencias 
+			con prototype.
+		</p>
+		<p>
+			Herencia es la posibilidad de crear un Objeto a partir
+			de otro ya existente.
+			<br/>
+			Herencia nos permite crear  un Objeto a partir de otro ya
+			existente. 
+		</p>
+		<p>
+			Permite reciclar Codigo Su gran ventaja.
+			<br/>
+			Para "emular" Herencias en JavaScript vamos a usar
+			la palabra prototype
+			EXTENDER
+		</p>
+		
+		<!-- <input type="button" value="Mostrar Info Gato" onclick="miGato.mostrarInfo()"/> -->
+		<input type="button" value="Mostrar Info Perro" onclick="miPerro.mostrarInfo()"/>
+	</body>
+</html>
