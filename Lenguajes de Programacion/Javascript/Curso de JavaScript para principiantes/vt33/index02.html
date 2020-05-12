@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Prioridad Eventos</title>
+	</head>
+	<body>
+		<a href="http://illasaron.com" id="miEnlace">Enlace</a>
+		<script type="text/javascript">
+			document.getElementById("miEnlace").onclick = function(){
+				this.href = "http://www.google.com";
+				return false;//bloquea el href.
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,264 @@
+Wordpress
+
+* Primera web con WordPress. Instalación
+-----------------------------------------
+
+Wordpress, sistema nacido como creador de blogs que se ha convertido en la actualidad en el CMS mas popular. 
+Aproximadamente un 20% de todos los sitios web lo utilizan. 
+
+CMS = Content Management System.
+
+En la actualidad intenta dar un paso mas y convertirse en un autentico Framework para el desarrollo de aplicaciones web.
+Empezamos con lo mas basico: "La Instalacion".
+
+Primer paso, si quieres un "control total" sobre tu Wordpress debes instalarlo en tu propio Servidor, para lo cual tienes 
+que ir a http://wordpress.org, y descargar la ultima version de Wordpress. 
+
+Segundo paso, podemos utilizarlo en un Paquete de "Server Web" instalado directamente en nuestro ordenador podemos usar 
+cualquiera(XAMPP, WAMP, etc.)
+Estos Paquetes(Server Web) instalan todo lo que necesitamos para empezar a desarrollar aplicaciones web en este caso 
+para poder instalar Wordpress.
+
+Tercer paso, para poder INSTALAR WORDPRESS lo primero que vamos a necesitar es Crear una Base de datos con phpMyAdmin, le 
+damos el Nombre que queramos a la Base de datos.
+
+Al descargar la ultima version del Wordpress se descargara un archivo comprimido(zip), una vez descomprimido, debemos 
+colocarlo dentro del directorio activo del "Server Web" que estemos usando, ejemplo:
+En Wamp: www es el directorio web activo.
+En Xampp: htdocs es el directorio web activo.
+etc..
+
+Cuarto paso, darle un Nombre al proyecto Wordpress.
+
+Quinto paso, Iniciamos la instalacion, Para poder entrar en nuestro sitio tendremos que escribir, tal como esta, la ruta 
+al navegador sera: http://localhost/wordpress
+
+Sexto paso, Procedemos a la instalacion... debemos ingresar las credenciales de la "Base de datos", y nos permite llevar 
+a cabo la instalacion.
+
+Septimo paso, debemos ingresar los datos del "Usuario Admin" del sitio, para ello:
+Ingresar el titulo al sitio, 
+nombre de usuario(Admin del sitio), 
+contraseña, 
+correo electronico 
+y Wordpress lleva a cabo el proceso de instalacion.
+
+Octavo paso, en http://localhost/wordpress/admin, loguearse con los datos que acabamos de ingresar del "Admin del sitio".
+con estos pasos deberiamos de poder ingresar al "escritorio de wordpress", en el panel de administracion.
+
+Noveno paso, inmediatamente despues de crear exitosamente nuestro sitio es recomendable:
+1) Crear inmediatamente un backup de la base de datos
+2) En algun archivo anotar los datos que cargamos tanto para la base de datos como para el usuario administrador
+durante el proceso de instalacion para que podamos tener un respaldo al volver a ver/modificar el sitio y 
+querer ver la informacion que le cargamos.
+3) Al subir nuestro sitio en un Servidor "ignorar" este archivo(del git) que sea solo de acceso al programador.
+
+
+
+* Estructura de directorios y archivos de Wordpress.
+-----------------------------------------------------
+
+- Despues de extraer la descarga de Wordpress, puedes ver una estructura de archivos, wordpress llega con 
+tres directorios por defecto:
+1) wp-admin
+
+2) wp-content
+
+3) wp-includes
+
+- Los archivos del "Core(el Nucleo)" estan todos en el directorio wp-admin y wp-includes y algunos archivos clave 
+en el propio directorio raiz de Wordpress.
+El directorio "wp-content" es el que contiene todos los archivos personalizados por nosotros(themes, plugins, 
+material multimedia). Este directorio contiene el codigo que controla la manipulacion de contenido y 
+presentacion en Wordpress.
+
+- Todo el contenido de Noticias, Estructura, Categoria, Tags, etc., se encuentra en la Base de datos MySQL.
+
+#IMPORTANTE!: "NO MODIFIQUES ARCHIVOS DEL CORE".
+
+Porque ademas los cambios en el "CORE" dificultan mucho poder llevar a cabo futuras actualizaciones de Wordpress, 
+ya que al hacer una actualizacion todos esos cambios que esten en el "CORE" van a ser sobreescritos y se perderian.
+Asi que en general los archivos que se encuentran en el directorio raiz, asi como los directorios 
+wp-admin y wp-includes NO DEBEN DE SER EDITADOS.
+
+- El Archivo wp-config.php: El archivo clave para la Configuracion de Wordpress.
+1) Base de datos
+2) Localizacion
+3) Constantes
+Este archivo es el que contiene toda la configuracion a la base de datos.
+
+#IMPORTANTE!: Podemos mover el archivo wp-config.php al directorio padre para impedir acceso web.
+Podemos mover este archivo fuera del archivo raiz y DENTRO DE SU DIRECTORIO PADRE, de modo que si lo 
+tenemos localizado en la RAIZ de nuestro Servidor nos permite que este archivo Clave, este fuera del 
+acceso a traves del navegador, es una de las mejores medidas de SEGURIDAD para evitar posibles ataques 
+sobre nuestro sitio web a traves de por ejemplo: Sistemas de inyeccion de contenido.
+
+Si por ejemplo está en la ruta '…/public_html/blog/' lo colocas en '…/public_html/wp-config.php'. Ya está, 
+NO HAY QUE HACER NADA MAS.
+
+
+- Actualizaciones y LOCALIZACION DIRECTORIOS.
+
+Actualizaciones Automaticas: Hay cuatro tipos de actualizaciones automaticas en segundo plano.
+1) Actualizaciones de Core.
+2) Actualizaciones de Plugins.
+3) Actualizaciones de Theme.
+4) Actualizaciones de Traducciones.
+
+#IMPORTANTE!: Modificacion de localizacion de directorios clave que por RAZONES DE SEGURIDAD o de Configuracion 
+del Servidor para compartir contenidos y otras opciones avanzadas.
+
+Modificar localizacion wp-content.
+Directorio "wp-content": Uno de los directorios clave, Wordpress nos permite mover este directorio configurando 
+dos constantes:
+1) WP_CONTENT_DIR: Es la ruta local completa al directorio donde tengamos el wp-content
+2) WP_CONTENT_URL: Es la URI completa de ese mismo directorio
+
+- PRIMER PASO, Crear y darle nombre al directorio en donde moveremos la carpeta: wp-content, 
+ejemplo: wordpress/blog/wp-content
+- SEGUNDO PASO, mover el directorio clave "wp-content" al directorio que acabamos de crear.
+- TERCER PASO, agregar las constantes en el "ARCHIVO" wp-config.php
+1) define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wordpress5/blog/wp-content');
+2) define('WP_CONTENT_URL', 'http://localhost/wordpress5/blog/wp-content');
+Codigo real tomado como ejemplo:
+/*##################################################################################*/
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/solutrib01/blog/wp-content');
+define('WP_CONTENT_URL', 'http://localhost/solutrib01/blog/wp-content');
+//define('UPLOADS', $_SERVER['DOCUMENT_ROOT'] . '/solutrib01/blog/wp-content/mis-archivos');
+/*##################################################################################*/
+
+Wordpress tambien permite hacer esto con otros directorios clave, especialmente con el directorio UPLOADS donde se 
+suben los archivos que vayamos colocando en nuestro wordpress, ejemplo:
+3) define('UPLOADS', '/wordpress5/blog/wp-content/mis-archivos');
+
+
+
+* Configuraciones Basicas en mi sitio de Wordpress.
+----------------------------------------------------
+
+- Primero antes de trabajar en Wordpress, hacer configuraciones basicas.
+
+- Ir hasta el menu: Ajustes-> Lectura: TILDAR "Visual a los motores de busqueda de indexar este sitio", para 
+poder aparecer en el listado de google.
+
+- Ir hasta el menu: Ajustes-> Enlaces Permanentes: Marcar "Nombre de Entrada", ¿Para que es esto? Arquitectura 
+de URL nivel SEO, el SEO es posicionamiento en buscadores, es la mejor estructura a nivel SEO que pueden tener 
+en su sitio web o blog.
+
+
+
+PASOS A SEGUIR PARA CREAR UN PROYECTO.
+--------------------------------------
+* La Estructura de este sitio web sera la siguiente: El Blog lo que va a ser es mostrar las Entradas y la Pagina 
+principal va  a ser la Pagina de inicio.
+
+1) Primero Definir las PAGINAS que voy a utilizar:
+ * Inicio (Publicar sin contenido)
+ * Acerca mio
+ * Servicios
+ * Blog
+ * Contacto
+
+- AHORA CONFIGURAR LA PAGINA PRINCIPAL:
+
+Ir a: Ajustes -> Lectura -> tu portada muestra -> Marcar: Una pagina estatica, Seleccionar Pagina de 
+Inicio, Seleccionar Pagina de Blog como pagina de entradas.
+
+Si lo que quieren hacer ustedes es un blog es el formato que se suele utilizar(el que esta tildado por 
+default) es decir que cuando yo entro al inicio de la we muestro las entradas, pero ahora se utiliza mucho.
+- Blog va a ser una PAGINA pero que va a contener las entradas del blog.
+
+
+
+2) Segundo Punto que vamos a organizar: MENU
+
+Ir hasta: Apariencia -> Menus
+
+* Crear un menu, añadimos las paginas que acabamos de crear al nuevo menu creado, lo ordenamos como queremos
+
+* En AJUSTES DEL MENU: Marcar -> Donde se vera: Menu Superior 
+
+Imaginense que un sitio web puede tener 40 o 50 paginas, entonces wordpress no sabe cuales de esas paginas 
+quieren que vos las pongas en el menu principal.
+
+##TIPS: Borrar la entrada de ejemplo, Lo que borran se mantiene por 30 dias en la papelera y despues 
+wordpress ya lo elimina
+tambien borrar la pagina de ejemplo.
+
+
+
+3) Tercer Punto: TEMA
+
+No dejen la plantilla base, porque? porque es la plantilla que por ahi tiene todo EL MUNDO, porque van a ir 
+muy limitados en aspectos de diseño, es decir, wordpress gestiona lo que es el diseño de los sitios web a 
+traves de lo que es 
+apariencia->temas.
+Recomendacion: No quedarse con el tema base, porque te esta limitando en un monton de aspectos de diseño, de 
+funciones, veremos PORQUE hay temas gratuitos y porque hay temas de Pago, EL TEMA es lo que da la 
+ESTETICA de la web.
+
+##TIPS: En la libreria de wordpress de Temas, hay un objetivo detras de los temas gratuitos, que pueden ser 
+que despues compres la version PRO. Se pueden instalar la cantidad de Temas que quieran pero lo 
+RECOMENDABLE es que sino vas a usar lo desisntalen porque va a ocupar espacio.
+
+
+* ¿Porque No trabajar con un TEMA Gratuito?
+Porque muy pocos de ellos estan en español, porque NO van a tener SOPORTE OFICIAL, porque se van a encontrar 
+LIMITADOS EN ASPECTO DE DISEÑO, por ahi se encuentran con que NO PUEDEN CAMBIAR EL ASPECTO DE LAS LETRAS, que No 
+pueden cambiar COLORES, que No pueden poner SU LOGO, No van a encontrar muchas veces documentacion oficial, es decir 
+que van a tener que pelear para ver como funciona el Tema.
+La otra cuestion es que si yo empiezo a INSTALAR PLUGINS al final el sitio web se puede poner lento, bajar el 
+rendimiento, INCOMPATIBILIDAD de Plugins, o actualizo un Plugin y No es Compatible con el otro, son cosas que 
+tampoco son tan frecuentes pero pueden pasar.
+
+RECOMENDADO PARA HACER TU PROPIO SITIO WEB: Utilices una plantilla PROFESIONAL que te da monton de opciones extra, y que 
+a nivel de diseño te deja "jugar", es decir que tenes muchas mas opciones...
+
+
+* ¿Porque utilizar un Tema Profesional?
+Acceden primero:
+ a un monton de funciones que No van a encontrar en un Tema Gratuito, Acceden a un Soporte Oficial, Acceden a un 
+monton de herramientas que No tienen en un Tema Gratuito, y sobre todas las cosas se AHORRAN INSTALAR UN MONTON 
+DE PLUGINS.
+Ejemplo: Si tengo un Tema Gratuito y quiero HACER UN FORMULARIO CONTACTO lo que tendria que hacer es instalar 
+un Plugin, si por ejemplo quisiera añadir un PORTFOLIO tendria que INSTALAR UN PLUGIN, es decir CADA COSA extra 
+que por ahi no viene prediseñada con la plantilla, tendria que ir y INSTALAR UN PLUGIN, otro plugin, 
+otro plugin...y al final te encontras con sitios web que tienen instalados 30 plugins y lo que puede pasar es 
+que el RENDIMIENTO no vaya muy bien, son COSAS A TENER EN CUENTA!
+
+Ir a: Apariencia->Temas->Personalizar.
+-----------------------------------------------------------------------------------------------------------------------------
+
+Título del sitio: SoluTrib (Soluciones Tributarias)
+Nombre de usuario: wpAdmin
+Contraseña: 1ToWHlwM9)6nssQ*)X
+Tu correo electrónico: fmcuevas1985@outlook.com
+Visibilidad en los motores de búsqueda: chequeado
+
+perfil admin: http://localhost/solutrib01/wp-login.php
+
+
+
+
+
+
+
+
+
+
+
+
+la linea del tiempo de mi vida
+datos del libro
+en que hubiera invertido mas mi tiempo?
+gerente y director a los 22 años
+es usted una persona facil o una persona dificil de convivir
+
+
+
+
+
+
+ 
+
+

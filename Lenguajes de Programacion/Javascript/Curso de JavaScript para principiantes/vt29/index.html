@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Encapsular</title>
+		<script type="text/javascript">
+			//vamos a empezar creando una funcion constructor
+			//a la que llamamos "caja".
+			//dentro de la funcion constructor vamos a incluir
+			//una nueva funcion a la que llamamos volumen.
+			function Caja(ancho, largo, alto){
+				
+				function volumen(a, b, c){//esta es una funcion encapsulada
+					//esta funcion solo puede ser accedida desde dentro de 
+					//la propia clase constructor que la contiene
+					return a*b*c;
+					//a esta funcion se la denomina una funcion
+					//privada
+				}
+
+				//this.volumenCaja accede a volumen
+				//Desde dentro de la Funcion Constructor a la que
+				//pertenece.
+				this.volumenCaja = volumen(ancho, largo, alto);
+
+				//se convierte en una "variable privada" y no se
+				//puede acceder a ella desde fuera de la clase,
+				//mas que desde dentro de la propia funcion Caja.
+				volumenCaja2 = volumen();
+			}
+
+			//Las instancias Objeto no pueden acceder
+			//A variables y funciones de una funcion Constructor
+			//en este caso a la funcion "volumen" directamente...
+			var contenedor = new Caja(5, 4, 3);
+
+		</script>
+	</head>
+	<body>
+		<p>
+			029._ Curso de JavaScript para principiantes. 
+			Encapsulacion en JavaScript.
+		</p>
+		<p>
+			ENCAPSULAR ES ENCERRAR
+			datos dentro de una clase.
+		</p>
+		<p>
+			En una funcion constructor
+			Variables y funciones se convierten
+			En Propiedades y Metodos
+			usando la palabra clave "this"
+		</p>
+		<p>
+			Mediante el uso de la palabra clave "this"
+			las variables se convierten en Propiedades
+			y las funciones se convierten en Metodos y 
+			en ese caso si son accesibles desde las instancias
+			objeto que creemos.
+		</p>
+		<p>
+			Funcion Privada: solo accesible
+			Desde dentro de la Funcion Constructor a la 
+			que pertenece.
+			- 
+		</p>
+		
+		<input type="button" value="VolumenNo" onclick="alert(volumen(5, 4, 3)); "/>
+	
+		<input type="button" value="CajaNoEnObjeto" onclick="alert(contenedor.volumen(5, 4, 3)); "/>
+
+		<input type="button" value="CajaBien" onclick="alert('Volumen = '+contenedor.volumenCaja); "/>
+	</body>
+</html>

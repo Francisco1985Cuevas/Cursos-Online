@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>json con Funcion eval()</title>
+		<meta charset="UTF-8"/>
+		<script type="text/javascript">
+			var usuario = '{"nombreUsuario":"Rosa Blanca", "pais":"España", "altura":1.75}';
+			
+			//var miObjeto = eval('('+usuario+')');
+			var miObjetos = JSON.parse(usuario);
+
+			document.write("Su nombre es: "+miObjeto.nombreUsuario+", es de "+miObjeto.pais+" y mide: "+miObjeto.altura);
+		</script>
+	</head>
+	<body>
+		<p>
+			030._ Curso de JavaScript para principiantes. 
+			JSON. JavaScript Object Notation
+		</p>
+		<p>
+			INSTANCIAR OBJETOS.
+			Directamente usando la sintaxis new Object()
+
+			JSON.
+			Otro modo de instanciar Objetos e intercambiar
+			datos.
+
+			JavaScript Object Notation
+			Estos Objetos pueden ser convertidos facilmente
+			en Strings para intercambios.
+
+			Pero lo importante es que un Objeto JSON es un
+			Objeto JavaScript normal.
+
+			Podemos analizar y ejecutar el codigo solo con 
+			JavaScript sin necesitar un analizador externo.
+
+			Visita json.org
+
+			La sintaxis JSON se basa en Pares
+			nombre:valor(parametro:valor)
+
+			Cada par se separa del siguiente con 
+			comas = nombre1:valor1, nombre2:valor2
+
+			Todo el contenido del Objeto JSON debe estar
+			rodeado por llaves {...}
+
+			Ejemplo de un objeto:
+			var usuario = '{"nombreUsuario":"Rosa Blanca", "pais":"España", "altura":1.75}';
+
+			El proceso de trabajo con JSON se conoce 
+			como serializacion/deserializacion
+		</p>
+		<script type="text/javascript">
+		</script>
+	</body>
+</html>

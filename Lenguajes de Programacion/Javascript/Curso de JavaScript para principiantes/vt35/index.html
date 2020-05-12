@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ingredientes de una Cookie</title>
+	</head>
+	<body>
+		<p>
+			035._ Curso de JavaScript para principiantes. Ingredientes
+			de una cookie.
+		</p>
+		<p>
+			La informacion de una cookie se encuentra en:
+			document.cookie
+			y podemos verla como un simple String de pares:
+			nombre=valor
+			En realidad cada cookie tiene otros trozos de informacion
+			asociada con ella.
+			link: https://tools.ietf.org/html/rfc6265
+
+			Los atributos cookieName y cookie.value son los mas 
+			importantes son el nombre y el valor visible en cada
+			par nombre=valor, pero no son los unicos, cuenta con
+			otros atributos:
+			domain(opcional): Le dice al navegador a que dominio pertenece 
+			la cookie.
+			path(opcional): Nos permite especificar un directorio donde 
+			este disponible la cookie, si queremos que la cookie 
+			este solo configurada para paginas en el directorio: documentos/ 
+			entonces configuramos este "path" a documentos/
+			secure(opcional): indica que el  navegador tiene que usar
+			seguridad "ssl" cuando envia la cookie al servidor.
+			expires: cada cookie tiene de expiracion(expires), despues
+			de esa fecha la se borra automaticamente. Sino se configura
+			un valor, la cookie expira al cerrar el navegador. 
+		</p>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejemplo Validacion Formulario</title>
+		<meta charset="UTF-8"/>
+		<script>
+			function validarFormulario(){
+				document.getElementById("form1").onsubmit = function(){
+					var permitirSubmit = true;
+					if(document.getElementById("usuario").value == ""){
+						alert("Campo nombre no puede estar en blanco");
+						permitirSubmit = false;
+					}
+
+					if(permitirSubmit){
+						alert("Datos correctos - Enviando formulario");
+					}
+					return permitirSubmit;
+				}
+			}
+			window.onload = validarFormulario;
+		</script>
+	</head>
+	<body>
+		<form id="form1">
+			Nombre:&nbsp; <input type="text" value="" name="nombreUsuario" id="usuario"/> [Campo Obligatorio]<br />
+			Telefono:&nbsp; <input type="text" value="" name="telefono" id="phone"/> [Campo Opcional]<br />
+			<input type="submit" />
+		</form>
+	</body>
+</html>

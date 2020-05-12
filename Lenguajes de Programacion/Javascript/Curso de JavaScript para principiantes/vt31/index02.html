@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analizando JSON</title>
+		<script type="text/javascript">
+			function jsonParse(){
+				//enString: variable donde se va a guardar el objeto JSON 
+				//que escriba el usuario en la ventana.
+				var enString = prompt("Escribe un objeto JSON");
+				var salida = "";
+				
+				//con JSON.parse() convertimos un objeto JSON a JavaScript
+				var miObjeto = JSON.parse(enString);
+				
+				for(i in miObjeto){
+					salida += "Propiedad: "+i+" = "+miObjeto[i]+"\n";
+				}
+				
+				alert(salida);
+			}
+
+		</script>
+	</head>
+	<body onload="jsonParse()">
+		<p>
+			JSON.stringify(): SERIALIZAR
+			JSON.parse(): DESERIALIZAR
+
+			<!-- {"altura":1.85,"edad":41,"colorOjos":azul} -->
+		</p>
+	</body>
+</html>

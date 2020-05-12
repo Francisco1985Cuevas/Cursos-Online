@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ingredientes de una Cookie</title>
+		<script type="text/javascript">
+		/*
+		1 CREAMOS UNA COOKIE
+		2 ASIGNANDO UN VALOR
+		3 a document.cookie
+		*/
+
+		
+		//cuando creemos cookies reales tenemos que usar escape() para
+		//asegurarnos que no se incluyan caracteres no permitidos en 
+		//los valores de las cookies
+		var cookieDate = new Date(2013,05,15);
+		var usuario = "Alfredo Blanco";
+		document.cookie = "nombreusuario="+escape(usuario)+";expires="+cookieDate.toUTCString();
+
+		//podemos elaborar una funcion que escriba nuestras cookies
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

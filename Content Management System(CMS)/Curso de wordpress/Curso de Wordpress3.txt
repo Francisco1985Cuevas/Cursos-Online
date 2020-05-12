@@ -72,7 +72,7 @@ Generar contenido en wordpress ENTRADAS.
 
 - Hay dos maneras de generar contenido en wordpress:
 
-1) A traves de la creacion de ENTRADAS que aplican a lo que es el formato BLOG, son noticias que van ordenadas de forma cronologica es decir las mas nuevas arriba y las mas viejas van abajo, los usuarios pueden dejar un comentario.
+1) A traves de la creacion de ENTRADAS que aplican a lo que es el formato BLOG, son "Noticias" que van ordenadas de forma cronologica es decir las mas nuevas arriba y las mas viejas van abajo, los usuarios pueden dejar un comentario.
 
 Mientras que las PAGINAS, por ejemplo la de contacto son de contenido ESTATICO, es decir en este caso un formulario una explicacion y ya esta.
 Por ejemplo si tengo que hacer un apartado que es "Quienes Soy o Quienes Somos" voy a utilizar una PAGINA y si tengo que hacer algun tipo de noticia, voy a utilizar una ENTRADA.

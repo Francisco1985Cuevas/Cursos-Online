@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gestor de Eventos</title>
+		<script type="text/javascript">
+			//Una segunda alternativa es envolver el gestor de 
+			//eventos con window.onload()
+			function alertaBoton(){
+				alert("Has pulsado el boton");
+			}
+			window.onload = function(){
+				document.getElementById("miBoton").onclick = alertaBoton;
+			}
+		</script>
+	</head>
+	<body>		
+		<input type="button" id="miBoton" value="Pulsar" />
+	</body>
+</html>

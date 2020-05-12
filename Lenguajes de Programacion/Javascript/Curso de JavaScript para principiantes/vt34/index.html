@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>JavaScript y Cookies</title>
+	</head>
+	<body>
+		<p>
+			034._ Curso de JavaScript para principiantes. JavaScript
+			y Cookies.
+		</p>
+		<p>
+			El protocolo "HTTP.PROTOCOLO" se le denomina un
+			protocolo "STATELESS", esto significa que una vez que
+			el Servidor ha enviado la pagina solicitada al navegador
+			considera una transaccion concretada y no retiene ninguna
+			memoria de esa transaccion.
+			Asi que cuando vuelva a solicitar otra pagina al Servidor
+			no guardara absolutamente ninguna informacion sobre la
+			peticion anterior.
+			Para crear una navegacion coherente se necesita contar con
+			medios que permitan transferir informacion de una pagina a otra
+			Javascript cuenta con una tecnica para poder hacerlo que
+			son las "COOKIES".
+		</p>
+
+		<p>
+			Las cookies nos proveen con un modo conveniente de dar 
+			a nuestras paginas web los medios para almacenar y 
+			recuperar pequeños trozos de informacion en el ordenador
+			de un usuario. 
+			Permiten que un sitio web salve detalles como pueden ser
+			las preferencias de usuario, las fechas de su visita, los
+			datos para loguearse, etc.
+
+			Veremos como crear, salvar(guardar) y recuperar las
+			cookies usando JavaScript.
+		</p>
+		<p>
+			Resumiendo<br />
+			Las cookies son una solucion a la incapacidad del protocolo
+			HTTP para mantener cierto tipo de continuidad durante una
+			Sesion de Navegacion o incluso entre Sesiones.
+
+			SOLUCIONA LIMITACIONES DEL PROTOCOLO HTTP.
+
+			Mantener un registro de la informacion que ya se ha leido o 
+			el estatus de login en un area privada de una web o un registro
+			de los sitios de un carrito de compra.
+		</p>
+		<p>
+			Usadas de modo correcto, las cookies pueden ayudar o 
+			mejorar la experiencia percibida por el usuario mientras
+			usa nuestro sitio.
+			Las cookies mismas son pequeños "Strings" de informacion
+			que pueden ser almacenados en el ordenador de un usuario
+			por las paginas web que visita, pueden ser leidos mas
+			tarde por cualquier otra pagina web desde dentro del 
+			correcto dominio y ruta que tambien determina la propia cookie.
+		</p>
+		<p>
+			Las Cookies expiran.
+			Las cookies tambien estan configuradas para expirar,
+			despues de un periodo especifico de tiempo. Son muy
+			utiles para tener cierta precaucion con ellas.
+		</p>
+		<p>
+			USO DE COOKIES EN JAVASCRIPT
+			En JavaScript las propiedades son almacenadas y recuperadas 
+			usando la propiedad "cookie" del objeto document.
+			document.cookie
+
+			Cada cookie es esencialmente un String de texto que incluye
+			un par nombre.valor
+			nombre = Juan
+		</p>
+		<p>
+			Propiedad stringlike
+			es mejor referirse a "document.cookie" como una propiedad
+			que se denomina "stringlike" como un String, porque 
+			realmente No es un String pero si que se comporta como 
+			tal cuando intentamos extraer informacion de una de estas
+			cookies.
+			
+			Cuando una pagina web es cargada en nuestro Navegador, el
+			navegador dirige todas las cookies disponibles de esa pagina
+			a una unica propiedad "stringlike" que va a estar disponible
+			como "document.cookie", esas cookies individuales estan
+			separadas punto y coma(;) ejemplo:
+			nombre=juan;pais=colombia;edad=34
+		</p>
+		<p>
+			TRATAR CON CARACTERES ESPECIALES.
+			Es importante entender el formato con el que debemos
+			almacenar los valores de las cookies porque estos
+			valores no pueden incluir ciertos caracteres(; , espacios en blanco)
+			por eso antes de almacenar datos para una cookie tendremos que 
+			codificarlos de modo que sean almacenados correctamente.
+
+			JavaScript cuenta con dos funciones muy utiles para hacer
+			esto: escape(), unescape().
+			escape(): Codifica un valor antes de almacenarlo
+			unescape(): Recupera posteriormente el valor de la 
+			cookie original.
+		</p>
+		
+	</body>
+</html>

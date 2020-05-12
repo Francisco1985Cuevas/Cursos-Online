@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ingredientes de una Cookie</title>
+		<script type="text/javascript">
+			//podemos elaborar una funcion que escriba nuestras cookies
+			function createCookie(name, value, days, path, domain, secure){
+				if(days){
+					var date = new Date();
+					date.setTime(date.getTime()+(days*24*60*60*1000));
+					var expires = date.toGMTString();
+				}else{
+					var expires = "";
+				}
+
+				cookieString = name+"="+escape(value);
+				if(expires) cookieString += "; expires="+expires;
+				if(path) cookieString += "; path="+escape(path);
+				if(domain) cookieString += "; domain="+escape(domain);
+				if(secure) cookieString += "; secure";
+				document.cookie = cookieString;
+			}
+
+			//creamos varias cookies
+			createCookie("nombreusuario", "Alfredo Blanco", 5);
+			createCookie("pais","España",5);
+			createCookie("estatus", "registrado", 5);
+
+		</script>
+	</head>
+	<body>
+		<p>
+			Comprueba las cookies para este dominio usando las 
+			herramientas de tu navegador.
+		</p>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Prioridad Eventos</title>
+	</head>
+	<body>
+		<p>
+			033._ Curso de JavaScript para principiantes. Prioridades
+			en los gestores de eventos.
+		</p>
+		<p>
+			Los gestores de evento se ejecutan siempre antes que el 
+			elemento HTML con el que estan vinculados.
+		</p>
+
+		<a href="http://illasaron.com" id="miEnlace">Enlace</a>
+		<script type="text/javascript">
+			document.getElementById("miEnlace").onclick = function(){
+				this.href = "http://www.google.com";
+			}
+		</script>
+	</body>
+</html>

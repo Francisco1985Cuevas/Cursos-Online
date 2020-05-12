@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gestor de Eventos</title>
+		
+	</head>
+	<body>
+		<p>
+			032._ Curso de JavaScript para principiantes. Entender
+			los gestores de eventos.
+		</p>
+		
+		<p>
+			JavaScript: Un lenguaje nacido para el Navegador.
+			<br />
+			¿QUE HACEN LOS EVENTOS?
+			<br>
+			¿QUE CODIGO NECESITAMOS?
+			<br>
+			UN EVENTO SIGNIFICA QUE ALGO PASA Y...
+			<br>
+			NUESTRO PROGRAMA DEBE PODER DETECTARLOS
+			<br>
+			LOS EVENTOS MAS COMUNES SON ACCIONES DEL USUARIO.
+			AUNQUE OTROS PUEDEN SER DISPARADOS POR EL PROPIO
+			NAVEGADOR.
+			<br>
+			UN GESTOR DE EVENTOS DETECTA CUANDO SE PRODUCE UN
+			EVENTO Y...
+		</p>
+
+		<script type="text/javascript">
+			//Es muy importante tener claro siempre el orden en el
+			//que se va a ejecutar el codigo JavaScript.
+			//Para asegurarnos que el Script se ejecute al final, lo
+			//ponemos antes de </body>.
+			/*function alertaBoton(){
+				alert("Has pulsado el boton");
+			}
+
+			document.getElementById("miBoton").onclick = alertaBoton;
+			*/
+		</script>
+
+		<!-- <input type="button" id="miBoton" value="Pulsar" onclick="alertBoton()" /> -->
+		<input type="button" id="miBoton" value="Pulsar"  />
+
+		<script type="text/javascript">
+			function alertaBoton(){
+				alert("Has pulsado el boton");
+			}
+			document.getElementById("miBoton").onclick = alertaBoton;
+		</script>
+	</body>
+</html>

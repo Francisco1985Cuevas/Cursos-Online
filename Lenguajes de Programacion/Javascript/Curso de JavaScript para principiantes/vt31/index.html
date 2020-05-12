@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Analizando JSON</title>
+	</head>
+	<body>
+		<p>
+			031._ Curso de JavaScript para principiantes. Los Metodos
+			parse y stringify del objeto JSON.
+		</p>
+		<p>
+			SERIALIZAR ES CONVERTIR DATOS PARA ALMACENAR
+			Y TRANSMITIR
+		</p>
+		<p>
+			PARA SERIALIZAR UN OBJETO JSON, DEBEMOS EXPRESARLO
+			COMO UN STRING
+			<br />
+			Podemos usar los Metodos JSON.parse() y 
+			JSON.stringify().
+		</p>
+		<p>
+			con new Object()
+			CREAMOS OBJETO
+		</p>
+
+		<script type="text/javascript">
+			
+			//con new Object(): Creamos Objeto
+			var Jazzman = new Object();
+			
+			//creamos varias propiedades del Objeto
+			Jazzman.altura = 1.85;
+			Jazzman.edad = 41;
+			Jazzman.colorOjos = "azul";
+			
+			//con JSON.stringify(): SERIALIZAMOS EL OBJETO
+			document.write("Las propiedades de Jazzman son: "+JSON.stringify(Jazzman));
+			//Al ejecutarlo obtenemos: UN OBJETO JSON SERIALIZADO.
+			
+			//con JSON.stringify() hemos convertido un Objeto JavaScript
+			//en Objeto JSON.
+		</script>
+	</body>
+</html>
